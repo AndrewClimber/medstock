@@ -1,0 +1,2269 @@
+--
+-- Create Schema Script 
+--   Database Version   : 9.2.0.8.0 
+--   TOAD Version       : 8.6.0.38 
+--   DB Connect String  : BIGFOOT 
+--   Schema             : SCAN 
+--   Script Created by  : SYS 
+--   Script Created at  : 22.11.2007 13:31:15 
+--   Physical Location  :  
+--   Notes              :  
+--
+
+-- Object Counts: 
+--   Functions: 7       Lines of Code: 57 
+--   Indexes: 11        Columns: 17         
+--   Object Privileges: 24 
+--   Packages: 1        Lines of Code: 156 
+--   Package Bodies: 1  Lines of Code: 600 
+--   Procedures: 17     Lines of Code: 455 
+--   Sequences: 5 
+--   Tables: 15         Columns: 152        Constraints: 7      
+--   Triggers: 7 
+--   Views: 3           
+
+
+CREATE SEQUENCE BCOMMANDS_C
+  START WITH 19
+  MAXVALUE 999999999999999999999999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE SEQUENCE BDATA_C
+  START WITH 6
+  MAXVALUE 999999999999999999999999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE SEQUENCE BJOBS_C
+  START WITH 1534477
+  MAXVALUE 999999999999999999999999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE SEQUENCE CAR_C
+  START WITH 152
+  MAXVALUE 99999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE SEQUENCE DOVER_C
+  START WITH 41740
+  MAXVALUE 99999999
+  MINVALUE 0
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE TABLE AGTXDRV
+(
+  CD_D    NUMBER(8)                             NOT NULL,
+  CD_A    NUMBER(4)                             NOT NULL,
+  STATUS  NUMBER(1)                             DEFAULT 1
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BCOMMANDS
+(
+  CD_CM       NUMBER(4)                         NOT NULL,
+  CODE        NUMBER(4),
+  HINT        VARCHAR2(128 BYTE),
+  PROCNAME    VARCHAR2(128 BYTE),
+  NAME        VARCHAR2(32 BYTE),
+  REPEATIBLE  NUMBER(1)                         DEFAULT 0
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BCXBD
+(
+  CD_CM  NUMBER(4),
+  CD_DD  NUMBER(4),
+  LVL    NUMBER(4)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BDAT
+(
+  CD_DD       NUMBER(4),
+  CODE        NUMBER(4),
+  HINT        VARCHAR2(128 BYTE),
+  NAME        VARCHAR2(32 BYTE),
+  REPEATIBLE  NUMBER(1)                         DEFAULT 0,
+  FUNC        VARCHAR2(32 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BLOGS
+(
+  CD_Q       NUMBER                             NOT NULL,
+  CODE       VARCHAR2(32 BYTE),
+  USER_ID    NUMBER,
+  CREDATE    DATE                               DEFAULT sysdate,
+  CODE_TYPE  NUMBER(2)                          NOT NULL,
+  CD_ID      NUMBER(4)                          NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20412K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CAR
+(
+  CD_CAR   NUMBER(8)                            NOT NULL,
+  CAR_NM   VARCHAR2(30 BYTE),
+  REFNUM   VARCHAR2(100 BYTE),
+  SIM      NUMBER(1)                            DEFAULT 0,
+  CAR_NML  VARCHAR2(80 BYTE),
+  PSER     VARCHAR2(10 BYTE),
+  PNUM     NUMBER(6),
+  WHOP     VARCHAR2(200 BYTE),
+  DATEP    DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DOCPROCESS
+(
+  CD_A          NUMBER(8),
+  NUM           NUMBER(2),
+  CREDATE       DATE                            DEFAULT SYSDATE,
+  PROCSTAT      NUMBER(1),
+  PROCCREATOR   NUMBER(5),
+  PROCCRE       DATE,
+  PROCMOD       DATE,
+  VOD_OUT       NUMBER(5),
+  VOD_IN        NUMBER(5),
+  VOD_OUT_DATE  DATE,
+  VOD_IN_DATE   DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DOVER
+(
+  CD_A     NUMBER(8)                            NOT NULL,
+  CD_CAR   NUMBER(8)                            NOT NULL,
+  DATE0    DATE                                 DEFAULT SYSDATE               NOT NULL,
+  NUMDOC   VARCHAR2(100 BYTE),
+  PRICE    NUMBER(16,4),
+  CHK      NUMBER(2)                            DEFAULT 0,
+  DATACHK  DATE,
+  PRN      NUMBER(2)                            DEFAULT 0
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          1280K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PRN_DOC_EXT
+(
+  CD_C          NUMBER(8),
+  CD_A          NUMBER(8),
+  NUM           NUMBER(4),
+  CNT_PRINT     NUMBER(10)                      DEFAULT 0,
+  FAILED_PRINT  NUMBER(10)                      DEFAULT 0,
+  DATEP         DATE                            DEFAULT sysdate,
+  HUMAN_ACCEPT  DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          6412K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SAVE_BCODE
+(
+  BCODE   NUMBER(10)                            NOT NULL,
+  CD_A    NUMBER(8)                             NOT NULL,
+  NUM     NUMBER(4)                             NOT NULL,
+  CD_U    NUMBER(5),
+  FPRICE  NUMBER(15,4),
+  RPRICE  NUMBER(15,4),
+  CDATE   DATE,
+  WHO     NUMBER,
+  TP      NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          1180K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SAVE_DATE0
+(
+  DATE0   DATE,
+  CD_A    NUMBER(8),
+  NUM     NUMBER(4),
+  CD_U    NUMBER(5),
+  FPRICE  NUMBER(15,4),
+  RPRICE  NUMBER(15,4),
+  CDATE   DATE,
+  WHO     NUMBER,
+  TP      NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          4712K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SCANTIME
+(
+  SYSDT     NUMBER(4)                           NOT NULL,
+  EVENT     NUMBER(4)                           NOT NULL,
+  WHEN      DATE                                DEFAULT sysdate               NOT NULL,
+  CD_A      NUMBER(4)                           NOT NULL,
+  MODDATE   DATE                                DEFAULT sysdate,
+  MODIFIER  NUMBER(10)                          DEFAULT uid
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST
+(
+  N  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TRANS_LOG
+(
+  WHEN_T    DATE                                NOT NULL,
+  WHO_T     NUMBER                              NOT NULL,
+  CD_A      NUMBER                              NOT NULL,
+  NUM       NUMBER                              NOT NULL,
+  DOC_TYPE  NUMBER                              NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          5160K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE WORKTIME
+(
+  CD_A  NUMBER                                  NOT NULL,
+  DI1   DATE,
+  DI2   DATE,
+  DI3   DATE,
+  DI4   DATE,
+  DI5   DATE,
+  DI6   DATE,
+  DI7   DATE,
+  DI8   DATE,
+  DI9   DATE,
+  DI10  DATE,
+  DI11  DATE,
+  DI12  DATE,
+  DI13  DATE,
+  DI14  DATE,
+  DI15  DATE,
+  DI16  DATE,
+  DI17  DATE,
+  DI18  DATE,
+  DI19  DATE,
+  DI20  DATE,
+  DI21  DATE,
+  DI22  DATE,
+  DI23  DATE,
+  DI24  DATE,
+  DI25  DATE,
+  DI26  DATE,
+  DI27  DATE,
+  DI28  DATE,
+  DI29  DATE,
+  DI30  DATE,
+  DI31  DATE,
+  DO1   DATE,
+  DO2   DATE,
+  DO3   DATE,
+  DO4   DATE,
+  DO5   DATE,
+  DO6   DATE,
+  DO7   DATE,
+  DO8   DATE,
+  DO9   DATE,
+  DO10  DATE,
+  DO11  DATE,
+  DO12  DATE,
+  DO13  DATE,
+  DO14  DATE,
+  DO15  DATE,
+  DO16  DATE,
+  DO17  DATE,
+  DO18  DATE,
+  DO19  DATE,
+  DO20  DATE,
+  DO21  DATE,
+  DO22  DATE,
+  DO23  DATE,
+  DO24  DATE,
+  DO25  DATE,
+  DO26  DATE,
+  DO27  DATE,
+  DO28  DATE,
+  DO29  DATE,
+  DO30  DATE,
+  DO31  DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE UNIQUE INDEX BCOMMANDS_PK ON BCOMMANDS
+(CD_CM)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX BCOMMANDS_Q ON BCOMMANDS
+(NAME)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX CAR_C ON CAR
+(CD_CAR)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX CD_DOVER ON DOVER
+(CD_A)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX DP_DOCNUM ON DOCPROCESS
+(CD_A, NUM)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX DP_PROCSTAT ON DOCPROCESS
+(PROCSTAT)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX EXPID_P ON AGTXDRV
+(CD_D, CD_A)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX PDE_CDC ON PRN_DOC_EXT
+(CD_C)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX PDE_DATEP ON PRN_DOC_EXT
+(DATEP)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX PDE_DOC ON PRN_DOC_EXT
+(CD_A, NUM)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX SCANTIME_PK ON SCANTIME
+(SYSDT, EVENT, WHEN, CD_A)
+LOGGING
+NOPARALLEL;
+
+
+CREATE OR REPLACE PACKAGE b IS
+-- MODIFICATION HISTORY
+
+-- -------------   ---------   ------------------------------------------
+--    Используется для обработки данных типа
+--    штрих-код, для работы со сканером.
+--    Куча доработок (рекурсивный парсинг)
+--    Переделана функция ADD_VALUE_QUEUE (убрали
+--    прямой вызов фукций, теперь через DBMS_SQL)
+--    Убрали совместимость с CODE39, увеличено кол-во символов
+--    для "команды/идентификатора данных" до 3-х, добавилась
+--    проверка по последовательности ввода команд/данных
+--
+EXIT_ON_ERROR       EXCEPTION;
+--Количество символов в бар-коде для данных
+BLENGTH             CONSTANT NUMBER DEFAULT 8;
+--Количество символов в бар-коде для команды
+COMMANDLENGTH       CONSTANT NUMBER DEFAULT 3;
+--Количество символов в бар-коде для идентификатора данных
+DATAIDLENGTH       CONSTANT NUMBER DEFAULT 3;
+BDATA               CONSTANT NUMBER DEFAULT 0;
+BCOMMAND            CONSTANT NUMBER DEFAULT 1;
+BMIXED              CONSTANT NUMBER DEFAULT 2;
+TEST                VARCHAR2(128) DEFAULT 'HELLO WORLD';
+ADDHINT             VARCHAR2(256):='';
+TRUE            CONSTANT NUMBER DEFAULT 1;
+FALSE           CONSTANT NUMBER DEFAULT 0;
+SUBTYPE COMMAND_ID_TYPE IS BCOMMANDS.CD_CM%TYPE;
+SUBTYPE DATA_ID_TYPE IS BDAT.CD_DD%TYPE;
+SUBTYPE JOB_ID_TYPE IS NUMBER;
+SUBTYPE DATA_VALUE_TYPE IS VARCHAR;
+/*Тип команды сканера*/
+TYPE COMMAND_QUEUE_RECORD IS
+ RECORD (ID_Q JOB_ID_TYPE,CD_CM COMMAND_ID_TYPE,CODE BLOGS.CODE%TYPE,HINT BCOMMANDS.HINT%TYPE,
+         DATA_COUNT NUMBER,REPEATIBLE NUMBER, CREDATE DATE,COMPLETE NUMBER);
+/*Тип данных сканера*/
+TYPE DATA_QUEUE_RECORD IS
+ RECORD (ID_Q JOB_ID_TYPE,DD_ID DATA_ID_TYPE,CODE BLOGS.CODE%TYPE,HINT BDAT.HINT%TYPE,
+         DATA_VALUE DATA_VALUE_TYPE(16),REPEATIBLE NUMBER,CREDATE DATE,COMPLETE NUMBER);
+TYPE USER_RECORD IS
+ RECORD (USER_ID V$APTUSR.CD_A%TYPE,
+         USERNAME V$APTUSR.NM%TYPE,
+         USERTYPE V$APTUSR.TP%TYPE,
+         USERTYPENAME V$APTUSR.NM_TP%TYPE);
+/*Таблица очередь данных*/
+TYPE DATA_QUEUE_TABLE IS TABLE OF DATA_QUEUE_RECORD INDEX BY BINARY_INTEGER;
+/*Таблица - очередь команд*/
+TYPE COMMANDS_QUEUE_TABLE IS TABLE OF COMMAND_QUEUE_RECORD INDEX BY BINARY_INTEGER;
+TYPE USER_TABLE IS TABLE OF USER_RECORD INDEX BY BINARY_INTEGER;
+--Типы кодировок левой стороны EAN13
+TYPE EAN13_LEFT_HAND IS TABLE OF varchar(5) INDEX BY BINARY_INTEGER;
+TYPE DOC_COLLECT IS TABLE OF abc.doc.bcode%TYPE INDEX BY BINARY_INTEGER;
+EAN13 EAN13_LEFT_HAND;
+DOCCOL DOC_COLLECT;
+CurrentDOCCOL integer:=0;
+------------------------------------
+/*Текущая команда*/
+JOBS_CURRENT_COMMAND COMMAND_QUEUE_RECORD;
+/*Текущие данные принятые со сканера*/
+JOBS_CURRENT_DATA    DATA_QUEUE_RECORD;
+/*Очередь команд*/
+JOBS_COMMAND         COMMANDS_QUEUE_TABLE;
+/*Очередь данных*/
+JOBS_DATA            DATA_QUEUE_TABLE;
+USERS_TABLE          USER_TABLE;
+------------------------------------
+/*Текущий номер задания(появляется по сиквенсу)*/
+CURRENT_JOB_ID JOB_ID_TYPE;
+/*Строка принятая со сканера*/
+CURRENT_CODE VARCHAR2(32);
+/*Текущий код команды*/
+CURRENT_COMMAND_ID COMMAND_ID_TYPE;
+/*Текущий тип данных (команда/данные)*/
+CURRENT_CODE_TYPE NUMBER;
+/*Счетчик необходимых "данных" к текущей команде*/
+CURRENT_CNT_DATA NUMBER;
+/*Уровень данных из таблицы BCXBD*/
+CURRENT_DATA_LEVEL NUMBER;
+------------------------------------
+/*Удаляет из очереди задание по уникальному номеру*/
+PROCEDURE CLEAR_JOB(ID_Q JOB_ID_TYPE);
+--PRAGMA RESTRICT_REFERENCES(CLEAR_JOB,WNDS);
+/*Очищает очередь заданий*/
+PROCEDURE CLEAR_JOBS;
+--PRAGMA RESTRICT_REFERENCES(CLEAR_JOBS,WNPS,WNDS);
+/*Очищает очередь выполненных заданий*/
+PROCEDURE CLEAR_COMPLETEJOBS;
+--PRAGMA RESTRICT_REFERENCES(CLEAR_JOBS,WNPS,WNDS);
+/*Добавляет задание в очередь возвращает номер задания в очереди*/
+FUNCTION ADD_JOB(CDCM COMMAND_ID_TYPE,CCODE VARCHAR) RETURN JOB_ID_TYPE;
+--PRAGMA RESTRICT_REFERENCES(ADD_JOB,WNDS);
+/*Добавляет данные к заданию(команде) в очереди используя номер задания,код данных
+  и сами данные*/
+FUNCTION ADD_VALUE_QUEUE(ID_Q       JOB_ID_TYPE,
+                         DATA_ID    DATA_ID_TYPE,
+                         CODE       VARCHAR,
+                         DATA_VALUE DATA_VALUE_TYPE) RETURN NUMBER;
+--PRAGMA RESTRICT_REFERENCES(ADD_VALUE_QUEUE,WNDS);
+/*Возвращает код команды из очереди по номеру задания*/
+FUNCTION GET_COMMAND_ID_FROM_QUEUE(ID_Q JOB_ID_TYPE) RETURN COMMAND_ID_TYPE;
+PRAGMA RESTRICT_REFERENCES(GET_COMMAND_ID_FROM_QUEUE,WNDS);
+FUNCTION GET_INDEX_JOB(ID_Q JOB_ID_TYPE) RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(GET_COMMAND_ID_FROM_QUEUE,WNDS);
+/*Возвращает имя процедуры для "команды" с кодом CDCM*/
+FUNCTION GET_PROC_NAME(CDCM COMMAND_ID_TYPE) RETURN VARCHAR2;
+PRAGMA RESTRICT_REFERENCES(GET_PROC_NAME,RNPS,WNPS,WNDS);
+/*Возвращает колличество данных необходимое для выполнения команды*/
+FUNCTION GET_CNT_DATA_FOR_COMMAND(CDCM COMMAND_ID_TYPE) RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(GET_CNT_DATA_FOR_COMMAND,RNPS,WNPS,WNDS);
+/*Возвращает код пользователя системы штрихкодирования создавшего задание*/
+FUNCTION GET_USER_ID(ID_Q JOB_ID_TYPE DEFAULT CURRENT_JOB_ID) RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(GET_USER_ID,WNDS);
+/*Возвращает "данные" для по коду данных из очереди*/
+FUNCTION GET_VALUE_QUEUE(ID_Q JOB_ID_TYPE,DATA_ID DATA_ID_TYPE) RETURN DATA_VALUE_TYPE;
+PRAGMA RESTRICT_REFERENCES(GET_VALUE_QUEUE,WNDS);
+/*Возвращает "данные" для по наименованию данных из очереди*/
+FUNCTION GET_DATA_VALUE_BY_NAME(ID_Q JOB_ID_TYPE,BNAME VARCHAR2) RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(GET_DATA_VALUE_BY_NAME,WNDS);
+/*Возвращает уникальный номер задания(из сиквенса)*/
+FUNCTION GET_NEW_JOB_ID RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(GET_NEW_JOB_ID,WNDS,RNPS,WNPS);
+/*Возвращает подсказку для текущей команды*/
+FUNCTION GET_CURRENT_HINT RETURN VARCHAR2;
+PRAGMA RESTRICT_REFERENCES(GET_CURRENT_HINT,WNPS,WNDS);
+/*Пишет лог*/
+FUNCTION PUT_LOG(CD_Q JOB_ID_TYPE DEFAULT CURRENT_JOB_ID ) RETURN NUMBER;
+FUNCTION CHK_DATA_ID(CDCM COMMAND_ID_TYPE,CDDD DATA_ID_TYPE) RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(CHK_DATA_ID,WNDS);
+/*Местный отладчик(печатает очередь) */
+PROCEDURE PRINT_JOBS_QUEUE;
+/*Разбирает строку принятую со сканера*/
+PROCEDURE /*FUNCTION*/ PARSE_BARCODE(CODE VARCHAR2,HINT OUT VARCHAR2)/* RETURN VARCHAR2*/;
+--PRAGMA RESTRICT_REFERENCES(PARSE_BARCODE,WNDS);
+/*Формирует строку для печати баркода
+ наименование, данные, тип баркода(команда/данные/команда и данные)*/
+FUNCTION GET_BARCODE(BNAME VARCHAR2,BDATA NUMBER,BTYPE NUMBER DEFAULT 0) RETURN VARCHAR2;
+PRAGMA RESTRICT_REFERENCES(GET_BARCODE,WNDS);
+/*Декодирует символы в соответствии с типом штрих кода в данной версии только для CODE 39 */
+FUNCTION DECODE_CHAR(CODE CHAR) RETURN NUMBER;
+PRAGMA RESTRICT_REFERENCES(DECODE_CHAR,WNDS,RNPS,WNPS);
+PROCEDURE FILL_USERS_TABLE;
+PRAGMA RESTRICT_REFERENCES(FILL_USERS_TABLE,WNDS);
+Function CONVERT_EAN13(BCODE# Varchar2) return varchar2;
+PRAGMA RESTRICT_REFERENCES(CONVERT_EAN13,WNDS,WNPS);
+Function GET_CHECKSUM_EAN13(BCODE# Varchar2) return number;
+PRAGMA RESTRICT_REFERENCES(GET_CHECKSUM_EAN13,WNDS,WNPS);
+Function GET_EXEC_FUNCTION_NAME(CDDD# NUMBER) return varchar2;
+PRAGMA RESTRICT_REFERENCES(GET_EXEC_FUNCTION_NAME,WNDS,WNPS);
+/*Возвращает уровень данных для текущей команды*/
+FUNCTION GET_DATA_LEVEL(CDDD#    DATA_ID_TYPE) RETURN number;
+PRAGMA RESTRICT_REFERENCES(GET_DATA_LEVEL,WNDS);
+/*Возвращает предыдущий уровень данных для текущей команды*/
+FUNCTION GET_PREVIOUS_DATA_LEVEL(CDDD#    DATA_ID_TYPE) RETURN number;
+PRAGMA RESTRICT_REFERENCES(GET_PREVIOUS_DATA_LEVEL,WNDS);
+END; -- Package spec
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PACKAGE BODY      b IS
+-- MODIFICATION HISTORY
+-- Person          Date        Comments
+-- -------------   ---------   ------------------------------------------
+-- Turlakov K.E.   15.11.99    modify package
+-- Turlakov K.E.   11.10.99    Используется для обработки данных типа
+--                             штрих-код, для работы со сканером.
+-- John            22.02.01    Куча доработок (рекурсивный парсинг)
+-- John            02.04.01    Переделана функция ADD_VALUE_QUEUE (убрали
+--                             прямой вызов фукций, теперь через DBMS_SQL)
+-- John            23.05.01    Убрали совместимость с CODE39, увеличено кол-во символов
+--                             для "команды/идентификатора данных" до 3-х, добавилась
+--                             проверка по последовательности ввода команд/данных
+--
+ERROR_PARSING   NUMBER(1):=0;
+COUNT_CALL_PARSE NUMBER(10):=0;
+INTERNAL_HINT varchar2(256):='';
+FUNCTION DECODE_CHAR(CODE CHAR) RETURN NUMBER IS
+ RESULT NUMBER;
+BEGIN
+ /*CHARACTER SET FOR BARCODE39 */
+ SELECT DECODE(CODE,'0',0,'1',1,'2',2,'3',3,'4',4,'5',5,'6',6,'7',7,'8',8,'9',9,
+         'A',10,'B',11,'C',12,'D',13,'E',14,'F',15,'G',16,'H',17,'I',18,'J',19,
+         'K',20,'L',21,'M',22,'N',23,'O',24,'P',25,'Q',26,'R',27,'S',28,'T',29,
+         'U',30,'V',31,'W',32,'X',33,'Y',34,'Z',35,'a',36,'b',37,'c',38,'d',39,
+         'e',40,'f',41,'g',42,'h',43,'i',44,'j',45,'k',46,'l',47,'m',48,'n',49,
+         'o',50,'p',51,'q',52,'r',53,'s',54,'t',55,'u',56,'v',57,'w',58,'x',59,
+         'y',60,'z',61,'$',62,'%',63,'+',64,'-',65,'.',66,',',67,'/',68,' ',69,-1)
+   INTO RESULT FROM DUAL;
+ RETURN RESULT;
+END;
+FUNCTION GET_CNT_DATA_FOR_COMMAND(CDCM COMMAND_ID_TYPE) RETURN NUMBER IS
+ RESULT NUMBER;
+BEGIN
+ SELECT COUNT(*) INTO RESULT FROM BCxBD WHERE CD_CM=CDCM;
+ RETURN RESULT;
+END;
+FUNCTION GET_COMMAND_ID_FROM_QUEUE(ID_Q JOB_ID_TYPE) RETURN COMMAND_ID_TYPE IS
+ I  NUMBER;
+BEGIN
+ I:=JOBS_COMMAND.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_COMMAND(I).ID_Q = ID_Q THEN
+   RETURN JOBS_COMMAND(I).CD_CM;
+  END IF;
+ I:=JOBS_COMMAND.NEXT(I);
+ END LOOP;
+ RETURN -1;
+END;
+FUNCTION GET_DATA_ID_FROM_QUEUE(ID_Q JOB_ID_TYPE,DATA_ID DATA_ID_TYPE)
+                                                RETURN NUMBER IS
+ I  NUMBER;
+BEGIN
+ I:=JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_DATA(I).ID_Q = ID_Q AND JOBS_DATA(I).DD_ID=DATA_ID THEN
+   RETURN I;
+  END IF;
+ I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+ RETURN NULL;
+END;
+FUNCTION GET_COMMAND_FROM_QUEUE(ID_Q JOB_ID_TYPE) RETURN COMMAND_QUEUE_RECORD IS
+ I  NUMBER;
+BEGIN
+ I:=JOBS_COMMAND.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_COMMAND(I).ID_Q = ID_Q THEN
+   RETURN JOBS_COMMAND(I);
+  END IF;
+ I:=JOBS_COMMAND.NEXT(I);
+ END LOOP;
+END;
+FUNCTION GET_DATA_FROM_QUEUE(ID_Q JOB_ID_TYPE,DATA_ID DATA_ID_TYPE)
+                                             RETURN DATA_QUEUE_RECORD IS
+ I   NUMBER;
+BEGIN
+ I:=JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_DATA(I).ID_Q = ID_Q  AND JOBS_DATA(I).DD_ID = DATA_ID THEN
+    RETURN JOBS_DATA(I);
+  END IF;
+  I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+END;
+FUNCTION GET_CNT_DATA_IN_QUEUE(ID_Q JOB_ID_TYPE) RETURN NUMBER IS
+ J  NUMBER DEFAULT 0;
+ I  NUMBER;
+BEGIN
+ I:=JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_DATA(I).ID_Q = ID_Q THEN
+   J:=J+1;
+  END IF;
+ I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+ RETURN J;
+END;
+FUNCTION GET_PROC_NAME(CDCM COMMAND_ID_TYPE) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(128);
+BEGIN
+ SELECT PROCNAME INTO RESULT FROM BCOMMANDS WHERE CD_CM=CDCM;
+ RETURN RESULT;
+END;
+FUNCTION GET_COMMAND_REPEATIBLE(CDCM COMMAND_ID_TYPE) RETURN NUMBER IS
+ RESULT NUMBER(1);
+BEGIN
+ SELECT REPEATIBLE INTO RESULT FROM BCOMMANDS WHERE CD_CM=CDCM;
+ RETURN RESULT;
+END;
+FUNCTION GET_DATA_REPEATIBLE(CDCM COMMAND_ID_TYPE) RETURN NUMBER IS
+ RESULT NUMBER(1);
+BEGIN
+ SELECT REPEATIBLE INTO RESULT FROM BCOMMANDS WHERE CD_CM=CDCM;
+ RETURN RESULT;
+END;
+FUNCTION GET_COMMAND_HINT(CDCM COMMAND_ID_TYPE) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(128);
+BEGIN
+ SELECT HINT INTO RESULT FROM BCOMMANDS WHERE CD_CM=CDCM;
+ RETURN RESULT;
+END;
+FUNCTION GET_DATA_HINT(DATA_ID DATA_ID_TYPE) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(128);
+BEGIN
+ SELECT HINT INTO RESULT FROM BDAT WHERE CD_DD=DATA_ID;
+ RETURN RESULT;
+END;
+PROCEDURE CLEAR_JOB(ID_Q JOB_ID_TYPE) IS
+ I NUMBER;
+BEGIN
+ IF ID_Q IS NULL THEN RETURN; END IF;
+ I:=JOBS_COMMAND.FIRST;
+ WHILE I IS NOT NULL LOOP
+   IF JOBS_COMMAND(I).ID_Q = ID_Q THEN
+    JOBS_COMMAND(I).COMPLETE:=1;
+   END IF;
+   I:=JOBS_COMMAND.NEXT(I);
+ END LOOP;
+ I:=JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+   IF JOBS_DATA(I).ID_Q = ID_Q THEN
+    JOBS_DATA(I).COMPLETE:=1;
+   END IF;
+ I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+ EXCEPTION
+  WHEN no_data_found THEN
+       NULL;
+  WHEN others THEN -- Caution:Handles all exceptions
+       NULL;
+END;
+PROCEDURE CLEAR_COMPLETEJOBS IS
+ I NUMBER;
+BEGIN
+ I:=JOBS_COMMAND.FIRST;
+ WHILE I IS NOT NULL LOOP
+   IF JOBS_COMMAND(I).COMPLETE=1 THEN
+    JOBS_COMMAND.DELETE(I);
+   END IF;
+  I:=JOBS_COMMAND.NEXT(I);
+ END LOOP;
+ I:=JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_DATA(I).COMPLETE=1 THEN
+   JOBS_DATA.DELETE(I);
+  END IF;
+  I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+ EXCEPTION
+  WHEN no_data_found THEN
+       NULL;
+  WHEN others THEN -- Caution:Handles all exceptions
+       NULL;
+END;
+PROCEDURE CLEAR_JOBS IS
+ I NUMBER;
+BEGIN
+ JOBS_COMMAND.DELETE;
+ JOBS_DATA.DELETE;
+END;
+FUNCTION ADD_VALUE_QUEUE(ID_Q       JOB_ID_TYPE,
+                         DATA_ID    DATA_ID_TYPE,
+                         CODE       VARCHAR,
+                         DATA_VALUE DATA_VALUE_TYPE) RETURN NUMBER IS
+ I      NUMBER;
+ U      VARCHAR2(32);
+CursorID integer:=null;
+Dummi integer;
+BEGIN
+ I:=GET_DATA_ID_FROM_QUEUE(ID_Q,DATA_ID);
+ IF I IS NULL
+  THEN
+   I := NVL(JOBS_DATA.LAST,0)+1;
+   JOBS_DATA(I).ID_Q  := ID_Q;
+   JOBS_DATA(I).DD_ID := DATA_ID;
+   JOBS_DATA(I).CODE := CODE;
+   JOBS_DATA(I).DATA_VALUE := DATA_VALUE;
+   JOBS_DATA(I).REPEATIBLE := GET_DATA_REPEATIBLE(DATA_ID);
+  ELSE
+   JOBS_DATA(I).ID_Q  := ID_Q;
+   JOBS_DATA(I).DD_ID := DATA_ID;
+   JOBS_DATA(I).CODE := CODE;
+   JOBS_DATA(I).DATA_VALUE := DATA_VALUE;
+   JOBS_DATA(I).REPEATIBLE := GET_DATA_REPEATIBLE(DATA_ID);
+  END IF;
+-------------------------------------------------------------------------------NEW
+ INTERNAL_HINT:='';
+ CursorID:=dbms_sql.open_cursor;
+ dbms_sql.parse(CursorID,'select '||GET_EXEC_FUNCTION_NAME(DATA_ID)||'('||ltrim(DATA_VALUE,'0')||') from dual',dbms_sql.v7);
+ dbms_sql.define_column(CursorID,1,INTERNAL_HINT,256);
+ dummi:=dbms_sql.execute(CursorID);
+ IF dbms_sql.fetch_rows(CursorID)<>0 THEN
+   dbms_sql.column_value(CursorID,1,INTERNAL_HINT);
+ END IF;
+ IF CursorID is not null THEN
+     dbms_sql.close_cursor(CursorID);
+ END IF;
+ JOBS_DATA(I).HINT := GET_DATA_HINT(DATA_ID)||'  '||INTERNAL_HINT;
+-------------------------------------------------------------------------------NEW
+ RETURN TRUE;
+ EXCEPTION
+ WHEN others THEN -- Caution:Handles all exceptions
+    RETURN FALSE;
+END;
+FUNCTION PUT_LOG(CD_Q JOB_ID_TYPE DEFAULT CURRENT_JOB_ID) RETURN NUMBER IS
+ I NUMBER;
+BEGIN
+ I:=JOBS_COMMAND.FIRST;
+ WHILE I IS NOT NULL
+  LOOP
+   IF JOBS_COMMAND(I).ID_Q = CD_Q
+    THEN
+     INSERT INTO BLOGS(CODE,CODE_TYPE,CD_ID)
+      VALUES (JOBS_COMMAND(I).CODE,BCOMMAND/*Признак - команда*/,JOBS_COMMAND(I).CD_CM);
+   END IF;
+  I:=JOBS_COMMAND.NEXT(I);
+  END LOOP;
+ I:=JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+   IF JOBS_DATA(I).ID_Q = CD_Q THEN
+    INSERT INTO BLOGS(CODE,CODE_TYPE,CD_ID) VALUES (JOBS_DATA(I).CODE,BDATA,JOBS_DATA(I).DD_ID);
+   END IF;
+  I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+ RETURN TRUE;
+ EXCEPTION
+  WHEN no_data_found THEN
+       RETURN FALSE;
+  WHEN others THEN -- Caution:Handles all exceptions
+       RETURN FALSE;
+END;
+FUNCTION GET_USER_ID(ID_Q JOB_ID_TYPE DEFAULT CURRENT_JOB_ID) RETURN NUMBER IS
+ I  NUMBER;
+BEGIN
+ I := JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL
+ LOOP
+   IF JOBS_DATA(I).ID_Q = ID_Q THEN
+    IF JOBS_DATA(I).DD_ID = 1/*Данные типа юсер ид*/ THEN
+     RETURN JOBS_DATA(I).DATA_VALUE;
+    END IF;
+   END IF;
+ I:=JOBS_DATA.NEXT(I);
+ END LOOP;
+ RETURN NULL;
+ EXCEPTION
+  WHEN no_data_found THEN
+        RETURN NULL;
+  WHEN others THEN -- Caution:Handles all exceptions
+       RETURN NULL;
+END;
+FUNCTION CHK_DATA_ID(CDCM COMMAND_ID_TYPE,CDDD DATA_ID_TYPE) RETURN NUMBER IS
+ RESULT NUMBER;
+BEGIN
+ SELECT COUNT(*) INTO RESULT FROM BCxBD WHERE CD_CM=CDCM AND CD_DD = CDDD;
+/* IF CURRENT_DATA_LEVEL<>GET_PREVIOUS_DATA_LEVEL(CDDD) THEN
+   RETURN FALSE; -- AKA
+ END IF;*/
+ RETURN RESULT;
+ EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+       RETURN FALSE;
+     WHEN others THEN -- Caution:Handles all exceptions
+       RETURN FALSE;
+END;
+FUNCTION GET_CURRENT_HINT RETURN VARCHAR2 IS
+BEGIN
+ IF CURRENT_CODE_TYPE = BCOMMAND
+  THEN
+   RETURN JOBS_CURRENT_COMMAND.HINT;
+  ELSE
+   RETURN JOBS_CURRENT_DATA.HINT;
+ END IF;
+END;
+FUNCTION COPY_REPEATIBLE_JOB(ID_Q JOB_ID_TYPE) RETURN JOB_ID_TYPE IS
+ I       NUMBER;
+ COMMAND COMMAND_QUEUE_RECORD;
+ DATA    DATA_QUEUE_RECORD;
+ ID_QT   JOB_ID_TYPE;
+ FL      NUMBER;
+BEGIN
+ COMMAND := GET_COMMAND_FROM_QUEUE(ID_Q);
+ ID_QT := ADD_JOB(COMMAND.CD_CM,COMMAND.CODE);
+ FOR CC IN (SELECT B.CD_DD FROM BDAT B,BCXBD X WHERE X.CD_CM=COMMAND.CD_CM
+                                                 AND X.CD_DD=B.CD_DD
+                                                 AND B.REPEATIBLE=1)
+  LOOP
+   DATA := GET_DATA_FROM_QUEUE(ID_Q,CC.CD_DD);
+   FL := ADD_VALUE_QUEUE(ID_QT,DATA.DD_ID,DATA.CODE,DATA.DATA_VALUE);
+  END LOOP;
+ RETURN ID_QT;
+END;
+PROCEDURE/*FUNCTION*/ PARSE_BARCODE(CODE VARCHAR2,HINT OUT VARCHAR2) /*RETURN VARCHAR2*/ IS
+ TYPE_ID       NUMBER DEFAULT NULL;
+ COMMAND_ID    NUMBER DEFAULT NULL;
+ DATA_ID       NUMBER DEFAULT NULL;
+ RESULT        NUMBER;
+ S             VARCHAR(256);
+ DHINT         VARCHAR(256):='';
+ EXIT_FROM_PROCEDURE EXCEPTION;
+BEGIN
+ ADDHINT:='';
+ COUNT_CALL_PARSE:=COUNT_CALL_PARSE+1;
+ HINT :=CODE;
+ CURRENT_CODE := substr(CODE,length(CODE)-12,12);
+ ERROR_PARSING:=0;
+--рекурсивный парсинг
+ IF length(CODE)>13 THEN
+   IF GET_CHECKSUM_EAN13(substr(CODE,length(CODE)-12,12))-112=substr(CODE,length(CODE),1) THEN --EAN
+     PARSE_BARCODE(substr(CODE,1,length(CODE)-13),DHINT);
+     CURRENT_CODE := substr(CODE,length(CODE)-12,12);
+   ELSE
+     ERROR_PARSING:=1;
+   END IF;
+ END IF;
+ IF ERROR_PARSING=1 THEN
+   HINT:='Error! NO PARSING!!! '||CODE;
+   Raise EXIT_FROM_PROCEDURE;
+--   return;
+ END IF;
+ TYPE_ID := DECODE_CHAR(SUBSTR(CURRENT_CODE,1,1));/*Тип штрих-кода: команда или данные*/
+ IF TYPE_ID = BCOMMAND
+  THEN
+   CLEAR_JOB(CURRENT_JOB_ID);
+   CURRENT_DATA_LEVEL:=0;
+   CURRENT_COMMAND_ID := to_number(SUBSTR(CURRENT_CODE,2,COMMANDLENGTH));--DECODE_CHAR(SUBSTR(CURRENT_CODE,2,1));
+   CURRENT_CNT_DATA := GET_CNT_DATA_FOR_COMMAND(CURRENT_COMMAND_ID);
+   CURRENT_JOB_ID := ADD_JOB(CURRENT_COMMAND_ID,CURRENT_CODE);
+   JOBS_CURRENT_COMMAND := JOBS_COMMAND(GET_INDEX_JOB(CURRENT_JOB_ID));
+   CURRENT_CODE_TYPE := BCOMMAND;
+   HINT := NVL(GET_CURRENT_HINT,'Error! Штрих-код не опознан = '||CURRENT_CODE);
+   Raise EXIT_FROM_PROCEDURE;
+ ELSIF TYPE_ID = BDATA
+   THEN
+    DATA_ID := to_number(SUBSTR(CURRENT_CODE,2,DATAIDLENGTH));--DECODE_CHAR(SUBSTR(CURRENT_CODE,2,1));
+    IF CHK_DATA_ID(CURRENT_COMMAND_ID,DATA_ID)=FALSE THEN
+      HINT :=/*RETURN*/ 'Error! Не правильная последовательность команд!';
+      Raise EXIT_FROM_PROCEDURE;
+    END IF;
+    CURRENT_DATA_LEVEL:=GET_DATA_LEVEL(DATA_ID);
+    RESULT := ADD_VALUE_QUEUE(CURRENT_JOB_ID,DATA_ID,CURRENT_CODE,SUBSTR(CURRENT_CODE,2+DATAIDLENGTH,BLENGTH));
+    JOBS_CURRENT_DATA := JOBS_DATA(JOBS_DATA.LAST);
+    CURRENT_CODE_TYPE := BDATA;
+    CURRENT_CNT_DATA :=GET_CNT_DATA_FOR_COMMAND(CURRENT_COMMAND_ID)-
+                       GET_CNT_DATA_IN_QUEUE(CURRENT_JOB_ID);
+   HINT := NVL(GET_CURRENT_HINT,'Error! Штрих-код не опознан = '||CURRENT_CODE);
+    IF CURRENT_CNT_DATA <= 0/*Пора запускать процедуру*/ THEN
+     RESULT := PUT_LOG(CURRENT_JOB_ID);
+     S := GET_PROC_NAME(CURRENT_COMMAND_ID);
+     S := 'BEGIN '||S||'('||CURRENT_JOB_ID||'); END;';
+------------------------------------------------------------------------------
+     CURRENT_JOB_ID:=COPY_REPEATIBLE_JOB(CURRENT_JOB_ID);
+     JOBS_CURRENT_COMMAND := GET_COMMAND_FROM_QUEUE(CURRENT_JOB_ID);
+     CURRENT_CNT_DATA:=GET_CNT_DATA_FOR_COMMAND(CURRENT_COMMAND_ID)-
+                       GET_CNT_DATA_IN_QUEUE(CURRENT_JOB_ID);
+     CURRENT_CODE_TYPE := BCOMMAND;
+------------------------------------------------------------------------------
+     ADDHINT:='';
+     ABC.DYNASQL(S);
+    END IF;
+    Raise EXIT_FROM_PROCEDURE;
+ ELSIF TYPE_ID = BMIXED
+   THEN
+    NULL;
+    HINT := NVL(GET_CURRENT_HINT,'Error! Штрих-код не опознан = '||CURRENT_CODE);
+    Raise EXIT_FROM_PROCEDURE;
+END IF;
+HINT := 'Error! Ошибка сканирования';
+EXCEPTION
+    WHEN  EXIT_FROM_PROCEDURE THEN
+      begin
+        HINT:=DHINT||' '||HINT||' '||ADDHINT;
+        return;
+      end;
+    WHEN others THEN -- Caution:Handles all exceptions
+     begin
+      HINT := 'Error! Ошибка сканирования';
+      RETURN;
+     end;
+END;
+FUNCTION GET_NEW_JOB_ID RETURN NUMBER IS
+ RESULT NUMBER;
+BEGIN
+ SELECT BJOBS_C.NEXTVAL INTO RESULT FROM DUAL;
+ RETURN RESULT;
+END;
+FUNCTION ADD_JOB(CDCM COMMAND_ID_TYPE,CCODE VARCHAR) RETURN JOB_ID_TYPE IS
+ RESULT JOB_ID_TYPE;
+ I      NUMBER;
+ MAXi   NUMBER;
+BEGIN
+ RESULT := GET_NEW_JOB_ID;
+ I:=NVL(JOBS_COMMAND.LAST,0)+1;
+ JOBS_COMMAND(I).ID_Q := RESULT;
+ JOBS_COMMAND(I).CD_CM := CDCM;
+ JOBS_COMMAND(I).DATA_COUNT := GET_CNT_DATA_FOR_COMMAND(CDCM);
+ JOBS_COMMAND(I).CODE := CCODE;
+ JOBS_COMMAND(I).HINT := GET_COMMAND_HINT(CDCM);
+ JOBS_COMMAND(I).REPEATIBLE:= GET_COMMAND_REPEATIBLE(CDCM);
+ JOBS_COMMAND(I).CREDATE := SYSDATE;
+ RETURN RESULT;
+END;
+FUNCTION GET_VALUE_QUEUE(ID_Q JOB_ID_TYPE,DATA_ID DATA_ID_TYPE) RETURN DATA_VALUE_TYPE IS
+ RESULT DATA_VALUE_TYPE(16);
+ I      NUMBER;
+BEGIN
+ I := JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL
+  LOOP
+   IF JOBS_DATA(I).ID_Q = ID_Q THEN
+    IF JOBS_DATA(I).DD_ID = DATA_ID THEN
+     RETURN JOBS_DATA(I).DATA_VALUE;
+    END IF;
+   END IF;
+   I:=JOBS_DATA.NEXT(I);
+  END LOOP;
+END;
+FUNCTION GET_DATA_VALUE_BY_NAME(ID_Q JOB_ID_TYPE,BNAME VARCHAR2) RETURN NUMBER IS
+ RESULT     NUMBER;
+ DATA_ID    DATA_ID_TYPE;
+BEGIN
+ SELECT CD_DD INTO DATA_ID FROM BDAT WHERE NAME=BNAME AND ROWNUM=1;
+ RETURN GET_VALUE_QUEUE(ID_Q,DATA_ID);
+ EXCEPTION
+    WHEN no_data_found THEN
+        RETURN -1;
+     WHEN others THEN -- Caution:Handles all exceptions
+        RETURN -1;
+END;
+FUNCTION GET_INDEX_JOB(ID_Q JOB_ID_TYPE) RETURN NUMBER IS
+ I NUMBER;
+BEGIN
+ I := JOBS_COMMAND.FIRST;
+ WHILE I IS NOT NULL LOOP
+  IF JOBS_COMMAND(I).ID_Q = ID_Q THEN
+    RETURN I;
+  END IF;
+  I := JOBS_COMMAND.NEXT(I);
+ END LOOP;
+ RETURN -1;
+END;
+PROCEDURE PRINT_JOBS_QUEUE IS
+ I NUMBER;
+ J NUMBER;
+BEGIN
+ I := JOBS_DATA.FIRST;
+ WHILE I IS NOT NULL LOOP
+   BEGIN
+    J := GET_INDEX_JOB(JOBS_DATA(I).ID_Q);
+    EXCEPTION
+        WHEN others
+         THEN
+          BEGIN
+           J:=-1;
+          END;
+   END;
+   IF J !=-1 THEN
+    NULL;
+   END IF;
+ I := JOBS_DATA.NEXT(I);
+ END LOOP;
+END;
+FUNCTION GET_BARCODE(BNAME VARCHAR2,BDATA NUMBER,BTYPE NUMBER DEFAULT 0) RETURN VARCHAR2 IS
+ RESULT  VARCHAR2(12)/*BLENGTH*/;
+ DATA_ID DATA_ID_TYPE;
+ CDATA   VARCHAR2(12)/*BLENGTH*/;
+BEGIN
+ CDATA := TO_CHAR(BDATA);
+ IF LENGTH(CDATA) > BLENGTH THEN RETURN NULL; END IF;
+ SELECT CD_DD INTO DATA_ID FROM BDAT WHERE NAME=BNAME AND ROWNUM=1;
+ RESULT := TO_CHAR(BTYPE)||lpad(TO_CHAR(DATA_ID),DATAIDLENGTH,'0')||lpad(CDATA,BLENGTH,'0');
+ RETURN RESULT;
+END;
+PROCEDURE FILL_USERS_TABLE IS
+ CURSOR C IS SELECT CD_A,NM,TP,NM_TP FROM V$APTUSR;
+ CC C%ROWTYPE;
+ I  NUMBER;
+BEGIN
+ I := 1;
+ OPEN C;
+ LOOP
+  FETCH C INTO CC;
+  EXIT WHEN C%NOTFOUND;
+  USERS_TABLE(I).USER_ID := CC.CD_A;
+  USERS_TABLE(I).USERNAME := CC.NM;
+  USERS_TABLE(I).USERTYPE := CC.TP;
+  USERS_TABLE(I).USERTYPENAME := CC.NM_TP;
+  I := I + 1;
+ END LOOP;
+ CLOSE C;
+END;
+Function CONVERT_EAN13(BCODE# Varchar2) return varchar2 is
+  LHTYPE varchar(5);
+  RES varchar2(14):='';
+  CBCODE varchar2(12);
+BEGIN--CONVERT_EAN13
+  CBCODE:=lpad(BCODE#,12,'0');
+  LHTYPE:=EAN13(to_number(substr(CBCODE,1,1)));
+  RES:=''||chr(33+to_number(substr(CBCODE,1,1)));-- 1
+  RES:=RES||chr(96+to_number(substr(CBCODE,2,1)));-- 2
+  FOR i in 3..7
+  Loop
+    select RES||chr(decode(substr(LHTYPE,i-2,1),'A',48,'B',64)+to_number(substr(CBCODE,i,1))) into RES from dual;
+  End Loop;
+  RES:=RES||chr(124);
+  FOR i in 8..12
+  Loop
+    select RES||chr(80+to_number(substr(CBCODE,i,1))) into RES from dual;
+  End Loop;
+  RES:=RES||chr(GET_CHECKSUM_EAN13(CBCODE));
+  return(RES);
+END;--CONVERT_EAN13
+Function GET_CHECKSUM_EAN13(BCODE# Varchar2) return number is
+  RES number(3):=null;
+  O number(3):=0;
+  E number(3):=0;
+BEGIN--GET_CHECKSUM_EAN13
+  IF length(BCODE#)!=12 THEN
+    return(-1);
+  END IF;
+  FOR i in 1..12
+  Loop
+    IF mod(i,2)=0 THEN
+      O:=O+to_number(substr(BCODE#,i,1));
+    ELSE
+      E:=E+to_number(substr(BCODE#,i,1));
+    END IF;
+  End Loop;
+  RES:=mod(100-mod(O*3+E,100),10)+112;
+  return(RES);
+END;--GET_CHECKSUM_EAN13
+Function GET_EXEC_FUNCTION_NAME(CDDD# NUMBER) return varchar2 is
+  RES varchar2(64):='';
+BEGIN--GET_EXEC_FUNCTION_NAME
+  select func into RES from BDAT where cd_dd=CDDD#;
+  RETURN RES;
+  Exception
+    When NO_DATA_FOUND THEN return(null);
+END;--GET_EXEC_FUNCTION_NAME
+FUNCTION GET_DATA_LEVEL(CDDD#    DATA_ID_TYPE) RETURN number is
+  RES number:=-1;
+  N$ number;
+BEGIN--GET_DATA_LEVEL
+  N$:=GET_COMMAND_ID_FROM_QUEUE(CURRENT_JOB_ID);
+  select lvl into RES from bcxbd where cd_cm=N$ and cd_dd=CDDD#;
+  return(RES);
+  Exception
+    When No_data_found THEN
+        return(RES);
+END;--GET_DATA_LEVEL
+FUNCTION GET_PREVIOUS_DATA_LEVEL(CDDD#    DATA_ID_TYPE) RETURN number is
+  RES bcxbd.lvl%TYPE:=0;
+  N$ number;
+  L$ number;
+BEGIN--GET_PREVIOUS_DATA_LEVEL
+  N$:=GET_COMMAND_ID_FROM_QUEUE(CURRENT_JOB_ID);
+  L$:=GET_DATA_LEVEL(CDDD#);
+  select max(lvl) into RES from bcxbd
+  where
+  cd_cm=N$
+  and lvl<L$;
+  return(NVL(RES,0));
+  Exception
+    When No_data_found THEN
+      return(RES);
+END;--GET_PREVIOUS_DATA_LEVEL
+BEGIN
+   NULL;
+   EAN13(0):='AAAAA';
+   EAN13(1):='ABABB';
+   EAN13(2):='ABBAB';
+   EAN13(3):='ABBBA';
+   EAN13(4):='BAABB';
+   EAN13(5):='BBAAB';
+   EAN13(6):='BBBAA';
+   EAN13(7):='BABAB';
+   EAN13(8):='BABBA';
+   EAN13(9):='BBABA';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE GET_DOC_OF_TASK_IN (CD_Q B.JOB_ID_TYPE) as
+BCOD     NUMBER;
+DOC_ALL  NUMBER;
+DOC_SCAN NUMBER;
+BEGIN
+  BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_TASK_NUM');
+
+  SELECT COUNT(F.CD_F) INTO DOC_ALL
+  FROM TASK.F2D F
+  WHERE F.CD_F = BCOD;
+
+  SELECT COUNT(F.CD_F) INTO DOC_SCAN 
+  FROM TASK.F2D F, ABC.DOC D, ABC.PXDOC P
+  WHERE F.CD_F = BCOD AND (F.CD_A = D.CD_A AND F.NUM = D.NUM) AND D.CD_C = P.CD_C AND P.DATE6 IS NOT NULL;
+  
+  B.AddHint:=', всего документов: ' || TO_CHAR(DOC_ALL) || ', отсканированно: ' || TO_CHAR(DOC_SCAN);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE GET_DOC_OF_TASK_OUT (CD_Q B.JOB_ID_TYPE) as
+BCOD     NUMBER;
+DOC_ALL  NUMBER;
+DOC_SCAN NUMBER;
+BEGIN
+  BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_TASK_NUM');
+ 
+  SELECT COUNT(F.CD_F) INTO DOC_ALL
+  FROM TASK.F2D F
+  WHERE F.CD_F = BCOD;
+
+  SELECT COUNT(F.CD_F) INTO DOC_SCAN 
+  FROM TASK.F2D F, ABC.DOC D, ABC.PXDOC P
+  WHERE F.CD_F = BCOD AND (F.CD_A = D.CD_A AND F.NUM = D.NUM) AND D.CD_C = P.CD_C AND P.DATE3 IS NOT NULL;
+  
+  B.AddHint:=', всего документов: ' || TO_CHAR(DOC_ALL) || ', отсканированно: ' || TO_CHAR(DOC_SCAN);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_COLLECT_BEGIN (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+  DBMS_OUTPUT.ENABLE;
+  UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.dater=sysdate, px.cd_nab=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_COLLECT_END (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+  UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.dateu=sysdate, px.cd_nab=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_DOC_COLLECT (CD_Q B.JOB_ID_TYPE) as
+BCod number;
+DocFprice number;
+DocType varchar2(32):='';
+BEGIN
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF BCod!=-1 THEN
+     BEGIN
+      SELECT SUBSTR(DT.NM,1,32)
+      INTO DOCTYPE
+      FROM ABC.DOCTP DT, ABC.DOC d
+      WHERE D.BCODE=BCOD and DT.CD_C=D.TP;
+      Exception when no_data_found then -- null;
+         B.ADDHINT:='ВНИМАНИЕ ДОКУМЕНТ БЫЛ ИЗМЕНЕН !!!';
+     END;
+    B.CurrentDOCCOL:=B.CurrentDOCCOL+1;
+    B.DOCCOL(B.CurrentDOCCOL):=BCod;
+    SELECT /*+ INDEX(D DOC_B)*/ D.FPRICE
+    INTO DocFprice
+    FROM ABC.DOC D WHERE D.BCODE=BCod;
+    B.ADDHINT:='   '||DocType||'          СУММА = '||to_char(round(DocFprice,2));
+  END IF;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE SET_DOC_GETBACK (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod   number;
+cdc    number;
+cdw    number;
+SDT    number;
+BEGIN
+  USERID:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.date6=sysdate, px.cd_vod=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+    begin
+    insert into scan.docprocess(cd_a,num,vod_in,vod_in_date)
+           select d.cd_a, d.num, UserID, sysdate from abc.doc d where d.bcode=BCod;
+    Exception When DUP_VAL_ON_INDEX THEN
+     update scan.docprocess set vod_in_date=sysdate, vod_in=UserId
+        where (cd_a,num) in (select d.cd_a, d.num from abc.doc d where d.bcode=BCod);
+    end;
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+ ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE SET_DOC_GETOUT (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod   number;
+cdc    number;
+cdw    number;
+SDT    number;
+BEGIN
+  USERID:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.date3=sysdate, px.cd_vod=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+    begin
+    insert into scan.docprocess(cd_a,num,vod_in,vod_in_date)
+           select d.cd_a, d.num, UserID, sysdate from abc.doc d where d.bcode=BCod;
+    Exception When DUP_VAL_ON_INDEX THEN
+     update scan.docprocess set vod_in_date=sysdate, vod_in=UserId
+        where (cd_a,num) in (select d.cd_a, d.num from abc.doc d where d.bcode=BCod);
+    end;
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+ ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_DOC_PROCESS (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+  UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    begin
+    insert into scan.docprocess(cd_a,num,procstat,proccreator,proccre)
+           select d.cd_a, d.num, 1, UserId, sysdate from abc.doc d where d.bcode=BCod;
+    Exception When DUP_VAL_ON_INDEX THEN
+     update scan.docprocess set procstat=1, proccre=sysdate, proccreator=UserId
+        where (cd_a,num) in (select d.cd_a, d.num from abc.doc d where d.bcode=BCod);
+    end;
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_HUMAN_ACCEPT_PRINT (CD_Q B.JOB_ID_TYPE) IS
+USERID NUMBER;
+BCOD NUMBER;
+BEGIN
+  USERID:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+   UPDATE scan.PRN_DOC_EXT SET HUMAN_ACCEPT=SYSDATE WHERE (CD_A,NUM) =
+    (SELECT CD_A,NUM FROM ABC.DOC WHERE BCODE=BCOD AND ROWNUM=1);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_PACK_BEGIN (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+  UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.date2=sysdate, px.cd_pak=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_PACK_END (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+  UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.date3=sysdate, px.cd_pak=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_SHIPPED_OUT (CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod   number;
+cdc    number;
+cdw    number;
+SDT    number;
+BEGIN
+  USERID:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOC_BCODE');
+  IF UserID!=-1 AND BCod!=-1 THEN
+    update abc.pxdoc px set px.date4=sysdate, px.cd_vod=UserID
+    where px.cd_c in (select d.cd_c from abc.doc d where d.bcode=BCod);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+    begin
+    insert into scan.docprocess(cd_a,num,vod_out,vod_out_date)
+           select d.cd_a, d.num, UserID, sysdate from abc.doc d where d.bcode=BCod;
+    Exception When DUP_VAL_ON_INDEX THEN
+     update scan.docprocess set vod_out_date=sysdate, vod_out=UserId
+        where (cd_a,num) in (select d.cd_a, d.num from abc.doc d where d.bcode=BCod);
+    end;
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+ ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_TRUST_BACK(CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+ UserID:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+ BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_TRUST_CODE');
+ IF UserID!=-1 AND BCod!=-1 THEN
+  update scan.dover dv set dv.datachk=sysdate,dv.chk=1/*Доверенность принята от водителя*/
+  where dv.cd_a =BCOD;
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_TRUST_OUT(CD_Q B.JOB_ID_TYPE) as
+UserID number;
+BCod number;
+BEGIN
+ UserID:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+ BCOD:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_TRUST_CODE');
+ IF UserID!=-1 AND BCod!=-1 THEN
+  update scan.dover dv set dv.date0=sysdate,dv.prn=1/**/ --dv.cd_car=UserID
+  where dv.cd_a =BCOD;
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_WORK_IN (CD_Q scan.B.JOB_ID_TYPE) as
+ UserID number;
+BEGIN
+  UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+  IF UserID!=-1 THEN
+    insert into scantime(cd_a,event) values(userid,0);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      SET_WORK_OUT (CD_Q scan.B.JOB_ID_TYPE) as
+ UserID number;
+BEGIN
+ UserId:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_USERID');
+ IF UserID!=-1 THEN
+  insert into scantime(cd_a,event) values(userid,1);
+    IF SQL%RowCount=0 THEN
+      Raise B.Exit_on_error;
+    END IF;
+    commit;
+  ELSE
+    Raise B.Exit_on_error;
+  END IF;
+  Exception When B.Exit_on_error Then
+    B.AddHint:='Error! Не обработан!';
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE      TRANS (CD_Q B.JOB_ID_TYPE) as
+Type DocType is record (DocT              abc.doc.tp%TYPE,
+                        DocCDC            abc.doc.cd_c%TYPE,
+                        DocNum            abc.doc.num%TYPE,
+                        DocCDA            abc.doc.cd_a%TYPE,
+                        DocFprice         abc.doc.fprice%TYPE);
+CDOC DocType;
+BCod              number:=83;
+EnableTrans       number;
+CDCOUT            number;
+ErrorTrans        exception;
+TRSecId           abc.transact.sec_id%TYPE;
+CountGoodTrans    number(5):=0;
+CountErrorTrans   number(5):=0;
+CountDisableTrans number(5):=0;
+CountErrorDoc     number(5):=0;
+DisableTransDocs  varchar2(2000):='';
+ErrorTransDocs    varchar2(2000):='';
+BEGIN--TRANS
+  BCod:=B.GET_DATA_VALUE_BY_NAME(CD_Q,'DD_DOCTP_CDC');
+  IF GET_DOCTYPE(BCod) is null THEN
+    Raise ErrorTrans;
+  END IF;
+  IF BCod=-1 THEN
+    Raise ErrorTrans;
+  END IF;
+  FOR i in 1..B.CurrentDOCCOL
+  Loop
+    begin
+      --Документ
+      begin
+        SELECT /*+ INDEX(D DOC_B)*/ D.TP,D.CD_C,D.CD_A,D.NUM,D.FPRICE
+        INTO CDOC.DocT, CDOC.DocCDC, CDOC.DocCDA, CDOC.DocNUM, CDOC.DocFprice
+        FROM ABC.DOC D WHERE D.BCODE=B.DOCCOL(i);
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------
+        IF CDOC.DocT = 81 THEN
+          BCod := 83;
+        ELSIF CDOC.DocT = 100 THEN
+          BCod := 101;
+        END IF;
+--------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------            
+        Exception
+          When NO_DATA_FOUND THEN CountErrorDoc:=CountErrorDoc+1;
+      end;
+      begin
+        --есть ли такая трансформация
+        select SEC_ID into TRSecId from abc.transact where tp_1=CDOC.DocT and tp_2=BCod;
+        Exception When no_data_found then
+          begin
+            TRSecId:=-1;
+          end;
+      end;
+      --проверяем права
+      select count(*) into EnableTrans
+          from abc.axgrp ax, abc.rights r, abc.idxgrp x, abc.idgrp i
+          where
+          ax.cd_a=UID
+          and ax.cd_g=r.cd_g
+          and r.status=1
+          and r.r=1
+          and x.cd_i=r.cd_i
+          and x.sec_id=TRSecId
+          and i.cd_i=r.cd_i
+          and rownum=1;
+      IF EnableTrans=0 THEN
+        select count(*) into EnableTrans
+        from abc.agent
+        where
+        cd_a=UID
+        and adm=1
+        and TRSecId>0;
+      END IF;
+      --Если права есть
+      IF EnableTrans>0 THEN
+        CDCOUT:=null;
+        begin
+          abc.trans$.adoc(CD_in => CDOC.DocCDC,
+                          TP_out => BCod,
+                          cd_out => CDCOUT);
+          abc.ulst(CDOC.DocCDC);                
+          CountGoodTrans:=CountGoodTrans+1;
+/*          Insert Into Scan.Trans_Log Values(sysdate,uid,CDOC.DocCDA, CDOC.DocNUM, 
+            CDOC.DocT);*/
+          Exception when others then
+            begin
+              CountErrorTrans:=CountErrorTrans+1;
+              ErrorTransDocs:=ErrorTransDocs||', '||CDOC.DocCDA||'/'||CDOC.DocNUM;
+            end;
+        end;
+      ELSE----IF EnableTrans>0
+        CountDisableTrans:=CountDisableTrans+1;
+        DisableTransDocs:=DisableTransDocs||', '||CDOC.DocCDA||'/'||CDOC.DocNUM;
+      END IF;--IF EnableTrans>0
+    end;
+  End Loop;--FOR i in 1..B.CurrentDOCCOL
+  B.DOCCOL.Delete;
+  B.CurrentDOCCOL:=0;
+  B.ADDHINT:='ТРАНСФОРМИРОВАНО - '||CountGoodTrans||'   (Err-'||CountErrorTrans||ErrorTransDocs||'  Disable-'||CountDisableTrans||DisableTransDocs||')';
+  Exception
+    When ErrorTrans then B.ADDHINT:='ERRORTRANS!';
+    When Others then
+      BEGIN
+        B.DOCCOL.Delete;
+        B.CurrentDOCCOL:=0;
+        B.ADDHINT:=sqlerrm||'   VARIABLES: '||B.CurrentDOCCOL||' '||CountGoodTrans||' '||CountErrorTrans||' '||CountDisableTrans;
+      END;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function       DOCNUM_TO_EAN13 ( p_num IN NUMBER) RETURN  VARCHAR2 IS
+BEGIN
+   RETURN SCAN.B.CONVERT_EAN13('0002'||LPAD(TO_CHAR(NVL(p_num,0)),8,'0'));
+EXCEPTION
+   WHEN OTHERS THEN
+       RETURN '!`20000|PPPPPx';
+END; -- Function NUM_TO_EAN13
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION      GET_DOCNUMBER(BCOD NUMBER) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(32);
+BEGIN
+ SELECT /*+ INDEX(D DOC_B)*/ D.CD_A||'/'||D.NUM
+  INTO RESULT
+  FROM ABC.DOC D
+  WHERE D.BCODE=BCOD;  
+  RETURN RESULT;
+Exception when no_data_found then  -- null;
+  B.ADDHINT:='ВНИМАНИЕ ДОКУМЕНТ БЫЛ ИЗМЕНЕН !!!';    
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION GET_DOCTYPE(BCOD NUMBER) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(32);
+BEGIN
+ SELECT SUBSTR(D.NM,1,32)
+  INTO RESULT
+  FROM ABC.DOCTP D
+  WHERE D.CD_C=BCOD;
+  RETURN RESULT;
+  Exception when no_data_found then return(null);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION GET_TASK_NUM(BCOD NUMBER) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(32);
+BEGIN
+ RESULT := TO_CHAR(BCOD);
+ B.ADDHINT:= TO_CHAR(BCOD);
+ RETURN RESULT; 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION GET_TRUSTNUMBER(BCOD NUMBER) RETURN VARCHAR2 IS
+BEGIN
+  RETURN to_char(BCOD);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION GET_USERNAME(USER_ID NUMBER) RETURN VARCHAR2 IS
+ RESULT VARCHAR2(32):='';
+BEGIN
+ IF USER_ID=64
+  THEN
+   SELECT NM INTO RESULT FROM V$APTUSR WHERE CD_A=12;--USER_ID;
+  ELSE
+   SELECT NM INTO RESULT FROM V$APTUSR WHERE CD_A=USER_ID;
+ END IF;
+  RETURN RESULT;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION      PATHNUM_TO_EAN ( p_num IN NUMBER) RETURN  VARCHAR2 IS
+BEGIN
+   RETURN SCAN.B.CONVERT_EAN13('0005'||LPAD(TO_CHAR(NVL(p_num,0)),8,'0'));
+EXCEPTION
+   WHEN OTHERS THEN
+       RETURN '!`20000|PPPPPx';
+END; -- Function NUM_TO_EAN13
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE VIEW V$APTUSR
+AS 
+select au.cd_a,au.tp,au.nm,aut.nm_tp
+from abc.aptusr au,abc.aptusrtp aut
+where au.tp = aut.tp;
+
+
+CREATE OR REPLACE VIEW V$SCANTIME
+AS 
+SELECT
+    VT.EVENT,
+    VT.WHEN,
+    A.NM,
+    A.NM_TP
+ FROM SCANTIME/*@TRAIN*/ VT, V$APTUSR/*@TRAIN*/ A
+WHERE A.CD_A=VT.CD_A(+);
+
+
+CREATE OR REPLACE VIEW VE$SCANTIME
+AS 
+SELECT
+    VT.EVENT,
+    VT.WHEN,
+    A.NM,
+    A.NM_TP
+ FROM SCANTIME/*@TRAIN*/ VT, V$APTUSR/*@TRAIN*/ A
+WHERE
+trunc(VT.when)=trunc(sysdate)
+and VT.event=0
+and A.CD_A=VT.CD_A(+);
+
+
+CREATE OR REPLACE TRIGGER bdat_pk
+BEFORE INSERT
+ON bdat
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+Begin
+ select bdata_c.nextval into :new.cd_dd from dual;
+End;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER blogs_bi
+BEFORE INSERT
+ON blogs
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+BEGIN
+ :NEW.CD_Q := B.CURRENT_JOB_ID;
+ IF :NEW.CREDATE IS NULL THEN :NEW.CREDATE :=SYSDATE; END IF;
+ :NEW.USER_ID:=B.GET_USER_ID(B.CURRENT_JOB_ID);
+ IF :NEW.USER_ID IS NULL THEN
+  :NEW.USER_ID := UID;
+ END IF;
+/*
+ IF :NEW.CODE_TYPE = 1
+  THEN
+   :NEW.CD_ID := GET_COMMAND_ID_FROM_QUEUE(:NEW.CD_Q);
+  ELSE
+   :NEW.CD_ID := GET_COMMAND_ID_FROM_QUEUE(:NEW.CD_Q);
+*/
+END;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER commands_bi
+BEFORE INSERT
+ON bcommands
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+BEGIN
+ SELECT BCOMMANDS_C.NEXTVAL INTO :NEW.CD_CM FROM DUAL;
+END;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER dp_bu
+BEFORE UPDATE
+ON scan.docprocess
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+Begin
+  IF :OLD.PROCCRE is not null THEN
+    :NEW.PROCCRE:=:OLD.PROCCRE;
+    :NEW.PROCCREATOR:=:OLD.PROCCREATOR;
+  END IF;
+  IF :NEW.PROCSTAT=0 THEN
+    :NEW.PROCMOD:=sysdate;
+  ELSE
+    :NEW.PROCMOD:=null;
+  END IF;
+End;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER scantime_bi
+BEFORE INSERT
+ON scantime
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+BEGIN
+ SELECT SYSDT INTO :NEW.SYSDT FROM ABC.CALENDAR WHERE TRUNC(DAT)=TRUNC(:NEW.WHEN);
+END;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER set_car_c
+BEFORE INSERT
+ON scan.car
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+begin
+  select car_c.nextval into :new.cd_car from sys.dual;
+  insert into scan.agtxdrv (cd_d,cd_a) values (:new.cd_car,0);
+end;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER set_dover_c
+BEFORE INSERT
+ON scan.dover
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+Begin
+  select scan.dover_c.nextval into :new.cd_a from sys.dual;
+End;
+/
+SHOW ERRORS;
+
+
+
+ALTER TABLE AGTXDRV ADD (
+  CONSTRAINT EXPID_P
+ PRIMARY KEY
+ (CD_D, CD_A));
+
+ALTER TABLE BCOMMANDS ADD (
+  CONSTRAINT BCOMMANDS_PK
+ PRIMARY KEY
+ (CD_CM));
+
+ALTER TABLE CAR ADD (
+  CONSTRAINT SIM_C
+ CHECK ( NVL(SIM,0) BETWEEN 0 AND 3  ),
+  CONSTRAINT CAR_C
+ PRIMARY KEY
+ (CD_CAR));
+
+ALTER TABLE SCANTIME ADD (
+  CONSTRAINT SCANTIME_PK
+ PRIMARY KEY
+ (SYSDT, EVENT, WHEN, CD_A));
+
+ALTER TABLE DOVER ADD (
+  CONSTRAINT DOVER_CAR 
+ FOREIGN KEY (CD_CAR) 
+ REFERENCES CAR (CD_CAR));
+
+ALTER TABLE SCANTIME ADD (
+  CONSTRAINT SCANTIME_CALENDAR_FK 
+ FOREIGN KEY (SYSDT) 
+ REFERENCES ABC.CALENDAR (SYSDT));
+
+GRANT EXECUTE ON  DOCNUM_TO_EAN13 TO ABC;
+
+GRANT EXECUTE ON  PATHNUM_TO_EAN TO ABC;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  SAVE_BCODE TO ABC;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  SAVE_DATE0 TO ABC;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  WORKTIME TO ABC WITH GRANT OPTION;
+
+GRANT INSERT, SELECT ON  SAVE_BCODE TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  B TO ABC_OPER;
+
+GRANT EXECUTE ON  DOCNUM_TO_EAN13 TO ABC_OPER;
+
+GRANT SELECT ON  DOCPROCESS TO ABC_OPER;
+
+GRANT EXECUTE ON  PATHNUM_TO_EAN TO ABC_OPER;
+
+GRANT SELECT ON  PRN_DOC_EXT TO ABC_OPER;
+
+GRANT INSERT, SELECT ON  SAVE_BCODE TO ABC_OPER;
+
+GRANT SELECT ON  TRANS_LOG TO ABC_OPER;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  WORKTIME TO ABC_OPER;
+
+GRANT EXECUTE ON  DOCNUM_TO_EAN13 TO ABC_P34_MANAGERS;
+
+GRANT INSERT, SELECT ON  SAVE_BCODE TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  B TO ABC_PAY;
+
+GRANT EXECUTE ON  DOCNUM_TO_EAN13 TO ABC_REPORT;
+
+GRANT SELECT ON  DOCPROCESS TO ABC_REPORT;
+
+GRANT EXECUTE ON  PATHNUM_TO_EAN TO ABC_REPORT;
+
+GRANT INSERT, SELECT ON  SAVE_BCODE TO ABC_REPORT;
+
+GRANT SELECT ON  TRANS_LOG TO ABC_REPORT;
+
+GRANT SELECT ON  SCANTIME TO MPAVEL;
+
+GRANT EXECUTE ON  PATHNUM_TO_EAN TO TASKER;
+

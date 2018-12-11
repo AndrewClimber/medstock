@@ -1,0 +1,12608 @@
+--
+-- Create Schema Script 
+--   Database Version   : 9.2.0.8.0 
+--   TOAD Version       : 8.6.0.38 
+--   DB Connect String  : BIGFOOT 
+--   Schema             : AKA 
+--   Script Created by  : SYS 
+--   Script Created at  : 22.11.2007 13:29:49 
+--   Physical Location  :  
+--   Notes              :  
+--
+
+-- Object Counts: 
+--   Functions: 67      Lines of Code: 2095 
+--   Indexes: 12        Columns: 21         
+--   Object Privileges: 307 
+--   Packages: 4        Lines of Code: 45 
+--   Package Bodies: 1  Lines of Code: 113 
+--   Procedures: 56     Lines of Code: 5204 
+--   Sequences: 3 
+--   Tables: 120        Columns: 727        Constraints: 15     
+--   Triggers: 3 
+--   Views: 4           
+
+
+CREATE SEQUENCE HUNGAR_RUN_SEQ
+  START WITH 3766
+  MAXVALUE 99999999999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE SEQUENCE LOAD_SERII_SEQ
+  START WITH 84
+  MAXVALUE 9999999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE SEQUENCE SER_DOC_SEQ
+  START WITH 28145
+  MAXVALUE 9999999999999999
+  MINVALUE 1
+  NOCYCLE
+  NOCACHE
+  NOORDER;
+
+
+CREATE TABLE BAD_BOYS
+(
+  CD_A    NUMBER,
+  STATUS  VARCHAR2(4 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BAD_CLIENT_TMP
+(
+  CD_U    NUMBER                                NOT NULL,
+  NM_U    VARCHAR2(128 BYTE)                    NOT NULL,
+  STATUS  NUMBER                                NOT NULL,
+  DATE_C  DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BAD_OTGR
+(
+  OTGR_TP       NUMBER(4)                       NOT NULL,
+  OTGR_CD_A     NUMBER(8)                       NOT NULL,
+  OGR_NUM       NUMBER(4)                       NOT NULL,
+  OTGR_DATE0    DATE                            NOT NULL,
+  OPL_TP        NUMBER(4)                       NOT NULL,
+  OPL_CD_A      NUMBER(8)                       NOT NULL,
+  OPL_NUM       NUMBER(4)                       NOT NULL,
+  OPL_DATE0     DATE                            NOT NULL,
+  LPAY_MODDATE  DATE,
+  LPAY_FPRICE   NUMBER(15,4)                    NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BALANCE
+(
+  NN     NUMBER,
+  DATEO  DATE,
+  DEBO   NUMBER(10,2),
+  KREDO  NUMBER(10,2),
+  DATE0  DATE,
+  NAKL   CHAR(12 BYTE),
+  VID    CHAR(4 BYTE),
+  NDS00  NUMBER(10,2),
+  NDS20  NUMBER(10,2),
+  NDS10  NUMBER(10,2),
+  DOLG   NUMBER(10,2)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BALANCE1
+(
+  NN     NUMBER,
+  DATEP  DATE,
+  KREDB  NUMBER(10,2),
+  KREDN  NUMBER(10,2),
+  PLATN  VARCHAR2(10 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BBB
+(
+  F  NUMBER(16)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE BENGEY
+(
+  CD_M   NUMBER,
+  PRICE  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CDM_SERIA
+(
+  CD_M  NUMBER,
+  NM_S  VARCHAR2(64 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CD_E_244
+(
+  CD_C  NUMBER(8),
+  CD_E  NUMBER(10)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CD_E_NULL
+(
+  CD_C  NUMBER(8)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CHK_ABC_1C
+(
+  CD_C      NUMBER,
+  CD_C_DOC  NUMBER,
+  FLAG      NUMBER,
+  DAT       DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLIBAL1
+(
+  I      NUMBER,
+  NDOC   VARCHAR2(30 BYTE),
+  DDAT   VARCHAR2(30 BYTE),
+  BANK   NUMBER,
+  CASHE  NUMBER,
+  D83    NUMBER,
+  D81    NUMBER,
+  D93    NUMBER,
+  TOTAL  VARCHAR2(30 BYTE),
+  CD_A   NUMBER,
+  NUM    NUMBER,
+  DAT    DATE,
+  TP     NUMBER,
+  D337   NUMBER,
+  D336   NUMBER,
+  D463   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          245592K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLIBAL1_TEST
+(
+  I      NUMBER,
+  NDOC   VARCHAR2(30 BYTE),
+  DDAT   VARCHAR2(30 BYTE),
+  BANK   NUMBER,
+  CASHE  NUMBER,
+  D83    NUMBER,
+  D81    NUMBER,
+  D93    NUMBER,
+  TOTAL  VARCHAR2(30 BYTE),
+  CD_A   NUMBER,
+  NUM    NUMBER,
+  DAT    DATE,
+  TP     NUMBER,
+  D337   NUMBER,
+  D336   NUMBER,
+  D463   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLIBAL3
+(
+  I      NUMBER,
+  NDOC   VARCHAR2(30 BYTE),
+  DDAT   VARCHAR2(30 BYTE),
+  BANK   NUMBER,
+  CASHE  NUMBER,
+  D83    NUMBER,
+  D93    NUMBER,
+  TOTAL  VARCHAR2(30 BYTE),
+  CD_A   NUMBER,
+  NUM    NUMBER,
+  DAT    DATE,
+  TP     NUMBER,
+  D337   NUMBER,
+  D336   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLIBAL3A
+(
+  I      NUMBER,
+  NDOC   VARCHAR2(30 BYTE),
+  DDAT   VARCHAR2(30 BYTE),
+  BANK   NUMBER,
+  CASHE  NUMBER,
+  D83    NUMBER,
+  D93    NUMBER,
+  TOTAL  NUMBER,
+  CD_A   NUMBER,
+  NUM    NUMBER,
+  DAT    DATE,
+  TP     NUMBER,
+  D337   NUMBER,
+  D336   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLIBAL4
+(
+  CD_U    NUMBER,
+  DEBET   NUMBER,
+  CREDIT  NUMBER,
+  SALDO   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          860K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLIBAL5
+(
+  CD_U   NUMBER,
+  DEB1   NUMBER,
+  CRED1  NUMBER,
+  DEB2   NUMBER,
+  CRED2  NUMBER,
+  DEB3   NUMBER,
+  CRED3  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLI_BAL
+(
+  CRE_DE      NUMBER,
+  CRE_DE_S    VARCHAR2(20 BYTE),
+  N_DOC       VARCHAR2(30 BYTE),
+  SUMMA       NUMBER,
+  N_PRIV_DOC  VARCHAR2(30 BYTE),
+  DAT         DATE,
+  DOC_NAM     VARCHAR2(30 BYTE),
+  CDUSR       NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          1912K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLI_BALANS
+(
+  DD  DATE,
+  DN  VARCHAR2(20 BYTE),
+  DS  NUMBER,
+  DT  VARCHAR2(250 BYTE),
+  CD  DATE,
+  CN  VARCHAR2(20 BYTE),
+  CS  NUMBER,
+  CT  VARCHAR2(250 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CLI_BAL_CDU
+(
+  CDUSR  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CONCURENT_PRC
+(
+  CD_PRC  NUMBER,
+  CD_M    NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CREDIT
+(
+  CD_U  NUMBER,
+  CRED  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE CSERT
+(
+  CD_M  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE D31_TMP
+(
+  CD_C   NUMBER(8),
+  CD_A   NUMBER(8)                              NOT NULL,
+  NUM    NUMBER(4)                              NOT NULL,
+  DATE0  DATE                                   NOT NULL,
+  DATE8  DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DDD
+(
+  I      NUMBER,
+  NDOC   VARCHAR2(30 BYTE),
+  DDAT   VARCHAR2(30 BYTE),
+  BANK   NUMBER,
+  CASHE  NUMBER,
+  D83    NUMBER,
+  D81    NUMBER,
+  D93    NUMBER,
+  TOTAL  VARCHAR2(30 BYTE),
+  CD_A   NUMBER,
+  NUM    NUMBER,
+  DAT    DATE,
+  TP     NUMBER,
+  D337   NUMBER,
+  D336   NUMBER,
+  D463   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          112K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DEBIT
+(
+  CD_U  NUMBER,
+  DEB   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DEB_KRE
+(
+  CD_U    NUMBER,
+  NM_U    VARCHAR2(64 BYTE),
+  SUMMA   NUMBER,
+  SUMMA1  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DFEP_10
+(
+  CD_D  NUMBER,
+  CNT   NUMBER,
+  DSUM  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DOCDISCNT
+(
+  NM_U     VARCHAR2(100 BYTE),
+  MANAGER  VARCHAR2(20 BYTE),
+  N_DOC    VARCHAR2(20 BYTE),
+  DATE0    DATE,
+  DATED    DATE,
+  FPRICE   NUMBER,
+  NM_D     VARCHAR2(50 BYTE),
+  PROC     NUMBER,
+  RPRICE   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          4292K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DOC_81_CDE
+(
+  CD_C  NUMBER,
+  CD_A  NUMBER,
+  NUM   NUMBER,
+  CD_E  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DOC_LPAY
+(
+  CD_C      NUMBER(8),
+  CD_A      NUMBER(8)                           NOT NULL,
+  YFPRICE   NUMBER(15,4)                        NOT NULL,
+  SUM_LPAY  NUMBER,
+  RAZDEL    VARCHAR2(30 BYTE),
+  KLIENT    VARCHAR2(25 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DOC_OTCH_CDE
+(
+  CD_ER  NUMBER,
+  CD_C   NUMBER,
+  CD_A   NUMBER,
+  NUM    NUMBER,
+  TP     NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DSMED
+(
+  CD_M          NUMBER(5)                       NOT NULL,
+  CD_S          NUMBER(4),
+  NORMA         NUMBER(10),
+  MAX           NUMBER(10),
+  MIN           NUMBER(10),
+  DOC_AREA      NUMBER(4),
+  CD_L          NUMBER(4),
+  ISDIR         NUMBER(2),
+  MIN_DAY_MOVE  NUMBER(2)                       NOT NULL,
+  PROC          NUMBER(4,1),
+  SUBSEC        VARCHAR2(66 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          6412K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE DVIGENIE_NK
+(
+  CD_M        NUMBER(8)                         NOT NULL,
+  NK          NUMBER(8),
+  MK          NUMBER(8),
+  KOL_B       NUMBER,
+  PRIHOD      NUMBER,
+  PRIHOD_ST   NUMBER,
+  UHOD        NUMBER,
+  UHOD_ST     NUMBER,
+  VOZV_CL     NUMBER,
+  VOZV_CL_ST  NUMBER,
+  SPIS        NUMBER,
+  SPIS_ST     NUMBER,
+  VOZV_PR     NUMBER,
+  VOZV_PR_ST  NUMBER,
+  KOL_E       NUMBER,
+  SR_UHOD     NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          180K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE EG_60
+(
+  NUM  NUMBER,
+  TXT  VARCHAR2(10 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE EXP_TEST
+(
+  CD_A  NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          80K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE F29_1_TBL
+(
+  NC               NUMBER,
+  MC               NUMBER,
+  NM_M             VARCHAR2(128 BYTE),
+  NM_PROD          VARCHAR2(128 BYTE),
+  NC_PRICE         NUMBER,
+  MC_PRICE         NUMBER,
+  IN_PACK          NUMBER,
+  IN_MONEY         NUMBER,
+  OUT_CLI_MONEY    NUMBER,
+  IN_CLI_MONEY     NUMBER,
+  OUT_BRK_MONEY    NUMBER,
+  END_SALDO_PACK   NUMBER,
+  END_SALDO_MONEY  NUMBER,
+  AVRG6            NUMBER,
+  OUT_MOSCOW       NUMBER,
+  BEG_SALDO_PACK   NUMBER,
+  BEG_SALDO_MONEY  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          580K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE F69INCOME_TBL
+(
+  CD_M   NUMBER,
+  DATEW  DATE,
+  QUANT  NUMBER,
+  TOTAL  NUMBER,
+  AVRGM  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          860K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE F69MAIN_TBL
+(
+  CD_M    NUMBER,
+  NM_M    VARCHAR2(128 BYTE),
+  Q_PLAN  NUMBER,
+  FPAY    NUMBER,
+  PRC     NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE F6_AUTO
+(
+  FIL_CDU         NUMBER(10)                    NOT NULL,
+  DT_O            DATE                          NOT NULL,
+  CD_U            NUMBER(10)                    NOT NULL,
+  DZ_DO_10D       NUMBER                        NOT NULL,
+  DZ_OT10_DO_MES  NUMBER                        NOT NULL,
+  DZ_OT1_DO2      NUMBER                        NOT NULL,
+  DZ_OT2_DO3      NUMBER                        NOT NULL,
+  DZ_OT3_DO4      NUMBER                        NOT NULL,
+  DZ_OT4_DO5      NUMBER                        NOT NULL,
+  DZ_OT5_DO6      NUMBER                        NOT NULL,
+  DZ_OT6          NUMBER                        NOT NULL,
+  UTV_SPS_DZ      NUMBER                        NOT NULL,
+  NPRO_DZ         NUMBER                        NOT NULL,
+  K_DZ1           NUMBER                        NOT NULL,
+  K_DZ3           NUMBER                        NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE F82_DATE
+(
+  D1  DATE,
+  D2  DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE FAK_CLI_TBL
+(
+  CD_A      NUMBER,
+  NUM       NUMBER,
+  FAK_SUMM  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE FORM6
+(
+  CD_U           NUMBER(6)                      NOT NULL,
+  DO_10D_RUR     NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  DO_10D_USD     NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT10D_DO1_RUR  NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT10D_DO1_USD  NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT1_DO2_RUR    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT1_DO2_USD    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT2_DO3_RUR    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT2_DO3_USD    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT3_DO4_RUR    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT3_DO4_USD    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT4_DO5_RUR    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT4_DO5_USD    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT5_DO6_RUR    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT5_DO6_USD    NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT6_RUR        NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OT6_USD        NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  SPIS_RUR       NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  SPIS_USD       NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  NEPRO_RUR      NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  NEPRO_USD      NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  MES_RUR        NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  MES_USD        NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OBSH_RUR       NUMBER(10)                     DEFAULT 0                     NOT NULL,
+  OBSH_USD       NUMBER(10)                     DEFAULT 0                     NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          72K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE HUNGAR_REG
+(
+  CD_M      NUMBER                              NOT NULL,
+  CD_S      NUMBER                              NOT NULL,
+  REP_DATE  DATE,
+  DATE1     DATE,
+  DATE2     DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          360K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE HUNGAR_RESULT
+(
+  CD_M     NUMBER,
+  NM_M     VARCHAR2(128 BYTE),
+  NM_PROD  VARCHAR2(64 BYTE),
+  NM_S     VARCHAR2(64 BYTE),
+  NM_LAB   VARCHAR2(35 BYTE),
+  REGN     VARCHAR2(32 BYTE),
+  DT_ACT   DATE,
+  DT_ADD   DATE,
+  DATE0    DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          4292K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE IW_EVENT_CATEGORIES
+(
+  NAME      VARCHAR2(64 BYTE),
+  CATEGORY  VARCHAR2(40 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE IW_LOCK_TREE
+(
+  USER_AUDSID   NUMBER,
+  SEQUENCE_ID   NUMBER,
+  TREE_DEPTH    NUMBER,
+  SID           NUMBER,
+  SERIAL        NUMBER,
+  USERNAME      VARCHAR2(30 BYTE),
+  PID           VARCHAR2(16 BYTE),
+  LOCK_TYPE     VARCHAR2(30 BYTE),
+  REQUEST_MODE  VARCHAR2(30 BYTE),
+  OBJECT_NAME   VARCHAR2(30 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE IW_MONITOR_VERSION
+(
+  MONITOR_VERSION_STRING  VARCHAR2(20 BYTE),
+  ORACLE_VERSION_STRING   VARCHAR2(16 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE IW_PLAN_TABLE
+(
+  STATEMENT_ID     VARCHAR2(60 BYTE),
+  TIMESTAMP        DATE,
+  REMARKS          VARCHAR2(2000 BYTE),
+  OPERATION        VARCHAR2(30 BYTE),
+  OPTIONS          VARCHAR2(30 BYTE),
+  OBJECT_NODE      VARCHAR2(128 BYTE),
+  OBJECT_OWNER     VARCHAR2(30 BYTE),
+  OBJECT_NAME      VARCHAR2(30 BYTE),
+  OBJECT_INSTANCE  NUMBER,
+  OBJECT_TYPE      VARCHAR2(30 BYTE),
+  SEARCH_COLUMNS   NUMBER,
+  ID               NUMBER,
+  PARENT_ID        NUMBER,
+  POSITION         NUMBER,
+  OTHER            LONG,
+  COLLECTOR        VARCHAR2(31 BYTE),
+  ADDRESS          VARCHAR2(16 BYTE),
+  HASH_VALUE       NUMBER,
+  OPTIMIZER        VARCHAR2(255 BYTE),
+  COST             NUMBER,
+  CARDINALITY      NUMBER,
+  BYTES            NUMBER,
+  OTHER_TAG        VARCHAR2(255 BYTE),
+  PARTITION_START  VARCHAR2(255 BYTE),
+  PARTITION_STOP   VARCHAR2(255 BYTE),
+  PARTITION_ID     INTEGER,
+  JOIN_TEXT        VARCHAR2(1000 BYTE),
+  FILTER_TEXT      VARCHAR2(1000 BYTE),
+  VIEW_TEXT        VARCHAR2(1000 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE KDS
+(
+  MOS_CD_C  NUMBER,
+  MOS_CD_A  NUMBER,
+  MOS_NUM   NUMBER,
+  MOS_MNTH  NUMBER,
+  MOS_CSUM  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE KEMEROVO_REG
+(
+  CD_M      NUMBER                              NOT NULL,
+  CD_S      NUMBER                              NOT NULL,
+  REP_DATE  DATE,
+  DATE1     DATE,
+  DATE2     DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          200K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE KEMEROVO_RESULT
+(
+  CD_M     NUMBER                               NOT NULL,
+  NM_M     VARCHAR2(128 BYTE),
+  NM_PROD  VARCHAR2(64 BYTE),
+  NM_S     VARCHAR2(64 BYTE)                    NOT NULL,
+  NM_LAB   VARCHAR2(35 BYTE),
+  REGN     VARCHAR2(32 BYTE),
+  DT_ACT   DATE,
+  DT_ADD   DATE,
+  DATE0    DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          2140K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE L0
+(
+  CD_M    NUMBER,
+  NM_S    VARCHAR2(64 BYTE),
+  DATE0   DATE,
+  CD_LAB  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE LCH
+(
+  CD_C   NUMBER(8),
+  CD_A   NUMBER(8)                              NOT NULL,
+  NUM    NUMBER(4)                              NOT NULL,
+  DATE0  DATE                                   NOT NULL,
+  DATE8  DATE,
+  CD_E   NUMBER(10)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE LST_FOR_CONTROL_LIST
+(
+  CD_C  NUMBER(8)                               NOT NULL,
+  CD_M  NUMBER(6)                               NOT NULL,
+  NUM   NUMBER(6)                               NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE MAINMOS
+(
+  MOS_CD_A     NUMBER,
+  MOS_NUM      NUMBER,
+  MOS_MNTH     NUMBER,
+  MOS_SYSYEAR  NUMBER,
+  MOS_CSUM     NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE MSK_OFFER
+(
+  CD_M  NUMBER,
+  AMN1  NUMBER,
+  AMN2  NUMBER,
+  AMN3  NUMBER,
+  AMN4  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE NDS_CDA
+(
+  CD_A  NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OPLT_NAK_TBL
+(
+  DAT   DATE,
+  RUB   NUMBER(22,2),
+  BAKS  NUMBER(22,2)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OPL_TBL
+(
+  DAT   DATE,
+  RUB   NUMBER(22,2),
+  BAKS  NUMBER(22,2),
+  FL    NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE ORD
+(
+  ORDNO  NUMBER(10)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OSG
+(
+  CD_M  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OTGR_NAK_TBL
+(
+  DAT   DATE,
+  RUB   NUMBER(22,2),
+  BAKS  NUMBER(22,2)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OTGR_REG
+(
+  DAT        DATE,
+  SEVERSK    NUMBER,
+  TOMSK      NUMBER,
+  TOMSK_REG  NUMBER,
+  STREJ      NUMBER,
+  N_KEM      NUMBER,
+  KEM        NUMBER,
+  S_KEM      NUMBER,
+  TUMEN      NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OTGR_REG_NAK
+(
+  DAT      DATE,
+  SEV      NUMBER,
+  TSK      NUMBER,
+  TSK_REG  NUMBER,
+  STRJ     NUMBER,
+  N_KEM    NUMBER,
+  KEM      NUMBER,
+  S_KEM    NUMBER,
+  TUM      NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OTGR_TBL
+(
+  DAT   DATE,
+  RUB   NUMBER(22,2),
+  BAKS  NUMBER(22,2),
+  FL    NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OTKAT_OTPUSH
+(
+  CD_C    NUMBER(8),
+  TP      NUMBER(4)                             NOT NULL,
+  DATE0   DATE                                  NOT NULL,
+  CD_A    NUMBER(8)                             NOT NULL,
+  NUM     NUMBER(4)                             NOT NULL,
+  DATE8   DATE,
+  NM_U    VARCHAR2(64 BYTE)                     NOT NULL,
+  FPRICE  NUMBER(15,4)                          NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE OUT_TT
+(
+  ID    NUMBER,
+  TEXT  VARCHAR2(2000 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PAKA
+(
+  D   DATE,
+  S   NUMBER,
+  DI  NUMBER,
+  PR  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PASPORT_SKLD
+(
+  DAT    DATE,
+  BAKS   NUMBER,
+  DOCS   NUMBER,
+  QUANT  NUMBER,
+  POS1   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PKKN_TBL
+(
+  CD_M      NUMBER,
+  NM_M      VARCHAR2(128 BYTE),
+  NM_PROD   VARCHAR2(64 BYTE),
+  IN_       NUMBER,
+  CD_U      NUMBER,
+  OUT_      NUMBER,
+  CD_       NUMBER,
+  CD_1      NUMBER,
+  SALDO_IN  NUMBER,
+  NM_MS     VARCHAR2(128 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PKKN_TBL1
+(
+  CD_M      NUMBER,
+  NM_M      VARCHAR2(128 BYTE),
+  NM_PROD   VARCHAR2(64 BYTE),
+  IN_       NUMBER,
+  CD_U      NUMBER,
+  OUT_      NUMBER,
+  CD_       NUMBER,
+  CD_1      NUMBER,
+  SALDO_IN  NUMBER,
+  NM_MS     VARCHAR2(128 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PKKN_TBL2
+(
+  CD_M       NUMBER,
+  NM_M       VARCHAR2(128 BYTE),
+  NM_PROD    VARCHAR2(64 BYTE),
+  SALDO_IN   NUMBER,
+  INCOME     NUMBER,
+  OUTCOME    NUMBER,
+  CD_U       NUMBER,
+  NM_U       VARCHAR2(64 BYTE),
+  N_LIC      VARCHAR2(20 BYTE),
+  LIC_DEAL   VARCHAR2(120 BYTE),
+  FIRST      NUMBER,
+  OUT_TOTAL  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          612K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PKKN_TOTAL
+(
+  CD_M       NUMBER,
+  OUT_TOTAL  NUMBER,
+  SALDO_OUT  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PRE_OTSR_TBL
+(
+  PRE_VIVOZ     NUMBER,
+  PRE_PRIH      NUMBER,
+  OTSR_VIVOZ    NUMBER,
+  OTSR_PRIH     NUMBER,
+  PRE_VIVOZ10   NUMBER,
+  PRE_PRIH10    NUMBER,
+  OTSR_VIVOZ10  NUMBER,
+  OTSR_PRIH10   NUMBER,
+  CDU           NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          72K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PRICE_CTG
+(
+  CD_M     NUMBER,
+  NM_M     VARCHAR2(128 BYTE),
+  CD_X     NUMBER,
+  CD_CTG   NUMBER,
+  NM_CTG   VARCHAR2(150 BYTE),
+  NM_X     VARCHAR2(32 BYTE),
+  NM_PROD  VARCHAR2(64 BYTE),
+  PRC_B    NUMBER,
+  PRC_R    NUMBER,
+  SPACK    VARCHAR2(64 BYTE),
+  CD_FL1   NUMBER,
+  CD_FL2   NUMBER,
+  MDATE    DATE,
+  CD_P     NUMBER,
+  N_COMM   NUMBER,
+  CD_PROD  NUMBER,
+  REGP     NUMBER,
+  SG       DATE,
+  PRC_SG   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          1912K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PRINT_DOC
+(
+  CD_C    NUMBER,
+  DATTIM  DATE,
+  CD_A    NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          2860K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PRNF
+(
+  CD_UP     NUMBER(4),
+  CD_F      NUMBER(4),
+  CLASS     NUMBER(4),
+  CD_P      NUMBER(4),
+  NAME      VARCHAR2(30 BYTE),
+  SEQ_ID    NUMBER(4),
+  OWNER     NUMBER(4),
+  PRN_MODE  NUMBER(4),
+  PRN_COPY  NUMBER(4)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIHCDA_UH
+(
+  CD_A  NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_ALL
+(
+  CD_M     NUMBER(6),
+  NM_M     VARCHAR2(128 BYTE),
+  NM_PROD  VARCHAR2(64 BYTE),
+  PRIH     NUMBER,
+  VOZVR    NUMBER,
+  RASH     NUMBER,
+  ANAL     NUMBER,
+  SPISANO  NUMBER,
+  OSTATOK  NUMBER,
+  NM_U     VARCHAR2(64 BYTE),
+  CD_AU    NUMBER,
+  NUMU     NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          32K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_OSTATOK
+(
+  CD_M  NUMBER,
+  AMN   NUMBER,
+  CDC   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_PRIH
+(
+  CD_M  NUMBER,
+  AMN   NUMBER,
+  CDC   NUMBER,
+  CDA   NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_SPISANO
+(
+  CD_M  NUMBER,
+  AMN   NUMBER,
+  CDC   NUMBER,
+  CDA   NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_UHOD
+(
+  CD_M  NUMBER,
+  AMN   NUMBER,
+  CDC   NUMBER,
+  CDA   NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          40K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_VOZVR
+(
+  CD_M  NUMBER,
+  AMN   NUMBER,
+  CDC   NUMBER,
+  CDA   NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE PSIH_VOZVR_MSK
+(
+  CD_M  NUMBER,
+  AMN   NUMBER,
+  CDC   NUMBER,
+  CDA   NUMBER,
+  NUM   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE QQQ
+(
+  CD_A_NUM  VARCHAR2(10 BYTE),
+  FPRICE    NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE REESTR
+(
+  CD_M   NUMBER                                 NOT NULL,
+  PRICE  NUMBER,
+  DAT    DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE REG_CFG
+(
+  REGION   NUMBER                               NOT NULL,
+  MED_CTG  NUMBER                               NOT NULL,
+  PRCTG    NUMBER                               NOT NULL,
+  CD_X     NUMBER                               NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE RELEASED_LOG
+(
+  CD_C    NUMBER(8)                             NOT NULL,
+  CD_A    NUMBER(8)                             NOT NULL,
+  NUM     NUMBER(4),
+  STATUS  NUMBER(4)                             NOT NULL,
+  DATET   DATE,
+  NDS     NUMBER(4)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          580K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SAVE_DOC
+(
+  CD_A    NUMBER                                NOT NULL,
+  NUM     NUMBER                                NOT NULL,
+  CD_U    NUMBER                                NOT NULL,
+  DATE0   DATE,
+  FPRICE  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SAVE_LST
+(
+  CD_A     NUMBER                               NOT NULL,
+  NUM      NUMBER                               NOT NULL,
+  CD_M     NUMBER                               NOT NULL,
+  RPRICE   NUMBER                               NOT NULL,
+  RRPRICE  NUMBER,
+  AMN1     NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          172K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SERDOC
+(
+  CD_M  NUMBER,
+  NM_S  VARCHAR2(500 BYTE),
+  SID   NUMBER,
+  PUID  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          72K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SERII
+(
+  CD_M     NUMBER,
+  SER_NUM  VARCHAR2(40 BYTE),
+  D1       DATE,
+  D2       DATE,
+  AMN      NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SERII_LOG
+(
+  CD_M       NUMBER,
+  SER_NUM    VARCHAR2(40 BYTE),
+  D1         DATE,
+  D2         DATE,
+  AMN        NUMBER,
+  LOAD_ID    NUMBER,
+  LOAD_DATE  DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SERII_SAVE
+(
+  CD_M     NUMBER,
+  SER_NUM  VARCHAR2(40 BYTE),
+  D1       DATE,
+  D2       DATE,
+  AMN      NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          64K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SERTIFIK
+(
+  CD_M     NUMBER,
+  NM_M     VARCHAR2(64 BYTE),
+  NM_PROD  VARCHAR2(64 BYTE),
+  NM_S     VARCHAR2(64 BYTE),
+  REGN     VARCHAR2(32 BYTE),
+  LAB_NAM  VARCHAR2(35 BYTE),
+  DT_ADD   DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SERT_AUD
+(
+  NM_S     VARCHAR2(64 BYTE),
+  REGN     VARCHAR2(32 BYTE),
+  DT_ADD   DATE,
+  LAB_NM   VARCHAR2(35 BYTE),
+  DT_CURR  DATE,
+  CD_U     NUMBER,
+  CD_C     NUMBER(6),
+  CD_S     NUMBER(8),
+  SERT     NUMBER(8)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SGF2_TBL
+(
+  IN_7     NUMBER,
+  OUT_83   NUMBER,
+  IN_93    NUMBER,
+  OUT_85   NUMBER,
+  OUT_90   NUMBER,
+  DEB_YES  NUMBER,
+  DEB_NO   NUMBER,
+  REALIZ   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SG_4PRICE
+(
+  CD_M   NUMBER,
+  SG     DATE,
+  CD_P   NUMBER(2),
+  PRICE  NUMBER(12,4)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SMSECTION
+(
+  CD_M    NUMBER(5)                             NOT NULL,
+  CD_S    NUMBER(4)                             NOT NULL,
+  SUBSEC  VARCHAR2(66 BYTE),
+  I_STAT  NUMBER,
+  O_STAT  NUMBER,
+  AMN     NUMBER(8),
+  LOC     NUMBER(2)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE SMSECTION_SAV
+(
+  CD_M    NUMBER(5)                             NOT NULL,
+  CD_S    NUMBER(4)                             NOT NULL,
+  SUBSEC  VARCHAR2(16 BYTE),
+  I_STAT  NUMBER,
+  O_STAT  NUMBER,
+  AMN     NUMBER(8),
+  LOC     NUMBER(2)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE T10SP
+(
+  CD_M        NUMBER,
+  NM_M        VARCHAR2(64 BYTE),
+  NM_PROD     VARCHAR2(64 BYTE),
+  DNUM        VARCHAR2(32 BYTE),
+  DATE0       DATE,
+  SHIPPED     DATE,
+  AMN         NUMBER,
+  NM_U        VARCHAR2(64 BYTE),
+  FULLPATHNM  VARCHAR2(128 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          172K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEND
+(
+  CD_C  NUMBER(8)                               NOT NULL,
+  TEND  NUMBER(2)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          392K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST_1
+(
+  RES  VARCHAR2(20 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST_D
+(
+  CD_U  NUMBER,
+  DOC   NUMBER,
+  VOD   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST_EXP
+(
+  CD_W  NUMBER,
+  CD_C  NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST_MOS_CDA
+(
+  REFNUM   VARCHAR2(10 BYTE),
+  REFNUM2  VARCHAR2(10 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          20K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST_PKKN
+(
+  CDM  NUMBER,
+  NMM  VARCHAR2(64 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TEST_SD
+(
+  V_IN         NUMBER,
+  V_OUT        NUMBER,
+  V_IZL        NUMBER,
+  V_VOZVRCLI   NUMBER,
+  V_VOZVTCLI2  NUMBER,
+  V_VOZVRGP2   NUMBER,
+  V_VOZVRGP    NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TLOC
+(
+  F  VARCHAR2(10 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TPROD_ANAL
+(
+  CD_M       NUMBER,
+  NM_M       VARCHAR2(128 BYTE),
+  NM_PROD    VARCHAR2(64 BYTE),
+  PRIH       NUMBER,
+  RASH       NUMBER,
+  NAL        NUMBER,
+  CENA_BAKS  NUMBER,
+  UPD        NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          72K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TPROD_ANAL1
+(
+  CD_M       NUMBER,
+  NM_M       VARCHAR2(128 BYTE),
+  NM_PROD    VARCHAR2(64 BYTE),
+  PRIH       NUMBER,
+  RASH       NUMBER,
+  NAL        NUMBER,
+  CENA_BAKS  NUMBER,
+  UPD        NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          260K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TPROD_ANAL3
+(
+  CD_M       NUMBER,
+  NM_M       VARCHAR2(128 BYTE),
+  NM_PROD    VARCHAR2(64 BYTE),
+  PRIH       NUMBER,
+  RASH       NUMBER,
+  NAL        NUMBER,
+  CENA_BAKS  NUMBER,
+  UPD        NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TRACE_ORD_TMP
+(
+  SUBSEC   VARCHAR2(16 BYTE),
+  ORD_NUM  VARCHAR2(10 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          1040K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE TTTT
+(
+  DUMMY  VARCHAR2(1 BYTE)
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE USR_ADD
+(
+  CD_A  NUMBER,
+  CD_U  NUMBER,
+  DAT   DATE
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE USR_EL_ZAK
+(
+  CD_U    NUMBER                                NOT NULL,
+  DT_UST  DATE,
+  CD_A    NUMBER,
+  DESCR1  VARCHAR2(128 BYTE),
+  DESCR2  VARCHAR2(64 BYTE),
+  CD_U1   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          12K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE USR_PSIH
+(
+  CD_U  NUMBER(5),
+  CD_M  NUMBER(6),
+  NM_U  VARCHAR2(64 BYTE),
+  CD_A  NUMBER,
+  NUM   NUMBER,
+  CDC   NUMBER
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          32K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE TABLE UUPC_TBL
+(
+  CD_C  NUMBER(8)                               NOT NULL,
+  CD_U  NUMBER(8)                               NOT NULL
+)
+TABLESPACE USERS
+PCTUSED    40
+PCTFREE    10
+INITRANS   1
+MAXTRANS   255
+STORAGE    (
+            INITIAL          580K
+            MINEXTENTS       1
+            MAXEXTENTS       2147483645
+            PCTINCREASE      0
+            FREELISTS        1
+            FREELIST GROUPS  1
+            BUFFER_POOL      DEFAULT
+           )
+LOGGING 
+NOCOMPRESS 
+NOCACHE
+NOPARALLEL
+MONITORING;
+
+
+CREATE UNIQUE INDEX CLI_BAL_CD_U_CDUSR_IDX ON CLI_BAL_CDU
+(CDUSR)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX CRE_DE_CRE_DE_CD_USR_IDX ON CLI_BAL
+(CRE_DE, CDUSR)
+LOGGING
+NOPARALLEL;
+
+
+CREATE INDEX F29_NC_IDX ON F29_1_TBL
+(NC)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX F6_AUTO_PK ON F6_AUTO
+(FIL_CDU, DT_O, CD_U)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX HUNGAR_REG_PK ON HUNGAR_REG
+(CD_M, CD_S)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX HUNGAR_RESULT_PK ON HUNGAR_RESULT
+(CD_M, NM_S)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX KEMEROVO_REG_PK ON KEMEROVO_REG
+(CD_M, CD_S)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX KEMEROVO_RESULT_PK ON KEMEROVO_RESULT
+(CD_M, NM_S)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX SERII_UNQ ON SERII
+(CD_M, SER_NUM)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX SG_4PRICE_PK ON SG_4PRICE
+(CD_M, CD_P)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX SYS_C001850 ON DVIGENIE_NK
+(CD_M)
+LOGGING
+NOPARALLEL;
+
+
+CREATE UNIQUE INDEX USR_EL_ZAK_PK ON USR_EL_ZAK
+(CD_U)
+LOGGING
+NOPARALLEL;
+
+
+CREATE OR REPLACE PACKAGE  LOCUS
+IS
+--
+-- This package contains routines to support работу с координатами препаратов на складе Протек-34
+--
+-- Person                 Date     Comments
+-- ---------              -------  ------------------------------------------
+-- Andrew Kaliabin        26sep00  No Coments ;)
+-- Global indicating that the object cache is initialized
+--------------------------------------------------
+--- variables for triggers ABC.SMS_AIU row
+---                  and   ABC.SMS.AUIT statement
+--- on table ABC.SMSECTION
+--vG_$SubSec VARCHAR(33);
+vG_$SubSec ABC.DsMed.subsec%TYPE;
+vG_$CDS    NUMBER;
+vG_$CDM    NUMBER;
+--------------------------------------------------
+FUNCTION Get_Subsec(pp_cds NUMBER, pp_cdm NUMBER, pp_pos NUMBER) RETURN VARCHAR;
+PRAGMA   RESTRICT_REFERENCES (Get_Subsec, WNDS,WNPS,RNPS);
+FUNCTION Check_Subsec(pp_subsec VARCHAR) RETURN NUMBER;
+PRAGMA   RESTRICT_REFERENCES (Check_Subsec, WNDS,WNPS,RNPS);
+FUNCTION CP_DSM2SMS(p_cds NUMBER, p_cdm NUMBER) RETURN NUMBER;
+PRAGMA   RESTRICT_REFERENCES (CP_DSM2SMS, RNPS,WNPS);
+FUNCTION CP_SMS2DSM(p_cds NUMBER, p_cdm NUMBER) RETURN VARCHAR;
+PRAGMA   RESTRICT_REFERENCES (CP_SMS2DSM, WNDS,RNPS,WNPS);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Package     SERDOC_PKG 
+  IS
+
+   G$Last_Ser_Doc_Sid NUMBER;
+
+END; -- Package Specification SERDOC_PKG
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE package     Sert_Aud_Data as
+  GV_cds NUMBER := 0;
+end Sert_Aud_Data;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Package     TEND_CTL
+  IS
+--
+
+   G$New_Tend NUMBER;
+   G$Old_Tend NUMBER;
+   G$Old_CDC NUMBER;
+   
+END; -- Package Specification TEND_CTRL
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Package Body     LOCUS
+IS
+FUNCTION Check_Subsec(pp_subsec VARCHAR) RETURN NUMBER AS
+  v_res NUMBER := 0;
+BEGIN
+  IF pp_subsec ='' THEN RETURN 0; END IF;
+  v_res := INSTR(pp_subsec,',');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,' ');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,';');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'/');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'\');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'|');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'(');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,')');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'[');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,']');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'{');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'}');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'&');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'*');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'+');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'=');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'-');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'_');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'^');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'%');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'$');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'#');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'@');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'!');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'~');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,'/');
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,chr(8));
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  v_res := INSTR(pp_subsec,chr(9));
+  IF v_res <> 0 THEN RETURN v_res; END IF;
+  RETURN v_res;
+END;
+FUNCTION Get_Subsec(pp_cds NUMBER, pp_cdm NUMBER, pp_pos NUMBER) RETURN VARCHAR AS
+  v_res ABC.DsMed.subsec%TYPE;
+BEGIN
+  SELECT UPPER(LTRIM(RTRIM(GPOF.Get_SubParameter(D.subsec,pp_pos),' '),' ')) loc INTO v_res
+    FROM ABC.DsMed D
+      WHERE D.cd_m=pp_cdm AND D.cd_s=pp_cds ;
+  RETURN v_res;
+END;
+FUNCTION  CP_DSM2SMS(p_cds NUMBER, p_cdm NUMBER) RETURN NUMBER AS
+v_pos NUMBER := 1;
+v_res NUMBER := 0;
+v_subsec ABC.DsMed.subsec%TYPE;
+BEGIN
+  LOOP
+    v_subsec := AKA.Locus.Get_Subsec(p_cds, p_cdm, v_pos);
+    IF v_subsec IS NOT null THEN
+        INSERT INTO ABC.SMSection VALUES(p_cdm,p_cds,v_subsec,0,0,0,0);
+      v_pos := v_pos + 1;
+    ELSE
+      v_pos := 1;
+      EXIT;
+    END IF;
+    v_res := v_res + 1;
+  END LOOP;
+  RETURN v_res;
+END;
+FUNCTION CP_SMS2DSM(p_cds NUMBER, p_cdm NUMBER) RETURN VARCHAR AS
+v_res ABC.DsMed.subsec%TYPE := ' ';
+v_idx NUMBER := 1;
+BEGIN
+  FOR c_SMS IN (
+    SELECT subsec
+      FROM ABC.SMSection
+    WHERE cd_s = p_cds AND cd_m = p_cdm
+    ORDER BY 1
+  ) LOOP
+    IF v_idx = 1 THEN
+      v_res := c_SMS.subsec;
+    ELSE
+      v_res := v_res || ',' || c_SMS.subsec;
+    END IF;
+    v_idx := v_idx + 1;
+  END LOOP;
+--  INSERT INTO AKA.TEST_1 VALUES(v_res);
+  RETURN v_res;
+EXCEPTION WHEN NO_DATA_FOUND
+  THEN RETURN '';
+END;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure abc_analyze as
+ Cursor A is select table_name FROM user_tables;
+ AR A%ROWTYPE;
+ CURSOR_NAME INTEGER;
+ ERES NUMBER;
+begin
+  OPEN A;
+  LOOP
+    FETCH A INTO AR;
+    EXIT WHEN A%NOTFOUND;
+    CURSOR_NAME := DBMS_SQL.OPEN_CURSOR;
+    BEGIN
+      DBMS_SQL.PARSE(CURSOR_NAME, 'analyze table '||AR.table_name||' estimate statistics' ,DBMS_SQL.V7);
+      ERES := DBMS_SQL.EXECUTE(CURSOR_NAME);
+    EXCEPTION
+    WHEN OTHERS THEN
+      NULL;
+    END;
+    DBMS_SQL.CLOSE_CURSOR(CURSOR_NAME);
+  end loop;
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CAP_REP AS
+
+CURSOR c_Otgr IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+   ROUND(SUM(D.fprice/D.rrate),2) b,
+   TRUNC(D.shipped) d
+ FROM
+   Abc.Ve$doc D
+  ,Abc.Ve$usr U
+ WHERE 
+   D.tp IN (
+     83,81
+  )
+  AND TRUNC(D.shipped)>=TO_DATE('01.'||TO_CHAR(SYSDATE,'mm.rr'))
+  AND TRUNC(D.shipped)<=TRUNC(SYSDATE) 
+/*  AND TRUNC(D.shipped)>=TO_DATE('01.02.00','dd.mm.rr')
+  AND TRUNC(D.shipped)<=TO_DATE('29.02.00','dd.mm.rr')*/
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7)
+GROUP BY TRUNC(D.shipped)
+ORDER BY TRUNC(D.shipped);
+
+CURSOR c_Oplt IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+   ROUND(SUM(D.fprice/D.rrate),2) b,
+   TRUNC(D.datef) d
+ FROM
+   Abc.Ve$doc D
+  ,Abc.Ve$usr U
+ WHERE 
+   D.tp IN (
+     333,334
+  )
+  AND TRUNC(D.datef)>=TO_DATE('01.'||TO_CHAR(SYSDATE,'mm.rr'))
+  AND TRUNC(D.datef)<=TRUNC(SYSDATE)
+/*  AND TRUNC(D.datef)>=TO_DATE('01.02.00','dd.mm.rr')
+  AND TRUNC(D.datef)<=TO_DATE('29.02.00','dd.mm.rr')*/
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7)
+GROUP BY TRUNC(D.datef)
+ORDER BY TRUNC(D.datef);
+
+CURSOR c_OtgrNak IS
+  SELECT O2.dat d ,SUM(O1.baks) b
+  FROM AKA.Otgr_Tbl O1, AKA.Otgr_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY o2.dat;
+  
+CURSOR c_OplNak IS
+  SELECT O2.dat d,SUM(O1.baks) b
+  FROM AKA.Opl_Tbl O1, AKA.Opl_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY O2.dat;  
+  
+
+vc_Otgr c_Otgr%ROWTYPE;
+vc_Oplt c_Oplt%ROWTYPE;
+vc_OtgrNak c_OtgrNak%ROWTYPE;
+vc_OplNak  c_OplNak%ROWTYPE;
+
+
+BEGIN
+  DELETE FROM AKA.Otgr_Tbl;
+  DELETE FROM AKA.Opl_Tbl;
+  DELETE FROM AKA.Otgr_Nak_Tbl;
+  DELETE FROM AKA.Oplt_Nak_Tbl;
+  COMMIT;
+  OPEN c_Otgr;
+  LOOP
+    FETCH c_Otgr INTO vc_Otgr;
+    EXIT WHEN c_Otgr%NOTFOUND;
+    INSERT INTO AKA.Otgr_Tbl VALUES(vc_Otgr.d,vc_Otgr.r,vc_Otgr.b,0);  
+  END LOOP;  
+  CLOSE c_Otgr;
+
+  OPEN c_Oplt;
+  LOOP
+    FETCH c_Oplt INTO vc_Oplt;
+    EXIT WHEN c_Oplt%NOTFOUND;
+    INSERT INTO AKA.Opl_Tbl VALUES(vc_Oplt.d,vc_Oplt.r,vc_Oplt.b,1);  
+  END LOOP;  
+  CLOSE c_Oplt;
+  COMMIT;
+
+  OPEN c_OtgrNak;
+  LOOP
+    FETCH c_OtgrNak INTO vc_OtgrNak;
+    EXIT WHEN c_OtgrNak%NOTFOUND; 
+    INSERT INTO AKA.Otgr_Nak_Tbl VALUES(vc_OtgrNak.d, 0,vc_OtgrNak.b);
+  END LOOP;
+  CLOSE c_OtgrNak;
+  
+  OPEN c_OplNak;
+  LOOP
+    FETCH c_OplNak INTO vc_OplNak;
+    EXIT WHEN c_OplNak%NOTFOUND; 
+    INSERT INTO AKA.Oplt_Nak_Tbl VALUES(vc_OplNak.d, 0,vc_OplNak.b);
+  END LOOP;
+  CLOSE c_OplNak;
+  COMMIT;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CAP_REP1(cdq INTEGER, cdt INTEGER) AS
+
+s_Date DATE;
+e_Date DATE; 
+         
+CURSOR c_Otgr IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+   ROUND(SUM(D.fprice/D.rrate),2) b,
+   TRUNC(P.date8) d
+ FROM
+   Abc.Ve$doc D
+  ,Abc.Ve$usr U
+  ,Abc.Ve$PxDoc p
+ WHERE 
+   d.cd_c=p.cd_c AND
+   d.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE (tp IN ('REALIZATION') AND KEY IN ('DOCTYPE'))
+              )
+        )
+  AND TRUNC(P.date8) BETWEEN s_Date AND e_Date
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7)
+GROUP BY TRUNC(P.date8)
+ORDER BY TRUNC(P.date8);
+         
+CURSOR c_Oplt IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+   ROUND(SUM(D.fprice/D.rrate),2) b,
+   TRUNC(D.datef) d
+ FROM
+   Abc.Ve$doc D
+  ,Abc.Ve$usr U
+ WHERE 
+   D.tp IN 
+     (SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+                (SELECT TO_NUMBER(value) FROM abc.universum
+                  WHERE (tp IN ('REALIZATION') AND KEY IN ('PAYTYPE') )
+                ) 
+  )
+  AND TRUNC(D.datef) BETWEEN s_Date AND e_Date
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7)
+GROUP BY TRUNC(D.datef)
+ORDER BY TRUNC(D.datef);
+
+CURSOR c_OtgrNak IS
+  SELECT O2.dat d ,SUM(O1.baks) b
+  FROM AKA.Otgr_Tbl O1, AKA.Otgr_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY o2.dat;
+  
+CURSOR c_OplNak IS
+  SELECT O2.dat d,SUM(O1.baks) b
+  FROM AKA.Opl_Tbl O1, AKA.Opl_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY O2.dat;  
+  
+
+vc_Otgr c_Otgr%ROWTYPE;
+vc_Oplt c_Oplt%ROWTYPE;
+vc_OtgrNak c_OtgrNak%ROWTYPE;
+vc_OplNak  c_OplNak%ROWTYPE;
+
+d1 DATE;
+d2 DATE;
+
+BEGIN
+  SELECT dvalue1,dvalue2 INTO s_Date, e_Date
+  FROM ABC.QrunParam WHERE cd_q=299 AND cd_t=2100 AND pclass=4;
+    
+  DELETE FROM AKA.Otgr_Tbl;
+  DELETE FROM AKA.Opl_Tbl;
+  DELETE FROM AKA.Otgr_Nak_Tbl;
+  DELETE FROM AKA.Oplt_Nak_Tbl;
+  COMMIT;
+  d1 := s_Date;
+  d2 := e_Date+1;
+
+  WHILE d1 < d2 LOOP
+    INSERT INTO AKA.Otgr_Tbl VALUES(d1,0,0,0);
+    INSERT INTO AKA.Opl_Tbl VALUES(d1,0,0,1);
+    d1 := d1 +1 ;
+  END LOOP;
+  COMMIT;  
+  
+  OPEN c_Otgr;
+  LOOP
+    FETCH c_Otgr INTO vc_Otgr;
+    EXIT WHEN c_Otgr%NOTFOUND;
+    UPDATE AKA.Otgr_Tbl set rub=vc_Otgr.r, baks=vc_Otgr.b
+    WHERE dat=vc_Otgr.d;
+  END LOOP;  
+  CLOSE c_Otgr;
+
+  OPEN c_Oplt;
+  LOOP
+    FETCH c_Oplt INTO vc_Oplt;
+    EXIT WHEN c_Oplt%NOTFOUND;
+    UPDATE AKA.Opl_Tbl set rub=vc_Oplt.r, baks=vc_Oplt.b
+    WHERE dat=vc_Oplt.d;         
+  END LOOP;  
+  CLOSE c_Oplt;
+  COMMIT;
+
+  OPEN c_OtgrNak;
+  LOOP
+    FETCH c_OtgrNak INTO vc_OtgrNak;
+    EXIT WHEN c_OtgrNak%NOTFOUND; 
+    INSERT INTO AKA.Otgr_Nak_Tbl VALUES(vc_OtgrNak.d, 0,vc_OtgrNak.b);
+  END LOOP;
+  CLOSE c_OtgrNak;
+  
+  OPEN c_OplNak;
+  LOOP
+    FETCH c_OplNak INTO vc_OplNak;
+    EXIT WHEN c_OplNak%NOTFOUND; 
+    INSERT INTO AKA.Oplt_Nak_Tbl VALUES(vc_OplNak.d, 0,vc_OplNak.b);
+  END LOOP;
+  CLOSE c_OplNak;
+  COMMIT;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CHIEF1(cd_qx NUMBER, cd_tx NUMBER) AS
+
+s_Date DATE;
+e_Date DATE; 
+         
+CURSOR c_Otgr IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+--   ROUND(SUM(D.fprice/D.frate),2) b,
+   ROUND(SUM(D.fprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) b,
+   TRUNC(D.date0) d
+ FROM
+   Abc.ve$doc D
+  ,Abc.ve$usr U
+ WHERE 
+   d.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE (tp IN ('P34') AND KEY IN ('DOC_OTGR'))
+              )
+        )
+  AND TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7,29,30)
+GROUP BY TRUNC(D.date0)
+ORDER BY TRUNC(D.date0);
+         
+CURSOR c_Oplt IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+   --ROUND(SUM(D.fprice/D.frate),2) b,
+   ROUND(SUM(D.fprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) b,
+   TRUNC(D.datef) d
+ FROM
+   Abc.ve$doc D
+  ,Abc.ve$usr U
+ WHERE 
+   D.tp IN 
+     (SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+                (SELECT TO_NUMBER(value) FROM abc.universum
+                  WHERE (tp IN ('REALIZATION') AND KEY IN ('PAYTYPE') )
+                ) 
+  )
+  AND TRUNC(D.datef) BETWEEN s_Date AND e_Date
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7,29,30)
+GROUP BY TRUNC(D.datef)
+ORDER BY TRUNC(D.datef);
+
+CURSOR c_OtgrNak IS
+  SELECT O2.dat d ,SUM(O1.baks) b, SUM(O1.rub) r
+  FROM AKA.Otgr_Tbl O1, AKA.Otgr_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY o2.dat;
+  
+CURSOR c_OplNak IS
+  SELECT O2.dat d,SUM(O1.baks) b, SUM(O1.rub) r
+  FROM AKA.Opl_Tbl O1, AKA.Opl_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY O2.dat;  
+  
+
+vc_Otgr c_Otgr%ROWTYPE;
+vc_Oplt c_Oplt%ROWTYPE;
+vc_OtgrNak c_OtgrNak%ROWTYPE;
+vc_OplNak  c_OplNak%ROWTYPE;
+
+d1 DATE;
+d2 DATE;
+
+BEGIN
+  SELECT dvalue1,dvalue2 INTO s_Date, e_Date
+  FROM ABC.QrunParam WHERE cd_q=cd_qx AND cd_t=cd_tx AND pclass=4;
+    
+  DELETE FROM AKA.Otgr_Tbl;
+  DELETE FROM AKA.Opl_Tbl;
+  DELETE FROM AKA.Otgr_Nak_Tbl;
+  DELETE FROM AKA.Oplt_Nak_Tbl;
+  COMMIT;
+  d1 := s_Date;
+  d2 := e_Date+1;
+
+  WHILE d1 < d2 LOOP
+    INSERT INTO AKA.Otgr_Tbl VALUES(d1,0,0,0);
+    INSERT INTO AKA.Opl_Tbl VALUES(d1,0,0,1);
+    d1 := d1 +1 ;
+  END LOOP;
+  COMMIT;  
+  
+  OPEN c_Otgr;
+  LOOP
+    FETCH c_Otgr INTO vc_Otgr;
+    EXIT WHEN c_Otgr%NOTFOUND;
+    UPDATE AKA.Otgr_Tbl set rub=vc_Otgr.r, baks=vc_Otgr.b
+    WHERE dat=vc_Otgr.d;
+  END LOOP;  
+  CLOSE c_Otgr;
+
+  OPEN c_Oplt;
+  LOOP
+    FETCH c_Oplt INTO vc_Oplt;
+    EXIT WHEN c_Oplt%NOTFOUND;
+    UPDATE AKA.Opl_Tbl set rub=vc_Oplt.r, baks=vc_Oplt.b
+    WHERE dat=vc_Oplt.d;         
+  END LOOP;  
+  CLOSE c_Oplt;
+  COMMIT;
+
+  OPEN c_OtgrNak;
+  LOOP
+    FETCH c_OtgrNak INTO vc_OtgrNak;
+    EXIT WHEN c_OtgrNak%NOTFOUND; 
+    INSERT INTO AKA.Otgr_Nak_Tbl VALUES(vc_OtgrNak.d, vc_OtgrNak.r,vc_OtgrNak.b);
+  END LOOP;
+  CLOSE c_OtgrNak;
+  
+  OPEN c_OplNak;
+  LOOP
+    FETCH c_OplNak INTO vc_OplNak;
+    EXIT WHEN c_OplNak%NOTFOUND; 
+    INSERT INTO AKA.Oplt_Nak_Tbl VALUES(vc_OplNak.d, vc_OplNak.r,vc_OplNak.b);
+  END LOOP;
+  CLOSE c_OplNak;
+  COMMIT;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CHIEF8(cd_qx NUMBER, cd_tx NUMBER) AS
+
+s_Date DATE;
+e_Date DATE; 
+         
+CURSOR c_Otgr IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+--   ROUND(SUM(D.fprice/D.frate),2) b,
+   ROUND(SUM(D.fprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) b,
+   TRUNC(P.date8) d
+ FROM
+   Abc.doc D
+  ,Abc.usr U
+  ,Abc.pxdoc p
+ WHERE 
+   d.tp IN
+        (
+           83,101
+        )
+  AND TRUNC(P.date8) BETWEEN s_Date AND e_Date
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7)
+  AND D.cd_c=P.cd_c
+GROUP BY TRUNC(P.date8)
+ORDER BY TRUNC(P.date8);
+         
+CURSOR c_Oplt IS
+  SELECT 
+   ROUND(SUM(D.fprice),2) r,
+   --ROUND(SUM(D.fprice/D.frate),2) b,
+   ROUND(SUM(D.fprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) b,
+   TRUNC(D.datef) d
+ FROM
+   Abc.doc D
+  ,Abc.usr U
+ WHERE 
+   D.tp IN 
+     (SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+                (SELECT TO_NUMBER(value) FROM abc.universum
+                  WHERE (tp IN ('REALIZATION') AND KEY IN ('PAYTYPE') )
+                ) 
+  )
+  AND TRUNC(D.datef) BETWEEN s_Date AND e_Date
+  AND D.cd_u=U.cd_u 
+  AND U.tp NOT IN (1,7)
+GROUP BY TRUNC(D.datef)
+ORDER BY TRUNC(D.datef);
+
+CURSOR c_OtgrNak IS
+  SELECT O2.dat d ,SUM(O1.baks) b, SUM(O1.rub) r
+  FROM AKA.Otgr_Tbl O1, AKA.Otgr_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY o2.dat;
+  
+CURSOR c_OplNak IS
+  SELECT O2.dat d,SUM(O1.baks) b, SUM(O1.rub) r
+  FROM AKA.Opl_Tbl O1, AKA.Opl_Tbl O2
+  WHERE O1.dat<=O2.dat
+  GROUP BY O2.dat;  
+  
+
+vc_Otgr c_Otgr%ROWTYPE;
+vc_Oplt c_Oplt%ROWTYPE;
+vc_OtgrNak c_OtgrNak%ROWTYPE;
+vc_OplNak  c_OplNak%ROWTYPE;
+
+d1 DATE;
+d2 DATE;
+
+BEGIN
+  SELECT dvalue1,dvalue2 INTO s_Date, e_Date
+  FROM ABC.QrunParam WHERE cd_q=cd_qx AND cd_t=cd_tx AND pclass=4;
+    
+  DELETE FROM AKA.Otgr_Tbl;
+  DELETE FROM AKA.Opl_Tbl;
+  DELETE FROM AKA.Otgr_Nak_Tbl;
+  DELETE FROM AKA.Oplt_Nak_Tbl;
+  COMMIT;
+  d1 := s_Date;
+  d2 := e_Date+1;
+
+  WHILE d1 < d2 LOOP
+    INSERT INTO AKA.Otgr_Tbl VALUES(d1,0,0,0);
+    INSERT INTO AKA.Opl_Tbl VALUES(d1,0,0,1);
+    d1 := d1 +1 ;
+  END LOOP;
+  COMMIT;  
+  
+  OPEN c_Otgr;
+  LOOP
+    FETCH c_Otgr INTO vc_Otgr;
+    EXIT WHEN c_Otgr%NOTFOUND;
+    UPDATE AKA.Otgr_Tbl set rub=vc_Otgr.r, baks=vc_Otgr.b
+    WHERE dat=vc_Otgr.d;
+  END LOOP;  
+  CLOSE c_Otgr;
+
+  OPEN c_Oplt;
+  LOOP
+    FETCH c_Oplt INTO vc_Oplt;
+    EXIT WHEN c_Oplt%NOTFOUND;
+    UPDATE AKA.Opl_Tbl set rub=vc_Oplt.r, baks=vc_Oplt.b
+    WHERE dat=vc_Oplt.d;         
+  END LOOP;  
+  CLOSE c_Oplt;
+  COMMIT;
+
+  OPEN c_OtgrNak;
+  LOOP
+    FETCH c_OtgrNak INTO vc_OtgrNak;
+    EXIT WHEN c_OtgrNak%NOTFOUND; 
+    INSERT INTO AKA.Otgr_Nak_Tbl VALUES(vc_OtgrNak.d, vc_OtgrNak.r,vc_OtgrNak.b);
+  END LOOP;
+  CLOSE c_OtgrNak;
+  
+  OPEN c_OplNak;
+  LOOP
+    FETCH c_OplNak INTO vc_OplNak;
+    EXIT WHEN c_OplNak%NOTFOUND; 
+    INSERT INTO AKA.Oplt_Nak_Tbl VALUES(vc_OplNak.d, vc_OplNak.r,vc_OplNak.b);
+  END LOOP;
+  CLOSE c_OplNak;
+  COMMIT;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure     CHK_DAT_2001(c1 NUMBER) IS
+
+BEGIN
+  For Cc IN (
+     SELECT TRUNC(date0) dd
+     FROM Abc.Doc WHERE cd_c=c1   
+  )
+  LOOP
+/*    IF   Cc.dd < TO_DATE('01.01.02','dd.mm.rr') THEN 
+       ABC.AtError (-20599,' ДОКУМЕНТ С 2001 года НЕ ПРОЙДЕТ !');  
+    END IF;*/
+    null;
+  END LOOP;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CHK_GP (c1 number,c2 number, ev varchar) as
+-- проверка на трансформации из Накладных в Возвраты в ГП.
+-- проверяется код клиента , можно было-бы конечно проверять тип клиента
+-- но код это хоть и гвозди, но более надежно.
+v_cdu NUMBER;
+v_cda number;
+
+BEGIN
+  --------------------------------------------------------   
+   select cd_a into v_cda from abc.doc where cd_c=c1;
+   if v_cda in (486866) then
+     RAISE_APPLICATION_ERROR(-20802, 'ЛБО-ТОВАР - НЕ ТРОГАТЬ!!!', TRUE);
+   end if;  
+-------------------------------------------------------------
+
+  SELECT cd_u INTO v_cdu FROM ABC.Doc WHERE cd_c=c1;
+  IF v_cdu != 1 THEN
+      ABC.aterror(-20004, 'ДОКУМЕНТЫ ДАННОГО КЛИЕНТА НЕЛЬЗЯ ВОЗВРАЩЯТЬ В МОСКВУ!!!');
+  END IF;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure     CHK_UNI_DOC(c1 NUMBER) IS
+v_cda NUMBER;
+CURSOR c_CDA IS
+  SELECT cd_c FROM ABC.Doc WHERE cd_a=v_cda;
+vc_CDA c_CDA%ROWTYPE;
+BEGIN
+  SELECT cd_a INTO v_cda FROM ABC.Doc WHERE cd_c=c1;
+  IF ABC.CHK_CTG(c1) = 0 THEN  -- проверим однородность документа
+    ABC.AtError (-20599,' ДОКУМЕНТ НЕ ОДНОРОДЕН !');
+  ELSE
+    FOR vc_CDA IN c_CDA LOOP
+      GPOF.set_ctg_cmp_doc(vc_CDA.cd_c);  -- если однороден то проставим НДС
+    END LOOP;
+  END IF;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     CLEAR_DOUBLE_SMSEC   IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------
+   v_count NUMBER;
+   v_cdm NUMBER;
+   v_cds NUMBER;
+   v_subsec   abc.smsection.subsec%TYPE;
+   -- Declare program variables as shown above
+BEGIN
+  for C in (
+    select  count(*) q ,cd_m,cd_s,subsec
+       from abc.smsection
+       having count(*)>1
+       group by cd_m,cd_s,subsec
+  )
+  loop
+    for R in (
+         select  count(*) q ,cd_m,cd_s,subsec
+         from abc.smsection
+         where cd_m=C.cd_m and cd_s=C.cd_s
+         having count(*)>1
+         group by cd_m,cd_s,subsec
+                  )
+    loop
+      v_cdm := R.cd_m;
+      v_cds := R.cd_s;
+      v_subsec := R.subsec;
+      delete from abc.smsection where cd_m=v_cdm and cd_s=v_cds;
+      insert into abc.smsection values(v_cdm, v_cds, v_subsec,null,null,null,null);
+    end loop;
+  end loop;
+  commit;
+END; -- Procedure CLEAR_DOUBLE_SMSEC
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANS1 ( cd_qx NUMBER, cd_tx NUMBER) IS
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+DELETE FROM AKA.CLIBAL1;
+COMMIT;
+p_cdq:=cd_qx;
+p_cdt:=cd_tx;
+INSERT INTO AKA.CLIBAL1(i, ndoc, ddat, bank, cashe, d83, d81, d93, d337, d336, total, dat, tp)
+SELECT 0 N,
+       SUBSTR(D.cd_a||'/'||D.num,1,10), -- "№ док",
+       TO_CHAR(DECODE(D.tp,
+                     333,TRUNC(D.datef),
+                     334,TRUNC(D.datef),
+                     83,TRUNC(D.date0),
+                     81,TRUNC(D.date0),
+                     93,TRUNC(D.date0),
+                     337,TRUNC(D.date0),
+                     336,TRUNC(D.date0)
+                     ) ),-- "Дата",
+       DECODE(D.tp,333,D.fprice,0),-- "Банк",
+       DECODE(D.tp,334,D.fprice,0),-- "Касса",
+       DECODE(D.tp,83,ROUND(D.rprice,2),0),-- "Отпущено",
+       DECODE(D.tp,81,ROUND(D.rprice,2),0),-- "Отпущено",
+       DECODE(D.tp,93,ROUND(D.rprice,2),0),-- "Возврат",
+       DECODE(D.tp,337,ROUND(D.fprice,2),0),-- "В-",
+       DECODE(D.tp,336,ROUND(D.fprice,2),0),-- "В+",
+       '    ',
+       DECODE(D.tp,
+                333,TRUNC(D.datef),
+                334,TRUNC(D.datef),
+                83,TRUNC(D.date0),
+                81,TRUNC(D.date0),
+                93,TRUNC(D.date0),
+                337,TRUNC(D.date0),
+                336,TRUNC(D.date0)
+                )
+       ,
+       D.tp
+FROM
+      ABC.Ve$Doc D,
+      ABC.Ve$Pxdoc P,
+      ABC.QrunParam Q, ABC.QrunParam Q1
+WHERE
+      P.cd_c = D.cd_c  AND  
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      ((NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (81,83,93,337)) OR
+       (NVL(TRUNC(D.datef),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (333,334,336)))
+/*    Было вот так, переделал на кажется правельней
+      (02.08.00)  Andys
+      
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+      TRUNC(D.date0) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND      
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.tp IN (83,333,334,93)))   */
+UNION ALL
+SELECT
+  1 N, 
+  'ИТОГО ОПЛАТА' i,' ' d,0,0,0,0,0, 0,0,
+  SUBSTR(TO_CHAR(ROUND(NVL(O.s,0)+NVL(V.s,0),2)),1,20), --"ИТОГО ОПЛАТА",
+  SYSDATE
+  ,
+  9999
+FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1
+    WHERE
+      D.tp IN (333,334,336)AND
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+/*    TRUNC(D.date0)   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND  --- change Andys (02.08.00)  */
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V
+UNION ALL
+SELECT
+    2 N, 
+    'ИТОГО ОТПУЩЕНО' i, ' ' d,0,0,0,0,0, 0,0,
+    SUBSTR(TO_CHAR(ROUND(NVL(O.s,0),2)),1,20), --"ИТОГО ОТПУЩЕНО",
+    SYSDATE
+    ,
+    8888
+FROM 
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$Pxdoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.cd_c = P.cd_c AND
+      D.tp IN (81,83,337)  AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O
+  UNION ALL
+  SELECT
+    3 N, 
+    'САЛЬДО' i,' ' d,0,0,0,0,0, 0,0,
+    SUBSTR(TO_CHAR(ROUND((NVL(O2.s,0))-(NVL(O1.s,0)+NVL(V1.s,0)),2)),1,20), --"Сумма", 
+    SYSDATE
+    ,
+    7777   
+  FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1 -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334,336)AND
+/*    TRUNC(D.date0)   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND  --- change (02.08.00)  Andys */
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O1,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V1,
+   (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$Pxdoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.cd_c=P.cd_c AND
+      D.tp IN (81,83,337)  AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O2;      
+
+COMMIT;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANS2 ( cd_qx NUMBER, cd_tx NUMBER) IS
+/*dt_beg  DATE;
+dt_end  DATE;*/
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+DELETE FROM AKA.CLIBAL1;
+COMMIT;
+p_cdq:=cd_qx;
+p_cdt:=cd_tx;
+INSERT INTO AKA.CLIBAL1(i, ndoc, ddat, bank, cashe, d83, d81, d93, d463, d337, d336, total, dat, tp)
+SELECT 0 N,
+       SUBSTR(D.cd_a||'/'||D.num,1,10), -- "№ док",
+       TO_CHAR(
+        DECODE(
+        D.tp,
+          333,TRUNC(D.datef),
+          334,TRUNC(D.datef),
+          83,TRUNC(D.date0),
+          101,TRUNC(D.date0),          
+          81,TRUNC(D.date0),
+          100,TRUNC(D.date0),          
+          93,TRUNC(D.date0),
+          463,TRUNC(D.date0),
+          337,TRUNC(D.date0),
+          336,TRUNC(D.date0)
+          )),-- "Дата",
+       DECODE(D.tp,333,D.fprice,0),-- "Банк",
+       DECODE(D.tp,334,D.fprice,0),-- "Касса",
+       DECODE(D.tp,83,ROUND(D.rprice,2),101,ROUND(D.rprice,2),0),-- "Отпущено",
+       DECODE(D.tp,81,ROUND(D.rprice,2),100,ROUND(D.rprice,2),0),-- "Огружено",
+       DECODE(D.tp,93,ROUND(D.rprice,2),0),-- "Возврат",
+       DECODE(D.tp,463,ROUND(D.rprice,2),0),-- "Возврат 2",
+       DECODE(D.tp,337,ROUND(D.rprice,2),0),-- "В-,
+       DECODE(D.tp,336,ROUND(D.rprice,2),0),-- "В+",
+       '    ',
+       DECODE(D.tp,
+                333,TRUNC(D.datef),
+                334,TRUNC(D.datef),
+                83,TRUNC(D.date0),
+                101,TRUNC(D.date0),                
+                81,TRUNC(D.date0),
+                100,TRUNC(D.date0),                
+                93,TRUNC(D.date0),
+                463,TRUNC(D.date0),
+                337,TRUNC(D.date0),
+                336,TRUNC(D.date0))
+       ,
+       D.tp
+FROM
+      ABC.Ve$Doc D,
+     ABC.Ve$PxDoc P,
+      ABC.QrunParam Q, ABC.QrunParam Q1
+WHERE D.cd_c=P.cd_c AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+--      D.cd_c=P.cd_c    AND
+--      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      ((NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (101,83,93,337,463, 81,100)) OR
+       (NVL(TRUNC(D.datef),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (333,334,336))) AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.tp IN (81,100,83,101,333,334,93,463,337,336)
+UNION ALL
+SELECT
+  1 N, 
+  'ИТОГО ОПЛАТА' i,' ' d,0,0,0,0,0,0,0,0,
+  SUBSTR(TO_CHAR(ROUND(NVL(O.s,0)+NVL(V.s,0),2)),1,20), --"Сумма",
+  SYSDATE
+  ,
+  9999
+FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1
+    WHERE
+      D.tp IN (333,334,336)AND
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+--      TRUNC(D.date0)  BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93,463)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2       AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V
+UNION ALL
+SELECT
+    2 N, 
+    'ИТОГО ОТПУЩЕНО' i, ' ' d,0,0,0,0,0,0,0,0,
+--    SUBSTR(TO_CHAR(ROUND(NVL(O.s,0)-NVL(V.s,0),2)),1,20), --"Сумма",
+    SUBSTR(TO_CHAR(ROUND(NVL(O.s,0),2)),1,20), --"Сумма",
+    SYSDATE
+    ,
+    8888
+FROM 
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$PxDoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.tp IN (81,83,100,101,337)  AND
+      D.cd_c=P.cd_c AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+--      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O
+   -- ,
+/*  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D,ABC.QrunParam Q,ABC.QrunParam Q1
+   WHERE
+      D.tp=93           AND
+      TRUNC(D.date0)    BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt     AND
+      Q1.cd_q=p_cdq     AND
+      Q1.pclass=4       AND
+      D.cd_u=Q.pvalue1  AND
+      Q.pclass=2        AND
+      Q.cd_q=p_cdq      AND
+      Q.cd_t=p_cdt
+  ) V */
+  UNION ALL
+  SELECT
+    3 N, 
+    'САЛЬДО' i,' ' d,0,0,0,0,0,0,0,0,
+--    SUBSTR(TO_CHAR( ROUND( (NVL(O2.s,0)-NVL(V2.s,0))-(NVL(O1.s,0)+NVL(V1.s,0)),2) ),1,20), --"Сумма",
+    SUBSTR(TO_CHAR( ROUND( (NVL(O2.s,0))-(NVL(O1.s,0)+NVL(V1.s,0)),2) ),1,20), --"Сумма", 
+    SYSDATE
+    ,
+    7777   
+  FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1 -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334,336)AND
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O1,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93,463)     AND
+      TRUNC(D.date0)   BETWEEN
+      Q1.dvalue1       AND
+      Q1.dvalue2       AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V1,
+   (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$PxDoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.tp IN (81,83,100,101,337)  AND
+      D.cd_c=P.cd_c AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+  --    TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O2;
+   -- ,
+/*  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D,ABC.QrunParam Q,ABC.QrunParam Q1
+   WHERE
+      D.tp=93           AND
+      TRUNC(D.date0)    BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt     AND
+      Q1.cd_q=p_cdq     AND
+      Q1.pclass=4       AND
+      D.cd_u=Q.pvalue1  AND
+      Q.pclass=2        AND
+      Q.cd_q=p_cdq      AND
+      Q.cd_t=p_cdt
+  ) V2;*/
+      
+COMMIT;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANS3 ( cd_qx NUMBER, cd_tx NUMBER) IS
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+DELETE FROM AKA.CLIBAL3;
+COMMIT;
+p_cdq:=cd_qx;
+p_cdt:=cd_tx;
+INSERT INTO AKA.CLIBAL3(i, ndoc, ddat, bank, cashe, d83, d93, d337, d336, total, dat, tp)
+SELECT 0 N,
+       SUBSTR(D.cd_a||'/'||D.num,1,10), -- "№ док",
+       TO_CHAR(DECODE(D.tp,
+                     333,TRUNC(D.datef),
+                     334,TRUNC(D.datef),
+                     83,TRUNC(D.date0),
+                     93,TRUNC(D.date0),
+                     337,TRUNC(D.date0),
+                     336,TRUNC(D.date0)
+                     ) ),-- "Дата",
+       DECODE(D.tp,333,D.fprice,0),-- "Банк",
+       DECODE(D.tp,334,D.fprice,0),-- "Касса",
+       DECODE(D.tp,83,ROUND(D.rprice,2),0),-- "Отпущено",
+       DECODE(D.tp,93,ROUND(D.rprice,2),0),-- "Возврат",
+       DECODE(D.tp,337,ROUND(D.fprice,2),0),-- "В-",
+       DECODE(D.tp,336,ROUND(D.fprice,2),0),-- "В+",
+       '    ',
+       DECODE(D.tp,
+                333,TRUNC(D.datef),
+                334,TRUNC(D.datef),
+                83,TRUNC(D.date0),
+                93,TRUNC(D.date0),
+                337,TRUNC(D.date0),
+                336,TRUNC(D.date0)
+                )
+       ,
+       D.tp
+FROM
+      ABC.Ve$Doc D,
+      ABC.Ve$Pxdoc P,
+      ABC.QrunParam Q, ABC.QrunParam Q1
+WHERE
+      P.cd_c = D.cd_c  AND  
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      ((NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (83,93,337)) OR
+       (NVL(TRUNC(D.datef),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (333,334,336)))
+/*    Было вот так, переделал на кажется правельней
+      (02.08.00)  Andys
+      
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+      TRUNC(D.date0) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND      
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.tp IN (83,333,334,93)))   */
+UNION ALL
+SELECT
+  1 N, 
+  'ИТОГО ОПЛАТА' i,' ' d,0,0,0,0, 0,0,
+  SUBSTR(TO_CHAR(ROUND(NVL(O.s,0)+NVL(V.s,0),2)),1,20), --"ИТОГО ОПЛАТА",
+  SYSDATE
+  ,
+  9999
+FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1
+    WHERE
+      D.tp IN (333,334,336)AND
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+/*    TRUNC(D.date0)   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND  --- change Andys (02.08.00)  */
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V
+UNION ALL
+SELECT
+    2 N, 
+    'ИТОГО ОТПУЩЕНО' i, ' ' d,0,0,0,0, 0,0,
+    SUBSTR(TO_CHAR(ROUND(NVL(O.s,0),2)),1,20), --"ИТОГО ОТПУЩЕНО",
+    SYSDATE
+    ,
+    8888
+FROM 
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$Pxdoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.cd_c = P.cd_c AND
+      D.tp IN (83,337)  AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O
+  UNION ALL
+  SELECT
+    3 N, 
+    'САЛЬДО' i,' ' d,0,0,0,0, 0,0,
+    SUBSTR(TO_CHAR(ROUND((NVL(O2.s,0))-(NVL(O1.s,0)+NVL(V1.s,0)),2)),1,20), --"Сумма", 
+    SYSDATE
+    ,
+    7777   
+  FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1 -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334,336)AND
+/*    TRUNC(D.date0)   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND  --- change (02.08.00)  Andys */
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O1,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V1,
+   (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$Pxdoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.cd_c=P.cd_c AND
+      D.tp IN (83,337)  AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O2;      
+
+COMMIT;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANS3a ( cd_qx NUMBER, cd_tx NUMBER) IS
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+DELETE FROM AKA.CLIBAL3;
+COMMIT;
+p_cdq:=cd_qx;
+p_cdt:=cd_tx;
+INSERT INTO AKA.CLIBAL3(i, ndoc, ddat, bank, cashe, d83, d93, d337, d336, total, dat, tp)
+SELECT 0 N,
+       SUBSTR(D.cd_a||'/'||D.num,1,10), -- "№ док",
+       TO_CHAR(DECODE(D.tp,
+                     333,TRUNC(D.datef),
+                     334,TRUNC(D.datef),
+                     83,TRUNC(D.date0),
+                     101,TRUNC(D.date0),
+                     93,TRUNC(D.date0),
+                     463,TRUNC(D.date0),
+                     337,TRUNC(D.date0),
+                     336,TRUNC(D.date0)
+                     ) ),-- "Дата",
+       DECODE(D.tp,333,D.fprice,0),-- "Банк",
+       DECODE(D.tp,334,D.fprice,0),-- "Касса",
+       DECODE(D.tp,83,ROUND(D.rprice,2),101,ROUND(D.rprice,2),0),-- "Отпущено",
+       DECODE(D.tp,93,ROUND(D.rprice,2),463,ROUND(D.rprice,2),0),-- "Возврат",
+       DECODE(D.tp,337,ROUND(D.fprice,2),0),-- "В-",
+       DECODE(D.tp,336,ROUND(D.fprice,2),0),-- "В+",
+       '    ',
+       DECODE(D.tp,
+                333,TRUNC(D.datef),
+                334,TRUNC(D.datef),
+                83,TRUNC(D.date0),
+                93,TRUNC(D.date0),
+                463,TRUNC(D.date0),
+                337,TRUNC(D.date0),
+                336,TRUNC(D.date0)
+                )
+       ,
+       D.tp
+FROM
+      ABC.Ve$Doc D,
+      ABC.Ve$Pxdoc P,
+      ABC.QrunParam Q, ABC.QrunParam Q1
+WHERE
+      P.cd_c = D.cd_c  AND  
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      ((NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (101,83,93,337,463)) OR
+       (NVL(TRUNC(D.datef),TRUNC(D.date0)) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND D.tp IN (333,334,336)))
+/*    Было вот так, переделал на кажется правельней
+      (02.08.00)  Andys
+      
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt     AND
+      TRUNC(D.date0) BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND      
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.tp IN (83,333,334,93)))   */
+UNION ALL
+SELECT
+  1 N, 
+  'ИТОГО ОПЛАТА' i,' ' d,0,0,0,0, 0,0,
+  SUBSTR(TO_CHAR(ROUND(NVL(O.s,0)+NVL(V.s,0),2)),1,20), --"ИТОГО ОПЛАТА",
+  SYSDATE
+  ,
+  9999
+FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1
+    WHERE
+      D.tp IN (333,334,336)AND
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+/*    TRUNC(D.date0)   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND  --- change Andys (02.08.00)  */
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93,463)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V
+UNION ALL
+SELECT
+    2 N, 
+    'ИТОГО ОТПУЩЕНО' i, ' ' d,0,0,0,0, 0,0,
+    SUBSTR(TO_CHAR(ROUND(NVL(O.s,0),2)),1,20), --"ИТОГО ОТПУЩЕНО",
+    SYSDATE
+    ,
+    8888
+FROM 
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$Pxdoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.cd_c = P.cd_c AND
+      D.tp IN (101,83,337)  AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O
+  UNION ALL
+  SELECT
+    3 N, 
+    'САЛЬДО' i,' ' d,0,0,0,0, 0,0,
+    SUBSTR(TO_CHAR(ROUND((NVL(O2.s,0))-(NVL(O1.s,0)+NVL(V1.s,0)),2)),1,20), --"Сумма", 
+    SYSDATE
+    ,
+    7777   
+  FROM
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q, ABC.QrunParam Q1 -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334,336)AND
+/*    TRUNC(D.date0)   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND  --- change (02.08.00)  Andys */
+      NVL(TRUNC(D.datef),TRUNC(D.date0))   BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+  ) O1,
+  (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.QrunParam Q,  ABC.QrunPAram Q1
+    WHERE
+      D.tp IN (93,463)     AND
+      TRUNC(D.date0)   BETWEEN Q1.dvalue1 AND Q1.dvalue2 AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND 
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) V1,
+   (
+    SELECT
+      SUM(D.fprice) s
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$Pxdoc P, ABC.QrunParam Q,ABC.QrunParam Q1
+    WHERE
+      D.cd_c=P.cd_c AND
+      D.tp IN (101,83,337)  AND
+      NVL(TRUNC(P.date8),TRUNC(D.date0)) BETWEEN  Q1.dvalue1 AND Q1.dvalue2  AND
+      Q1.cd_t=p_cdt    AND
+      Q1.cd_q=p_cdq    AND
+      Q1.pclass=4      AND
+      D.cd_u=Q.pvalue1 AND
+      Q.pclass=2       AND
+      Q.cd_q=p_cdq     AND
+      Q.cd_t=p_cdt
+   ) O2;      
+
+COMMIT;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANS4 ( cdu NUMBER, d1 DATE, d2 DATE) IS
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+INSERT INTO AKA.CLIBAL4(cd_u, debet, credit, saldo)
+  SELECT
+    cdu,
+    O2.s, -- otpuseno
+    O1.s+V1.s, -- oplaceno       
+--    ROUND( ( NVL(O1.s,0)+NVL(V1.s,0)-NVL(T.s,0) ) - NVL(O2.s,0)+NVL(T.s,0) ,2) --"Сумма", saldo
+     ( NVL(O2.s,0) - ( NVL(O1.s,0)+NVL(V1.s,0) ) )--"Сумма", saldo
+  FROM
+  (
+    SELECT
+      ROUND(SUM(D.fprice),2) s
+    FROM
+      ABC.Ve$Doc D -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334)AND
+      TRUNC(D.datef)   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu
+  ) O1,
+  (
+    SELECT
+      ROUND(SUM(D.fprice),2) s
+    FROM
+      ABC.Ve$Doc D
+    WHERE
+      D.tp IN (93)     AND
+      TRUNC(D.datef)   BETWEEN d1 AND d2 AND
+      D.cd_u=cdu       
+   ) V1,
+   (
+    SELECT
+--      SUM(NVL(D.fprice,0)+AKA.SUM_TOV_SKD(D.cd_c)) s
+       ROUND(SUM(D.fprice),2) s  
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$PxDoc P
+    WHERE
+      D.tp =83      AND
+      D.cd_c=P.cd_c AND
+      TRUNC(NVL(P.date8,D.date0))   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu       
+   ) O2;
+/*   ,
+   (
+     SELECT
+       SUM(
+          DECODE(ABC.GET_SKIDKA(D.cd_c),1,D.lprice,0)
+          ) s  
+    FROM
+      ABC.Ve$Doc D
+    WHERE
+      D.tp =83      AND
+      TRUNC(D.date0)   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu       
+   ) T  ;*/
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANS5 ( cdu NUMBER, d1 DATE, d2 DATE) IS
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+
+FOR Cc IN (
+  SELECT
+    cdu,
+    O2.s ob_deb ,      -- otpuseno
+    O1.s+V1.s  ob_cred, -- oplaceno       
+    ( NVL(O2.s,0) - ( NVL(O1.s,0)+NVL(V1.s,0) ) ) saldo -- saldo
+  FROM
+  (
+    SELECT
+      ROUND(SUM(D.fprice),2) s
+    FROM
+      ABC.Ve$Doc D -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334,336) AND 
+      TRUNC(D.datef)   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu
+  ) O1,
+  (
+    SELECT
+      ROUND(SUM(D.fprice),2) s
+    FROM
+      ABC.Ve$Doc D -- Возврат
+    WHERE
+      D.tp IN (93,463)     AND
+      TRUNC(D.datef)   BETWEEN d1 AND d2 AND
+      D.cd_u=cdu       
+   ) V1,
+   (
+    SELECT
+       ROUND(SUM(D.fprice),2) s  
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$PxDoc P
+    WHERE
+      D.tp IN (83,101,337)      AND -- Отпущено
+      D.cd_c=P.cd_c AND
+      TRUNC(NVL(P.date8,D.date0))   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu       
+   ) O2
+  ) LOOP
+   IF Cc.saldo >= 0 THEN 
+    INSERT INTO AKA.CLIBAL5 VALUES(Cc.cdu, 0, 0, Cc.ob_deb, Cc.ob_cred, Cc.saldo, 0) ;  
+   ELSIF Cc.saldo < 0 THEN
+    INSERT INTO AKA.CLIBAL5 VALUES(Cc.cdu, 0, 0, Cc.ob_deb, Cc.ob_cred, 0, -1*Cc.saldo) ; 
+   END IF; 
+ END LOOP;
+  
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     CLI_BALANSE6( cdu NUMBER, d1 DATE, d2 DATE) IS
+p_cdq NUMBER;
+p_cdt NUMBER;
+BEGIN
+
+FOR Cc IN (
+  SELECT
+    cdu,
+    O2.s ob_deb ,      -- otpuseno
+    O1.s+V1.s  ob_cred, -- oplaceno       
+    ( NVL(O2.s,0) - ( NVL(O1.s,0)+NVL(V1.s,0) ) ) saldo -- saldo
+  FROM
+  (
+    SELECT
+      ROUND(SUM(D.fprice),2) s
+    FROM
+      ABC.Ve$Doc D -- ОПЛАТА
+    WHERE
+      D.tp IN (333,334,336) AND 
+      TRUNC(D.datef)   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu
+  ) O1,
+  (
+    SELECT
+      ROUND(SUM(D.fprice),2) s
+    FROM
+      ABC.Ve$Doc D -- Возврат
+    WHERE
+      D.tp IN (93,463)     AND
+      TRUNC(D.datef)   BETWEEN d1 AND d2 AND
+      D.cd_u=cdu       
+   ) V1,
+   (
+    SELECT
+       ROUND(SUM(D.fprice),2) s  
+    FROM
+      ABC.Ve$Doc D, ABC.Ve$PxDoc P
+    WHERE
+      D.tp IN (81,100,83,101,337)      AND -- Отпущено и отгружено
+      D.cd_c=P.cd_c AND
+      TRUNC(NVL(P.date8,D.date0))   BETWEEN  d1 AND d2  AND
+      D.cd_u=cdu       
+   ) O2
+  ) LOOP
+   IF Cc.saldo >= 0 THEN 
+    INSERT INTO AKA.CLIBAL5 VALUES(Cc.cdu, 0, 0, Cc.ob_deb, Cc.ob_cred, Cc.saldo, 0) ;  
+   ELSIF Cc.saldo < 0 THEN
+    INSERT INTO AKA.CLIBAL5 VALUES(Cc.cdu, 0, 0, Cc.ob_deb, Cc.ob_cred, 0, -1*Cc.saldo) ; 
+   END IF; 
+ END LOOP;
+  
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     CLI_BALANS_PR ( p_cdu NUMBER, p_dt1 DATE, p_dt2 DATE)   IS
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   -------------------------------------------
+-- A.Kaliabin  23.12.99 Баланс клиента оборотная ведомость
+-- Оборотка вер. 1.0
+--             06.01.00 
+-- Оборотка вер. 2.0 
+-- Оборотка вер. 2.1 убрал привязки в платежах к расходникам.
+-- Обороткка вер. 2.1.1 переделал в модуль запускаемый из пускача CLI_BALANS_START
+
+CURSOR c_Balans(cdu NUMBER, d1 DATE, d2 DATE) IS
+select distinct
+ 1 t ,
+ 'Кредит' ts,
+ substr(dp.cd_a,1,10) n_doc,
+ dp.fprice su,
+-- round(decode (d.cd_vf, 1, lp.fprice,2, lp.fprice*dp.frate/1.05,
+--     9, lp.fprice, 10000000),2) su,
+-- substr(to_char(d.cd_a)||'/'||to_char(d.num),1,10) n_p_doc,
+'--' n_p_doc,
+ dp.date0 dt,
+ substr(dtp.fullpathnm,22,30) td
+from -- abc.ve$doc d,
+ abc.ve$doc dp 
+--,abc.ve$lpay lp 
+,abc.ve$doctp dtp
+where dp.cd_u=cdu
+      and
+      trunc(dp.date0) BETWEEN d1 and d2 and
+--      ((lp.cd_c1=dp.cd_c and lp.cd_c2=d.cd_c) or
+--      (lp.cd_c1=d.cd_c and lp.cd_c2=dp.cd_c)) and
+      dp.fpay=1 
+      and dp.tp=dtp.cd_c
+      and dtp.cd_c IN (333,334,93)
+UNION
+select distinct
+  2 t,
+ 'Дебит' ts,
+ substr(to_char(d.cd_a)||'/'||to_char(d.num),1,10) n_doc,
+ round(decode (d.cd_vf, 1, d.fprice,2,d.fprice*d.frate/1.05,
+    9, d.fprice*1.03/d.frate,100000000),2) su,
+ '--' n_p_doc,
+ d.date0 dt,
+ SUBSTR(dtp.fullpathnm,8,8) td
+from abc.ve$doc d,
+abc.ve$lpay lp 
+,abc.ve$doctp dtp
+where d.cd_u=cdu
+      and
+      trunc(d.date0) BETWEEN d1 and d2
+--and      d.fpay=0
+and   ROUND(ABS(d.fprice))<>0
+      and d.tp=dtp.cd_c
+ and d.tp in (81,83)
+UNION
+select distinct
+  2 t,
+ 'Дебит' ts,
+ substr(to_char(d.cd_a)||'/'||to_char(d.num),1,10) n_doc,
+ d.lprice su,
+-- round(decode (d.cd_vf, 1, d.fprice,2,d.fprice*d.frate/1.05,
+--    9, d.fprice*1.03/d.frate,100000000),2) su,
+ '--' n_p_doc,
+ d.date0 dt,
+ 'Скидки' td
+from abc.ve$doc d,
+abc.ve$lpay lp 
+,abc.ve$doctp dtp
+where d.cd_u=cdu
+      and
+      trunc(d.date0) BETWEEN d1 and d2
+      -- TO_DATE('01.12.1999','DD.MM.RRRR') and
+      --                 TO_DATE('31.12.1999','DD.MM.RRRR') 
+and   d.fpay=0
+and   ROUND(ABS(d.fprice))=0
+      and d.tp=dtp.cd_c;
+
+
+CURSOR c_CreDe IS
+  SELECT SUM(summa) s,
+   cre_de cd
+    FROM AKA.CLI_BAL
+  GROUP BY cre_de
+  ORDER BY cre_de;
+        
+
+vc_B  c_Balans%ROWTYPE;
+vc_CreDe c_CreDe%ROWTYPE;
+v_summa NUMBER;
+v_cre_de NUMBER;
+v_nmu VARCHAR2(30);
+v_d NUMBER;
+v_c NUMBER;
+v_idx NUMBER := 0;       
+      
+BEGIN
+  
+    
+  FOR vc_B IN c_Balans(p_cdu,p_dt1,p_dt2) LOOP
+    INSERT INTO AKA.CLI_BAL VALUES(vc_B.t,vc_B.ts,vc_B.n_doc,vc_B.su,vc_B.n_p_doc,vc_B.dt,vc_B.td,p_cdu);
+    v_idx := v_idx+1;
+    IF v_idx >= 100 THEN
+      v_idx := 0;
+      COMMIT;      
+    END IF;  
+  END LOOP;
+  COMMIT;
+
+  SELECT SUBSTR(nm_u,1,30) INTO v_nmu FROM ABC.Ve$USR WHERE cd_u=p_cdu;
+  
+  FOR  vc_CreDe IN c_CreDe LOOP
+    v_summa := vc_CreDe.s;
+    v_cre_de := vc_CreDe.cd;
+    IF v_cre_de = 1 THEN
+      INSERT INTO AKA.CLI_BAL VALUES(998,'ИТОГО КРЕДИТ',v_nmu, v_summa,'',null,'',p_cdu);
+      v_c := v_summa;
+      COMMIT;
+    END IF;
+    IF v_cre_de = 2 THEN
+      INSERT INTO AKA.CLI_BAL VALUES(999,'ИТОГО ДЕБИТ',v_nmu, v_summa,'',null,'',p_cdu);
+      v_d := v_summa;
+      COMMIT;
+    END IF;  
+  END LOOP;  
+  INSERT INTO AKA.CLI_BAL VALUES(1000,'ДЕБИТ - КРЕДИТ','',v_d-v_c,'',null,'',p_cdu);
+  COMMIT;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     CLI_BALANS_START ( cd_qx IN NUMBER, cd_tx IN NUMBER) IS
+
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+--   A.Kaliabin  06.01.00 пускач для CLI_BALANS_PR
+
+CURSOR c_Usr IS 
+  SELECT cdusr cdu
+    FROM AKA.CLI_BAL_CDU;
+
+v_dt1 DATE;
+v_dt2 DATE;
+vc_Usr c_Usr%ROWTYPE;
+
+BEGIN
+  DELETE FROM AKA.CLI_BAL;
+  COMMIT; 
+  DELETE FROM AKA.CLI_BAL_CDU;
+  COMMIT;
+
+--  INSERT INTO AKA.CLI_BAL_CDU (cdusr)
+--  SELECT pvalue1 FROM ABC.QrunParam WHERE cd_q=cd_qx AND cd_t=cd_tx AND pclass=2;
+--  COMMIT; 
+  
+  INSERT INTO AKA.CLI_BAL_CDU (cdusr)
+  SELECT Q.pvalue1 FROM ABC.QrunParam Q WHERE Q.cd_q=327 AND Q.cd_t=2621 AND Q.pclass=2;
+  COMMIT;
+
+  SELECT dvalue1,dvalue2 INTO v_dt1, v_dt2 FROM ABC.QRUNPARAM
+  WHERE cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+
+--  SELECT pvalue1  INTO v_cdu FROM ABC.QRUNPARAM
+--  WHERE  cd_q=cd_qx  AND cd_t=cd_tx AND pclass=2 ; 
+  FOR vc_Usr IN c_Usr LOOP  
+    AKA.CLI_BALANS_PR(vc_Usr.cdu, v_dt1, v_dt2);
+  END LOOP;  
+  
+END; -- Procedure
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     COMMERCE_CHIEF(cdq INTEGER, cdt INTEGER) AS
+
+s_Date DATE;
+e_Date DATE; 
+d1 DATE;
+d2 DATE;         
+
+BEGIN
+
+  DELETE FROM AKA.Otgr_Reg;
+  DELETE FROM AKA.Otgr_Reg_Nak;
+  COMMIT;
+
+  SELECT TRUNC(dvalue1),TRUNC(dvalue2) INTO s_Date, e_Date
+    FROM ABC.QrunParam WHERE cd_q=455 AND cd_t=4205 AND pclass=4;
+      
+  d1 := s_Date;
+  d2 := e_Date+1;
+  
+  WHILE d1 < d2 LOOP
+    INSERT INTO AKA.Otgr_Reg VALUES(TRUNC(d1),0,0,0,0,0,0,0,0);
+    d1 := d1 + 1 ;
+  END LOOP;  
+  COMMIT;
+
+-- Северск       
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  T.cd_t FROM ABC.Town T WHERE T.cd_t=1662
+     ) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET seversk=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+-- Томск
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  T.cd_t FROM ABC.Town T WHERE T.cd_t=1661 ) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET tomsk=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+
+-- Томская обл. без Томска, Северска и Стрежевого
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  cd_t FROM ABC.Town  WHERE cd_up = 1660 and cd_t not in (1661,1672,1662) ) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET tomsk_reg=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+-- Стрежевой
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  cd_t FROM ABC.Town WHERE cd_t=1672 ) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET strej=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+-- Север Кемеровской области
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  cd_t FROM ABC.Town WHERE cd_t IN (1681,1655,1698,1699,1703,1705,1707,1713,1725,1736) )T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET n_kem=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+-- Юг Кемеровской области
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  cd_t FROM ABC.Town WHERE cd_t IN (1645,1704,1706,1722,1724,1730)) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET s_kem=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+-- Кемерово
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U ,
+   ( SELECT  cd_t FROM ABC.Town WHERE cd_t = 1645) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET kem=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+-- Тюменская обл.
+FOR Cc IN
+( 
+  SELECT TRUNC(D.date0) d, ROUND(SUM(D.fprice/D.rrate),2) b
+  FROM ABC.Ve$Doc D, ABC.Ve$Xusr X, ABC.Ve$Usr U,
+   ( SELECT  cd_t FROM ABC.Town  WHERE cd_up = 1685 ) T
+  WHERE D.cd_u=X.cd_u AND X.cd_t=T.cd_t AND U.tp not in (1,7) AND X.cd_u=U.cd_u AND
+    D.tp IN
+        (
+           SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+              (SELECT TO_NUMBER(value) FROM abc.universum
+                WHERE tp='P34' AND KEY='DOC_OTGR'
+              )
+         ) AND
+    TRUNC(D.date0) BETWEEN s_Date AND e_Date
+  GROUP BY TRUNC(D.date0)
+ )
+ LOOP
+   UPDATE AKA.Otgr_Reg SET tumen=Cc.b WHERE dat=Cc.d;
+ END LOOP;
+
+ COMMIT;
+ 
+ -- А теперь накопительно  
+ FOR Cc IN (
+   SELECT T2.dat d, SUM(T1.seversk) s, SUM(T1.tomsk) t,
+     SUM(T1.tomsk_reg) tr, SUM(T1.strej) str, SUM(T1.n_kem) nk, SUM(T1.kem) k, SUM(T1.s_kem) sk, SUM(T1.tumen) tu
+   FROM AKA.Otgr_Reg T1, AKA.Otgr_Reg T2
+   WHERE T1.dat<=T2.dat
+   GROUP BY T2.dat )
+ LOOP
+   INSERT INTO AKA.Otgr_Reg_Nak VALUES(Cc.d, Cc.s, Cc.t, Cc.tr, Cc.str, Cc.nk, Cc.k, Cc.sk, Cc.tu);
+ END LOOP;
+    
+ COMMIT;    
+    
+    
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     DFEP_10_PRC  ( cd_qx NUMBER, cd_tx NUMBER )  IS
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   -------------------------------------------       
+-- A.Kaliabin  19.03.00 Форма ДФЭП-10 показатели сбытовой инфраструктуры
+-- Заполняет временную таблицу следующими значениями :
+-- УСЛОВИЯ ОТПУСКА ТОВАРА (ПО НАКЛАДНЫМ), т.е. как хотели-бы отпустить с разбивкой на
+-- предоплата, отсрочка 45 б.д., отсрочка от 21 до 45 б.д., отсрочка от 11 до 20 б.д., отсрочка от 1 до 10 б.д.
+-- УСЛОВИЯ ОПЛАТЫ ТОВАРА (ФАКТИЧЕСКИ), т.е. как получилось отпустить и снова с разбивкой на
+-- предоплата, отсрочка 45 б.д., отсрочка от 21 до 45 б.д., отсрочка от 11 до 20 б.д., отсрочка от 1 до 10 б.д.
+d1 DATE;
+d2 DATE;
+
+BEGIN
+  DELETE FROM AKA.DFEP_10;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO d1, d2 FROM ABC.QRUNPARAM
+  WHERE cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+  
+  INSERT INTO AKA.DFEP_10 (cd_d,cnt,dsum)
+  --SELECT 1 d,COUNT(*) cnt, ROUND(SUM(D.rprice/D.frate),2) dsum
+  SELECT 1 d,COUNT(*) cnt, ROUND(SUM(D.rprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum 
+  FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+  WHERE D.cd_c=P.cd_c AND
+      GPOF.get_bd(D.date0,P.dated)=0 AND
+      D.date0 BETWEEN d1 AND d2 AND
+  --    D.tp IN (83)                  
+    d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+  UNION
+  --SELECT 2 d,COUNT(*) cnt, ROUND(SUM(D.rprice/D.frate),2) dsum
+  SELECT 2 d,COUNT(*) cnt, ROUND(SUM(D.rprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+  FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+  WHERE D.cd_c=P.cd_c AND
+      GPOF.get_bd(D.date0,P.dated)>=45 AND
+      D.date0 BETWEEN d1 AND d2 AND
+    --  D.tp IN (83)                                    
+    d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+  UNION
+--  SELECT 3 d,COUNT(*) cnt, ROUND(SUM(D.rprice/D.frate),2) dsum
+  SELECT 3 d,COUNT(*) cnt, ROUND(SUM(D.rprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+  FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+  WHERE D.cd_c=P.cd_c AND
+      GPOF.get_bd(D.date0,P.dated)>=21 AND GPOF.get_bd(D.date0,P.dated)<45 AND
+      D.date0 BETWEEN d1 AND d2 AND
+    --  D.tp IN (83)                    
+    d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+  UNION
+--  SELECT 4 d,COUNT(*) cnt, ROUND(SUM(D.rprice/D.frate),2) dsum
+  SELECT 4 d,COUNT(*) cnt, ROUND(SUM(D.rprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+  FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+  WHERE D.cd_c=P.cd_c AND
+      GPOF.get_bd(D.date0,P.dated)>11 AND GPOF.get_bd(D.date0,P.dated)<20 AND
+      D.date0 BETWEEN d1 AND d2 AND
+      --D.tp IN (83)                    
+    d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+  UNION
+--  SELECT 5 d,COUNT(*) cnt, ROUND(SUM(D.rprice/D.frate),2) dsum
+  SELECT 5 d,COUNT(*) cnt, ROUND(SUM(D.rprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+  FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+  WHERE D.cd_c=P.cd_c AND
+      GPOF.get_bd(D.date0,P.dated)>1 AND GPOF.get_bd(D.date0,P.dated)<=10 AND
+      D.date0 BETWEEN d1 AND d2 AND
+--      D.tp IN (83);
+     d.tp in ( -- AKA
+      select cd_c
+      from abc.doc2up
+      where cd_up in
+      (
+       select value from abc.universum
+       where tp = 'REALIZATION' and key = 'DOCTYPE'
+      ));
+
+COMMIT;
+----------------------------------------------------
+----------------------------------------------------
+INSERT INTO AKA.DFEP_10 (cd_d,cnt,dsum)       
+--SELECT 6 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/D.frate),2) dsum
+SELECT 6 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+WHERE D.cd_c=P.cd_c AND
+  GPOF.get_bd(D.date0,P.dated)=0 AND
+  D.date0 BETWEEN d1 AND d2 AND
+  DECODE(D.rprice,0,TRUNC(D.yfprice*100/D.lprice),TRUNC(D.yfprice*100/D.rprice))=100  AND
+  --D.tp IN (83)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+UNION
+--SELECT 7 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/D.frate),2) dsum
+SELECT 7 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+WHERE D.cd_c=P.cd_c AND
+  GPOF.get_bd(D.date0,P.dated)>=45 AND
+  D.date0 BETWEEN d1 AND d2 AND
+  DECODE(D.rprice,0,TRUNC(D.yfprice*100/D.lprice),TRUNC(D.yfprice*100/D.rprice))=100 AND
+ -- D.tp IN (83)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    )) 
+UNION
+--SELECT 8 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/D.frate),2) dsum
+SELECT 8 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+WHERE D.cd_c=P.cd_c AND
+  GPOF.get_bd(D.date0,P.dated)>=21 AND GPOF.get_bd(D.date0,P.dated)<45 AND
+  D.date0 BETWEEN d1 AND d2 AND
+  DECODE(D.rprice,0,TRUNC(D.yfprice*100/D.lprice),TRUNC(D.yfprice*100/D.rprice))=100  AND
+--  D.tp IN (83)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+UNION
+--SELECT 9 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/D.frate),2) dsum
+SELECT 9 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+WHERE D.cd_c=P.cd_c AND
+  GPOF.get_bd(D.date0,P.dated)>11 AND GPOF.get_bd(D.date0,P.dated)<20 AND
+  D.date0 BETWEEN d1 AND d2 AND
+  DECODE(D.rprice,0,TRUNC(D.yfprice*100/D.lprice),TRUNC(D.yfprice*100/D.rprice))=100  AND
+--  D.tp IN (83)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ))
+UNION
+--SELECT 10 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/D.frate),2) dsum
+SELECT 10 d,COUNT(*) cnt, ROUND(SUM(D.yfprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)),2) dsum
+FROM ABC.Ve$Doc D, ABC.Ve$PxDoc P
+WHERE D.cd_c=P.cd_c AND
+  GPOF.get_bd(D.date0,P.dated)>1 AND GPOF.get_bd(D.date0,P.dated)<=10 AND
+  D.date0 BETWEEN d1 AND d2 AND
+  DECODE(D.rprice,0,TRUNC(D.yfprice*100/D.lprice),TRUNC(D.yfprice*100/D.rprice))=100  AND
+  --D.tp IN (83)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    ) )
+  ;
+COMMIT;
+
+END; -- Procedure
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     DVIGENIE_NKOD (cd_qx number, cd_tx number) as
+-- ‡ Ї®«­пҐв в Ў«Ёжг aka.dvigenie_nk Ё­д®а¬ жЁҐ© ® ¤ўЁ¦Ґ­ЁЁ ЇаҐЇ а в®ў б €‘ѓ
+/*
+ ЏаҐЇ а вл б €‘ѓ а §ЎЁвл ­  ваЁ ЈагЇЇл:
+ 1. Љ ЇҐаў®© ЈагЇЇҐ ®в­®бпвбп ЇаҐЇ а вл, Є®в®алҐ ЇҐаҐўҐ¤Ґ­л ­  ­®ўл© Є®¤. “ ­Ёе Ґбвм Ё ЌЉ Ё ЊЉ
+    Ё ў ®ЇҐа жЁпе гз бвў®ў « Ё¬Ґ­­® ЇаҐЇ а в б ЌЉ. „«п ­Ёе § Ї®«­пҐвбп ЊЉ Ё ЌЉ
+    ‚ CD_M Їа®бв ў«пҐвбп ЌЉ
+ 2. Љ® ўв®а®© - ЇаҐЇ а вл, Є®в®алҐ в Є¦Ґ ЇҐаҐўҐ¤Ґ­л ­  ­®ўл© Є®¤, ­® ў ®ЇҐа жЁпе Ї® Є ЄЁ¬-«ЁЎ®
+    ЇаЁзЁ­ ¬ гз бвў®ў «Ё ЇаҐЇ а вл б ЊЉ. „«п в ЄЁе ЇаҐЇ а в®ў § Ї®«­повбп ЊЉ. ЌЉ - Їгбв.
+    ‚ CD_M Їа®бв ў«пҐвбп ЊЉ
+ 3. Љ ваҐвмҐ© ЈагЇЇҐ ®в­®бпвбп ЇаҐЇ а вл б €‘ѓ, Є®в®алҐ ҐйҐ ­Ґ ЇҐаҐўҐ¤Ґ­­лҐ ­  ЌЉ. Ђўв®¬ вЁзҐбЄЁ ўлЎа вм
+    в ЄЁҐ ЇаҐЇ а вл ЎҐ§ гзҐв  Ї®бҐаЁ©­®© ЇаЁўп§ЄЁ ­Ґў®§¬®¦­®, Ї®нв®¬г в ЄЁҐ ЇаҐЇ а вл ¤®Ў ў«повбп ў
+    Ї а ¬Ґвал ®взҐв  WABC ўагз­го. „«п ­Ёе Їа®бв ў«пҐвбп в®«мЄ® ЊЉ,   ЌЉ Їгбв.
+    ‚ CD_M § ­®бЁвбп ЊЉ
+*/
+CURSOR Cdv_tovar(dt1 date, dt2 date) is
+  select l.cd_m,
+         -- ЏаЁе®¤ в®ў а 
+         sum(decode(d.tp,7,l.amn1,0)) prihod,
+         -- ‘г¬¬  ЇаЁе®¤ 
+         round(sum(decode(d.tp,7,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),0)),2) prihod_st,
+         -- ђ бе®¤ в®ў а 
+         sum(decode(d.tp,81,l.amn1,
+                         83,l.amn1,0)) uhod,
+         -- ‘г¬¬  а бе®¤ 
+         round(sum(decode(d.tp,81,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),
+                               83,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),0)),2) uhod_st,
+         -- ‚®§ўа в в®ў а  ®в Є«ЁҐ­в®ў
+         sum(decode(d.tp,93,l.amn1,95,l.amn1,96,l.amn1,0)) vozv_cl,
+         -- ‘г¬¬  ў®§ўа в  в®ў а  ®в Є«ЁҐ­в®ў
+         round(sum(decode(d.tp,93,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),
+                               95,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),
+                               96,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),0)),2) vozv_cl_st,
+         -- Љ-ў® бЇЁб ­®Ј® в®ў а 
+         sum(decode(d.tp,85,l.amn1,0)) spis,
+         -- ‘г¬¬  бЇЁб ­®Ј® в®ў а 
+         round(sum(decode(d.tp,85,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),0)),2) spis_st,
+         -- ‚®§ўа вл ў ѓЏ
+         sum(decode(d.tp,90,l.amn1,0)) vozv_pr,
+         -- ‘г¬¬  ў®§ўа в®ў ў ѓЏ
+         round(sum(decode(d.tp,90,decode(d.cd_vf,1,l.tfprice/d.frate,2,l.tfprice,0),0)),2) vozv_pr_st
+  from abc.doc d, abc.lst l, aka.dvigenie_nk dv
+  where d.tp in (7, 81, 83, 85, 90, 93, 95, 96)
+    and d.cd_c=l.cd_c
+    and (d.date0 between dt1 and dt2)
+    and l.cd_m = dv.cd_m
+  group by l.cd_m
+  order by l.cd_m;
+dv_tovar Cdv_tovar%rowtype;
+dtb date;
+dte date;
+begin
+  delete from aka.dvigenie_nk;
+  commit;
+  select dvalue1, dvalue2 into dtb, dte from abc.qrunparam where cd_t=cd_tx and cd_q=cd_qx and pclass=4;
+  dte := trunc(sysdate);
+  -- ‚бв ўЄ  ЇаҐЇ а в®ў 1-®© ЈагЇЇл
+  insert into aka.dvigenie_nk
+    (cd_m,
+     nk,
+     mk,
+     kol_e
+    )
+  select
+     m.cd_m,
+     m.cd_m nk,
+     m.cd_up mk,
+     b.amn
+  from abc.ve$med m, abc.ve$bxsmed b
+  where m.cd_m=b.cd_m and b.cd_s=1 and m.cd_up is not null;
+  commit;
+  -- ‚бв ўЄ  ЇаҐЇ а в®ў 2-®© ЈагЇЇл
+  insert into aka.dvigenie_nk
+    (cd_m,
+     mk,
+     kol_e
+    )
+  select distinct
+     m.cd_m,
+     m.cd_m mk,
+     b.amn
+  from abc.ve$med m, abc.ve$bxsmed b
+  where m.cd_m=b.cd_m and b.cd_s=1
+    and m.cd_m <> m.cd_up
+    and exists (select 1 from abc.ve$med m1 where m1.cd_up is not null and m1.cd_up = m.cd_m);
+  commit;
+  -- “¤ «пҐ¬ Ё§ бЇЁбЄ  ЇаҐЇ а в®ў Є ®Ўа Ў®вЄҐ г¦Ґ ®Ўа Ў®в ­­лҐ ЇаҐЇ а вл
+  delete from abc.qrunparam q
+  where q.cd_t=cd_tx and q.cd_q=cd_qx and q.pclass=1
+    and exists (select 1 from aka.dvigenie_nk dv where q.pvalue1=dv.cd_m);
+  -- ‚бв ўЄ  ЇаҐЇ а в®ў 3-Ґ© ЈагЇЇл
+  insert into aka.dvigenie_nk
+    (cd_m,
+     mk,
+     kol_e
+    )
+  select
+     m.cd_m,
+     m.cd_m mk,
+     -- Љ-ў® ­  бЄ« ¤Ґ
+     b.amn
+  from abc.ve$med m, abc.ve$bxsmed b, abc.qrunparam q
+  where q.cd_t=cd_tx and q.cd_q=cd_qx and q.pclass=1
+    and m.cd_m = q.pvalue1
+    and m.cd_m=b.cd_m and b.cd_s=1;
+  commit;
+  -- ‘Ў®а Ё­д®а¬ жЁЁ ® ЇаҐЇ а в е
+  open Cdv_tovar(dtb, dte);
+  loop
+    fetch Cdv_tovar into dv_tovar;
+    exit when Cdv_tovar%notfound;
+    update aka.dvigenie_nk set
+      prihod     = nvl(dv_tovar.prihod,0),
+      prihod_st  = nvl(dv_tovar.prihod_st,0),
+      uhod       = nvl(dv_tovar.uhod,0),
+      uhod_st    = nvl(dv_tovar.uhod_st,0),
+      vozv_cl    = nvl(dv_tovar.vozv_cl,0),
+      vozv_cl_st = nvl(dv_tovar.vozv_cl_st,0),
+      spis       = nvl(dv_tovar.spis,0),
+      spis_st    = nvl(dv_tovar.spis_st,0),
+      vozv_pr    = nvl(dv_tovar.vozv_pr,0),
+      vozv_pr_st = nvl(dv_tovar.vozv_pr_st,0),
+      kol_b      = nvl(kol_e,0) - nvl(dv_tovar.prihod,0) + nvl(dv_tovar.uhod,0) - nvl(dv_tovar.vozv_cl,0)
+                   + nvl(dv_tovar.spis,0) + nvl(dv_tovar.vozv_pr,0),
+      sr_uhod    = round(aka.sr_uhod(dv_tovar.cd_m,83,trunc(dte-175,'MONTH'),dte))*30
+    where cd_m = dv_tovar.cd_m;
+  end loop;
+  close Cdv_tovar;
+  commit;
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE execute_immediate(p_sql_text varchar2) IS
+
+        l_cursor integer default 0;
+        rc       integer default 0;
+        stmt     varchar2(1000);
+
+BEGIN
+
+            l_cursor:=dbms_sql.open_cursor;
+            dbms_sql.parse(l_cursor,p_sql_text,dbms_sql.native);
+            rc:=dbms_sql.execute(l_cursor);
+            dbms_sql.close_cursor(l_cursor);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     F29_1_MAIN(cd_qx NUMBER,cd_tx NUMBER) AS 
+
+CURSOR C_med IS
+SELECT M.cd_m,M.cd_up
+FROM ABC.Ve$Med M;
+
+CURSOR C_F29 IS
+SELECT F.nc cd_m
+FROM AKA.F29_1_TBL F;
+
+--, ABC.V$Bxslice B
+/*WHERE
+     M.cd_m=B.cd_m
+AND  B.cd_s=6
+AND  (B.amn-B.res)>0
+AND  B.sdt=d;*/
+
+
+CURSOR C_PackSUM(d1 DATE, d2 DATE, cdm NUMBER, dtp NUMBER) IS
+  SELECT SUM(L.amn1) amn
+  FROM ABC.Ve$Doc D, ABC.Ve$Lst L
+  WHERE
+      L.cd_c=D.cd_c
+  AND D.tp=dtp
+  AND D.date0>=d1 AND D.date0<=d2
+  AND L.cd_m=cdm;
+  
+CURSOR C_MoneySUM(d1 DATE, d2 DATE, cdm NUMBER, dtp NUMBER) IS
+  SELECT SUM(L.amn1*L.fprice) price
+  FROM ABC.Ve$Doc D, ABC.Ve$Lst L
+  WHERE
+      L.cd_c=D.cd_c
+  AND D.tp=dtp
+  AND D.date0>=d1 AND D.date0<=d2
+  AND L.cd_m=cdm;
+  
+CURSOR C_BegEnd(d DATE) IS
+  SELECT M.cd_m, M.cd_up, M.nm_m, P.nm_prod , B.amn ,
+    ABC.Price(M.cd_m, 1,2) nc_prc, ABC.Price(M.cd_up, 1,2) mc_prc,
+    B.amn*ABC.Price(M.cd_m, 1,2) stoim
+  FROM ABC.Ve$Med M, ABC.Ve$Prod P, ABC.V$Bxslice B
+  WHERE
+       M.cd_m=B.cd_m
+  AND  B.cd_s=6                 -- sklad N 1
+  AND  (B.amn-B.res)>0
+  AND  M.cd_p=P.cd_prod
+  AND  B.sdt=d;
+
+CURSOR C_money(doc_tp NUMBER, dt1 DATE, dt2 DATE) IS
+    SELECT  M.cd_m, SUM(L.amn1*L.fprice) money
+    FROM ABC.VE$MED M, ABC.VE$DOC D, ABC.VE$LST L
+    WHERE
+      M.cd_m=L.cd_m AND
+      L.cd_c=D.cd_c AND
+      D.date0>=dt1 AND D.date0<=dt2 AND
+      D.tp=doc_tp
+     GROUP BY M.cd_m;
+      
+CURSOR C_packs(doc_tp NUMBER, dt1 DATE, dt2 DATE) IS
+    SELECT  M.cd_m, SUM(L.amn1) amn
+    FROM ABC.VE$MED M, ABC.VE$DOC D, ABC.VE$LST L
+    WHERE
+      M.cd_m=L.cd_m AND
+      L.cd_c=D.cd_c AND
+      D.date0>=dt1 AND D.date0<=dt2 AND
+      D.tp=doc_tp
+   GROUP BY M.cd_m;      
+
+r_BegEnd C_BegEnd%ROWTYPE;
+r_med   C_F29%ROWTYPE;
+r_money C_money%ROWTYPE;
+r_packs C_packs%ROWTYPE; 
+v_dt_beg DATE;
+v_dt_end DATE;
+av NUMBER;
+
+v_beg_pack    NUMBER := 0;
+v_beg_money   NUMBER := 0;
+v_in_pack     NUMBER := 0;
+v_in_money    NUMBER := 0;
+v_out_cli_m   NUMBER := 0;
+v_out_cli     NUMBER := 0;
+v_in_cli_m    NUMBER := 0;
+v_in_cli      NUMBER := 0;
+v_out_brk_m   NUMBER := 0;
+v_out_brk     NUMBER := 0;
+v_out_MSK_m   NUMBER := 0;
+v_out_MSK     NUMBER := 0;
+v_end_pack    NUMBER := 0;
+v_end_money   NUMBER := 0;
+v_avrg6_p     NUMBER := 0;
+
+
+BEGIN
+  DELETE FROM AKA.F29_1_TBL;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO v_dt_beg, v_dt_end FROM ABC.QRUNPARAM WHERE cd_t=cd_tx;   
+
+-- fill work table F29_1_TBL
+  INSERT INTO AKA.F29_1_TBL SELECT cd_m,cd_up,'','',0,0,0,0,0,0,0,0,0,0,0,0,0 FROM ABC.Ve$Med;   
+  COMMIT; 
+-- begining saldo update  
+  OPEN C_F29;
+  LOOP
+    FETCH C_F29 INTO r_med;
+    EXIT WHEN C_F29%NOTFOUND;
+-- -------------POSTUPILO ------------------------------------------------------------------       
+      SELECT SUM(L.amn1) INTO v_in_pack
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp=7 AND
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_FROMOS'
+             ) 
+             )             
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;            
+         
+      SELECT SUM(L.amn1*L.fprice) INTO v_in_money
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp=7
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_FROMOS'
+             ) 
+             )             
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;             
+
+-- -------------OTPUSHENO-------------------------------------------------------------------
+      SELECT SUM(L.amn1*L.fprice) INTO v_out_cli_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (81,83)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'REALIZATION' and key = 'DOCTYPE'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;     
+
+      SELECT SUM(L.amn1) INTO v_out_cli
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (81,83)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'REALIZATION' and key = 'DOCTYPE'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;            
+
+-- -------------VOZVRAT OT CLI--------------------------------------------------------------
+      SELECT SUM(L.amn1*L.fprice) INTO v_in_cli_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (93)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_IN34'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;               
+
+      SELECT SUM(L.amn1) INTO v_in_cli
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+--             AND D.tp IN (93)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_IN34'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;                      
+
+-- -------------SPISANO---------------------------------------------------------------------
+      SELECT SUM(L.amn1*L.fprice) INTO v_out_brk_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (85)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_BREAK'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;
+
+      SELECT SUM(L.amn1) INTO v_out_brk
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+         --AND D.tp IN (85)
+         AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_BREAK'
+             ) 
+             )
+         AND D.date0>='01.12.98'
+         AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;       
+-- ------------VOZVRAT IN MOSCOW------------------------------------------------------------             
+      SELECT SUM(L.amn1*L.fprice) INTO v_out_MSK_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (90)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_INMOS'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;
+
+      SELECT SUM(L.amn1) INTO v_out_MSK
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             -- AND D.tp IN (90)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_INMOS'
+             ) 
+             )
+             AND D.date0>='01.12.98'
+             AND D.date0<v_dt_beg AND L.cd_m=r_med.cd_m;                       
+-- -----------------------------------------------------------------------------------------
+      UPDATE AKA.F29_1_TBL SET beg_saldo_money =
+         v_in_money-v_out_cli_m+v_in_cli_m-v_out_brk_m-v_out_MSK_m;
+
+      UPDATE AKA.F29_1_TBL SET beg_saldo_pack =
+         v_in_pack-v_out_cli+v_in_cli-v_out_brk-v_out_MSK;
+
+--------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------
+-- -------------POSTUPILO ------------------------------------------------------------------       
+      SELECT SUM(L.amn1) INTO v_in_pack
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+--             AND D.tp=7
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_FROMOS'
+             ) 
+             )               
+
+             AND D.date0>=v_dt_beg
+             AND D.date0<=v_dt_end AND L.cd_m=r_med.cd_m;            
+         
+      SELECT SUM(L.amn1*L.fprice) INTO v_in_money
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp=7
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_FROMOS'
+             ) 
+             )             
+             AND D.date0>=v_dt_beg
+             AND D.date0<v_dt_end AND L.cd_m=r_med.cd_m;             
+
+-- -------------OTPUSHENO-------------------------------------------------------------------
+      SELECT SUM(L.amn1*L.fprice) INTO v_out_cli_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (81,83)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'REALIZATION' and key = 'DOCTYPE'
+             ) 
+             )             
+             AND D.date0>=v_dt_beg
+             AND D.date0<=v_dt_end AND L.cd_m=r_med.cd_m;     
+
+-- -------------VOZVRAT OT CLI--------------------------------------------------------------
+      SELECT SUM(L.amn1*L.fprice) INTO v_in_cli_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (93)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_IN34'
+             ) 
+             )             
+             AND D.date0>=v_dt_beg
+             AND D.date0<=v_dt_end AND L.cd_m=r_med.cd_m;               
+
+-- -------------SPISANO---------------------------------------------------------------------
+      SELECT SUM(L.amn1*L.fprice) INTO v_out_brk_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (85)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_BREAK'
+             ) 
+             )                            
+             AND D.date0>=v_dt_beg
+             AND D.date0<=v_dt_end AND L.cd_m=r_med.cd_m;
+
+-- ------------VOZVRAT IN MOSCOW------------------------------------------------------------             
+      SELECT SUM(L.amn1*L.fprice) INTO v_out_MSK_m
+         FROM ABC.Ve$Doc D,ABC.Ve$Lst L
+         WHERE L.cd_c=D.cd_c
+             --AND D.tp IN (90)
+             AND d.tp in (
+             select cd_c
+             from abc.doc2up
+             where cd_up in
+             (
+              select value from abc.universum
+              where tp = 'P34' and key = 'DOC_INMOS'
+             ) 
+             )             
+             AND D.date0>=v_dt_beg
+             AND D.date0<=v_dt_end AND L.cd_m=r_med.cd_m;
+-----------------------------------------------------------------------------------------'
+------------------------------------------------------------------------------------------
+
+      UPDATE AKA.F29_1_TBL SET in_pack = v_in_pack;
+      UPDATE AKA.F29_1_TBL SET in_money = v_in_money;
+
+      UPDATE AKA.F29_1_TBL SET out_cli_money = v_out_cli_m;
+      UPDATE AKA.F29_1_TBL SET in_cli_money = v_in_cli_m;
+
+      UPDATE AKA.F29_1_TBL SET out_brk_money = v_out_brk_m;
+      UPDATE AKA.F29_1_TBL SET out_MOSCOW = v_out_MSK_m;
+      
+------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------
+
+      UPDATE AKA.F29_1_TBL SET end_saldo_money =
+                      beg_saldo_money+in_money-in_cli_money+out_cli_money;
+                      
+      UPDATE AKA.F29_1_TBL SET end_saldo_pack =
+                      beg_saldo_pack+v_in_pack-v_out_cli+v_in_cli-v_out_brk-v_out_MSK;
+          
+      COMMIT;       
+             
+
+  
+  END LOOP;
+  CLOSE C_F29;  
+/*
+
+  OPEN C_BegEnd(v_dt_beg);
+  LOOP
+    FETCH C_BegEnd INTO r_BegEnd;
+    EXIT WHEN C_BegEnd%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET mc=r_BegEnd.cd_up, nc_price=r_BegEnd.nc_prc, mc_price=r_BegEnd.mc_prc,
+    beg_saldo_pack=r_BegEnd.amn, beg_saldo_money=r_BegEnd.stoim
+    WHERE nc=r_BegEnd.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_BegEnd;
+
+
+  OPEN C_BegEnd(v_dt_beg);
+  LOOP
+    FETCH C_BegEnd INTO r_BegEnd;
+    EXIT WHEN C_BegEnd%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET  end_saldo_pack=r_BegEnd.amn, end_saldo_money=r_BegEnd.stoim
+    WHERE nc=r_BegEnd.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_BegEnd;
+
+
+  OPEN C_money(7,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_money INTO r_money;
+    EXIT WHEN C_money%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_money=beg_saldo_money-r_money.money,
+        end_saldo_money=end_saldo_money+r_money.money,
+     in_money=r_money.money
+    WHERE nc=r_money.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_money; 
+  OPEN C_packs(7,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_packs INTO r_packs;
+    EXIT WHEN C_packs%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_pack=beg_saldo_pack-r_packs.amn,
+        end_saldo_pack=end_saldo_pack+r_packs.amn, 
+        in_pack=r_packs.amn
+    WHERE nc=r_packs.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_packs;
+
+
+  OPEN C_money(83,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_money INTO r_money;
+    EXIT WHEN C_money%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_money=beg_saldo_money+r_money.money,
+        end_saldo_money=end_saldo_money-r_money.money, 
+        out_cli_money=r_money.money
+    WHERE nc=r_money.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_money; 
+  OPEN C_packs(83,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_packs INTO r_packs;
+    EXIT WHEN C_packs%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_pack=beg_saldo_pack+r_packs.amn,
+        end_saldo_pack=end_saldo_pack-r_packs.amn
+    WHERE nc=r_packs.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_packs;
+
+
+  OPEN C_money(93,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_money INTO r_money;
+    EXIT WHEN C_money%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_money=beg_saldo_money+r_money.money,
+        end_saldo_money=end_saldo_money-r_money.money, 
+        in_cli_money=r_money.money
+    WHERE nc=r_money.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_money; 
+  OPEN C_packs(93,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_packs INTO r_packs;
+    EXIT WHEN C_packs%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_pack=beg_saldo_pack+r_packs.amn,
+        end_saldo_pack=end_saldo_pack-r_packs.amn 
+    WHERE nc=r_packs.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_packs;
+  
+
+  OPEN C_money(85,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_money INTO r_money;
+    EXIT WHEN C_money%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_money=beg_saldo_money+r_money.money,
+        end_saldo_money=end_saldo_money-r_money.money,
+        out_brk_money=r_money.money
+    WHERE nc=r_money.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_money; 
+  OPEN C_packs(85,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_packs INTO r_packs;
+    EXIT WHEN C_packs%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_pack=beg_saldo_pack+r_packs.amn,
+        end_saldo_pack=end_saldo_pack-r_packs.amn
+    WHERE nc=r_packs.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_packs;
+
+
+  OPEN C_money(90,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_money INTO r_money;
+    EXIT WHEN C_money%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_money=beg_saldo_money+r_money.money,
+        end_saldo_money=end_saldo_money-r_money.money,
+        out_moscow=r_money.money
+    WHERE nc=r_money.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_money; 
+  OPEN C_packs(90,v_dt_beg,v_dt_end);
+  LOOP
+    FETCH C_packs INTO r_packs;
+    EXIT WHEN C_packs%NOTFOUND;
+    UPDATE AKA.F29_1_TBL
+    SET beg_saldo_pack=beg_saldo_pack+r_packs.amn,
+        end_saldo_pack=end_saldo_pack-r_packs.amn
+    WHERE nc=r_packs.cd_m;
+    COMMIT;
+  END LOOP;
+  CLOSE C_packs;
+
+  
+*/            
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure     FAK_CLIENT(cd_qx NUMBER, cd_tx NUMBER) AS
+
+CURSOR Csum_fak(d1 DATE, d2 DATE, cu NUMBER) IS
+SELECT DISTINCT
+      D.cd_a,
+      D.num ,
+      ROUND(D.fprice/D.rrate,2) summ
+FROM   ABC.ve$DOC D,
+       ABC.ve$LST L,
+       ABC.ve$MED M,
+       ABC.DOC2UP DU,
+       ABC.ve$USR U
+WHERE D.cd_c=L.cd_c              AND
+      L.cd_m=M.cd_m              AND
+      DU.cd_c=D.tp               AND
+      DU.cd_up IN (76)           AND --  rashod
+      D.cd_u=U.cd_u              AND
+      U.tp IN (2,3,4,5)          AND
+      U.cd_u=cu                  AND
+      (TRUNC(D.date0) >= d1      AND
+       TRUNC(D.date0)<= d2);
+       
+
+CURSOR Cqnt_fak(d1 DATE, d2 DATE, cu NUMBER) IS
+SELECT DISTINCT
+       D.cd_a,
+       D.num ,  
+       COUNT(*) qnt   
+FROM   ABC.ve$DOC D,
+       ABC.ve$LST L,
+       ABC.ve$MED M,
+       ABC.DOC2UP DU,
+       ABC.ve$USR U
+WHERE D.cd_c=L.cd_c              AND
+      L.cd_m=M.cd_m              AND
+      DU.cd_c=D.tp               AND
+      DU.cd_up IN (76)           AND --  rashod
+      D.cd_u=U.cd_u              AND
+      U.tp IN (2,3,4,5)          AND
+      U.cd_u=cu                  AND
+      (TRUNC(D.date0) >= d1      AND
+       TRUNC(D.date0)<= d2)
+GROUP BY D.cd_a,D.num;        
+       
+    dt_beg  DATE;
+    dt_end  DATE;
+    cli_num NUMBER; 
+    fak_q   NUMBER;
+    fak_s   NUMBER;
+    i       NUMBER;
+    q_fak Cqnt_fak%ROWTYPE;
+    s_fak Csum_fak%ROWTYPE;
+      
+     
+BEGIN
+  SELECT dvalue1,dvalue2 INTO dt_beg, dt_end FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=4;
+  SELECT pvalue1 INTO cli_num FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=1;
+  DELETE FROM AKA.FAK_CLI_TBL;        
+  COMMIT;
+
+  OPEN Cqnt_fak(dt_beg,dt_end,cli_num);
+  LOOP
+    FETCH Cqnt_fak INTO q_fak;
+    EXIT WHEN Cqnt_fak%NOTFOUND;
+    INSERT INTO AKA.FAK_CLI_TBL VALUES(q_fak.cd_a, q_fak.num, 0);
+  END LOOP;
+  CLOSE Cqnt_fak;  
+  
+  
+/*  FOR i IN 1..fak_q-1 LOOP
+    INSERT INTO AKA.FAK_CLI_TBL VALUES(  */
+    
+    
+  LOOP
+    FETCH Csum_fak INTO s_fak;
+    EXIT WHEN Csum_fak%NOTFOUND;
+  END LOOP;
+  CLOSE Csum_fak;
+  
+/*    
+  FOR i IN 1..fak_q-1 LOOP
+    INSERT INTO AKA.FAK_CLI_TBL VALUES(  
+*/    
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure     forma6(cd_qx number, cd_tx number) as
+m_cdu   number;
+m_rur   number;
+m_usd   number;
+cursor nepro is -- непросроченная задолженность
+select
+                d.cd_u
+        ,       round(sum(d.fprice*abc.rat(1,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        rur
+        ,       round(sum(d.fprice*abc.rat(2,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        usd
+from
+                abc.doc         d
+        ,       abc.pxdoc       x
+where
+                d.tp in (select cd_c from abc.doc2up where cd_up in
+                                (select to_number(value) from abc.universum
+                                        where tp='REALIZATION' and key='DOCTYPE'))
+        and     d.date0 < trunc(sysdate + 1)
+        and     d.yfprice/(d.fprice+0.0000001) < 0.999
+        and     d.fprice > 0
+        and     x.cd_c = d.cd_c
+        and     x.dated >= trunc(sysdate)
+        and     not exists (select null from abc.sp_doc s where s.cd_c=d.cd_c)
+group by
+                d.cd_u
+;
+cursor pr_day(ndays number) is  -- просроченная задолженность до "ndays" б.д.
+select
+                d.cd_u
+        ,       round(sum(d.fprice*abc.rat(1,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        rur
+        ,       round(sum(d.fprice*abc.rat(2,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        usd
+from
+                abc.doc         d
+        ,       abc.pxdoc       x
+where
+                d.tp in (select cd_c from abc.doc2up where cd_up in
+                                (select to_number(value) from abc.universum
+                                        where tp='REALIZATION' and key='DOCTYPE'))
+        and     d.yfprice/(d.fprice+0.0000001) < 0.999
+        and     d.fprice > 0
+        and     x.cd_c = d.cd_c
+        and     x.dated >= trunc(gpof.add_bd(sysdate, ndays))
+        and     x.dated < trunc(sysdate)
+        and     not exists (select null from abc.sp_doc s where s.cd_c=d.cd_c)
+group by
+                d.cd_u
+;
+cursor pr_months(nmon1 number, nmon2 number) is -- просроченная задолженность от "nmon1" до "nmon2" месяцев
+select
+                d.cd_u
+        ,       round(sum(d.fprice*abc.rat(1,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        rur
+        ,       round(sum(d.fprice*abc.rat(2,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        usd
+from
+                abc.doc         d
+        ,       abc.pxdoc       x
+where
+                d.tp in (select cd_c from abc.doc2up where cd_up in
+                                (select to_number(value) from abc.universum
+                                        where tp='REALIZATION' and key='DOCTYPE'))
+        and     d.yfprice/(d.fprice+0.0000001) < 0.999
+        and     d.fprice > 0
+        and     x.cd_c = d.cd_c
+        and     x.dated >= trunc(add_months(sysdate, nmon1))
+        and     x.dated < trunc(add_months(sysdate, nmon2))
+        and     not exists (select null from abc.sp_doc s where s.cd_c=d.cd_c)
+group by
+                d.cd_u
+;
+cursor pr_month(nmon number) is -- просроченная задолженность от "nmon" месяцев
+select
+                d.cd_u
+        ,       round(sum(d.fprice*abc.rat(1,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        rur
+        ,       round(sum(d.fprice*abc.rat(2,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        usd
+from
+                abc.doc         d
+        ,       abc.pxdoc       x
+where
+                d.tp in (select cd_c from abc.doc2up where cd_up in
+                                (select to_number(value) from abc.universum
+                                        where tp='REALIZATION' and key='DOCTYPE'))
+        and     d.yfprice/(d.fprice+0.0000001) < 0.999
+        and     d.fprice > 0
+        and     x.cd_c = d.cd_c
+        and     x.dated < trunc(add_months(sysdate, nmon))
+        and     not exists (select null from abc.sp_doc s where s.cd_c=d.cd_c)
+group by
+                d.cd_u
+;
+cursor spis is  -- задолженность к списанию
+select
+                d.cd_u
+        ,       round(sum(d.fprice*abc.rat(1,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        rur
+        ,       round(sum(d.fprice*abc.rat(2,d.datef,d.cd_vf,1)*(1-d.yfprice/d.fprice)))        usd
+from
+                abc.doc         d
+where
+                d.tp in (select cd_c from abc.doc2up where cd_up in
+                                (select to_number(value) from abc.universum
+                                        where tp='REALIZATION' and key='DOCTYPE'))
+        and     d.yfprice/(d.fprice+0.0000001) < 0.999
+        and     d.fprice > 0
+        and     exists (select null from abc.sp_doc s where s.cd_c=d.cd_c)
+group by
+                d.cd_u
+;
+cursor oborot(mon number, nam number) is
+select
+                d.cd_u
+        ,       round(sum(d.fprice*abc.rat(1,d.datef,d.cd_vf,1))/nam)   rur
+        ,       round(sum(d.fprice*abc.rat(2,d.datef,d.cd_vf,1))/nam)   usd
+from
+                abc.doc         d
+        ,       abc.pxdoc       x
+where
+                d.tp in (select cd_c from abc.doc2up where cd_up in
+                                (select to_number(value) from abc.universum
+                                        where tp='REALIZATION' and key='DOCTYPE'))
+        and     d.fprice > 0
+        and     x.cd_c = d.cd_c
+        and     x.dated < trunc(sysdate)
+        and     x.dated >= trunc(add_months(sysdate, mon))
+group by
+                d.cd_u
+;
+begin
+        delete from aka.form6;
+        commit;
+        insert into aka.form6 select cd_u,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 from abc.usr;
+        for r in nepro
+        loop
+                update aka.form6 set nepro_rur=r.rur, nepro_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_day(-10)
+        loop
+                update aka.form6 set do_10d_rur=r.rur, do_10d_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_months(-1, 0)
+        loop
+                update aka.form6 set ot10d_do1_rur=r.rur-do_10d_rur
+                        , ot10d_do1_usd=r.usd-do_10d_usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_months(-2, -1)
+        loop
+                update aka.form6 set ot1_do2_rur=r.rur, ot1_do2_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_months(-3, -2)
+        loop
+                update aka.form6 set ot2_do3_rur=r.rur, ot2_do3_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_months(-4, -3)
+        loop
+                update aka.form6 set ot3_do4_rur=r.rur, ot3_do4_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_months(-5, -4)
+        loop
+                update aka.form6 set ot4_do5_rur=r.rur, ot4_do5_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_months(-6, -5)
+        loop
+                update aka.form6 set ot5_do6_rur=r.rur, ot5_do6_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in pr_month(-6)
+        loop
+                update aka.form6 set ot6_rur=r.rur, ot6_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in spis
+        loop
+                update aka.form6 set spis_rur=r.rur, spis_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in oborot(-3, 3)  -- среднемесячный отгрузки за последние 3 месяца
+        loop
+                update aka.form6 set mes_rur=r.rur, mes_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+        for r in oborot(-999, 1)        -- сумма всех отгрузок клиента
+        loop
+                update aka.form6 set obsh_rur=r.rur, obsh_usd=r.usd where cd_u=r.cd_u;
+        end loop;
+        commit;
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     FOR_CHIEF ( p_date1 IN DATE, p_date2 IN DATE)
+   IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+
+BEGIN
+
+  DELETE FROM AKA.DocDiscnt;
+  COMMIT;
+  
+  FOR Cc IN (
+    SELECT
+       Uu.nm_u ,
+       Uu.manager ,
+       SUBSTR(D.cd_a||'/'||D.num,1,10) ndoc,
+       D.date0 ,
+       P.dated ,
+       D.fprice ,
+       Ds.nm_d ,
+       NVL(Lx.proc*100,0) proc,
+       NVL(ROUND(Lx.rprice,2),0) discnt
+    FROM ABC.Doc D, ABC.PxDoc P,
+      ABC.Ltax Lx, ABC.Discnt Ds,
+     ( SELECT U.cd_u, U.nm_u, A.full_name manager
+       FROM ABC.Usr U, ABC.Agent A
+       WHERE U.cd_a=A.cd_a
+      ) Uu
+    WHERE
+      D.cd_c=P.cd_c AND
+      D.cd_c=Lx.cd_c(+) AND
+      D.tp IN (78,79, 81,100, 83,101) AND
+      Ds.cd_d=Lx.cd_x AND
+      D.cd_u=Uu.cd_u AND
+      TRUNC( D.date0) BETWEEN TRUNC(p_date1) AND TRUNC(p_date2)
+  )  LOOP
+  
+    INSERT INTO AKA.DocDiscnt VALUES(Cc.nm_u,Cc.manager,Cc.ndoc, Cc.date0,Cc.dated, Cc.fprice,Cc.nm_d,Cc.proc,Cc.discnt);
+    
+  END LOOP;
+  COMMIT;
+  
+EXCEPTION
+    WHEN OTHERS THEN
+      RAISE_APPLICATION_ERROR(SQLCODE, ''||' : '||SUBSTR(SQLERRM, 12));
+END; -- Procedure FOR_CHIEF
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure     FOR_CONTROL_LIST(in_CD_C IN NUMBER)
+--------------------------------
+-- 26.04.99     Глинский В.Л. --
+--------------------------------
+--Используется при печати "контрольных листов" и "заявок в подбор"
+--для разбиения этих печатных форм на блоки (у нас до 35 препаратов в блоке)
+--печати каждого блока с новой страницы.
+--Каждый блок такой "заявки в подбор" рассматривается на складе как
+--отдельная заявка - обрабатывается отдельным наборщиком и контролируется
+--соответствующим блоком из "контрольного листа".
+--
+--Для работы необходимо создать таблицу (в какой схеме - вам решать):
+--      CREATE TABLE aka.LST_FOR_CONTROL_LIST (
+--        CD_C NUMBER(8, 0) NOT NULL,
+--        CD_M NUMBER(6, 0) NOT NULL,
+--        NUM NUMBER(6, 0) NOT NULL
+--      )
+--Эта таблица (если следовать алгоритму) никогда не будет содержать
+--записей (используется как временная), ==> практически не занимает
+--места, никогда не переполняется и т.д.
+--
+--Алгоритм (выполняется при работе печатных форм "заявка в подбор" и
+--"контрольный лист"):
+--      - Start transaction;
+--      - выполняется эта процедура (она номерует препараты в документе
+--          в соответствии с номерами полок DSMED.SUBSEC и записывает
+--          этот номер в поле NUM файла aka.LST_FOR_CONTROL_LIST;
+--      - выполняется печать
+--            В Query1 необходимо кое-чего добавить/изменить:
+--               Select
+--                     ceil((vl.num - 1 / 10 ) / :amount) num,  --< 1-е поле в Select
+--                        -- где :amount - количество препаратов в блоке, в печатную форму
+--                        -- передается как параметр (важно, чтобы и в "заявке" и в
+--                        -- "контр.листе" этот параметр имел одно значение !)
+--               ..from..
+--                     ABC.VE$LST l,
+--                     aka.LST_FOR_CONTROL_LIST vl,
+--               ..where..
+--                     and vl.cd_c=l.cd_c
+--                     and v1.cd_m=l.cd_m
+--               ..order by 1, s.subsec, m.nm_m --< для заявки в подбор
+--               ..order by 1, m.nm_m, l.cd_m   --< для контрольного листа
+--            Остается только настроить печать так, чтобы при изменении
+--            1-го поля в Select начинать печать с новой страницы.
+--      - RollBack;
+--      - проставляются необходимые после печати метки.
+--
+--Плюсы такого подхода (т.е. автоматического деления заявок в подбор):
+--    - Не надо делить длинные накладные (и потом их объединять).
+--      Значит - экономия времени торговых представителей; меньше
+--      ошибок; возможность после печати заявки в подбор или
+--      контрольного листа закрыть документ от случайных
+--      (или неслучайных) изменений (ведь больше не надо объединять
+--      "ранее разделенное"); гарантия того, что документ от заявки
+--      в подбор до состоягия "отпущено" не изменится.
+--    - При наборе заявок в подбор (только длинных накладных, т.е.
+--      когда много препаратов) существенная экономия времени
+--      наборщиц и сокращение (во столько раз, на сколько блоков
+--      поделится накладная) пробега по складу (один блок заявки
+--      набирается на ограниченном участке склада).
+---------------------------------------------------------------------
+AS
+  cursor s_cursor is
+    select L.CD_M
+      from
+         ABC.VE$DOC D,
+         ABC.VE$LST L,
+         ABC.VE$MED M,
+         ABC.VE$DSMED S
+      where
+            D.CD_C = in_CD_C
+        and L.CD_C = D.CD_C
+        and M.CD_M = L.CD_M
+        and S.CD_M = L.CD_M
+        and S.CD_S = DECODE(D.SRC, 0,9, D.SRC)
+      order by s.subsec, m.nm_m;
+    ss_cursor s_cursor%rowtype;
+    NNN NUMBER;
+begin
+  open s_cursor;
+  NNN:=1;
+  loop
+    fetch s_cursor into ss_cursor;
+    exit when s_cursor%notfound;
+    insert into aka.lst_for_control_list
+                (cd_c,    cd_m,           num)
+         values (in_cd_c, ss_cursor.cd_m, NNN);
+    NNN:=NNN + 1;
+  end loop;
+  close s_cursor;
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     GET_EZAKAZ(dir_str VARCHAR, file_str VARCHAR) AS
+ ezak_file UTL_FILE.FILE_TYPE;
+BEGIN
+  ezak_file := UTL_FILE.FOPEN(dir_str,file_str,'r');
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     HUNGAR  ( p_date1 IN DATE, p_date2 IN DATE)    IS
+
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+--   variable_name                 datatype;
+
+
+-- Declare program variables as shown above
+BEGIN
+
+  DELETE FROM AKA.Hungar_Result;
+  COMMIT;
+
+  FOR Cc IN (
+    SELECT  /*+INDEX (SER SER_MED_IDX)*/
+       Ls.cd_m, Ls.nm_m, Ls.nm_prod, Serii.nm_s,
+       Serii.nm, Serii.regn, Serii.dt_act,
+       Serii.dt_add, Serii.date0
+    FROM ABC.Doc D ,
+    ( SELECT cd_u, nm_u FROM ABC.Usr WHERE 
+       cd_u IN ( 
+         SELECT X.cd_u FROM ABC.Xusr X, ABC.Town T
+         WHERE X.cd_t = T.cd_t AND T.cd_up=1685
+     ) ) U,
+    ( SELECT L.cd_c, L.cd_m, M.nm_m, P.nm_prod
+      FROM ABC.lst L , ABC.Med m , ABC.Prod p
+      WHERE L.cd_m=M.cd_m AND M.cd_p=P.cd_prod) Ls,
+    ( SELECT --DISTINCT
+        Ls.cd_m, Ls.sert, S.nm_s, Sd.nm, Si.regn, Si.dt_act, Ila.dt_add, S.date0
+      FROM 
+        Lst_Srt@osert1 Ls, Sert_Desc@osert1 Sd,
+        Seria@osert1 S,   Srt_Img@osert1 Si,
+        ImgLst_Add@osert1 Ila, ImgLst@osert1 Il
+      WHERE
+--        NVL(Ila.num_l,0)=0 AND
+         Ls.cd_s=S.cd_s AND
+         S.cd_ds=Sd.cd_c AND
+--         Il.cd_f=Si.cd_f AND
+--         Ls.cd_f=Si.cd_f AND
+         Ls.cd_s=Si.cd_s AND
+         Si.cd_f=Il.cd_f AND
+         Il.cd_gl =3 AND -- mos
+         Si.cd_s=S.cd_s AND
+         Ila.cd_f=Si.cd_f AND
+        S.cd_s NOT IN (
+           SELECT cd_s FROM AKA.Hungar_Reg
+        )   
+      ) Serii      
+  WHERE D.tp IN (78,79, 81,100, 83,101) AND
+    D.cd_u=U.cd_u AND
+    D.cd_c=Ls.cd_c AND
+    TRUNC(D.date0) BETWEEN TRUNC(p_date1) AND TRUNC(p_date2) AND
+    D.sert=Serii.sert AND
+    Ls.cd_m=Serii.cd_m
+ )  LOOP
+  BEGIN 
+   INSERT INTO AKA.Hungar_Result VALUES(Cc.cd_m,Cc.nm_m,Cc.nm_prod,Cc.nm_s,Cc.nm,Cc.regn,Cc.dt_act,Cc.dt_add,Cc.date0);
+  EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        Null;
+   END;
+ END LOOP;
+
+ COMMIT;
+
+   
+         
+  FOR Cc IN (
+    SELECT  /*+INDEX (SER SER_MED_IDX)*/
+       Ls.cd_m, Serii.cd_s
+    FROM ABC.Doc D ,
+    ( SELECT cd_u, nm_u FROM ABC.Usr WHERE 
+       cd_u IN ( 
+         SELECT X.cd_u FROM ABC.Xusr X, ABC.Town T
+         WHERE X.cd_t = T.cd_t AND T.cd_up=1685
+     ) ) U,
+    ( SELECT L.cd_c, L.cd_m, M.nm_m, P.nm_prod
+      FROM ABC.lst L , ABC.Med m , ABC.Prod p
+      WHERE L.cd_m=M.cd_m AND M.cd_p=P.cd_prod) Ls,
+    ( SELECT -- DISTINCT
+        Ls.cd_m, Ls.sert, S.cd_s, Sd.nm, Si.regn, Si.dt_act, Ila.dt_add, S.date0
+      FROM 
+        Lst_Srt@osert1 Ls, Sert_Desc@osert1 Sd,
+        Seria@osert1 S,   Srt_Img@osert1 Si, ImgLst@osert1 Il,
+        ImgLst_Add@osert1 Ila
+      WHERE
+--        NVL(Ila.num_l,0)=0 AND
+         Ls.cd_s=S.cd_s AND
+         S.cd_ds=Sd.cd_c AND
+--         Il.cd_f=Si.cd_f AND
+--         Ls.cd_f=Si.cd_f AND
+         Ls.cd_s=Si.cd_s AND
+         Si.cd_f=Il.cd_f AND
+         Il.cd_gl =3 AND -- mos
+         Si.cd_s=S.cd_s AND
+         Ila.cd_f=Si.cd_f        
+      ) Serii      
+  WHERE D.tp IN (78,79, 81,100, 83,101) AND
+    D.cd_u=U.cd_u AND
+    D.cd_c=Ls.cd_c AND
+    TRUNC(D.date0) BETWEEN TRUNC(p_date1) AND TRUNC(p_date2) AND
+    D.sert=Serii.sert AND
+    Ls.cd_m=Serii.cd_m
+)  LOOP
+  BEGIN 
+    INSERT INTO AKA.Hungar_Reg VALUES(Cc.cd_m,Cc.cd_s,SYSDATE, p_date1, p_date2);
+  EXCEPTION
+     WHEN DUP_VAL_ON_INDEX THEN
+        Null;
+  END;
+END LOOP;
+
+COMMIT;
+
+EXCEPTION
+    WHEN OTHERS THEN     
+        RAISE_APPLICATION_ERROR(-20000, ''||' : '||SUBSTR(SQLERRM, 12));
+END; -- Procedure HUNGAR
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE IT_IS_MANAGER(p_cda NUMBER, p_cdu NUMBER) AS -- вызывается из триггера USR_BI
+v_res NUMBER := 0;
+BEGIN
+  SELECT A.deptno INTO v_res FROM ABC.AGENT A
+  WHERE A.cd_a=p_cda;
+  IF v_res=2 THEN  -- манагер пытается создать карточку клиента - не пущать.
+    ABC.AtError (-20599,'ОБЛОМС - ВАМ НЕЛЬЗЯ ЗАВОДИТЬ НОВЫХ КЛИЕНТОВ. ОБРАТИТЕСЬ К ТОРГ.ПРЕДАМ.  !'); 
+  ELSE
+    INSERT INTO AKA.USR_ADD VALUES(p_cda,p_cdu,SYSDATE);
+  END IF  ;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     KEMEROVO  ( p_date1 IN DATE, p_date2 IN DATE)    IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------
+--   variable_name                 datatype;
+-- Declare program variables as shown above
+BEGIN
+  DELETE FROM AKA.Kemerovo_Result;
+  COMMIT;
+  FOR Cc IN (
+    SELECT  /*+INDEX (SER SER_MED_IDX)*/
+       Ls.cd_m, Ls.nm_m, Ls.nm_prod, Serii.nm_s,
+       Serii.nm, Serii.regn, Serii.dt_act,
+       Serii.dt_add, Serii.date0
+    FROM ABC.Doc D ,
+    ( SELECT cd_u, nm_u FROM ABC.Usr WHERE
+       cd_u IN (
+         SELECT X.cd_u FROM ABC.Xusr X, ABC.Town T
+         WHERE X.cd_t = T.cd_t AND T.cd_up=1603
+     ) ) U,
+    ( SELECT L.cd_c, L.cd_m, M.nm_m, P.nm_prod
+      FROM ABC.lst L , ABC.Med m , ABC.Prod p
+      WHERE L.cd_m=M.cd_m AND M.cd_p=P.cd_prod) Ls,
+    ( SELECT --DISTINCT
+        Ls.cd_m, Ls.sert, S.nm_s, Sd.nm, Si.regn, Si.dt_act, Ila.dt_add, S.date0
+      FROM
+        Lst_Srt@osert1 Ls, Sert_Desc@osert1 Sd,
+        Seria@osert1 S,   Srt_Img@osert1 Si,
+        ImgLst_Add@osert1 Ila, ImgLst@osert1 Il
+      WHERE
+--        NVL(Ila.num_l,0)=0 AND
+         Ls.cd_s=S.cd_s AND
+         S.cd_ds=Sd.cd_c AND
+--         Il.cd_f=Si.cd_f AND
+--         Ls.cd_f=Si.cd_f AND
+         Ls.cd_s=Si.cd_s AND
+         Si.cd_f=Il.cd_f AND
+         Il.cd_gl =3 AND -- mos
+         Si.cd_s=S.cd_s AND
+         Ila.cd_f=Si.cd_f AND
+        S.cd_s NOT IN (
+           SELECT cd_s FROM AKA.Kemerovo_Reg
+        )
+      ) Serii
+  WHERE D.tp IN (78,79, 81,100, 83,101) AND
+    D.cd_u=U.cd_u AND
+    D.cd_c=Ls.cd_c AND
+    TRUNC(D.date0) BETWEEN TRUNC(p_date1) AND TRUNC(p_date2) AND
+    D.sert=Serii.sert AND
+    Ls.cd_m=Serii.cd_m
+ )  LOOP
+  BEGIN
+   INSERT INTO AKA.Kemerovo_Result VALUES(Cc.cd_m,Cc.nm_m,Cc.nm_prod,Cc.nm_s,Cc.nm,Cc.regn,Cc.dt_act,Cc.dt_add,Cc.date0);
+  EXCEPTION
+    WHEN DUP_VAL_ON_INDEX THEN
+        Null;
+   END;
+ END LOOP;
+ COMMIT;
+  FOR Cc IN (
+    SELECT  /*+INDEX (SER SER_MED_IDX)*/
+       Ls.cd_m, Serii.cd_s
+    FROM ABC.Doc D ,
+    ( SELECT cd_u, nm_u FROM ABC.Usr WHERE
+       cd_u IN (
+         SELECT X.cd_u FROM ABC.Xusr X, ABC.Town T
+         WHERE X.cd_t = T.cd_t AND T.cd_up=1603
+     ) ) U,
+    ( SELECT L.cd_c, L.cd_m, M.nm_m, P.nm_prod
+      FROM ABC.lst L , ABC.Med m , ABC.Prod p
+      WHERE L.cd_m=M.cd_m AND M.cd_p=P.cd_prod) Ls,
+    ( SELECT -- DISTINCT
+        Ls.cd_m, Ls.sert, S.cd_s, Sd.nm, Si.regn, Si.dt_act, Ila.dt_add, S.date0
+      FROM
+        Lst_Srt@osert1 Ls, Sert_Desc@osert1 Sd,
+        Seria@osert1 S,   Srt_Img@osert1 Si, ImgLst@osert1 Il,
+        ImgLst_Add@osert1 Ila
+      WHERE
+--        NVL(Ila.num_l,0)=0 AND
+         Ls.cd_s=S.cd_s AND
+         S.cd_ds=Sd.cd_c AND
+--         Il.cd_f=Si.cd_f AND
+--         Ls.cd_f=Si.cd_f AND
+         Ls.cd_s=Si.cd_s AND
+         Si.cd_f=Il.cd_f AND
+         Il.cd_gl =3 AND -- mos
+         Si.cd_s=S.cd_s AND
+         Ila.cd_f=Si.cd_f
+      ) Serii
+  WHERE D.tp IN (78,79, 81,100, 83,101) AND
+    D.cd_u=U.cd_u AND
+    D.cd_c=Ls.cd_c AND
+    TRUNC(D.date0) BETWEEN TRUNC(p_date1) AND TRUNC(p_date2) AND
+    D.sert=Serii.sert AND
+    Ls.cd_m=Serii.cd_m
+)  LOOP
+  BEGIN
+    INSERT INTO AKA.Kemerovo_Reg VALUES(Cc.cd_m,Cc.cd_s,SYSDATE, p_date1, p_date2);
+  EXCEPTION
+     WHEN DUP_VAL_ON_INDEX THEN
+        Null;
+  END;
+END LOOP;
+COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        RAISE_APPLICATION_ERROR(-20000, ''||' : '||SUBSTR(SQLERRM, 12));
+END; -- Procedure HUNGAR
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     LOCK_DOC(C1 NUMBER,C2 NUMBER,EV VARCHAR) AS
+ v_cda number;
+BEGIN
+ --------------------------------------------------------   
+/*   select cd_a into v_cda from abc.doc where cd_c=c1;
+   if v_cda in (486866) then
+     RAISE_APPLICATION_ERROR(-20802, 'ЛБО-ТОВАР - НЕ ТРОГАТЬ!!!', TRUE);
+   end if;  */
+-------------------------------------------------------------
+ null;
+ If TCHK.LBO_CHECK_USR(c1) = 1 Then
+    RAISE_APPLICATION_ERROR(-20802, 'ЛБО-ТОВАР - В Коммерческий раздел не переводить!!!', TRUE);
+  End If;
+/*  ABC.tr$.doc.u := TRUE;  
+  UPDATE ABC.Doc SET PRO=24,LEDIT=65535,EDIT=0 WHERE CD_C= C2;
+  ABC.tr$.doc.u := FALSE; */ 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     LOG_TRN_REAL(C1 NUMBER,C2 NUMBER,EV VARCHAR) AS
+-- Данная процедура служит для регистрации документов и времени
+-- при трансформации Отгружено->Отпущено.
+-- Вешается на "HOOK" APTGT трансформации Отгружено->Отпущено.
+-- Процедура используется для экспорта в 1С
+-- Комментирована 12 октября 1999 Соколов А.Е. ПРОТЕК-5
+  CDA    NUMBER; -- Номер документа
+  NUM_D  NUMBER; -- Дробь документа
+  SNDS   NUMBER; -- Тип НДС (10,20,0)
+BEGIN
+  SELECT CD_A,NUM INTO CDA,NUM_D FROM ABC.VE$DOC WHERE CD_C=C1;
+  SELECT abc.CHK_NDS(C1) INTO SNDS FROM DUAL;
+  IF C2=1 THEN
+    INSERT INTO abc.RELEASED_LOG(CD_C ,CD_A , NUM, STATUS ,DATET ,NDS)
+      VALUES (C1,CDA,NUM_D,0,TO_DATE(EV),SNDS);
+  ELSE
+    INSERT INTO abc.RELEASED_LOG(CD_C ,CD_A , NUM, STATUS ,DATET ,NDS)
+      VALUES (C1,CDA,NUM_D,0,SYSDATE,SNDS);
+  END IF;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     LOG_TRN_VOZV(C1 NUMBER,C2 NUMBER, EV VARCHAR) AS
+-- Данная процедура служит для регистрации документов и времени
+-- при трансформации Заготовки для возвратов->Возвраты от клиентов.
+-- Вешается на "HOOK" APTGT трансформации Заготовки для возвратов->Возвраты от клиентов.
+-- Процедура используется для экспорта в 1С
+-- Комментирована 12 октября 1999 Соколов А.Е. ПРОТЕК-5
+-- поле STATUS=2 в таблице RELEASED_LOG означает
+-- что прошла трансф из Заг для Воз->Возвр
+  CDA    NUMBER; -- Номер документа
+  NUM_D  NUMBER; -- Дробь документа
+  SNDS   NUMBER; -- Тип НДС (10,20,0)
+BEGIN
+  SELECT CD_A,NUM INTO CDA,NUM_D FROM ABC.VE$DOC WHERE CD_C=C1;
+  SELECT abc.CHK_NDS(C1) INTO SNDS FROM DUAL;
+  IF C2=1 THEN
+    INSERT INTO abc.RELEASED_LOG(CD_C ,CD_A , NUM, STATUS ,DATET ,NDS)
+      VALUES (C1,CDA,NUM_D,2,TO_DATE(EV),SNDS);
+  ELSE
+    INSERT INTO abc.RELEASED_LOG(CD_C ,CD_A , NUM, STATUS ,DATET ,NDS)
+      VALUES (C1,CDA,NUM_D,2,SYSDATE,SNDS);
+  END IF;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     oborotka(CD_QX NUMBER, CD_TX NUMBER) AS
+data_n  DATE;
+data_k  DATE;
+who   NUMBER(10);
+BEGIN
+SELECT dvalue1, dvalue2 INTO data_n, data_k FROM abc.qrunparam WHERE cd_t=cd_tx AND pclass=4;
+SELECT pvalue1 INTO who FROM abc.qrunparam WHERE cd_t=cd_tx AND pclass=2;
+DELETE FROM aka.balance1;  -- файл платежей
+DELETE FROM aka.balance ;  -- файл накладных
+FOR n IN 1 .. Months_Between(Add_Months(Last_day(data_k)+1,-2),Add_Months(Last_day(data_n)+1,-1))+1
+LOOP
+   otladka (n,who,Add_Months(Add_Months(Last_day(data_n)+1,-1),+n-1));
+END LOOP;
+UPDATE aka.balance SET dolg=Null WHERE dolg=0;
+COMMIT;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     OPT_PRICE   ( p number)
+   IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+   i NUMBER := 0;
+   -- Declare program variables as shown above
+BEGIN
+
+  for R in (
+       select cd_m, price
+       from abc.pmed
+       where cd_p=1 and cd_v=2 
+       
+                  )
+  loop
+    update abc.pmed set price = R.price*0.9  -- (0.99*(1+2.5/100)/1.025*(1+10/100))
+    where cd_m=R.cd_m and cd_v=2 and cd_p=12;
+    i := i + 1;
+    IF i > 100 THEN
+      commit;
+      i := 0;
+    END IF;  
+  end loop;
+  commit;
+    
+END; -- Procedure OPT_PRICE
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     otladka (n Number, who Number, data1 Date) AS
+
+pdata1 DATE;
+pchar1 Varchar(12);
+pchar2 Varchar(12);
+pnumb1 NUMBER;
+pnumb2 NUMBER;
+pnumb3 NUMBER;
+pnumb4 NUMBER;
+nom    NUMBER;
+nom1   NUMBER;
+v number; ---vik
+
+CURSOR fp IS  -- платежи за период
+SELECT datef,
+       Decode(tp,334,null,decode(cd_vf,9,fprice/1000,fprice)),
+       Decode(tp,334,decode(cd_vf,9,fprice/1000,fprice)),
+       refnum
+FROM   abc.ve$doc
+WHERE  cd_u=who            AND
+       tp in(332,333,334,336) AND
+       datef BETWEEN data1 AND Last_day(data1)   --was date0
+ORDER BY date0;
+
+CURSOR fr IS  -- накладные за период
+SELECT d.date0,
+       Substr(cd_a||'/'||num,1,12),
+       Decode(pay,1,' п/о',2,Decode(tp,419,'возв',93,'возв',' б/р')),
+       Decode(abc.chk_nds(d.cd_c),0,Decode(tp,93,decode(cd_vf,9,1/1000,1)*(-fprice),decode(cd_vf,9,1/1000,1)*fprice)),
+       Decode(abc.chk_nds(d.cd_c),20,Decode(tp,93,decode(cd_vf,9,1/1000,1)*(-fprice),decode(cd_vf,9,1/1000,1)*fprice)),--vik fprice->Decode(tp,419,-fprice,93,-fprice,fprice)
+       Decode(abc.chk_nds(d.cd_c),10,Decode(tp,93,decode(cd_vf,9,1/1000,1)*(-fprice),decode(cd_vf,9,1/1000,1)*fprice)),--vik fprice->Decode(tp,419,-fprice,93,-fprice,fprice)
+       Decode(tp,93,0,decode(cd_vf,9,1/1000,1)*(fprice-yfprice))
+FROM   abc.ve$doc d,abc.pxdoc p
+WHERE  d.cd_u = who               AND
+       p.cd_c=d.cd_c AND
+       d.tp IN (83,93,337) AND
+       d.date0 BETWEEN data1 AND Last_day(data1)   --was date0
+ORDER BY d.date0;
+
+BEGIN
+SELECT Count(*) INTO nom FROM aka.balance;
+IF n=1 THEN
+  nom := nom+1;
+  INSERT INTO aka.balance1 (nn) VALUES (nom);       -- строка, соотв. вход. остатку
+--
+  SELECT Count(*) into v FROM abc.ve$doc WHERE cd_u=who AND cd_vr=1 AND date0 < data1;
+  if v=0 then
+    INSERT INTO aka.balance (nn) VALUES (nom);       -- строка, соотв. вход. остатку
+  else
+    INSERT INTO aka.balance  (nn, dateo, debo, kredo) -- входящий остаток
+    SELECT nom, data1, Sum(decode(cd_vf,9,1/1000,1)*uprice), Sum(decode(cd_vf,9,1/1000,1)*uprice)
+    FROM abc.ve$doc
+    WHERE cd_u=who AND cd_vr=1 AND date0 < data1 GROUP BY data1;
+  end if;
+--
+END IF;
+
+nom1 := nom;
+OPEN fp;
+   nom := nom+1;
+   INSERT INTO aka.balance1 (nn) VALUES (nom);
+LOOP
+   FETCH fp INTO pdata1,pnumb1,pnumb2,pchar1;
+   EXIT WHEN fp%NOTFOUND;
+   nom := nom+1;
+   INSERT INTO aka.balance1 (nn, datep, kredb, kredn, platN)
+          VALUES           (nom,pdata1,pnumb1,pnumb2,pchar1);
+END LOOP;
+CLOSE fp;
+
+nom := nom1;
+OPEN fr;
+   nom := nom+1;
+   INSERT INTO aka.balance (nn) VALUES (nom);
+LOOP
+   FETCH fr INTO pdata1,pchar1,pchar2,pnumb1,pnumb2,pnumb3,pnumb4;
+   EXIT WHEN fr%NOTFOUND;
+   nom := nom+1;
+   INSERT INTO aka.balance (nn, date0, nakl,  vid,   nds00, nds20, nds10, dolg)
+          VALUES          (nom,pdata1,pchar1,pchar2,pnumb1,pnumb2,pnumb3,pnumb4);
+END LOOP;
+CLOSE fr;
+
+SELECT Count(*) INTO pnumb1 FROM aka.balance;
+SELECT Count(*) INTO pnumb2 FROM aka.balance1;
+IF pnumb2 > pnumb1 THEN -- выравнивание числа строк в таблицах
+   nom := pnumb1;
+   FOR i IN 1 .. (pnumb2-pnumb1)
+   LOOP
+       nom := nom+1;
+       INSERT INTO aka.balance  (nn) VALUES (nom);
+   END LOOP;
+END IF;
+IF pnumb2 < pnumb1 THEN
+   nom := pnumb2;
+   FOR i IN 1 .. (pnumb1-pnumb2)
+   LOOP
+       nom := nom+1;
+       INSERT INTO aka.balance1 (nn) VALUES (nom);
+   END LOOP;
+END IF;
+
+nom := nom+1;
+INSERT INTO aka.balance1 (nn) VALUES (nom); -- пустая строка перед итогами
+INSERT INTO aka.balance  (nn) VALUES (nom); -- пустая строка перед итогами
+SELECT Sum(kredb) INTO pnumb1 FROM aka.balance1 WHERE datep BETWEEN data1 AND Last_day(data1);
+SELECT Sum(kredn) INTO pnumb2 FROM aka.balance1 WHERE datep BETWEEN data1 AND Last_day(data1);
+INSERT INTO aka.balance1 (nn,kredb,kredn) VALUES (nom+1,pnumb1,pnumb2);
+INSERT INTO aka.balance1 (nn,kredb) VALUES (nom+2,Nvl(pnumb1,0)+Nvl(pnumb2,0));
+
+SELECT Sum(nds00) INTO pnumb1 FROM aka.balance WHERE date0 BETWEEN data1 AND Last_day(data1);   --was date0
+SELECT Sum(nds20) INTO pnumb2 FROM aka.balance WHERE date0 BETWEEN data1 AND Last_day(data1);   --was date0
+SELECT Sum(nds10) INTO pnumb3 FROM aka.balance WHERE date0 BETWEEN data1 AND Last_day(data1);   --was date0
+SELECT Sum(dolg)  INTO pnumb4 FROM aka.balance WHERE date0 BETWEEN data1 AND Last_day(data1);   --was date0
+nom := nom+1;
+INSERT INTO aka.balance (nn, nds00, nds20, nds10, dolg)  -- итоги по столбцам
+       VALUES          (nom,pnumb1,pnumb2,pnumb3,pnumb4);
+nom := nom+1;
+--vik
+SELECT count(*) into v FROM abc.ve$doc WHERE cd_u=who AND cd_vr=1 AND date0 <= Last_day(data1);
+if v=0 then
+INSERT INTO aka.balance (nn) VALUES (nom);
+else
+INSERT INTO aka.balance (nn, dateo, debo, kredo, nds00)  -- исходящий остаток
+SELECT nom,Last_day(data1)+1,Sum(decode(cd_vf,9,1/1000,1)*uprice),Sum(decode(cd_vf,9,1/1000,1)*uprice),
+       Nvl(pnumb1,0)+Nvl(pnumb2,0)+Nvl(pnumb3,0)
+FROM   abc.ve$doc
+WHERE  cd_u=who AND cd_vr=1 AND date0 <= Last_day(data1)
+GROUP BY Last_day(data1)+1;
+end if;
+--
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     P10SP(cd_qx NUMBER, cd_tx NUMBER) AS
+
+CURSOR c_PsihAll IS
+SELECT M.cd_m,M.nm_m,P.nm_prod
+  FROM ABC.Ve$Med M, ABC.V$Xmed X, ABC.Ve$Prod P
+  WHERE M.cd_m=X.cd_m
+  AND P.cd_prod=M.cd_p
+  AND X.cd_ctg=6
+  AND X.cd_x=2;
+
+
+CURSOR c_PsihAll2 IS
+SELECT cd_m FROM AKA.Psih_All;
+
+CURSOR c_PsihPU(da1 DATE, da2 DATE, cdm NUMBER, ctg NUMBER) IS
+SELECT D.cd_a,D.num,SUM(L.amn1) amn
+  FROM ABC.Ve$Doc D, ABC.Ve$Lst L, ABC.Ve$Med M, ABC.V$Xmed X, ABC.Ve$Prod P
+  WHERE M.cd_m=X.cd_m
+  AND P.cd_prod=M.cd_p
+  AND X.cd_ctg=6
+  AND X.cd_x=2
+  AND M.cd_m=L.cd_m AND L.cd_c=D.cd_c AND L.cd_m=cdm
+  AND D.tp IN (ctg)
+  AND D.date0 BETWEEN da1 AND da2
+  GROUP BY D.cd_a,D.num;
+
+   
+vc_PsihAll c_PsihAll%ROWTYPE;
+vc_PsihAll2 c_PsihAll2%ROWTYPE;
+vc_PsihPU c_PsihPU%ROWTYPE;
+
+d1 DATE;
+d2 DATE;
+
+BEGIN
+  DELETE FROM AKA.Psih_All;
+  DELETE FROM AKA.Psih_Prih;
+  DELETE FROM AKA.Psih_Uhod;
+  DELETE FROM AKA.Psih_Vozvr;
+  DELETE FROM AKA.Psih_Vozvr_MSK;
+  DELETE FROM AKA.Psih_Spisano;
+  DELETE FROM AKA.Psih_Ostatok;
+  DELETE FROM AKA.Usr_Psih;
+  COMMIT; 
+  SELECT dvalue1,dvalue2 INTO d1,d2 FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=4; 
+-- Total
+  OPEN c_PsihAll;
+  LOOP
+    FETCH c_PsihAll INTO vc_PsihAll;
+    EXIT WHEN c_PsihAll%NOTFOUND;   
+--     V Spravochnik po psiham
+    INSERT INTO AKA.Psih_All
+      VALUES(vc_PsihAll.cd_m,vc_PsihAll.nm_m,vc_PsihAll.nm_prod,0,0,0,0,0,0,'',0,0);
+    COMMIT;
+  END LOOP;
+  COMMIT;
+  CLOSE c_PsihAll;  
+
+FOR vc_PsihAll2 IN c_PsihAll2 LOOP
+  FOR vc_PsihPU IN c_PsihPU(d1,d2,vc_PsihAll2.cd_m,7) LOOP -- Prih
+    INSERT INTO AKA.Psih_Prih
+      VALUES(vc_PsihAll2.cd_m,vc_PsihPU.amn,null,vc_PsihPU.cd_a,vc_PsihPU.num);
+  END LOOP;
+  FOR vc_PsihPU IN c_PsihPU(d1,d2,vc_PsihAll2.cd_m,81) LOOP -- Otgr
+    INSERT INTO AKA.Psih_Uhod
+      VALUES(vc_PsihAll2.cd_m,vc_PsihPU.amn,null,vc_PsihPU.cd_a,vc_PsihPU.num);
+  END LOOP;  
+  FOR vc_PsihPU IN c_PsihPU(d1,d2,vc_PsihAll2.cd_m,83) LOOP -- Otp
+    INSERT INTO AKA.Psih_Uhod
+      VALUES(vc_PsihAll2.cd_m,vc_PsihPU.amn,null,vc_PsihPU.cd_a,vc_PsihPU.num);
+  END LOOP;  
+  FOR vc_PsihPU IN c_PsihPU(d1,d2,vc_PsihAll2.cd_m,93) LOOP -- Vozvr ot kli
+    INSERT INTO AKA.Psih_Vozvr
+      VALUES(vc_PsihAll2.cd_m,vc_PsihPU.amn,null,vc_PsihPU.cd_a,vc_PsihPU.num);
+  END LOOP;  
+  FOR vc_PsihPU IN c_PsihPU(d1,d2,vc_PsihAll2.cd_m,90) LOOP -- Vozvr in MOSCOW
+    INSERT INTO AKA.Psih_Vozvr_MSK
+      VALUES(vc_PsihAll2.cd_m,vc_PsihPU.amn,null,vc_PsihPU.cd_a,vc_PsihPU.num);
+  END LOOP;  
+  FOR vc_PsihPU IN c_PsihPU(d1,d2,vc_PsihAll2.cd_m,85) LOOP -- Spisano
+    INSERT INTO AKA.Psih_Spisano
+      VALUES(vc_PsihAll2.cd_m,vc_PsihPU.amn,null,vc_PsihPU.cd_a,vc_PsihPU.num);    
+  END LOOP;  
+END LOOP;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     P10SP_MAIN(cd_qx NUMBER, cd_tx NUMBER) AS
+
+CURSOR c_10SP IS
+-- PRIHOD
+select distinct a1.cd_m ,
+       a1.nm_m,
+       a1.nm_prod,
+       p.cda||'/'||p.num dnum,
+       trunc(d.date0) date0 ,
+       trunc(d.shipped) shipped ,
+       p.amn ,
+       us.nm_u ,
+       dt.fullpathnm  
+from aka.psih_all a1,
+         aka.psih_prih p,abc.Ve$Usr us, abc.ve$Doc d, 
+         abc.Ve$Doctp Dt
+where
+a1.cd_m=p.cd_m(+) and 
+d.cd_a=p.cda and 
+d.num=p.num and
+d.cd_u=us.cd_u and
+d.tp=Dt.cd_c
+union all
+-- UHOD
+select distinct a2.cd_m ,
+       a2.nm_m ,
+       a2.nm_prod ,
+       u.cda||'/'||u.num dnum,
+       trunc(d.date0) date0 ,
+       trunc(d.shipped) shipped ,
+       u.amn ,
+       us.nm_u ,
+       dt.fullpathnm  
+from  aka.psih_all a2,
+      aka.psih_uhod u,
+      abc.Ve$Usr us, abc.ve$Doc d,
+      abc.Ve$DocTp Dt
+where
+a2.cd_m=u.cd_m(+) and
+d.cd_a=u.cda and 
+d.num=u.num and
+d.cd_u=us.cd_u and
+d.tp=dt.cd_c
+union all
+-- VOZVRAT
+select distinct a2.cd_m ,
+       a2.nm_m,
+       a2.nm_prod,
+       u.cda||'/'||u.num dnum,
+       trunc(d.date0) date0 , 
+       trunc(d.shipped) shipped , 
+       u.amn ,
+       us.nm_u ,
+       dt.fullpathnm  
+from  aka.psih_all a2,
+      aka.psih_vozvr u,
+      abc.Ve$Usr us, abc.ve$Doc d,
+      abc.Ve$DocTp Dt
+where
+a2.cd_m=u.cd_m(+) and
+d.cd_a=u.cda and 
+d.num=u.num and
+d.cd_u=us.cd_u and
+d.tp=dt.cd_c
+union all
+-- VOZVRAT IN MOSCOW
+select distinct a2.cd_m ,
+       a2.nm_m,
+       a2.nm_prod,
+       u.cda||'/'||u.num dnum,
+       trunc(d.date0) date0 , 
+       trunc(d.shipped) shipped , 
+       u.amn ,
+       us.nm_u ,
+       dt.fullpathnm  
+from  aka.psih_all a2,
+      aka.psih_vozvr_msk u,
+      abc.Ve$Usr us, abc.ve$Doc d,
+      abc.Ve$DocTp Dt
+where
+a2.cd_m=u.cd_m(+) and
+d.cd_a=u.cda and 
+d.num=u.num and
+d.cd_u=us.cd_u and
+d.tp=dt.cd_c
+union all
+-- SPISANO
+select distinct a2.cd_m ,
+       a2.nm_m,
+       a2.nm_prod,
+       u.cda||'/'||u.num dnum,
+       trunc(d.date0) date0 ,
+       trunc(d.shipped) shipped ,
+       u.amn ,
+       us.nm_u ,
+       dt.fullpathnm  
+from  aka.psih_all a2,
+      aka.psih_spisano u,
+      abc.Ve$Usr us, abc.ve$Doc d,
+      abc.Ve$DocTp Dt
+where
+a2.cd_m=u.cd_m(+) and
+d.cd_a=u.cda and 
+d.num=u.num and
+d.cd_u=us.cd_u and
+d.tp=dt.cd_c;
+
+vc_10SP c_10SP%ROWTYPE;
+
+BEGIN
+  AKA.P10SP(cd_qx,cd_tx);
+
+  DELETE FROM AKA.T10SP;
+  COMMIT;
+  FOR vc_10SP IN c_10SP LOOP
+    INSERT INTO AKA.T10SP
+      VALUES(vc_10SP.cd_m,vc_10SP.nm_m, vc_10SP.nm_prod,
+             vc_10SP.dnum,vc_10SP.date0,vc_10SP.shipped,vc_10SP.amn,
+             vc_10SP.nm_u,vc_10SP.fullpathnm);
+  END LOOP;  
+  COMMIT;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     P34_F6_AUTO  ( p_d1 IN DATE) -- конечная дата отчета
+   IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+
+  v_sum_opl NUMBER;
+  v_avr_3m NUMBER;
+  v_m2 NUMBER;
+  v_m3 NUMBER;
+
+BEGIN
+    FOR Cc IN (
+      SELECT F.cd_u, F.do10d, (F.do1-F.do10d) ot_10d, F.do2, F.do3, F.do4, F.do5, F.d06, F.bol5, F.nepro, F.mes
+       FROM ABC.Form6 F, ABC.Usr U WHERE F.cd_u=U.cd_u AND U.tp NOT IN (1,6,7,14,15) AND
+       f.do1+f.do2+f.do3+f.do4+f.do5+f.bol5+f.d06>0
+    )
+    LOOP
+      v_sum_opl := AKA.SUMMA_OPLAT(Cc.cd_u, ADD_MONTHS(p_d1,-1), p_d1);
+      INSERT INTO ABC.F6_Auto (fil_cdu, cd_u, dt_o, dz_do_10d, dz_ot10_do_mes, dz_ot1_do2,
+                               dz_ot2_do3, dz_ot3_do4, dz_ot4_do5, dz_ot5_do6, dz_ot6, npro_dz,
+                               utv_sps_dz, k_dz1, k_dz3)
+          VALUES(              1,  Cc.cd_u, p_d1, Cc.do10d, Cc.ot_10d, Cc.do2, Cc.do3,
+                               Cc.do4, Cc.do5, Cc.d06, Cc.bol5, Cc.nepro, 0, v_sum_opl, Cc.mes);
+    END LOOP;
+    COMMIT;
+END; -- Procedure P34_F6_AUTO
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     PASPORT ( cd_qx NUMBER, cd_tx NUMBER )
+   IS
+-- ---------   ------  -------------------------------------------       
+   -- Declare program variables as shown above
+  vs_Date DATE;
+  ve_Date DATE; 
+  v_d1 DATE;
+  v_d2 DATE;
+   
+BEGIN
+  DELETE FROM AKA.Pasport_Skld;
+  COMMIT;
+
+  SELECT dvalue1,dvalue2 INTO vs_Date, ve_Date
+  FROM ABC.QrunParam WHERE cd_q=cd_qx AND cd_t=cd_tx AND pclass=4;
+    
+  v_d1 := vs_Date;
+  v_d2 := ve_Date+1;
+  WHILE v_d1 < v_d2 LOOP
+    INSERT INTO AKA.Pasport_Skld VALUES(v_d1,0,0,0,0);
+    v_d1 := v_d1 + 1;
+  END LOOP;
+  COMMIT;  
+      
+  FOR Cc IN (
+    SELECT TRUNC(D.date0) d, 
+           ROUND(SUM(D.fprice/D.rrate),2) b   
+    FROM ABC.Doc D,
+         ABC.Usr U
+    WHERE
+       D.tp IN (
+         SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+           ( SELECT TO_NUMBER(value)
+             FROM abc.universum
+              WHERE tp='P34' AND KEY='DOC_OTGR'
+           )  
+       )  AND TRUNC(D.date0) BETWEEN vs_Date AND ve_Date
+       AND D.cd_u=U.cd_u 
+       AND U.tp NOT IN (1,7)
+       GROUP BY TRUNC(D.date0)
+       ORDER BY TRUNC(D.date0)
+  )
+  LOOP
+    UPDATE AKA.Pasport_Skld SET baks = Cc.b
+    WHERE dat = Cc.d;  
+  END LOOP;
+  COMMIT;
+
+  FOR Cc IN (
+    SELECT TRUNC(D.date0) d, COUNT(*) docs
+    FROM ABC.Doc D
+    WHERE
+       D.tp IN (
+         SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+           ( SELECT TO_NUMBER(value)
+             FROM abc.universum
+              WHERE tp='P34' AND KEY='DOC_OTGR'
+           )  
+       )  AND TRUNC(D.date0) BETWEEN vs_Date AND ve_Date
+       GROUP BY TRUNC(D.date0)
+       ORDER BY TRUNC(D.date0)
+  )
+  LOOP
+    UPDATE AKA.Pasport_Skld SET docs = Cc.docs
+    WHERE dat = Cc.d;  
+  END LOOP; 
+  COMMIT;
+  
+  
+  FOR Cc IN (
+    SELECT TRUNC(D.date0) d, COUNT(*) pos, SUM(L.amn1) amn
+    FROM ABC.Doc D, ABC.Lst L
+    WHERE
+       D.cd_c=L.cd_c AND
+       D.tp IN (
+         SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+           ( SELECT TO_NUMBER(value)
+             FROM abc.universum
+              WHERE tp='P34' AND KEY='DOC_OTGR'
+           )  
+       )  AND TRUNC(D.date0) BETWEEN vs_Date AND ve_Date
+       GROUP BY TRUNC(D.date0)
+       ORDER BY TRUNC(D.date0)
+  )
+  LOOP
+    UPDATE AKA.Pasport_Skld SET quant = Cc.amn, pos1 = Cc.pos
+    WHERE dat = Cc.d;  
+  END LOOP; 
+  COMMIT;
+    
+
+END; -- Procedure PASPORT
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     PKKN_REP ( cd_qx NUMBER, cd_tx NUMBER ) IS
+--
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   -------------------------------------------       
+-- A.Kaliabin  06.12.99 ver 1.0 . Отчет по форме № 5 для Облздравуправления по 
+--                      движению сильнодействующих препаратов списков ПККН                   
+--             20.01.00 ver 2.0 Исправил ошибки связанные с тем, что не
+--                      учитывались препараты по которым не было движения
+--                      в отч.пер. (не было прихода или расхода)      
+--                      Изменил алгоритм заполнения таблицы AKA.PKKN_REP
+
+CURSOR c_Psih /*+ INDEX(M ABC.MED_C) */ IS /* выберем всю психоту из справочников */
+SELECT M.cd_m,M.nm_m,P.nm_prod FROM ABC.Med M, ABC.Prod P
+ WHERE 
+   M.cd_m IN (
+   SELECT X.cd_m FROM ABC.Xmed X 
+     WHERE  X.cd_ctg=6
+     AND X.cd_x=2
+   )            
+ AND M.cd_p=P.cd_prod;
+
+CURSOR c_Income(cdm NUMBER, d1 DATE, d2 DATE) IS /* посмотрим сколько психоты пришло за отчетный период */
+SELECT /*+ INDEX(L ABC.LST_U) */ SUM(L.amn1) amn, L.cd_m 
+FROM ABC.Lst L, ABC.Doc D
+  WHERE L.cd_m=cdm
+  AND L.cd_c=D.cd_c
+  AND D.tp IN (7,93,463)
+  AND TRUNC(D.date0) BETWEEN d1 AND d2
+GROUP BY L.cd_m;
+
+CURSOR c_Outcome(cdm NUMBER, d1 DATE, d2 DATE) IS /* посмотрим ск-ко психоты ушло и кому за отч. период */
+SELECT /*+ INDEX(L ABC.LST_U) */ SUM(L.amn1) amn, L.cd_m , D.cd_u
+FROM ABC.Lst L, ABC.Doc D
+  WHERE L.cd_m=cdm
+  AND L.cd_c=D.cd_c
+  AND D.tp IN (81,100,83,101,90,91)
+  AND TRUNC(D.date0) BETWEEN d1 AND d2
+  GROUP BY L.cd_m , D.cd_u;
+
+CURSOR c_SelPsih IS
+SELECT P.* 
+FROM AKA.PKKN_TBL P;
+
+CURSOR c_Summ(cdm NUMBER) IS
+SELECT SUM(out_) totl FROM AKA.PKKN_TBL
+  WHERE cd_m=cdm;
+   
+vc_Psih    c_Psih%ROWTYPE;
+vc_Income  c_Income%ROWTYPE;
+vc_Outcome c_Outcome%ROWTYPE;
+vc_Summ    c_Summ%ROWTYPE; 
+vc_SelPsih c_SelPsih%ROWTYPE;
+v_d1 DATE;
+v_d2 DATE;
+v_cdm NUMBER := 1;
+v_IsIncome  NUMBER := 0;
+v_IsOutcome NUMBER := 0;
+    
+BEGIN 
+  SELECT dvalue1,dvalue2 INTO v_d1, v_d2 FROM ABC.QRUNPARAM
+  WHERE cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+  DELETE FROM AKA.PKKN_TBL;
+  COMMIT;
+  -- начальное заполнение таблицы PKKN_TBL всей психотой какая есть + забиваем входящее кол-во препарата
+  FOR vc_Psih IN c_Psih LOOP
+    INSERT INTO AKA.PKKN_TBL
+      VALUES(vc_Psih.cd_m,vc_Psih.nm_m,vc_Psih.nm_prod,0,null,0, null ,0,
+             AKA.SALDO_IN(vc_Psih.cd_m,v_d1-1),vc_Psih.nm_m);
+   --            AKA.SALDO_PREP(vc_Psih.cd_m,v_d1),vc_Psih.nm_m);
+  END LOOP;
+  COMMIT;
+  FOR vc_SelPsih IN c_SelPsih LOOP
+  --- Уход расчитаем и занесем кол-во отпущенного препарата и кому этот препарат отпускали
+    FOR vc_Outcome IN c_Outcome(vc_SelPsih.cd_m, v_d1, v_d2) LOOP
+      IF v_cdm = 1 THEN   -- отпуск пепарата первому клиенту (первая строчка)
+        UPDATE AKA.PKKN_TBL SET
+          cd_u = vc_Outcome.cd_u,
+          out_ = vc_Outcome.amn,
+          cd_  = 1,
+          cd_1 = null
+        WHERE  cd_m = vc_SelPsih.cd_m;    
+      ELSE  -- отпуск препарата следующим клиентам 
+        INSERT INTO AKA.PKKN_TBL
+          VALUES(vc_SelPsih.cd_m,'--/--','--/--',null,vc_Outcome.cd_u,vc_Outcome.amn,2,
+                 null,null,vc_SelPsih.nm_ms);  
+      END IF;  
+      v_cdm := v_cdm + 1;
+    END LOOP; 
+    v_cdm := 1; -- было 0
+    -- ПРИХОД - расчитаем и занесем кол-во пришедшего препарата
+    FOR vc_Income IN c_Income(vc_SelPsih.cd_m, v_d1, v_d2) LOOP
+        SELECT COUNT(*) INTO v_cdm FROM AKA.PKKN_TBL WHERE  vc_Income.cd_m=vc_SelPsih.cd_m;  
+        IF v_cdm = 1  THEN
+          UPDATE AKA.PKKN_TBL Pk SET   Pk.in_  = vc_Income.amn
+          WHERE  Pk.cd_m = vc_SelPsih.cd_m; 
+          v_cdm := 1; -- было 0
+        ELSIF v_cdm > 1 THEN  
+          UPDATE AKA.PKKN_TBL Pk SET   Pk.in_  = vc_Income.amn
+          WHERE  Pk.cd_m = vc_SelPsih.cd_m AND Pk.cd_=1; -- изменяем только первую строчку 
+          v_cdm := 1; -- было 0
+        END IF;  
+     END LOOP; 
+  END LOOP;  
+  COMMIT;
+  --  занесем кол-во отпущенного препарата = итоговое_кол-во_препарата(по всем клиентам)
+  FOR vc_SelPsih IN c_SelPsih LOOP
+     FOR vc_Summ IN c_Summ(vc_SelPsih.cd_m) LOOP
+       UPDATE AKA.PKKN_TBL Pk SET cd_1 = vc_Summ.totl
+         WHERE Pk.cd_m=vc_SelPsih.cd_m
+         AND Pk.cd_=1; -- изменяем только первую строчку
+     END LOOP;
+  END LOOP;
+  COMMIT;
+END; -- Procedure AKA.PKKN_REP
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     PKKN_REP2 ( cd_qx NUMBER, cd_tx NUMBER ) IS
+
+-- ---------   ------  -------------------------------------------       
+   v_d1 DATE;
+   v_d2 DATE;
+   v_cdu NUMBER := 0;
+   v_num NUMBER := 0;
+   v_nmu VARCHAR2(64) := '';
+   v_nlic VARCHAR2(20) := '';
+   v_licdeal VARCHAR2(20) := '';
+   v_saldo NUMBER := 0;
+   v_income NUMBER := 0;
+   v_first NUMBER := 1;      
+   
+BEGIN
+
+  SELECT dvalue1,dvalue2 INTO v_d1, v_d2 FROM ABC.QRUNPARAM -- определим диапазон дат для отчета
+  WHERE cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+  
+  DELETE FROM AKA.PKKN_TBL2; -- очистим временную таблицу
+  COMMIT;
+  
+-- Соберем всю психоту какая есть + спиртягу    
+ FOR Cc IN (
+  SELECT /*+ ORDERED INDEX(M ABC.MED_C) */ -- психота
+     M.cd_m,M.nm_m,P.nm_prod
+    FROM ABC.Med M, ABC.Prod P
+  WHERE M.cd_m IN (  
+     SELECT X.cd_m FROM ABC.Xmed X 
+       WHERE  X.cd_ctg=6
+       AND X.cd_x=2
+   )            
+  AND M.cd_p=P.cd_prod
+  UNION  
+  SELECT  M.cd_m,M.nm_m,P.nm_prod 
+    FROM ABC.Med M, ABC.Prod P
+  WHERE M.cd_m IN (  11941, 13694, 15732,15731,15730 ) -- спиртяга
+  AND M.cd_p=P.cd_prod
+  )
+ LOOP
+
+   
+ v_saldo := AKA.Saldo_Prep(Cc.cd_m,v_d1); -- входящее сальдо препарата на дату начала отчета
+ v_income := AKA.Income_Prep(Cc.cd_m,v_d1, v_d2); -- сколько препарата пришло в рассматриваемом диапазоне дат
+ 
+ v_first := 1;
+ FOR Rr IN ( -- сколько препарата ушло и кому в рассматриваемом диапазоне дат
+   select NVL(Outb.C,0) Cnt, Outb.cdu
+   from
+    (
+     select sum(amn) C , d.cd_uu cdu
+     from abc.l2s l, abc.doc d
+     where d.cd_c=l.cd_c
+     and trunc(d.date0) between trunc(v_d1) and trunc(v_d2) and
+     l.cd_m=Cc.cd_m
+     group by d.cd_uu
+/*     union
+     select SUM(amn) C, -1 -- по union привязываем те препараты которые в отчетном периоде не отгружались.
+     FROM abc.bxsmed WHERE cd_s IN (6,8) AND cd_m=Cc.cd_m*/
+   ) Outb
+  )
+  LOOP
+    IF v_first = 1 THEN   
+      INSERT INTO AKA.Pkkn_Tbl2
+         VALUES(Cc.cd_m, CC.nm_m,Cc.nm_prod, v_saldo,  v_income, Rr.Cnt, Rr.cdu,'','','',1,0);  
+    ELSE
+      INSERT INTO AKA.Pkkn_Tbl2
+         VALUES(Cc.cd_m, CC.nm_m,Cc.nm_prod, v_saldo,  v_income, Rr.Cnt, Rr.cdu,'','','',0,0);  
+    END IF;
+    v_first := v_first + 1;    
+  END LOOP; 
+ END LOOP;
+ COMMIT; 
+
+ FOR Aa IN (
+    SELECT M.cd_m, M.nm_m, P.nm_prod, B.amn
+    FROM ABC.Med M, ABC.Prod P,
+      ( SELECT cd_m, SUM(amn) amn FROM ABC.Bxsmed 
+        WHERE cd_s IN (6,8) AND cd_m IN (
+          SELECT X.cd_m FROM ABC.Xmed X 
+          WHERE  X.cd_ctg=6 AND X.cd_x=2
+       ) AND cd_m NOT IN ( SELECT cd_m FROM AKA.Pkkn_Tbl2 )
+       GROUP BY cd_m
+      ) B
+    WHERE M.cd_m=B.cd_m AND M.cd_p=P.cd_prod      
+ )
+ LOOP
+   v_saldo := AKA.Saldo_Prep(Aa.cd_m,v_d1); -- входящее сальдо препарата на дату начала отчета
+   v_income := AKA.Income_Prep(Aa.cd_m,v_d1, v_d2); -- сколько препарата пришло в рассматриваемом диапазоне дат 
+   INSERT INTO AKA.Pkkn_Tbl2
+     VALUES(Aa.cd_m, AA.nm_m, Aa.nm_prod, v_saldo, v_income, 0,0,'','','',1,0);
+ END LOOP;
+ 
+ COMMIT;
+
+ UPDATE AKA.Pkkn_Tbl2 SET nm_prod='',saldo_in=0,income=0 WHERE first <> 1;
+ COMMIT;
+ 
+ FOR Tt IN (
+  SELECT cd_m,SUM(outcome) out_t
+   FROM AKA.Pkkn_Tbl2
+  GROUP BY cd_m   
+ )
+ LOOP
+   UPDATE AKA.Pkkn_Tbl2 SET out_total=Tt.out_t WHERE first=1 AND cd_m=Tt.cd_m;
+ END LOOP;
+ COMMIT;
+ 
+ FOR Uu IN (
+   SELECT U.cd_u,U.nm_u, X.n_lic, X.lic_deal
+   FROM  ABC.Ve$Usr U, ABC.Ve$Xusr X, AKA.Pkkn_Tbl2 P
+   WHERE U.cd_u=X.cd_u AND P.cd_u=U.cd_u
+ )
+ LOOP
+   UPDATE AKA.Pkkn_Tbl2 SET nm_u=Uu.nm_u, n_lic=Uu.n_lic, lic_deal=Uu.lic_deal
+   WHERE cd_u=Uu.cd_u;
+ END LOOP;
+ COMMIT;
+ 
+END; -- Procedure PKKN_REP2
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     PRED_MAIN(  cd_qx NUMBER, cd_tx NUMBER) IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+-- A.Kaliabin  07.12.99 ver. 1.0 
+CURSOR c_U IS
+SELECT /*+ INDEX(U ABC.usr_c) */ U.cd_u FROM ABC.Ve$Usr U WHERE U.tp IN (2,3,4,5,8);
+
+v_r1 NUMBER;
+v_r2 NUMBER;
+v_r3 NUMBER;
+v_r4 NUMBER;
+v_r5 NUMBER;
+v_r6 NUMBER;
+v_r7 NUMBER;
+v_r8 NUMBER;
+v_u  NUMBER;
+v_d1 DATE;
+v_d2 DATE;
+vc_U c_U%ROWTYPE;
+
+BEGIN
+  DELETE FROM AKA.PRE_OTSR_TBL;
+  COMMIT;
+
+  SELECT dvalue1,dvalue2 INTO v_d1, v_d2 FROM ABC.QRUNPARAM
+  WHERE cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+
+--  SELECT pvalue1 INTO v_u FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND cd_q=cd_qx AND pclass=2;
+  FOR vc_U IN c_U LOOP
+    v_r1 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,0,10,1);
+    v_r2 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,0,10,2);    
+    v_r3 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,0,10,3);
+    v_r4 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,0,10,4);
+
+    v_r5 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,10,100,1);
+    v_r6 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,10,100,2);    
+    v_r7 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,10,100,3);
+    v_r8 := AKA.Predoplata(vc_U.cd_u,v_d1,v_d2,10,100,4);   
+    INSERT INTO AKA.PRE_OTSR_TBL VALUES(v_r1,v_r2,v_r3,v_r4,v_r5,v_r6,v_r7,v_r8,vc_U.cd_u);   
+  END LOOP;  
+  COMMIT;
+END; -- Procedure
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     PREP_ANALIZE(cd_qx NUMBER, cd_tx NUMBER) AS
+
+CURSOR Cin_out(dt1 DATE, dt2 DATE) IS
+SELECT
+  M.cd_m,
+  M.nm_m,
+  P.nm_prod,
+  SUM(DECODE(D.tp,7,L.amn1,0)) in_amn,
+--  SUM(DECODE(D.tp,83,L.amn1,0)+DECODE(D.tp,81,L.amn1,0)+DECODE(D.tp,78,L.amn1,0)) out_amn,
+  SUM(DECODE(D.tp,83,L.amn1,0)+
+      DECODE(D.tp,81,L.amn1,0)+
+      DECODE(D.tp,78,L.amn1,0)+
+      DECODE(D.tp,79,L.amn1,0)+
+      DECODE(D.tp,100,L.amn1,0)+
+      DECODE(D.tp,101,L.amn1,0)
+      ) out_amn, 
+  Pm.price prc
+FROM
+  ABC.VE$PMED Pm,
+  ABC.VE$DOC D, ABC.VE$LST L , ABC.VE$PROD P,
+  ABC.VE$MED M
+WHERE
+  M.cd_m=Pm.cd_m   AND
+  Pm.cd_p=24        AND -- basic price list
+  Pm.cd_v=2        AND   
+  M.cd_p=P.cd_prod AND
+--  M.cd_p = cdp     AND
+  M.cd_m IN (  SELECT pvalue1 FROM ABC.QRUNPARAM
+    WHERE cd_t=cd_tx AND pclass=1 ) AND
+  M.cd_m=L.cd_m    AND
+  D.cd_c=L.cd_c    AND
+  D.DATE0 >= dt1   AND
+  D.DATE0<= dt2    
+GROUP BY M.cd_m,M.nm_m,P.nm_prod,Pm.price
+ORDER BY M.cd_m;
+
+CURSOR Cnal IS
+SELECT DISTINCT
+  M.cd_m,
+  M.nm_m,
+  P.nm_prod,
+  SUM(B.amn) amn,
+--  SUM(Pm.price) prc
+  Pm.price prc
+FROM
+  ABC.VE$PMED   Pm,
+  ABC.VE$BXSMED B,
+  ABC.VE$PROD   P,
+  ABC.VE$MED    M
+WHERE
+  Pm.cd_p=24        AND -- basic price list
+  M.cd_p=P.cd_prod AND
+  Pm.cd_m=M.cd_m   AND
+  Pm.cd_v=2        AND 
+--  M.cd_p=cdp       AND 
+  M.cd_m IN (  SELECT pvalue1 FROM ABC.QRUNPARAM
+    WHERE cd_t=cd_tx AND pclass=1 ) AND
+  M.cd_m=B.cd_m    AND
+  B.cd_up = 5
+GROUP BY M.cd_m,M.nm_m,P.nm_prod,Pm.price
+ORDER BY M.cd_m;
+
+dt_beg     DATE;
+dt_end     DATE; 
+prod_code  NUMBER;
+--cdm        NUMBER; 
+updd       NUMBER;
+is_upd     NUMBER;
+inout_rec  Cin_out%ROWTYPE;
+nal_rec    Cnal%ROWTYPE;
+  
+BEGIN
+  DELETE FROM AKA.TPROD_ANAL;
+  COMMIT;
+  DELETE FROM AKA.TPROD_ANAL1;
+  COMMIT;
+  DELETE FROM AKA.TPROD_ANAL3;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO dt_beg,dt_end FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=4;
+--  SELECT pvalue1 INTO prod_code FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=1;
+
+-- prihod / rashod
+  OPEN Cin_out(dt_beg,dt_end);
+  LOOP
+    FETCH Cin_out INTO inout_rec;
+    EXIT WHEN Cin_out%NOTFOUND;
+    INSERT INTO AKA.TPROD_ANAL
+    VALUES(inout_rec.cd_m,
+           inout_rec.nm_m,
+           inout_rec.nm_prod,
+           inout_rec.in_amn ,
+           inout_rec.out_amn,
+           0,
+           inout_rec.prc,9999);
+  END LOOP;
+  COMMIT;
+  CLOSE Cin_out;      
+
+-- nalichie
+   OPEN Cnal;
+   LOOP
+     FETCH Cnal INTO nal_rec;
+     EXIT WHEN Cnal%NOTFOUND;
+     INSERT INTO AKA.TPROD_ANAL1
+     VALUES(nal_rec.cd_m,
+            nal_rec.nm_m,
+            nal_rec.nm_prod,
+            0,
+            0,
+            nal_rec.amn,
+            nal_rec.prc,0);
+   END LOOP;
+   COMMIT;
+   CLOSE Cnal;
+  
+  
+-- resulting vstavim
+   OPEN Cnal;
+   LOOP
+     FETCH Cnal INTO nal_rec;
+     EXIT WHEN Cnal%NOTFOUND;
+     is_upd:=AKA.PROD_CheckNal(nal_rec.cd_m);
+     IF (is_upd=0) THEN
+       INSERT INTO AKA.TPROD_ANAL
+       VALUES(nal_rec.cd_m,
+              nal_rec.nm_m,
+              nal_rec.nm_prod,
+              0,
+              0,
+              nal_rec.amn,
+              nal_rec.prc,888);
+     END IF ;       
+   END LOOP;
+   COMMIT;
+   CLOSE Cnal;
+   
+   
+/*  UPDATE AKA.TPROD_ANAL
+  SET nal=(SELECT T1.nal FROM AKA.TPROD_ANAL1 T1
+            WHERE upd=9999 AND cd_m=T1.cd_m
+           ); 
+  */ 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     PROD_ANAL_PROC(cd_qx NUMBER, cd_tx NUMBER) AS
+
+CURSOR Cin_out(dt1 DATE, dt2 DATE) IS
+SELECT
+  M.cd_m,
+  M.nm_m,
+  P.nm_prod,
+  SUM(DECODE(D.tp,7,L.amn1,0)) in_amn,
+--  SUM(DECODE(D.tp,83,L.amn1,0)+DECODE(D.tp,81,L.amn1,0)+DECODE(D.tp,78,L.amn1,0)) out_amn,
+  SUM(DECODE(D.tp,83,L.amn1,0)+
+      DECODE(D.tp,81,L.amn1,0)+
+      DECODE(D.tp,78,L.amn1,0)+
+      DECODE(D.tp,79,L.amn1,0)+
+      DECODE(D.tp,100,L.amn1,0)+
+      DECODE(D.tp,101,L.amn1,0)
+      ) out_amn, 
+  Pm.price prc
+FROM
+  ABC.VE$PMED Pm,
+  ABC.VE$DOC D, ABC.VE$LST L , ABC.VE$PROD P,
+  ABC.VE$MED M
+WHERE
+  M.cd_m=Pm.cd_m   AND
+  Pm.cd_p=3        AND -- basic price list
+  Pm.cd_v=2        AND   
+  M.cd_p=P.cd_prod AND
+--  M.cd_p = cdp     AND
+  M.cd_p IN (  SELECT pvalue1 FROM ABC.QRUNPARAM
+    WHERE cd_t=cd_tx AND pclass=1 ) AND
+  M.cd_m=L.cd_m    AND
+  D.cd_c=L.cd_c    AND
+  D.DATE0 >= dt1   AND
+  D.DATE0<= dt2    
+GROUP BY M.cd_m,M.nm_m,P.nm_prod,Pm.price
+ORDER BY M.cd_m;
+
+CURSOR Cnal IS
+SELECT DISTINCT
+  M.cd_m,
+  M.nm_m,
+  P.nm_prod,
+  SUM(B.amn) amn,
+--  SUM(Pm.price) prc
+  Pm.price prc
+FROM
+  ABC.VE$PMED   Pm,
+  ABC.VE$BXSMED B,
+  ABC.VE$PROD   P,
+  ABC.VE$MED    M
+WHERE
+  Pm.cd_p=3        AND -- basic price list
+  M.cd_p=P.cd_prod AND
+  Pm.cd_m=M.cd_m   AND
+  Pm.cd_v=2        AND 
+--  M.cd_p=cdp       AND 
+  M.cd_p IN (  SELECT pvalue1 FROM ABC.QRUNPARAM
+    WHERE cd_t=cd_tx AND pclass=1 ) AND
+  M.cd_m=B.cd_m    AND
+  B.cd_up = 5
+GROUP BY M.cd_m,M.nm_m,P.nm_prod,Pm.price
+ORDER BY M.cd_m;
+
+dt_beg     DATE;
+dt_end     DATE; 
+prod_code  NUMBER;
+--cdm        NUMBER; 
+updd       NUMBER;
+is_upd     NUMBER;
+inout_rec  Cin_out%ROWTYPE;
+nal_rec    Cnal%ROWTYPE;
+  
+BEGIN
+  DELETE FROM AKA.TPROD_ANAL;
+  COMMIT;
+  DELETE FROM AKA.TPROD_ANAL1;
+  COMMIT;
+  DELETE FROM AKA.TPROD_ANAL3;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO dt_beg,dt_end FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=4;
+--  SELECT pvalue1 INTO prod_code FROM ABC.QRUNPARAM WHERE cd_t=cd_tx AND pclass=1;
+
+-- prihod / rashod
+  OPEN Cin_out(dt_beg,dt_end);
+  LOOP
+    FETCH Cin_out INTO inout_rec;
+    EXIT WHEN Cin_out%NOTFOUND;
+    INSERT INTO AKA.TPROD_ANAL
+    VALUES(inout_rec.cd_m,
+           inout_rec.nm_m,
+           inout_rec.nm_prod,
+           inout_rec.in_amn ,
+           inout_rec.out_amn,
+           0,
+           inout_rec.prc,9999);
+  END LOOP;
+  COMMIT;
+  CLOSE Cin_out;      
+
+-- nalichie
+   OPEN Cnal;
+   LOOP
+     FETCH Cnal INTO nal_rec;
+     EXIT WHEN Cnal%NOTFOUND;
+     INSERT INTO AKA.TPROD_ANAL1
+     VALUES(nal_rec.cd_m,
+            nal_rec.nm_m,
+            nal_rec.nm_prod,
+            0,
+            0,
+            nal_rec.amn,
+            nal_rec.prc,0);
+   END LOOP;
+   COMMIT;
+   CLOSE Cnal;
+  
+  
+-- resulting vstavim
+   OPEN Cnal;
+   LOOP
+     FETCH Cnal INTO nal_rec;
+     EXIT WHEN Cnal%NOTFOUND;
+     is_upd:=AKA.PROD_CheckNal(nal_rec.cd_m);
+     IF (is_upd=0) THEN
+       INSERT INTO AKA.TPROD_ANAL
+       VALUES(nal_rec.cd_m,
+              nal_rec.nm_m,
+              nal_rec.nm_prod,
+              0,
+              0,
+              nal_rec.amn,
+              nal_rec.prc,888);
+     END IF ;       
+   END LOOP;
+   COMMIT;
+   CLOSE Cnal;
+   
+   
+/*  UPDATE AKA.TPROD_ANAL
+  SET nal=(SELECT T1.nal FROM AKA.TPROD_ANAL1 T1
+            WHERE upd=9999 AND cd_m=T1.cd_m
+           ); 
+  */ 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure  RUN_CLIBAL4 ( cd_qx NUMBER, cd_tx NUMBER ) IS
+
+CURSOR c_Usr IS
+  SELECT cd_u FROM ABC.Ve$USR 
+    WHERE tp NOT IN (1,7);
+    
+pd1  DATE;
+pd2  DATE;
+pusr NUMBER;    
+vC_Usr c_Usr%ROWTYPE;
+
+BEGIN
+  DELETE FROM AKA.CLIBAL4;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO pd1,pd2 FROM ABC.QrunParam
+    WHERE  cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+ -- SELECT pvalue1 INTO pusr FROM ABC.QrunParam
+--    WHERE  cd_t=cd_tx AND cd_q=cd_qx AND pclass=2;  
+  FOR vc_Usr IN c_Usr LOOP     
+    AKA.CLI_BALANS4(vc_Usr.cd_u,pd1,pd2);  
+  END LOOP;
+  COMMIT; 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure  RUN_CLIBALANS5 ( cd_qx NUMBER, cd_tx NUMBER ) IS
+
+CURSOR c_Usr IS
+  SELECT cd_u FROM ABC.Ve$USR 
+    WHERE tp NOT IN (1,7);
+    
+pd1  DATE;
+pd2  DATE;
+pusr NUMBER;    
+vC_Usr c_Usr%ROWTYPE;
+
+BEGIN
+  DELETE FROM AKA.CLIBAL5;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO pd1,pd2 FROM ABC.QrunParam
+    WHERE  cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+  FOR vc_Usr IN c_Usr LOOP     
+    AKA.CLI_BALANS5(vc_Usr.cd_u,pd1,pd2);  
+  END LOOP;
+  COMMIT; 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     RUN_CLIBALANS6 ( cd_qx NUMBER, cd_tx NUMBER ) IS
+
+CURSOR c_Usr IS
+  SELECT cd_u FROM ABC.USR
+    WHERE tp NOT IN (1,7);
+  
+    
+pd1  DATE;
+pd2  DATE;
+pusr NUMBER;    
+vC_Usr c_Usr%ROWTYPE;
+
+BEGIN
+  DELETE FROM AKA.CLIBAL5;
+  COMMIT;
+  SELECT dvalue1,dvalue2 INTO pd1,pd2 FROM ABC.QrunParam
+    WHERE  cd_t=cd_tx AND cd_q=cd_qx AND pclass=4;
+  FOR vc_Usr IN c_Usr LOOP     
+    AKA.CLI_BALANSe6(vc_Usr.cd_u,pd1,pd2);  
+  END LOOP;
+  COMMIT; 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     Run_F82 (p_cdtx NUMBER, p_cdqx NUMBER) AS
+
+  CURSOR c_Qrun IS
+    SELECT * FROM ABC.QrunParam
+    WHERE cd_t=p_cdtx AND cd_q=p_cdqx;
+    
+  CURSOR c_QrunDate IS
+    SELECT dvalue1,dvalue2 FROM ABC.QrunParam
+    WHERE cd_t=p_cdtx AND cd_q=p_cdqx;  
+ 
+  vc_Qrun c_Qrun%ROWTYPE;
+  vc_QrunDate c_QrunDate%ROWTYPE;
+  v_row NUMBER := 0;
+  
+BEGIN
+  
+  OPEN c_QrunDate;
+  LOOP
+    FETCH c_QrunDate INTO vc_QrunDate;
+    EXIT WHEN c_QrunDate%NOTFOUND;  
+    INSERT INTO AKA.F82_Date VALUES(vc_QrunDate.dvalue1,vc_QrunDate.dvalue2);
+  END LOOP;       
+  CLOSE c_QrunDate;
+  
+  OPEN c_Qrun;
+  LOOP
+    FETCH c_Qrun INTO vc_Qrun;
+--    EXIT WHEN c_Qrun%NOTFOUND;  
+    v_row := v_row + 1; 
+    IF p_cdqx = 145 THEN -- viatkin
+--      SV.Dv_Tovar(vc_Qrun.dvalue1, vc_Qrun.dvalue2);
+      DELETE FROM ABC.QrunParam Q
+      WHERE Q.cd_t=p_cdtx AND
+            Q.cd_q=p_cdqx AND
+            EXISTS (SELECT 1 FROM AKA.F82_Date F 
+                    WHERE Q.dvalue1=F.d1 AND Q.dvalue2=F.d2 );
+      COMMIT;              
+    END IF;  
+    IF p_cdqx = 143 THEN -- mos
+  --    SV.Dv_Tovar(vc_Qrun.dvalue1, vc_Qrun.dvalue2);
+      DELETE FROM ABC.QrunParam Q
+      WHERE Q.cd_t=p_cdtx AND
+            Q.cd_q=p_cdqx AND
+            EXISTS (SELECT 1 FROM AKA.F82_Date F 
+                    WHERE Q.dvalue1=F.d1 AND Q.dvalue2=F.d2 );
+      COMMIT;              
+    END IF;
+    IF p_cdqx = 303 THEN -- kem
+--      SV.Dv_Tovar_Kem(vc_Qrun.dvalue1, vc_Qrun.dvalue2);
+      DELETE FROM ABC.QrunParam Q
+      WHERE Q.cd_t=p_cdtx AND
+            Q.cd_q=p_cdqx AND
+            EXISTS (SELECT 1 FROM AKA.F82_Date F 
+                    WHERE Q.dvalue1=F.d1 AND Q.dvalue2=F.d2 );
+       COMMIT;             
+    END IF;
+    EXIT WHEN v_row = 1;
+  END LOOP;   
+  CLOSE c_Qrun;
+     
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Procedure     SERDOC_PROC ( p_cdc IN NUMBER )  IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+
+BEGIN
+  DELETE FROM AKA.SerDoc WHERE puid=uid;
+  COMMIT;
+  SELECT ser_doc_seq.nextval INTO AKA.SerDoc_Pkg.G$Last_Ser_Doc_Sid FROM DUAL;
+  FOR Cc IN (
+   SELECT DISTINCT 
+    Ls.cd_m,
+    S.nm_s
+   FROM
+     SERT.Lst_Srt@OSERT1 Ls, SERT.Seria@OSERT1 S 
+   WHERE Ls.sert IN (
+      SELECT D.sert
+      FROM ABC.Doc D
+        WHERE D.cd_c=p_cdc ) AND
+      Ls.cd_s=S.cd_s
+  )
+  LOOP
+   INSERT INTO AKA.SerDoc(cd_m,nm_s,sid,puid) VALUES(Cc.cd_m,Cc.nm_s,AKA.SerDoc_Pkg.G$Last_Ser_Doc_Sid,uid); 
+  END LOOP;
+  COMMIT;
+  
+  
+  
+
+END; -- Procedure SERDOC_PROC
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     SGF2_PROC0(cd_qx NUMBER,cd_tx NUMBER) AS 
+-- курсор для выбора ОСТ СГ из различных разделов WABC  
+-- С ОстСГ - 30
+  CURSOR Cdv_sg(doc_tp NUMBER, dt1 DATE, dt2 DATE) IS
+    SELECT  SUM(L.amn1*L.bprice)
+    FROM ABC.VE$DOC D, ABC.VE$LST L
+    WHERE
+      L.cd_c=D.cd_c AND
+      D.date0>=dt1 AND D.date0<=dt2 AND
+      D.tp=doc_tp AND
+      D.cd_c IN ( SELECT cd_c FROM ABC.Ve$LTAX WHERE cd_x=30 );
+
+-- realizovano
+  CURSOR Cdv_real(dt1 DATE, dt2 DATE) IS
+    SELECT SUM(L.amn1*L.bprice)
+    FROM ABC.VE$DOC D, ABC.VE$LST L
+       --, ABC.V$XMED Xm
+    WHERE
+      L.cd_c=D.cd_c AND
+      D.date0>=dt1 AND D.date0<=dt2 AND
+      D.yfprice/(D.fprice+0.0000001)>0.999 AND
+      D.fprice>0 AND
+      D.tp in (83,81) AND
+      D.cd_c IN ( SELECT cd_c FROM ABC.Ve$LTAX WHERE cd_x=30 ); 
+
+-- выбор тухляка с непросроченной дебиторкой
+   CURSOR Cdeb_no IS
+      SELECT  SUM(L.amn1*L.bprice)
+      FROM ABC.VE$DOC D, ABC.VE$LST L,
+           ABC.VE$PXDOC Px
+           --, ABC.V$XMED Xm
+      WHERE
+        L.cd_c=D.cd_c AND
+        Px.cd_c=D.cd_c AND
+        trunc(Px.dated) >= trunc(sysdate) AND
+        D.date0 < trunc(sysdate) AND
+        D.yfprice/(D.fprice+0.0000001)<0.999 AND
+        D.fprice>0 AND
+        D.tp in (83,81) AND
+        D.cd_c IN ( SELECT cd_c FROM ABC.Ve$LTAX WHERE cd_x=30 );
+
+-- выбор тухляка с просроченной дебиторкой
+   CURSOR Cdeb_yes IS
+      SELECT SUM(L.amn1*L.bprice)
+      FROM ABC.VE$DOC D, ABC.VE$LST L,
+           ABC.VE$PXDOC Px
+      WHERE
+        L.cd_c=D.cd_c AND
+        Px.cd_c=D.cd_c AND
+        trunc(Px.dated) < trunc(sysdate) AND
+        D.yfprice/(D.fprice+0.0000001)<0.999 AND
+        D.fprice>0 AND
+        D.tp in (83,81) AND
+        D.cd_c IN ( SELECT cd_c FROM ABC.Ve$LTAX WHERE cd_x=30 );
+ 
+   buf_num NUMBER;
+   dt_beg  DATE;
+   dt_end  DATE;
+
+BEGIN
+  DELETE FROM AKA.SGF2_TBL;
+  COMMIT;
+  INSERT INTO AKA.SGF2_TBL VALUES(0,0,0,0,0,0,0,0);
+  SELECT dvalue1,dvalue2 INTO dt_beg,dt_end FROM ABC.QRUNPARAM WHERE cd_t=cd_tx;
+
+  OPEN Cdv_sg(83,dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_sg INTO buf_num;
+    EXIT WHEN Cdv_sg%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_sg;
+  UPDATE AKA.SGF2_TBL SET out_83 = buf_num;
+  COMMIT;
+  
+  OPEN Cdv_real(dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_real INTO buf_num;
+    EXIT WHEN Cdv_real%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_real;
+  UPDATE AKA.SGF2_TBL SET realiz = buf_num;
+  COMMIT;
+
+  OPEN Cdeb_no;
+  LOOP
+    FETCH Cdeb_no INTO buf_num;
+    EXIT WHEN Cdeb_no%NOTFOUND;
+  END LOOP;
+  CLOSE Cdeb_no;
+  UPDATE AKA.SGF2_TBL SET deb_no = buf_num;
+  COMMIT;
+
+  OPEN Cdeb_yes;
+  LOOP
+    FETCH Cdeb_yes INTO buf_num;
+    EXIT WHEN Cdeb_yes%NOTFOUND;
+  END LOOP;
+  CLOSE Cdeb_yes;
+  UPDATE AKA.SGF2_TBL SET deb_yes = buf_num;
+  COMMIT;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     SGF2_PROC1(cd_qx NUMBER,cd_tx NUMBER) AS
+-- курсор для выбора тухляка из различных разделов WABC
+  CURSOR Cdv_sg(doc_tp NUMBER, dt1 DATE, dt2 DATE) IS
+    SELECT  SUM(L.amn1*L.bprice)
+    FROM ABC.VE$MED M, ABC.VE$DOC D, ABC.VE$LST L,
+         ABC.VE$PROD P
+--         , ABC.VE$PMED Pr
+         --, ABC.V$XMED X
+    WHERE
+--      M.cd_m=Pr.cd_m AND
+--      Pr.cd_p=1 AND
+--      Pr.cd_v=2 AND
+      M.cd_m>=50000 AND
+--      M.cd_m=X.cd_m AND
+--      X.cd_x=2 AND X.cd_ctg IN (11,16) AND
+      M.cd_p=P.cd_prod AND
+      M.cd_m=L.cd_m AND
+      L.cd_c=D.cd_c AND
+      trunc(D.date0)>=dt1 AND trunc(D.date0)<=dt2 AND
+      D.tp=doc_tp;
+
+
+--spisano
+   CURSOR Cdv_spis(dt1 DATE, dt2 DATE) IS
+    SELECT
+    SUM(L.amn1*AKA.Hist_Prc(L.cd_m,1,D.date0))
+    -- L.cd_m
+    FROM ABC.VE$LST L, ABC.Ve$Doc D
+    WHERE
+      L.cd_m>=50000 AND
+      L.cd_c=D.cd_c AND
+      trunc(D.date0) between dt1 AND dt2
+      AND D.tp IN (85);
+      
+      
+  
+-- realizovano
+  CURSOR Cdv_real(dt1 DATE, dt2 DATE) IS
+    SELECT SUM(L.amn1*L.bprice)
+    FROM ABC.VE$MED M, ABC.VE$DOC D, ABC.VE$LST L,
+       ABC.VE$PROD P, ABC.VE$PMED Pr
+       --, ABC.V$XMED Xm
+    WHERE
+      M.cd_m=Pr.cd_m AND
+      Pr.cd_p=1 AND
+      Pr.cd_v=2 AND
+      M.cd_m>=50000 AND
+--      M.cd_m=Xm.cd_m AND
+--      Xm.cd_x=2 AND Xm.cd_ctg IN (11,16) AND
+      M.cd_p=P.cd_prod AND
+      M.cd_m=L.cd_m AND
+      L.cd_c=D.cd_c AND
+      trunc(D.date0)>=dt1 AND trunc(D.date0)<=dt2 AND
+      D.yfprice/(D.fprice+0.0000001)>0.999 AND
+      D.fprice>0 AND
+      D.tp in (83,81);
+
+-- выбор тухляка с непросроченной дебиторкой
+   CURSOR Cdeb_no IS
+      SELECT  SUM(L.amn1*L.bprice)
+      FROM ABC.VE$MED M, ABC.VE$DOC D, ABC.VE$LST L,
+           ABC.VE$PROD P, ABC.VE$PMED Pr, ABC.VE$PXDOC Px
+           --, ABC.V$XMED Xm
+      WHERE
+        M.cd_m=Pr.cd_m AND
+        Pr.cd_p=1 AND
+        Pr.cd_v=2 AND
+        M.cd_m>=50000 AND
+--        M.cd_m=Xm.cd_m AND
+--        Xm.cd_x=2 AND Xm.cd_ctg IN (11,16) AND
+        M.cd_p=P.cd_prod AND
+        M.cd_m=L.cd_m AND
+        L.cd_c=D.cd_c AND
+        Px.cd_c=D.cd_c AND
+        trunc(Px.dated) >= trunc(sysdate) AND
+        trunc(D.date0) < trunc(sysdate) AND
+        D.yfprice/(D.fprice+0.0000001)<0.999 AND
+        D.fprice>0 AND
+--        and D.cd_vf in (1,9) AND
+        D.tp in (83,81,100,101);
+
+-- выбор тухляка с просроченной дебиторкой
+   CURSOR Cdeb_yes IS
+      SELECT SUM(L.amn1*L.bprice)
+      FROM ABC.VE$MED M, ABC.VE$DOC D, ABC.VE$LST L,
+        ABC.VE$PROD P, ABC.VE$PMED Pr, ABC.VE$PXDOC Px
+        --, ABC.V$XMED Xm
+      WHERE
+        M.cd_m=Pr.cd_m AND
+        Pr.cd_p=1 AND
+        Pr.cd_v=2 AND
+        M.cd_m>=50000 AND
+--        M.cd_m=Xm.cd_m AND
+--        Xm.cd_x=2 AND Xm.cd_ctg IN (11,16) AND
+        M.cd_p=P.cd_prod AND
+        M.cd_m=L.cd_m AND
+        L.cd_c=D.cd_c AND
+        Px.cd_c=D.cd_c AND
+        trunc(Px.dated) < trunc(sysdate) AND
+        D.yfprice/(D.fprice+0.0000001)<0.999 AND
+        D.fprice>0 AND
+--        D.cd_vf  in (1,9) AND
+        D.tp in (83,81,100,101);
+
+   buf_num NUMBER;
+   dt_beg  DATE;
+   dt_end  DATE;
+
+BEGIN
+  DELETE FROM AKA.SGF2_TBL;
+  COMMIT;
+  INSERT INTO AKA.SGF2_TBL VALUES(0,0,0,0,0,0,0,0);
+  SELECT dvalue1,dvalue2 INTO dt_beg,dt_end FROM ABC.QRUNPARAM WHERE cd_t=cd_tx;
+  OPEN Cdv_sg(7,dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_sg INTO buf_num;
+    EXIT WHEN Cdv_sg%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_sg;
+  UPDATE AKA.SGF2_TBL SET in_7 = buf_num;
+  COMMIT;
+
+  OPEN Cdv_spis(dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_spis INTO buf_num;
+    EXIT WHEN Cdv_spis%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_spis;
+/*  
+  SELECT
+    SUM(L.amn1*AKA.Hist_Prc(L.cd_m,1,D.date0))
+    INTO buf_num
+    FROM ABC.VE$LST L, ABC.Ve$Doc D
+    WHERE
+      L.cd_m>=50000 AND
+      L.cd_c=D.cd_c AND
+      trunc(D.date0) between dt_beg AND dt_end
+      AND D.tp IN (85); */
+    
+ UPDATE AKA.SGF2_TBL SET out_85 = buf_num;
+
+  COMMIT;
+
+  OPEN Cdv_sg(83,dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_sg INTO buf_num;
+    EXIT WHEN Cdv_sg%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_sg;
+  UPDATE AKA.SGF2_TBL SET out_83 = out_83+buf_num;
+  COMMIT;
+ 
+ 
+  OPEN Cdv_sg(93,dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_sg INTO buf_num;
+    EXIT WHEN Cdv_sg%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_sg;
+  UPDATE AKA.SGF2_TBL SET in_93 = buf_num;
+  COMMIT;
+
+/*  OPEN Cdv_sg(85,dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_sg INTO buf_num;
+    EXIT WHEN Cdv_sg%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_sg;
+  UPDATE AKA.SGF2_TBL SET out_85 = buf_num;
+  COMMIT;*/
+
+  OPEN Cdv_sg(90,dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_sg INTO buf_num;
+    EXIT WHEN Cdv_sg%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_sg;
+  UPDATE AKA.SGF2_TBL SET out_90 = buf_num;
+  COMMIT;
+
+  OPEN Cdv_real(dt_beg,dt_end);
+  LOOP
+    FETCH Cdv_real INTO buf_num;
+    EXIT WHEN Cdv_real%NOTFOUND;
+  END LOOP;
+  CLOSE Cdv_real;
+  UPDATE AKA.SGF2_TBL SET realiz = buf_num;
+  COMMIT;
+
+  OPEN Cdeb_no;
+  LOOP
+    FETCH Cdeb_no INTO buf_num;
+    EXIT WHEN Cdeb_no%NOTFOUND;
+  END LOOP;
+  CLOSE Cdeb_no;
+  UPDATE AKA.SGF2_TBL SET deb_no = buf_num;
+  COMMIT;
+
+  OPEN Cdeb_yes;
+  LOOP
+    FETCH Cdeb_yes INTO buf_num;
+    EXIT WHEN Cdeb_yes%NOTFOUND;
+  END LOOP;
+  CLOSE Cdeb_yes;
+  UPDATE AKA.SGF2_TBL SET deb_yes = buf_num;
+  COMMIT;
+
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     ST_CHK_USR(c1 NUMBER,c2 NUMBER, ev VARCHAR) AS
+  r NUMBER;
+  cdu NUMBER;
+  v_psih NUMBER := 0;
+  chk_date0 NUMBER;
+  OWNER_DOC NUMBER;    -- Владелец документа
+  BD_DAYS NUMBER;      -- Корличество БД
+  BD_PROC NUMBER;       -- Процент за БД
+  PLAN_PAY_DATE DATE;  -- Дата планируемой оплаты
+  DOC_DATE_OF DATE;    -- Дата оформления документа
+     
+BEGIN
+null;
+
+ SELECT cd_u INTO cdu FROM ABC.Ve$Doc WHERE cd_c=c1;
+ 
+chk_date0 := AKA.CHK_DATE0(c1);
+IF chk_date0 = -1 THEN
+      ABC.aterror(-20004, 'ДАТА ОФОРМЛЕНИЯ МЕНЬШЕ ДАТЫ ФИКСАЦИИ !!!');
+END IF;
+
+-- check licensia date
+r := AKA.Chk_Nlic(cdu)  ;
+IF (r=-2) THEN
+    ABC.aterror(-20101,'ПРОСРОЧЕНА ЛИЦЕНЗИЯ !!!!!'); 
+END IF;  
+
+IF (r=-3) THEN
+    ABC.aterror(-20101,'ОТСУТСТВУЕТ МЕТКА НА СПЕЦПРЕПАРАТАХ !!!!!'); 
+END IF;  
+
+
+-- check psihi labels
+/*
+r := AKA.Chk_Psih(c1);
+SELECT NVL(X.psih,0) INTO v_psih FROM ABC.Ve$Xusr X, ABC.Ve$Doc D
+WHERE X.cd_u=cdu AND D.cd_u=X.cd_u AND D.cd_c=c1;
+IF (r=1 AND v_psih=0) THEN
+  ABC.aterror(-20101,'ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ СПЕЦПРЕПАРАТЫ !!!');
+END IF;
+*/
+
+/*r := AKA.chk_usr(cdu);
+IF (r=-1) THEN
+  ABC.aterror(-20101,'ВНИМАНИЕ ДАННЫЙ КЛИЕНТ - ДОЛЖНИК !!!!!'); 
+END IF;*/  
+
+-- update abc.txtusum set status=0 where cd_u in ( -- сделаем отгрузку должнику разовой
+--    select cd_u from abc.ve$doc where cd_c=c1 ) and cd_v=2 and status=1;
+    
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE procedure Test_Cursor AS
+
+CURSOR Cc(d date) IS
+ SELECT
+ D.tp,
+ D.cd_a,
+ D.num,
+ P.date8
+ FROM ABC.Doc D,
+ ( SELECT cd_c, date8 FROM ABC.Pxdoc 
+   WHERE TRUNC(date8) = trunc(d)
+  ) P
+ WHERE D.cd_c=P.cd_c;
+ 
+ v_Cc Cc%ROWTYPE;
+ 
+ BEGIN
+  FOR v_Cc IN Cc(sysdate) LOOP
+    SYS.DBMS_OUTPUT.Put_Line(v_Cc.cd_a||'/'||v_Cc.num||' '||v_Cc.date8);
+  END LOOP; 
+ 
+ END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE PROCEDURE     UPD_PXDOC (c1 number,c2 number, ev varchar) as
+-- MODIFICATION HISTORY
+-- Person      Date      Comments
+-- ---------   ------    -------------------------------------------       
+-- A.Kaliabin   25.01.99  проставим автоматом метки в документе
+  B NUMBER;
+  R NUMBER;   
+BEGIN
+/*  UPDATE ABC.Ve$PXDOC SET dsign=0 WHERE cd_c=c2;
+  COMMIT;
+  UPDATE ABC.Ve$PXDOC SET dsign=1 WHERE cd_c=c2;*/
+
+--  UPDATE ABC.Ve$PXDOC SET dsign=0 WHERE cd_c=c2;
+  SELECT NVL(dsign,-11111) INTO B FROM ABC.Ve$PXDOC WHERE cd_c=c2;
+  IF (B=-11111) THEN
+    UPDATE ABC.Ve$PXDOC SET dsign=0 WHERE cd_c=c2;
+    B := 0;
+  END IF;
+  
+   
+  R := ABC.BSET(B,1);
+  
+  UPDATE ABC.Ve$PXDOC SET dsign=R WHERE cd_c=c2;
+  
+  COMMIT;
+  -- Автопечать
+ ABC.Aprint_Trn(c2);
+END; -- Procedure
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     AVRG_OUT(cdm NUMBER, m NUMBER) RETURN NUMBER IS
+v_avrg_out NUMBER := 0;
+BEGIN
+--  SELECT  ROUND(AVG(L.amn1),2) INTO v_avrg_out
+  SELECT  SUM(L.amn1) INTO v_avrg_out
+  FROM ABC.DOC D, ABC.LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+--  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (80,82))
+  AND D.tp IN ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select TO_NUMBER(value) from abc.universum
+     where (tp = 'F82' and key = 'DOC_SHIPPED')
+    )
+  ) 
+  AND D.shipped BETWEEN ADD_MONTHS(SYSDATE,-m) AND SYSDATE;
+  RETURN v_avrg_out;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION Avrg_Out_Wdef (cdm NUMBER) RETURN NUMBER IS
+-- средний уход в "бездеффектурной неделе"
+v_Days NUMBER := 5; -- кол-во дней
+v_Counter NUMBER := 0;
+v_Amn NUMBER;
+v_Sld NUMBER;
+v_Total_Amn NUMBER := 0;
+BEGIN
+  WHILE v_Counter <= v_Days LOOP
+--    SELECT SUM(L.amn1),AKA.SALDO_IN(cdm,TRUNC(sysdate-v_Counter)) INTO v_Amn, v_Sld FROM
+    BEGIN
+    SELECT 0,NVL(AKA.SLD(D.cd_c,cdm),0) INTO v_Amn, v_Sld FROM
+      ABC.Ve$Doc D, ABC.Ve$Lst L  
+    WHERE D.cd_c=L.cd_c
+      AND L.cd_m=cdm
+      AND TRUNC(D.shipped) = TRUNC(sysdate-v_Counter)
+     and d.tp in ( -- AKA
+       select cd_c
+       from abc.doc2up
+       where cd_up in
+       (
+        select value from abc.universum
+        where tp = 'REALIZATION' and key = 'DOCTYPE'
+        )
+    );   
+    EXCEPTION WHEN NO_DATA_FOUND THEN
+     v_Amn := 0; v_Sld := 0;  
+    END;  
+    IF NVL(v_Amn,0) <> 0 THEN
+      v_Counter := v_Counter + 1;
+      v_Total_Amn := v_Total_Amn + v_Amn;
+    ELSE
+      v_Counter := v_Counter + 1; 
+    END IF;    
+    DBMS_OUTPUT.PUT_LINE('v_Counter='||v_Counter||'  v_Amn='||v_Amn||'  v_Total_Amn='||v_Total_Amn||' v_Sld='||v_Sld);
+  END LOOP;
+  RETURN ROUND(v_Total_Amn/v_Days,2);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function Bit_In_Byte
+(
+	num	number
+,	bit	number
+) return number as
+-- Возвращает 0, если в числе 'число' бит 'бит' не установлен
+-- и не нуловое значение в противном случае
+-- порядок нумерации битов в числе начинается с 0 в самом младшем разряде:
+-- 7 6 5 4 3 2 1 0
+--           ^
+-- Например, для проверки указанного бита (2) в числе необходимо проверить
+-- результат вызова bit_in_byte(число, 2)
+begin
+	return mod(num - mod(num, power(2, bit)), power(2, bit + 1));
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION BSET(N1 NUMBER) RETURN NUMBER AS
+  NR NUMBER := 0;
+BEGIN
+  IF N1 IN (8,25,27,31,95,94,92,88,72,74,78,76,12,29,93,30,24,26,90,91) THEN NR:=1; END IF;
+  RETURN NR;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_BSUBTIL(CDC IN NUMBER) RETURN NUMBER IS 
+  bsubt NUMBER;
+BEGIN
+    select count(*) into bsubt
+    from abc.lst l
+        where l.cd_c=CDC
+    and l.cd_m = 16401;
+    RETURN bsubt;
+EXCEPTION
+   WHEN others THEN
+       RETURN -1;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_COULD(p_cdc NUMBER) RETURN NUMBER IS
+v_res NUMBER := 0;
+CURSOR c_Psih(p_cdc NUMBER) IS
+SELECT L.cd_m FROM ABC.Ve$DOC D, Abc.Ve$LST L
+WHERE D.cd_c=L.cd_c AND D.cd_c=p_cdc;
+CURSOR c_ItIsPsih(cdm NUMBER) IS
+SELECT NVL(M.cd_m,0)  FROM ABC.Ve$Med M, Abc.V$Xmed X
+   WHERE M.cd_m=cdm AND X.cd_ctg=12 AND X.cd_x=3 AND M.cd_m=X.cd_m;
+vc_Psih c_Psih%ROWTYPE;
+v_ItIsPsih NUMBER := 0;
+BEGIN
+  OPEN c_Psih(p_cdc);
+  LOOP
+   FETCH c_Psih INTO vc_Psih;
+   EXIT WHEN c_Psih%NOTFOUND;
+   OPEN c_ItIsPsih(vc_Psih.cd_m);
+   LOOP
+     FETCH c_ItIsPsih INTO v_ItIsPsih;
+     EXIT WHEN c_ItIsPsih%NOTFOUND;
+     IF v_ItIsPsih <>0 THEN v_res:=1;
+       CLOSE c_ItIsPsih;
+       GOTO l_ExitPsih;
+     END IF;
+   END LOOP;
+   CLOSE c_ItIsPsih;
+  END LOOP ;
+  <<l_ExitPsih>>
+  CLOSE c_Psih;
+  RETURN v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_DATE0(cdc NUMBER) RETURN NUMBER IS
+v_res NUMBER := 0;
+v_tp NUMBER := 0;
+v_date0 DATE := SYSDATE;
+v_datef DATE := SYSDATE;
+v_dated DATE := SYSDATE;
+BEGIN
+
+  SELECT tp,date0,datef INTO v_tp,v_date0,v_datef
+  FROM ABC.DOC WHERE cd_c=cdc;
+
+  SELECT dated INTO v_dated
+  FROM ABC.PxDoc WHERE cd_c=cdc;
+  
+  IF TRUNC(v_dated) < TRUNC(v_date0) THEN v_res := -2;
+  END IF;
+  
+  IF TRUNC(v_date0) < TRUNC(v_datef) THEN v_res := -1;
+  END IF;
+  
+  IF (TRUNC(v_date0) - TRUNC(v_datef)) > 10 THEN v_res := -3;
+  END IF; 
+  
+  RETURN v_res;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     CHK_ICE (CDC IN NUMBER) RETURN NUMBER IS 
+  ICE NUMBER;
+BEGIN
+    select count(*) into ICE
+    from abc.ve$lst l,
+         abc.v$xmed m
+    where l.cd_c=CDC
+    and l.cd_m = m.cd_m
+    and m.cd_ctg = 12
+    and m.cd_x = 3;
+    RETURN ICE;
+EXCEPTION
+   WHEN others THEN
+       RETURN -1;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_ISG_SKD
+  ( CDC IN NUMBER)
+  RETURN  NUMBER IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------
+-- Протек-16 - возвращает не 0 если на документ начисленна ОстСГ скидка, иначе 0
+-- для печатных форм
+   ISG                 NUMBER;
+BEGIN
+    select count(*) into ISG
+    from abc.ltax
+    where cd_c=CDC
+    and cd_x=30;
+
+  IF ISG = 0 THEN  
+    select count(*) into ISG
+      from abc.doc
+      where cd_c=CDC
+      and CD_L=11;
+  END IF;    
+
+  RETURN ISG;
+    
+EXCEPTION
+   WHEN others THEN
+       RETURN -1;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_NLIC(cdu NUMBER) RETURN NUMBER IS
+v_res NUMBER := 0;
+
+v_lic  DATE;
+v_tp NUMBER DEFAULT 0;
+
+v_d1 NUMBER;
+v_max_lim NUMBER;
+
+BEGIN
+  SELECT X.lic_deadline, X.cd_t INTO v_lic, v_tp FROM ABC.Ve$Xusr X WHERE X.cd_u=cdu;
+  IF TRUNC(v_lic) < TRUNC(SYSDATE) THEN  v_res := -2; END IF;
+--  IF NVL(TO_CHAR(v_lic),NULL) = NULL THEN v_res := -2; END IF; 
+  IF v_lic IS NULL THEN v_res := -3; END IF;  
+  IF v_tp = 7 THEN v_res := 0; -- для служебных целей
+  END IF;
+  RETURN v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     CHK_NTR_SKD
+  ( CDC IN NUMBER)
+  RETURN  NUMBER IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------
+-- Протек-16 - возвращает не 0 если на документ начисленна С Товар.Рекл скидка, иначе 0
+-- для печатных форм
+   NTR                 NUMBER;
+BEGIN
+    select count(*) into NTR
+    from abc.ltax
+    where cd_c=CDC
+    and cd_x=16;
+    RETURN NTR;
+EXCEPTION
+   WHEN others THEN
+       RETURN -1;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_PSIH(p_cdc NUMBER) RETURN NUMBER IS
+v_res NUMBER := 0;
+CURSOR c_Psih(p_cdc NUMBER) IS
+SELECT L.cd_m FROM ABC.Ve$DOC D, Abc.Ve$LST L
+WHERE D.cd_c=L.cd_c AND D.cd_c=p_cdc;
+CURSOR c_ItIsPsih(cdm NUMBER) IS
+SELECT NVL(M.cd_m,0)  FROM ABC.Ve$Med M, Abc.V$Xmed X
+   WHERE M.cd_m=cdm AND X.cd_ctg=6 AND X.cd_x=2 AND M.cd_m=X.cd_m;
+vc_Psih c_Psih%ROWTYPE;
+v_ItIsPsih NUMBER := 0;
+BEGIN
+  OPEN c_Psih(p_cdc);
+  LOOP
+   FETCH c_Psih INTO vc_Psih;
+   EXIT WHEN c_Psih%NOTFOUND;
+   OPEN c_ItIsPsih(vc_Psih.cd_m);
+   LOOP
+     FETCH c_ItIsPsih INTO v_ItIsPsih;
+     EXIT WHEN c_ItIsPsih%NOTFOUND;
+     IF v_ItIsPsih <>0 THEN v_res:=1;
+       CLOSE c_ItIsPsih;
+       GOTO l_ExitPsih;
+     END IF;
+   END LOOP;
+   CLOSE c_ItIsPsih;
+  END LOOP ;
+  <<l_ExitPsih>>
+  CLOSE c_Psih;
+  RETURN v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_RICH (CDC IN NUMBER) RETURN NUMBER IS 
+  RICH NUMBER;
+BEGIN
+    select count(*) into RICH
+    from abc.lst l,
+         abc.xmed m
+    where l.cd_c=CDC
+    and l.cd_m = m.cd_m
+    and m.cd_ctg = 100
+    and m.cd_x = 3;
+    RETURN RICH;
+EXCEPTION
+   WHEN others THEN
+       RETURN -1;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     CHK_TOV_SKD
+  ( CDC IN NUMBER)
+  RETURN  NUMBER IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------
+-- Протек-16 - возвращает не 0 если на документ начисленна С Товар.Рекл скидка, иначе 0
+-- для печатных форм
+   TOV                 NUMBER;
+BEGIN
+    select count(*) into TOV
+    from abc.ltax
+    where cd_c=CDC
+    and cd_x in (13,17,23,28);
+    RETURN TOV;
+EXCEPTION
+   WHEN others THEN
+       RETURN -1;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_USR(cdu NUMBER) RETURN NUMBER IS
+res NUMBER := 0;
+
+v_d  NUMBER;
+v_d1 NUMBER;
+v_max_lim NUMBER;
+deb_status NUMBER;
+v_tlk NUMBER;
+
+BEGIN
+
+-- 1 month
+--  SELECT NVL(ROUND(SUM(d.fprice/d.frate*(1-d.yfprice/d.fprice))), 0) INTO v_d
+    SELECT NVL(ROUND(SUM(d.fprice/decode(d.cd_vf,1,abc.rat(1,d.datef,2),1)*(1-d.yfprice/d.fprice))), 0) INTO v_d
+    FROM abc.doc d, abc.usr u, abc.pxdoc p, abc.ve$xusr x
+    WHERE d.cd_u=u.cd_u AND u.cd_u=x.cd_u
+    AND p.cd_c=d.cd_c 
+    AND d.yfprice/(d.fprice+0.0000001)<0.999
+    AND d.fprice>0.2
+    AND u.cd_u<>1331
+    --AND d.tp in (81, 83)
+    and d.tp in ( -- AKA
+      select cd_c
+      from abc.doc2up
+      where cd_up in
+      (
+       select value from abc.universum
+       where tp = 'F82' and key = 'DOC_SHIPPED'
+      ) 
+    )  
+    AND d.cd_vf IN (1,9)
+--    AND MONTHS_BETWEEN(TRUNC(sysdate), TRUNC(p.dated))>=1 -- было TRUNC(p.dated)+15 >0 
+    AND MONTHS_BETWEEN(TRUNC(sysdate), TRUNC(p.dated+10))>0
+    AND u.cd_u=cdu;
+    
+-- total     
+/*  SELECT ROUND(SUM(d.fprice/d.frate*(1-d.yfprice/d.fprice))) INTO v_d1
+    FROM abc.v$doc d, abc.ve$usr u, abc.ve$pxdoc p,abc.ve$xusr x
+    WHERE d.cd_u=u.cd_u  AND u.cd_u=x.cd_u
+    AND p.cd_c=d.cd_c 
+    AND d.yfprice/(d.fprice+0.0000001)<0.999
+    AND d.fprice>0
+    AND d.tp=83 AND d.cd_vf IN (1,9)
+    AND u.cd_u=cdu;
+
+  SELECT max_cred INTO v_max_lim FROM ABC.Ve$TUSUM WHERE cd_u=cdu AND cd_v=2;
+    
+  IF (v_max_lim <= v_d) OR (v_max_lim <= v_d1) OR (v_max_lim = 0) THEN
+      res := -1;
+  END IF;*/
+
+  SELECT status INTO deb_status FROM ANDYS.BAD_CLIENT WHERE cd_u=cdu;
+
+  IF (v_d > 0) and (deb_status = 0) THEN
+      res := -1;
+  END IF;
+
+--------------------------------------------------------------------------
+-------- ТЛК (товарный лимит-кредит)
+--------------------------------------------------------------------------  
+/*  SELECT  sum(d.fprice-d.yfprice) INTO v_d -- Сумма долга по клиенту
+  FROM
+    abc.ve$doc d
+  WHERE  d.cd_u = cdu AND
+    d.yfprice/(d.fprice+0.0000001)<0.999 AND
+    d.fprice>0.2 AND
+    d.tp IN (SELECT cd_c FROM abc.doc2up WHERE cd_up IN
+  (
+    SELECT 
+      TO_NUMBER(value) 
+    FROM abc.universum 
+    WHERE 
+      (tp IN ('F82') AND KEY IN ('DOC_SHIPPED')))
+  ) AND 
+  d.cd_vf IN (1,9);
+  
+  SELECT status, tlk INTO deb_status, v_tlk FROM TCHK.K_Limit WHERE cd_u=cdu;
+
+  IF (v_tlk < v_d ) and (deb_status = 0) THEN
+      res := -2;
+  END IF;
+
+*/  
+  
+  
+  RETURN res;
+  
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CHK_USR_PRICE  ( p_cdc IN NUMBER)
+  RETURN  NUMBER IS
+-- Проверка соответствия региона в котором находится клиент и прайс-листа по которому ему отпускается товар.
+-- Имеется 4 прайса
+-- 2 прайса на "свежый" товар из 2-х регионов
+-- 2 прайса  на "тухлый" товар из тех-же 2-х регионов
+  v_tp NUMBER;
+  v_region NUMBER;
+  v_price NUMBER;
+  v_result NUMBER;
+  v_usr NUMBER;
+  v_price2 NUMBER;
+  v_discnt NUMBER := 0;
+BEGIN 
+
+  SELECT cd_u INTO v_usr FROM ABC.Doc WHERE cd_c=p_cdc;
+  SELECT cd_l INTO v_price2 FROM ABC.Doc WHERE cd_c=p_cdc;
+  SELECT tp INTO v_tp FROM ABC.Doc WHERE cd_c=p_cdc; -- определим тип документа
+  
+  SELECT COUNT(*) INTO v_discnt FROM ABC.Ltax WHERE cd_c=p_cdc AND 
+  cd_x IN ( SELECT cd_d FROM ABC.Discnt WHERE op=-1 );
+
+--  insert into aka.test_prc values(0,v_tp, p_cdc);
+--  commit; 
+-- IF (v_price2 = 47) THEN 
+/*   IF v_discnt > 0 THEN
+     RAISE_APPLICATION_ERROR(-20001, 'КОСМЕТИКА - СКИДКИ НЕДОПУСТИМЫ !!!!!!!!'); 
+   END IF;*/ 
+--   RETURN v_result ; -- косметика
+-- END IF;
+
+
+
+
+  
+if (v_tp=54) THEN
+
+
+  --------------- Стабильный
+ IF (v_price2 = 28) AND (v_usr not in (197,229,348,1293,1243,142,1242,1160,54) ) 
+ THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '9 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+
+  IF (v_price2 not in (1,15,11,14,28)) AND (v_usr in (197,229,348,1293,1243,142,1242,1160,54) ) 
+  THEN
+-- IF (v_price2 not in (12,11)) AND (v_usr in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '10 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+--------------------------     
+
+
+
+  --------------- Деловой
+ IF (v_price2 = 27) AND (v_usr not in (1276,800,1289,1340,828,1206,1230,1285,1299,1301,
+ 1029,372,239,27,1119,743) ) 
+ THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '9 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+
+  IF (v_price2 not in (1,15,11,14,27)) AND (v_usr in (1276,800,1289,1340,828,1206,1230,1285,1299,1301,
+   1029,372,239,27,1119,743) ) 
+  THEN
+-- IF (v_price2 not in (12,11)) AND (v_usr in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '10 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+--------------------------     
+
+
+  --------------- Оптимальный
+ IF (v_price2 = 26) AND (v_usr not in (192,1269,1110,203,865,188,1159,193,88,128,86,44,250,84,350,1259,194,1343,
+     1298,1028,1072,520,1245,1338,1334,266,1254,1258,1012,45,1290,801,531,519,
+     202,735) ) 
+ THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '9 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+
+  IF (v_price2 not in (1,15,11,14,26)) AND (v_usr in (192,1269,1110,203,865,188,1159,193,88,128,86,44,250,84,350,1259,194,1343,
+      1298,1028,1072,520,1245,1338,1334,266,1254,1258,1012,45,1290,801,531,519,
+      202,735) ) 
+  THEN
+-- IF (v_price2 not in (12,11)) AND (v_usr in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '10 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+--------------------------     
+
+
+  --------------------- Компенсационный
+  IF (v_price2 = 21) AND (v_usr not in (1284,515,147,149,825,1153,1186,212,226,237,159,161,171,175,179,1260,791,888,1187,85,381,534,247,252,260,95,97,106,107,108,123,429) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '1a ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+   
+  IF (v_price2 not in (15,11,14,21,16) ) AND (v_usr  in (1284,515,147,149,825,1153,212,226,237,159,161,171,175,179,1260,791,85,381,534,247,252,260,95,97,106,107,108,123,429) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '2a ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+
+  --------------------- Коэффициент 14
+  IF (v_price2 = 19) AND (v_usr not in (206,342,129,16,47,33,1111,1067,1020) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '1b ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+  
+  
+  IF (v_price2 not in (15,11,14,19) ) AND (v_usr  in (206,342,129,16,47,33,1111,1020) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '2b ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+  
+-------------  Коммерческий2
+  IF (v_price2 = 20) AND (v_usr not in (16) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '3 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+  
+  
+  IF (v_price2 not in (15,11,14,20,19) ) AND (v_usr  in (16,47,33,1111) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '4 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;   
+--------------
+END IF; 
+
+---- Оптовый 
+ IF (v_price2 = 12) AND (v_usr not in (211,999,1273) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '5 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+
+ IF (v_price2 not in (17,14,15,12,11)) AND (v_usr in (211,999,1273) ) THEN
+-- IF (v_price2 not in (12,11)) AND (v_usr in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '6 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+--------------
+
+--------------- Коэффициент-12
+ IF (v_price2 = 23) AND (v_usr not in (105) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '7 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+
+  IF (v_price2 not in (15,11,14,23)) AND (v_usr in (105) ) 
+  THEN
+-- IF (v_price2 not in (12,11)) AND (v_usr in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '8 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+--------------------------     
+
+
+ 
+--------------- Коммерческий 
+ IF (v_price2 = 17) AND (v_usr not in (1124,1240,15,22,153,101,961,68,70,23,1273,418,211,373,50,999,1067,1013) ) THEN
+-- IF (v_price2 = 12) AND (v_usr not in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '7 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+
+  IF (v_price2 not in (15,11,14,17)) AND (v_usr in (1124,1240,68,15,22,153,101,961,70,23,1273,418,211,373,50,999,1013) ) 
+  THEN
+-- IF (v_price2 not in (12,11)) AND (v_usr in (211,999,104) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, '8 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+  END IF;
+--------------------------     
+
+
+
+
+
+
+/*
+ IF (v_price2 not in(12) ) AND (v_usr  in (211,999) ) THEN
+   RAISE_APPLICATION_ERROR(-20001, 'БИРЮЛИНОЙ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+ END IF;
+ */
+  IF v_tp=54 THEN -- Счет на склад №1 "свежий" товар
+    -- определим код прайс-листа и регион
+    SELECT T.cd_up,D.cd_l INTO v_region, v_price
+    FROM ABC.Town T, ABC.Doc D, ABC.Usr U, ABC.Xusr X
+    WHERE D.cd_c=p_cdc AND D.cd_u=U.cd_u
+    AND U.cd_u=X.cd_u AND X.cd_t=T.cd_t;
+    
+--    insert into aka.test_prc values(v_region,v_price, p_cdc);
+--    commit;
+if (v_price not in (13,14)) then
+if (v_usr not in (211,999,1273) ) then
+--if (v_usr not in (211,999,104) ) then
+    IF (v_region = 1660) AND ( (v_price not in (1,15,16,17,20,19,21,23,26,28,27))  ) THEN 
+      RAISE_APPLICATION_ERROR(-20001, '9 РЕГИОН - ТОМСК , А ПРАЙС НЕ ТОМСКИЙ!!!!!!!!');
+    END IF;
+end if;
+end if;
+
+    IF (v_price = 12) AND (v_usr not in (211,999,1273) ) THEN
+--    IF (v_price = 12) AND (v_usr not in (211,999,104) ) THEN
+      RAISE_APPLICATION_ERROR(-20001, '10 ДАННОМУ КЛИЕНТУ НЕЛЬЗЯ ОТПУСКАТЬ ПО ЭТОМУ ПРАЙСУ!!!!!!!!');    
+    END IF;    
+
+/*
+    IF (v_region = 1603) AND (v_price != 8) THEN
+      RAISE_APPLICATION_ERROR(-20001, 'РЕГИОН - КЕМЕРОВО , А ПРАЙС НЕ КЕМЕРОВСКИЙ!!!!!!!!');
+    END IF; */
+       
+  END IF;
+  
+  
+  IF v_tp=55 THEN -- Счет на склад №2 "тухлый" товар
+     IF (v_region = 1660) AND (v_price != 11) THEN
+      RAISE_APPLICATION_ERROR(-20001, '11 РЕГИОН - ТОМСК , А ПРАЙС НЕ ТУХЛЫЙ ТОМСКИЙ!!!!!!!!');
+    END IF;
+/*    IF (v_region = 1603) AND (v_price != 10) THEN
+      RAISE_APPLICATION_ERROR(-20001, 'РЕГИОН - КЕМЕРОВО , А ПРАЙС НЕ ТУХЛЫЙ КЕМЕРОВСКИЙ!!!!!!!!');
+    END IF;  */
+  END IF;
+     
+  RETURN v_result ;
+END; -- Function CHK_USR_PRICE
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     CONCAT_CTG(cdm NUMBER, p_cdx NUMBER) RETURN VARCHAR IS
+v_res VARCHAR(300) := '';
+v_idx NUMBER := 1;
+CURSOR Cctg IS
+  SELECT substr(MC.nm_ctg,1,20) nm
+  FROM ABC.Med M, ABC.MedCtg MC,
+    ( SELECT cd_m,cd_ctg,cd_x
+      FROM ABC.XMED
+      WHERE cd_x=p_cdx -- условия хранения
+     ) XM
+  WHERE M.cd_m    = XM.cd_m   AND
+        MC.cd_ctg = XM.cd_ctg AND
+        MC.cd_x   = p_cdx         AND
+        M.cd_m=cdm;
+        
+   v_Cctg Cctg%ROWTYPE;
+        
+Begin
+  FOR v_Cctg IN Cctg LOOP
+    IF v_idx = 1
+     THEN v_res := v_Cctg.nm;
+     ELSE v_res := v_res ||'+'||v_Cctg.nm;     
+    END IF;
+    v_idx := v_idx +1; 
+  END LOOP;
+  Return v_res;    
+End;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     DEB_LEVEL(p_sum NUMBER) RETURN NUMBER IS
+
+  v_res NUMBER := 0;
+
+BEGIN
+  IF p_sum = 0 THEN v_res := 0; GOTO l_res; END IF;
+  IF p_sum > 0 AND p_sum < 1000 THEN v_res := 1; GOTO l_res; END IF;
+  IF p_sum > 1000 AND p_sum < 10000 THEN v_res := 2; GOTO l_res; END IF;
+  IF p_sum > 10000 THEN v_res := 3; END IF;
+  <<l_res>>
+  RETURN v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function extent_alloc(next_ext number,tablespace varchar2)
+return varchar2
+is
+ can_alloc      varchar2(10);
+ max_free_chunk number(20);
+ begin
+    SELECT max(bytes)
+    INTO   max_free_chunk
+    FROM   user_free_space
+    WHERE tablespace_name = tablespace;
+ IF max_free_chunk >= next_ext
+  THEN can_alloc := 'YES';
+ ELSE
+   can_alloc := 'NO';
+ END IF;
+  return (can_alloc);
+ exception
+  when no_data_found then can_alloc:='NO';
+  when others then
+    raise_application_error(-20006,'Error in extent_aloc func');
+    return (can_alloc);
+ end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     get_agent (CDU ABC.DOC.CD_C%TYPE) RETURN varchar IS
+  n varchar(64);
+BEGIN
+  select a.full_name into n
+  from abc.agent a, abc.usr u
+  where a.cd_a=u.cd_a and u.cd_u=cdu;
+  return n;
+  EXCEPTION
+   WHEN NO_DATA_FOUND THEN RETURN null;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_AMN2 ( p_cdm IN NUMBER)
+  RETURN  NUMBER IS
+ v_result NUMBER := 0;
+BEGIN 
+
+  SELECT NVL(amn+res,0) INTO v_result FROM ABC.BxSmed WHERE cd_m=p_cdm AND cd_s=8;
+  
+  
+  RETURN v_result;
+  
+EXCEPTION
+   WHEN OTHERS THEN
+       RETURN 0;
+        
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     get_ctg( p_cdm NUMBER) RETURN NUMBER AS
+
+CURSOR c_CD_CTG(cdm NUMBER) IS
+  SELECT DISTINCT X.cd_ctg 
+  FROM ABC.V$Xmed X , ABC.Ve$Med M
+  WHERE X.cd_m=M.cd_m AND
+        X.cd_x=1 AND M.cd_m=cdm;
+        
+       
+vc_CD_CTG c_CD_CTG%ROWTYPE;
+
+v_cd_ctg NUMBER := 3; -- default - mos
+
+
+BEGIN
+  FOR vc_CD_CTG IN c_CD_CTG(p_cdm) LOOP
+    v_cd_ctg := vc_CD_CTG.cd_ctg;
+  END LOOP; 
+--  IF v_cd_ctg IN (64,100,106,115) THEN v_cd_ctg := 2; -- rus
+    IF v_cd_ctg IN (64,100,106) THEN v_cd_ctg := 2; -- rus
+  --              64 - prezervativi, 100 - pereviazka   , 106 -predmeti med nazn
+  --              115 - lek.rst.tee and sbori 
+    ELSE v_cd_ctg := 3;
+  END IF;
+  RETURN v_cd_ctg; 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_CTG_CMP (new_refnum IN VARCHAR2)
+  RETURN  NUMBER IS
+  
+  
+-- Функция возвращает НДС документа в закодированном виде
+-- 0 - нет НДС
+-- 18 - ндс 18%
+-- -2 - "гремучая смесь"
+-- 100 - нет НДС и в документе 1 позиция
+-- 118 - есть НДС 18% и в документе 1 позиция
+-- 110 - есть НДС 10% и в документе 1 позиция
+-- 10 - НДС 10%
+  
+
+result NUMBER := -1;
+p_cdc NUMBER;
+
+
+BEGIN
+null;
+  
+  select d.cd_c into p_cdc
+      from abc.doc d
+    where 
+     d.tp in (83,101,85,86,78,79,81,100) and --отпущено
+      d.cd_a=to_number(substr(new_refnum,1,instr(new_refnum,'/')-1))
+      and d.num=to_number(substr(new_refnum,instr(new_refnum,'/')+1));
+
+        
+--   select cd_c into p_cdc_ori from 
+ 
+  result := gpof.ndss18(p_cdc);
+
+  IF result in ( -1,0,100)  THEN 
+     RETURN 0; 
+  ELSIF  result IN (110,10)  THEN 
+     RETURN 0.10; 
+  ELSIF result IN (118,18)  THEN 
+     RETURN 0.18;     
+  ELSE 
+    RAISE_APPLICATION_ERROR(-20001,'НЕПРАВИЛЬНЫЙ НДС НЕ УДАЛОСЬ ОПРЕДЕЛИТЬ НДС !!!',TRUE);        
+  END IF;   
+             
+ 
+/*    SELECT ctg_cmp INTO result FROM ABC.PxDoc WHERE cd_c=p_cdc;
+    IF (result = -1) OR (result = -2) OR (result = 0)  THEN 
+      RETURN 0; 
+    END IF;
+    IF result = 10 THEN 
+      return 0.1; 
+    END IF;
+    IF result = 20 THEN 
+      return  0.2; 
+    END IF;
+    IF result = 18 THEN 
+      return  0.18; 
+    END IF;*/
+    
+    
+     
+/*    
+    IF result = 30 THEN 
+      RAISE_APPLICATION_ERROR(-20001,'НЕПРАВИЛЬНЫЙ НДС !!!',TRUE); 
+    END IF;
+    RAISE_APPLICATION_ERROR(-20001,'НЕПРАВИЛЬНЫЙ НДС НЕ УДАЛОСЬ ОПРЕДЕЛИТЬ НДС !!!',TRUE);*/
+    
+EXCEPTION
+  WHEN NO_DATA_FOUND THEN
+    RAISE_APPLICATION_ERROR(-20001,'НЕТ ДАННЫХ !!!',TRUE);  
+--    RETURN result;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_CTG_CMP_VZ (new_refnum IN VARCHAR2, ori_cdc IN NUMBER)
+  RETURN  NUMBER IS
+
+
+-- Функция возвращает НДС документа в закодированном виде
+-- 0 - нет НДС
+-- 18 - ндс 18%
+-- -2 - "гремучая смесь"
+-- 100 - нет НДС и в документе 1 позиция
+-- 118 - есть НДС 18% и в документе 1 позиция
+-- 110 - есть НДС 10% и в документе 1 позиция
+-- 10 - НДС 10%
+
+
+result NUMBER := -1;
+p_cdc  NUMBER;
+p_dtp  NUMBER;
+
+BEGIN
+
+  
+  select tp into p_dtp from abc.doc where cd_c=ori_cdc;
+
+  if p_dtp in (688,730)  -- ЛБО
+  then p_cdc := ori_cdc;
+  else   
+    select d.cd_c into p_cdc
+        from abc.doc d
+      where
+       d.tp in (83,101,85,86,78,79,81,100) and --отпущено
+        d.cd_a=to_number(substr(new_refnum,1,instr(new_refnum,'/')-1))
+        and d.num=to_number(substr(new_refnum,instr(new_refnum,'/')+1));
+   end if;       
+
+  result := gpof.ndss18(p_cdc);
+
+  IF result in ( -1,0,100)  THEN
+     RETURN 0;
+  ELSIF  result IN (110,10)  THEN
+     RETURN 0.10;
+  ELSIF result IN (118,18)  THEN
+     RETURN 0.18;
+  ELSIF result = -2 THEN
+      result := gpof.ndss18(ori_cdc);
+      IF result in (-1,0,100) THEN
+        RETURN 0;
+      ELSIF result in (110,10) THEN
+        RETURN 0.10;
+      ELSIF result IN (118,18) THEN
+        RETURN 0.18;
+      END IF;
+  ELSE
+    RAISE_APPLICATION_ERROR(-20001,'НЕПРАВИЛЬНЫЙ НДС НЕ УДАЛОСЬ ОПРЕДЕЛИТЬ НДС !!!',TRUE);
+  END IF;
+
+
+/*    SELECT ctg_cmp INTO result FROM ABC.PxDoc WHERE cd_c=p_cdc;
+    IF (result = -1) OR (result = -2) OR (result = 0)  THEN
+      RETURN 0;
+    END IF;
+    IF result = 10 THEN
+      return 0.1;
+    END IF;
+    IF result = 20 THEN
+      return  0.2;
+    END IF;
+    IF result = 18 THEN
+      return  0.18;
+    END IF;*/
+
+
+
+/*
+    IF result = 30 THEN
+      RAISE_APPLICATION_ERROR(-20001,'НЕПРАВИЛЬНЫЙ НДС !!!',TRUE);
+    END IF;
+    RAISE_APPLICATION_ERROR(-20001,'НЕПРАВИЛЬНЫЙ НДС НЕ УДАЛОСЬ ОПРЕДЕЛИТЬ НДС !!!',TRUE);*/
+
+EXCEPTION
+  WHEN OTHERS THEN
+    RAISE_APPLICATION_ERROR(-20001,'НЕТ ДАННЫХ !!!',TRUE);
+--    RETURN result;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION GET_DATE8(cdc NUMBER) RETURN DATE IS
+ d8 DATE;
+BEGIN
+  SELECT NVL(D.date0,P.date8) INTO d8 FROM
+  ABC.Ve$Doc D, ABC.Ve$Pxdoc P
+  WHERE D.cd_c=P.cd_c AND D.cd_c=cdc;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     get_defect500_proc(DDAY DATE, P_MO NUMBER)
+RETURN NUMBER AS
+--
+-- По заданному дню выдает дефектуру списка 500
+-- исходя из уходов за три месяца до дня DDAY и
+-- остатков на складе на текущий период.
+--
+-- Версия 1.0.0.0 от 10.08.99
+--
+-- Вычисление производится следующим способом:
+--
+-- Определяем уходившие за три месяца препараты и
+-- суммы ухода, вычисляем соответствующий процент.
+-- Считаем количество препаратов, составляющих
+-- накопительным уходом 80 процентов ухода и
+-- сколько из них отсутствует на складе.
+-- Процент дефектуры = отсутств/всего.
+--
+CURSOR S IS
+SELECT /*+ INDEX(bxs ibxs_m) INDEX(lst lst_u) */
+ lst.cd_m,
+ bxs.amn,
+ SUM(DECODE(doc.cd_vf,2,lst.trrprice,
+       DECODE(doc.frate,0,0,lst.trrprice/doc.frate)))/totals.ttl proc
+FROM
+ abc.doc doc,
+ abc.lst lst,
+ abc.bxsmed bxs,
+(SELECT
+  SUM(DECODE(doc.cd_vf,2,lst.trrprice,
+       DECODE(doc.frate,0,0,lst.trrprice/doc.frate))) ttl
+FROM
+ abc.doc doc,
+ abc.lst lst
+WHERE
+    (doc.cd_c = lst.cd_c)
+AND (doc.skd_fix_out = 1)
+AND (doc.shipped BETWEEN ADD_MONTHS(TRUNC(DDAY,'MM'),-P_MO)
+                 AND TRUNC(DDAY,'DD')) ) totals
+WHERE
+    (doc.cd_c = lst.cd_c)
+AND (lst.cd_m = bxs.cd_m)
+--AND (bxs.cd_s in (
+--               select cd_s
+--               from abc.bxstock
+--               where cd_up in 
+--               (
+--                select to_number(value)
+--                from abc.universum where
+--                tp='P34' and key='SKD5' 
+--               )
+--              )
+--     )             
+AND (bxs.cd_s=6)
+AND (doc.skd_fix_out = 1)
+AND (doc.shipped BETWEEN ADD_MONTHS(TRUNC(DDAY,'MM'),-P_MO)
+                 AND TRUNC(DDAY,'DD'))
+GROUP BY lst.cd_m,bxs.amn,totals.ttl
+ORDER BY 3 DESC;
+SR S%ROWTYPE;
+Totl NUMBER := 0;
+Exst NUMBER := 0;
+Prc  NUMBER := 0;
+BEGIN
+OPEN S;
+LOOP
+FETCH S INTO SR;
+IF Prc < .80
+THEN
+ prc := prc+SR.proc;
+ Totl := Totl+1;
+ IF sr.amn = 0 THEN Exst := Exst+1; END IF;
+ELSE
+ EXIT;
+END IF;
+EXIT WHEN S%NOTFOUND;
+END LOOP;
+CLOSE S;
+IF Totl = 0
+THEN
+ RETURN 0;
+ELSE
+ RETURN Exst/Totl;
+END IF;
+END get_defect500_proc;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_LABEL ( c1 IN NUMBER)
+  RETURN  VARCHAR IS
+result VARCHAR2(30) := ' ';
+r NUMBER := 0;
+v_tp NUMBER;
+  
+BEGIN 
+  r := AKA.Chk_Psih(c1);
+  IF (r=1) THEN
+    result := 'СД ПРЕПАРАТЫ'; 
+  END IF;
+
+SELECT tp INTO v_tp FROM ABC.Doc WHERE cd_c=c1;
+IF v_tp = 55 THEN -- счет на склад №2
+  result := 'ПРЕПАРАТЫ С ОСТСГ'; 
+END IF;  
+
+r := AKA.Chk_Could(c1);
+IF (r=1) THEN
+  result := 'ХОЛОД';
+END IF;
+
+r:= AKA.Chk_Rich(c1);
+IF (r=1) THEN
+  result := 'ДОРОГОСТОЯЩИЕ'; 
+END IF;
+RETURN result ;
+EXCEPTION
+   WHEN OTHERS THEN
+       RETURN result;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_NDS_SUM(
+   CD_C    NUMBER,
+   CTG     NUMBER
+                 ) RETURN NUMBER AS
+--
+  /*
+     ctg = 5   20% НДС
+         = 6   10% НДС
+  */
+--
+ CURSOR S(cd_c# number) IS
+  select /*+ ordered index(dr doc_c) */
+     dr.fprice * decode(ctg, 5,0.2, 6,0.1,10,0.18, 1)  kf
+  from
+    ABC.doc dr,
+    ABC.xmed X,
+    ABC.lst lr
+  where
+    dr.cd_c = cd_c# AND
+    dr.cd_c=lr.cd_c
+    AND X.CD_M = LR.CD_M
+    AND X.CD_X  = 3
+    AND X.CD_CTG = ctg;
+--
+  ss s%rowtype;
+--
+  kf#  number;
+begin
+  kf# := 0;
+  open s(cd_c);
+    fetch s into ss;
+    if s%notfound then
+       close s;
+       return(0);
+    end if;
+    kf# := ss.kf;
+  close s;
+  return(kf#);
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION  GET_NM(cdm NUMBER) RETURN NUMBER IS
+res NUMBER := 0;
+v_amn NUMBER := 0;
+v_res NUMBER := 0;
+BEGIN
+  SELECT amn,res INTO v_amn,v_res FROM ABC.BXSMED WHERE cd_s=8 AND cd_m = cdm;
+  IF (v_amn-v_res) <> 0 THEN res := 2; END IF;
+  RETURN res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_PRICE2( p_cdm IN NUMBER)
+  RETURN  NUMBER IS
+ 
+ v_result NUMBER := 0;
+ 
+BEGIN 
+
+  SELECT NVL(price,0) INTO v_result FROM ABC.PMED WHERE cd_m=p_cdm and cd_v=2 and cd_p=11;
+  
+  
+  RETURN v_result;
+  
+EXCEPTION
+   WHEN OTHERS THEN
+       RETURN 0;
+        
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_SROK2( p_cdm IN NUMBER)
+  RETURN  VARCHAR IS
+ 
+ v_result VARCHAR(10) := '';
+ 
+BEGIN 
+
+  SELECT NVL(exp_date,'01.01.01') INTO v_result FROM ABC.V_NEXT_MED WHERE cd_m=p_cdm;
+  
+  
+  RETURN v_result;
+  
+EXCEPTION
+   WHEN OTHERS THEN
+       RETURN ' ';
+        
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     Get_tax_on_day(cdc NUMBER, dat DATE) RETURN NUMBER AS
+-- Возвращает сумму проплат по документу cdc на день dat
+yfpr NUMBER;
+opl  NUMBER;
+BEGIN
+  SELECT Nvl(Sum(l.fprice),0) INTO opl
+  FROM   abc.doc   dp,
+         abc.doc   dr,
+         abc.pxdoc pr,
+         abc.lpay   l
+  WHERE ((dr.cd_c=l.cd_c1   AND  dp.cd_c=l.cd_c2)  OR
+         (dr.cd_c=l.cd_c2   AND  dp.cd_c=l.cd_c1)) AND
+         (dr.cd_c=cdc       OR   dp.cd_c=cdc)      AND
+         (dp.datef >= dat   OR   pr.date8 >= dat)  AND
+--          dr.tp IN (83
+          ( dr.tp in ( -- AKA
+           select cd_c
+            from abc.doc2up
+            where cd_up in
+            (
+             select value from abc.universum
+             where tp = 'REALIZATION' and key = 'DOCTYPE'
+            )
+          ) or dr.tp=337 )
+          AND  dr.cd_c = pr.cd_c;
+  SELECT yfprice INTO yfpr FROM abc.doc WHERE cd_c=cdc;
+  RETURN (Round(yfpr-opl,2));
+  RETURN opl;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     GET_USR_TYPE(p_cdu NUMBER) RETURN NUMBER IS
+  
+  v_result NUMBER := 0;
+  v_tp NUMBER := 0;
+    
+BEGIN
+  SELECT tp INTO v_tp FROM ABC.Usr WHERE cd_u=p_cdu; 
+  IF v_tp IN (4,2) THEN 
+    v_result := 1;
+  END IF;
+  RETURN v_result; 
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION  Get_Xrate(cdv NUMBER) RETURN NUMBER IS
+ v_res NUMBER;
+BEGIN -- определим курс рубля по отношению к валюте cdv
+  select max(frate) into v_res
+  from abc.xrate 
+   where fdate = (select max(fdate) from abc.xrate)
+      and cd_v1=1 
+      and cd_v2=cdv;
+  return v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     HIST_PRC ( p_cdm IN NUMBER,  p_prc NUMBER, p_dat IN DATE)  RETURN  NUMBER IS
+-- Person      Date     Comments
+-- ---------   ------   --------------------------------------------------------------       
+-- A.Kaliabin  02.03.00 "исторические цены", т.е. цены на препараты которые были раньше v.1.0.
+CURSOR c_Prc(d1 DATE) IS
+  SELECT /*+ INDEX(P ABC.PLOG_IDX) */
+      P.price FROM ABC.Plog P
+    WHERE
+       P.cd_m = p_cdm    AND 
+       P.cd_p = p_prc    AND
+       TRUNC(P.chg_date) <= TRUNC(d1)
+   ORDER BY P.chg_date DESC;    
+
+vc_Prc c_Prc%ROWTYPE;
+result NUMBER := -1;
+d DATE;
+
+BEGIN 
+  SELECT /*+ INDEX(P ABC.PLOG_IDX) */
+    MAX(P.chg_date) INTO d FROM ABC.Plog P
+  WHERE TRUNC(p_dat) >= TRUNC(P.chg_date);
+  FOR vc_Prc IN c_Prc(d) LOOP
+    result := vc_Prc.price;
+    IF (result >= 0) THEN GOTO l_End;
+    END IF;
+  END LOOP;
+  <<l_End>>
+  IF (result=0) THEN
+    SELECT price INTO result FROM ABC.Pmed
+    WHERE cd_m=p_cdm AND cd_p=p_prc;
+  END IF;  
+  RETURN result;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     INCOME_PREP  ( p_cdm IN NUMBER, p_date1 IN DATE,p_date2 IN DATE)
+  RETURN  NUMBER IS
+
+  v_result NUMBER := 0;
+  
+BEGIN 
+  select NVL(Inb.C,0) INTO v_result
+  from
+  ( select sum(amn1) C
+    from abc.skd s, abc.doc d
+    where d.cd_c=s.cd_c and
+--     and trunc(d.date0) <= trunc(p_date) and
+      trunc(d.date0) between trunc(p_date1) and trunc(p_date2) and
+     s.cd_m=p_cdm
+   ) Inb;
+
+  RETURN v_result;
+  
+END; -- Function SALDO_PREP
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     IS_PRINT  ( p_cdm IN NUMBER)  RETURN  NUMBER IS
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   ----------------------------------------------------------------------       
+-- A.Kaliabin  24.03.00 определяет печатать или не песатать позицию в протоколе сертификатов v.1.0
+-- запускается из печатной формы sertifik
+CURSOR c_Ctg(m NUMBER) IS
+  SELECT cd_x, cd_ctg FROM ABC.XMED WHERE cd_m=m; 
+
+/*
+CURSOR c_Ctg(m NUMBER)
+SELECT Srt.regn
+FROM  SERT.Srt_Img@OSert1 Srt,
+      SERT.Seria@OSert1 Ser,
+      ABC.Ve$Med M
+WHERE
+   M.cd_m=m          AND 
+   M.cd_m=Ser.cd_m   AND
+   Srt.cd_s=Ser.cd_s AND
+   Srt.regn LIKE '%РОСС%';*/
+     
+
+
+v_cdx   NUMBER;
+v_cdctg NUMBER;
+v_res   NUMBER := 0;
+vc_Ctg c_Ctg%ROWTYPE;
+
+
+BEGIN 
+/*  SELECT COUNT(*) INTO v_res
+  FROM  SERT.Srt_Img@OSert1 Srt,
+        SERT.Seria@OSert1 Ser,
+        ABC.Ve$Med M
+  WHERE
+     M.cd_m=p_cdm      AND 
+     M.cd_m=Ser.cd_m   AND
+     Srt.cd_s=Ser.cd_s AND
+     ( Srt.regn LIKE '%РОСС%');*/
+--       OR Srt.regn IS null);
+/*       OR Ser.nm_s LIKE '%N/A%'
+       OR Ser.nm_s LIKE '%Гиг.%');*/
+
+
+    OPEN c_Ctg(p_cdm);
+    LOOP
+      FETCH c_Ctg INTO v_cdx, v_cdctg;
+      EXIT WHEN c_Ctg%NOTFOUND;
+      IF (v_cdctg=2     AND v_cdx=2)   OR  -- сопутствующие
+         (v_cdctg=64   AND v_cdx=1)   OR  -- гондоны
+         (v_cdctg=105  AND v_cdx=1)   OR  -- уход за волосами
+         (v_cdctg=3    AND v_cdx=2)   OR  -- сопутствующие с ндс
+         (v_cdctg=103  AND v_cdx=2)   OR  -- уход за полостью рта
+         (v_cdctg=106  AND v_cdx=1)   OR  -- предметы медецинского назначения
+         (v_cdctg=7    AND v_cdx=4)   OR  -- сопутствующие
+         (v_cdctg=8    AND v_cdx=4)   OR  -- перевязка
+         (v_cdctg=9    AND v_cdx=4)   OR  -- сангигиена
+         (v_cdctg=10   AND v_cdx=4)   OR  -- резина
+         (v_cdctg=11   AND v_cdx=4)   OR  -- пластмасса
+         (v_cdctg=112  AND v_cdx=1)   OR  -- детские товары
+         (v_cdctg=113  AND v_cdx=1)   OR  -- предм ухода за детьми
+         (v_cdctg=114  AND v_cdx=1)   OR  -- детская косметика
+         (v_cdctg=117  AND v_cdx=1)   OR  -- бытовая химия
+         (v_cdctg=118  AND v_cdx=1)       -- защита от насекомых
+      THEN
+        v_res := 0;  -- не печатать 
+        GOTO l_NotPrint;
+      END IF;  
+    END LOOP;
+    v_res := 1;     -- печатать  
+    <<l_NotPrint>>
+    RETURN NVL(v_res,0) ;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     LAST_DOC( p_cdu NUMBER) RETURN VARCHAR AS
+v_res VARCHAR2(30);
+
+BEGIN
+  SELECT TO_CHAR(MAX(D.date0),'DD-MM-RR') INTO v_res
+  FROM ABC.Ve$Doc D, ABC.Ve$Usr U
+  WHERE D.cd_uu=U.cd_u AND U.cd_u=p_cdu AND D.tp in (83,101, 81,100);
+  RETURN v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     LAST_DOC_SD( p_cdu NUMBER) RETURN VARCHAR AS
+v_res VARCHAR2(30);
+
+BEGIN
+  SELECT TO_CHAR(MAX(D.date0),'DD-MM-RR') INTO v_res
+  FROM ABC.Doc D, ABC.Usr U
+  WHERE D.cd_uu=U.cd_u AND U.cd_u=p_cdu AND D.tp in (83,101, 81,100) AND
+    AKA.CHK_PSIH(D.cd_c)=1;
+  RETURN v_res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     Last_PAY (CDC ABC.DOC.CD_C%TYPE) RETURN NUMBER IS
+
+  n number;
+
+BEGIN
+
+   
+  select lp.fprice into n
+  from abc.doc d, abc.doc dd, abc.lpay lp
+  where
+  ((lp.cd_c1 = d.cd_c  and lp.cd_c2 = dd.cd_c) or
+      (lp.cd_c1 = dd.cd_c and lp.cd_c2 = d.cd_c)) and
+      --d.tp=83
+      d.tp in ( -- AKA
+       select cd_c
+       from abc.doc2up
+       where cd_up in
+       (
+        select value from abc.universum
+        where tp = 'REALIZATION' and key = 'DOCTYPE'
+       )
+      ) 
+      and lp.cd_c1=cdc;
+  return n;
+      
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     Last_PAY1 (CDC ABC.DOC.CD_C%TYPE) RETURN DATE IS
+  n date;
+BEGIN
+  select max(dd.datef) into n
+  from abc.doc d, abc.doc dd, abc.lpay lp
+  where
+  ((lp.cd_c1 = d.cd_c  and lp.cd_c2 = dd.cd_c) or
+      (lp.cd_c1 = dd.cd_c and lp.cd_c2 = d.cd_c)) and
+   --   d.tp=83
+    d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    )
+  )      
+  and lp.cd_c1=cdc;
+  return n;
+  EXCEPTION
+   WHEN NO_DATA_FOUND THEN RETURN null;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION lsttp_aka ( p_tp NUMBER, p_cdm NUMBER)
+  RETURN  NUMBER IS
+  v_result NUMBER := 0;
+BEGIN
+   SELECT DECODE(NVL(p_tp,0),0,nvl(ABC.lsttp(p_cdm),0),p_tp) INTO v_result FROM dual;
+   RETURN v_result;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     LST_SUM 
+  ( p_cdc IN NUMBER ) RETURN  NUMBER IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+-- Kaliabin A. 14.01.00 сумма документа по lst. для проверки
+CURSOR c_LstSum(cdc NUMBER) IS
+  SELECT SUM(L.amn1*L.rrprice) s
+  FROM ABC.LST L 
+  WHERE L.cd_c=cdc;
+
+CURSOR c_LtxSum(cdc NUMBER) IS
+  SELECT SUM(fprice*op) s
+  FROM ABC.Ve$Ltax 
+  WHERE cd_c=cdc;
+
+vc_LstSum c_LstSum%ROWTYPE;
+vc_LtxSum c_LtxSum%ROWTYPE; 
+
+lst_res NUMBER := 0;
+ltx_res NUMBER := 0;
+
+BEGIN 
+    FOR vc_LstSum IN c_LstSum(p_cdc) LOOP
+      lst_res := vc_LstSum.s;
+    END LOOP;
+    FOR vc_LtxSum IN c_LtxSum(p_cdc) LOOP
+      ltx_res := vc_LtxSum.s;
+    END LOOP;
+    RETURN (lst_res-ltx_res);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     MOS_CDA ( p_cda IN NUMBER,  p_num IN NUMBER)
+  RETURN  NUMBER IS
+  res NUMBER;
+  r1 varchar2(10);
+  r2 varchar2(10);
+ 
+BEGIN 
+    SELECT D.refnum, SUBSTR(RTRIM(LTRIM(D.refnum)),1,INSTR(D.refnum,'/')-1) INTO r1, r2
+    FROM ABC.Doc D WHERE D.cd_a=p_cda AND D.num=p_num;
+    insert into aka.test_mos_cda values(r1,r2);
+    commit;
+    
+    SELECT TO_NUMBER(SUBSTR(RTRIM(LTRIM(D.refnum)),1,INSTR(D.refnum,'/')-1)) INTO res
+    FROM ABC.Doc D WHERE D.cd_a=p_cda AND D.num=p_num;
+    
+    RETURN res ;
+END; -- Function MOS_CDA
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     OUT_PREP  ( p_cdm IN NUMBER, p_date IN DATE, p_cdu OUT NUMBER)
+  RETURN  NUMBER IS
+
+  v_result NUMBER := 0;
+  
+BEGIN 
+  select NVL(Outb.C,0), Outb.cdu INTO v_result, p_cdu
+  from
+   (
+    select sum(amn) C, d.cd_u cdu
+    from abc.l2s l, abc.doc d
+    where d.cd_c=l.cd_c
+    and trunc(d.date0)<=trunc(p_date) and
+    l.cd_m=p_cdm
+    group by d.cd_u
+  ) Outb;
+
+  RETURN v_result;
+  
+END; -- Function SALDO_PREP
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     paydate (CDC ABC.DOC.CD_C%TYPE)
+ RETURN ABC.DOC.DATEF%TYPE IS
+ CURSOR C IS SELECT D.DATEF FROM R$BUH.LPAY_LPAY LP,ABC.DOC D
+  WHERE LP.CD_C1=CDC
+    AND LP.CD_C2=D.CD_C
+    ORDER BY D.DATEF DESC;
+ RESULT ABC.DOC.DATEF%TYPE DEFAULT NULL;
+BEGIN
+ OPEN C;
+  FETCH C INTO RESULT;
+ CLOSE C;
+ return (result);
+ EXCEPTION
+   WHEN NO_DATA_FOUND THEN RETURN null;
+   WHEN OTHERS THEN RETURN null;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     PAYDATEX (CDC ABC.DOC.CD_C%TYPE) RETURN ABC.Ve$PXDOC.DATEX%TYPE IS
+ CURSOR C IS SELECT D.DATEX FROM R$BUH.LPAY_LPAY LP,ABC.Ve$PXDOC D
+  WHERE LP.CD_C1=CDC
+    AND LP.CD_C2=D.CD_C
+    ORDER BY D.DATEX DESC;
+ RESULT ABC.Ve$PXDOC.DATEX%TYPE DEFAULT NULL;
+BEGIN
+ OPEN C;
+  FETCH C INTO RESULT;
+ CLOSE C;
+ return (result);
+ EXCEPTION
+   WHEN NO_DATA_FOUND THEN RETURN null;
+   WHEN OTHERS THEN RETURN null;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function      paysum (CDC ABC.DOC.CD_C%TYPE) RETURN R$BUH.LPAY_LPAY.FPRICE%TYPE IS
+ CURSOR C IS SELECT LP.FPRICE FROM R$BUH.LPAY_LPAY LP,ABC.DOC D
+  WHERE LP.CD_C1=CDC
+    AND LP.CD_C2=D.CD_C
+    ORDER BY D.DATEF DESC;
+ RESULT R$BUH.LPAY_LPAY.FPRICE%TYPE DEFAULT NULL;
+BEGIN
+ OPEN C;
+  FETCH C INTO RESULT;
+ CLOSE C;
+ return (result);
+ EXCEPTION
+   WHEN NO_DATA_FOUND THEN RETURN null;
+   WHEN OTHERS THEN RETURN null;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     PREDOPLATA ( p_cdu NUMBER , p_d1 DATE, p_d2 DATE,
+                          p_days1 NUMBER, p_days2 NUMBER, p_type NUMBER )
+  RETURN  NUMBER IS
+
+
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   -------------------------------------------       
+-- A.Kaliabin  07.12.99 ver 1.0 
+
+/*
+1 - предоплата/приход
+2 - предоплата/вывоз
+3 - отсрочка/приход
+4 - отсрочка/вывоз
+*/
+-- предоплата приход
+-- в среднем за указанный период
+-- предоплата от клиента cdu за период p1-p2 и более ds1 дней, но не более ds2. 
+CURSOR c_PrePrih(cdu NUMBER,p1 DATE, p2 DATE, ds1 NUMBER, ds2 NUMBER) IS
+SELECT /*+ INDEX(D ABC.doc_c) INDEX(LP ABC.lpay_q) */
+-- SUM(LP.fprice/D.frate)/(p2-p1) pred
+SUM(LP.fprice/D.frate)/(p2-p1) pred
+FROM ABC.Ve$DOC D,ABC.Ve$DOC DD, ABC.LPAY LP
+WHERE
+ -- D.tp IN (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up=82)
+ d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    )
+ )   
+ AND D.cd_u=cdu
+ AND ((LP.cd_c1 = D.cd_c  AND LP.cd_c2 = DD.cd_c) OR
+      (LP.cd_c1 = DD.cd_c AND LP.cd_c2 = D.cd_c))
+ AND  TRUNC(DD.datef) BETWEEN p1 AND p2
+ AND((TRUNC(D.shipped)-TRUNC(DD.datef)) > ds1 AND (TRUNC(D.shipped)-TRUNC(DD.datef))<=ds2)
+ AND TRUNC(DD.datef)<TRUNC(D.shipped);
+
+-- предоплата вывоз
+-- в среднем за указанный период
+-- предоплата от клиента cdu за период p1-p2 и более ds1 дней, но не более ds2.  
+CURSOR c_PreVivoz(cdu NUMBER,p1 DATE, p2 DATE, ds1 NUMBER, ds2 NUMBER) IS
+SELECT /*+ INDEX(D ABC.doc_c) INDEX(LP ABC.lpay_q) */
+-- SUM(LP.fprice/D.frate)/(p2-p1) pred
+SUM(D.fprice/D.frate)/(p2-p1) pred
+FROM ABC.Ve$DOC D,ABC.Ve$DOC DD, ABC.LPAY LP
+WHERE
+ -- D.tp IN (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up=82)
+ d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    )
+ )   
+ AND D.cd_u=cdu
+ AND ((LP.cd_c1 = D.cd_c  AND LP.cd_c2 = DD.cd_c) OR
+      (LP.cd_c1 = DD.cd_c AND LP.cd_c2 = D.cd_c))
+ AND  TRUNC(DD.datef) BETWEEN p1 AND p2
+ AND((TRUNC(D.shipped)-TRUNC(DD.datef)) > ds1 AND (TRUNC(D.shipped)-TRUNC(DD.datef))<=ds2)
+ AND TRUNC(DD.datef)<TRUNC(D.shipped);
+
+-- отсрочка приход
+-- в среднем за указанный период
+-- предоплата от клиента cdu за период p1-p2 и более ds1 дней, но не более ds2.   
+CURSOR c_OtsrPrih(cdu NUMBER,p1 DATE, p2 DATE, ds1 NUMBER, ds2 NUMBER) IS
+SELECT /*+ INDEX(D ABC.doc_c) INDEX(LP ABC.lpay_q) */
+    SUM(LP.fprice/D.frate)/(p2-p1) pred
+FROM ABC.Ve$DOC D,ABC.Ve$DOC DD, ABC.LPAY LP
+WHERE
+-- D.tp IN (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up=82)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    )
+ )   
+ AND D.cd_u=cdu
+ AND ((LP.cd_c1 = D.cd_c  AND LP.cd_c2 = DD.cd_c) OR
+      (LP.cd_c1 = DD.cd_c AND LP.cd_c2 = D.cd_c))
+ AND  TRUNC(DD.datef) BETWEEN p1 AND p2
+ AND((TRUNC(DD.datef)-TRUNC(D.shipped)) > ds1 AND (TRUNC(DD.datef)-TRUNC(D.shipped))<=ds2)
+ AND TRUNC(D.shipped)<TRUNC(DD.datef);
+
+ 
+-- отсрочка вывоз
+-- в среднем за указанный период
+-- предоплата от клиента cdu за период p1-p2 и более ds1 дней, но не более ds2.    
+CURSOR c_OtsrVivoz(cdu NUMBER,p1 DATE, p2 DATE, ds1 NUMBER, ds2 NUMBER) IS
+SELECT /*+ INDEX(D ABC.doc_a) INDEX(D ABC.doc_c) */
+  SUM(D.fprice/D.frate)/(p2-p1) pred
+FROM ABC.Ve$DOC D,ABC.Ve$DOC DD, ABC.LPAY LP
+WHERE
+-- D.tp IN (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up=82)
+ d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'REALIZATION' and key = 'DOCTYPE'
+    )
+ )   
+ AND D.cd_u=cdu
+ AND ((LP.cd_c1 = D.cd_c  AND LP.cd_c2 = DD.cd_c) OR
+      (LP.cd_c1 = DD.cd_c AND LP.cd_c2 = D.cd_c))
+ AND  TRUNC(DD.datef) BETWEEN p1 AND p2
+ AND((TRUNC(DD.datef)-TRUNC(D.shipped)) > ds1 AND (TRUNC(DD.datef)-TRUNC(D.shipped))<=ds2)
+ AND TRUNC(D.shipped)<TRUNC(DD.datef);
+ 
+
+vc_PrePrih c_PrePrih%ROWTYPE;
+res NUMBER := 0;
+vc_PreVivoz c_PreVivoz%ROWTYPE;
+vc_OtsrPrih c_OtsrPrih%ROWTYPE;
+vc_OtsrVivoz c_OtsrVivoz%ROWTYPE;
+  
+BEGIN 
+  IF p_type=1 THEN
+    FOR vc_PrePrih IN c_PrePrih(p_cdu,p_d1,p_d2,p_days1,p_days2) LOOP
+      res := vc_PrePrih.pred;      
+    END LOOP;        
+  END IF;  
+
+  IF p_type=2 THEN
+    FOR vc_PreVivoz IN c_PreVivoz(p_cdu,p_d1,p_d2,p_days1,p_days2) LOOP
+      res := vc_PreVivoz.pred;      
+    END LOOP;
+  END IF;     
+
+  IF p_type=4 THEN
+    FOR vc_OtsrPrih IN c_OtsrPrih(p_cdu,p_d1,p_d2,p_days1,p_days2) LOOP
+      res := vc_OtsrPrih.pred;      
+    END LOOP;
+  END IF;     
+     
+  IF p_type=3 THEN
+    FOR vc_OtsrVivoz IN c_OtsrVivoz(p_cdu,p_d1,p_d2,p_days1,p_days2) LOOP
+      res := vc_OtsrVivoz.pred;      
+    END LOOP;
+  END IF;     
+  IF res IS NULL THEN res := 0; END IF;
+  RETURN res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     PROD_CHECKNAL(cdm NUMBER) RETURN NUMBER IS
+res NUMBER;
+  CURSOR Chk_prod(cdm NUMBER) IS
+    SELECT cd_m FROM AKA.TPROD_ANAL WHERE cd_m=cdm
+    ORDER BY cd_m; 
+  Cc Chk_prod%ROWTYPE;
+    
+BEGIN
+  res:=0; 
+  OPEN Chk_prod(cdm);
+  LOOP
+    FETCH Chk_prod INTO Cc;
+    EXIT WHEN Chk_prod%NOTFOUND;
+    res:=Cc.cd_m; 
+  END LOOP;
+  CLOSE Chk_prod;
+  RETURN res;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     Reg_Prc(cdm IN NUMBER, cdc IN NUMBER) RETURN NUMBER IS
+  v_cdm   NUMBER := 0;
+  v_price NUMBER := 0;
+  v_currencyVC VARCHAR(10) := '';
+  v_currency NUMBER := 0;
+  v_pricerub NUMBER := 0;
+  v_regd DATE := TO_DATE(null);
+  v_cdt NUMBER := 0;
+  v_max_prc NUMBER;
+  v_reg_prc NUMBER := 0;
+  
+--FUNCTION  Get_Rate(cdv NUMBER) RETURN NUMBER IS
+-- v_res NUMBER;
+--BEGIN -- определим курс рубля по отношению к валюте cdv
+--  select max(frate) into v_res
+--  from abc.xrate 
+--   where fdate = (select max(fdate) from abc.xrate)
+--      and cd_v1=1 
+--      and cd_v2=cdv;
+--  return v_res;
+--END;  
+  
+  
+BEGIN
+
+--- возьмем данные по препарату из таблицы цен госреестра
+  BEGIN
+    SELECT cd_m,price,currency,pricerub,reg_d
+      INTO v_cdm,v_price, v_currencyVC ,v_pricerub,v_regd
+    FROM SDIN.REESTR  
+    WHERE cd_m=cdm;
+  EXCEPTION WHEN NO_DATA_FOUND THEN
+      RETURN 0; -- если данного препарата нет в госреестре - скажем "пусто" и уйдем от сюда
+  END;
+
+  RETURN v_pricerub;
+  
+--- определим валюту регистрации препарата
+--  SELECT DECODE(v_currencyVC,'Долл.',2,'Евро',10,'Марка Герм',12,'Руб',1,'Рубль',1,0) -- значения из ABC.VALUTA
+--    INTO v_currency FROM DUAL;
+--  IF v_currency = 0 THEN
+--      ABC.AtError(-22222,'НЕИЗВЕСТНАЯ ВАЛЮТА РЕГИСТРАЦИИ'); --- возможно в таблице госреестра появилась новая валюта
+--   return 0;
+--   null;
+--  END IF;
+
+--- определим регион в котором располагается клиент
+/*  SELECT cd_up INTO v_cdt FROM ABC.TOWN
+     WHERE cd_t IN (
+     SELECT cd_t FROM ABC.XUSR X, ABC.Ve$Doc D 
+       WHERE D.cd_u=X.cd_u AND
+             D.cd_c=cdc );
+*/
+--- определим максимально-разрешенную надбавку для препарата определенной категории в
+--- необходимом нам регионе 
+
+
+--  FOR Cc IN ( SELECT * FROM AKA.REG_CFG WHERE region=v_cdt ) LOOP
+--    IF Cc.cd_x=8888 THEN
+--      v_max_prc := 0; --- если 8888 то вообще не учитываем региональную специфику
+--    ELSIF Cc.cd_x=9999 THEN --- если 9999 то нет необходимости определять категорию препарата
+--      v_max_prc := Cc.prctg;
+--    ELSE
+--      FOR Rr IN ( SELECT cd_x,cd_ctg FROM ABC.XMED WHERE cd_m=cdm ) LOOP
+--        IF (Rr.cd_x = Cc.cd_x) AND (Rr.cd_ctg = Cc.med_ctg) THEN
+--          v_max_prc := Cc.prctg;
+--          GOTO L_skip;
+--        END IF;
+--      END LOOP;
+--    END IF;    
+--  END LOOP;
+
+--  <<L_skip>>
+   
+  --- теперь определим собственно цену госреестра для определенного региона
+--  IF v_currency = 1 THEN                                          -- валюта регистрации рубль
+--    v_reg_prc :=  v_pricerub*v_max_prc + v_pricerub;
+--    ELSIF v_currency = 2 THEN                                     -- валюта регистрации доллар США
+--      v_reg_prc :=  v_pricerub*v_max_prc + v_price*Get_rate(2);
+--      null;
+--    ELSIF  v_currency = 10  THEN                                  -- валюта регистрации ЕВРО
+--      v_reg_prc :=  v_pricerub*v_max_prc + v_price*Get_rate(10); 
+--  null;
+--    ELSIF v_currency = 12 THEN                                    -- валюта регистрации ДОЙЧ МАРКА
+--      v_reg_prc :=  v_pricerub*v_max_prc + v_price*Get_rate(12);  
+--null;
+--  END IF;    
+  
+   
+--  RETURN ROUND(v_reg_prc,2);
+--  EXCEPTION
+--   WHEN others THEN
+--       RETURN 0;
+   
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION  RUN_RPrc(cdc NUMBER) RETURN NUMBER IS
+res NUMBER;
+BEGIN
+ res := AKA.REG_PRC(23,cdc);
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     SALDO_IN 
+  ( p_cdm IN NUMBER,  p_dat1 IN DATE) RETURN  NUMBER IS
+
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   ---------------------------------------------------------------------       
+-- A.Kaliabin  14.12.99 ver 1.0 .Получение входящих остатков на начало периода по препарату.
+
+-- вычислим отпущенное
+CURSOR c_Out(cdm_ NUMBER, d_ DATE) IS  
+SELECT /*+ INDEX(L ABC.LST_U) */ SUM(L.amn1) amn
+FROM ABC.Ve$Lst L, ABC.Ve$Doc D --, ABC.Ve$Pxdoc P
+  WHERE L.cd_c = D.cd_c
+  AND TRUNC(D.date0) <= d_ --AND TRUNC(D.shipped) >= TO_DATE('31.07.99','DD.MM.RR')
+--  AND TRUNC(NVL(P.date8,D.shipped)) <= d_ 
+--  AND P.cd_c=D.cd_c
+  AND -- D.tp IN (81, 83)
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select value from abc.universum
+     where tp = 'F82' and key = 'DOC_SHIPPED'
+    )
+  ) 
+  AND L.cd_m = cdm_;
+
+-- вычислим все остальное
+CURSOR c_Doc(cdm_ NUMBER, d_ DATE, t_ NUMBER) IS
+SELECT /*+ INDEX(L ABC.LST_U) */ SUM(L.amn1) amn
+FROM ABC.Ve$Lst L, ABC.Ve$Doc D 
+  WHERE L.cd_c = D.cd_c
+  AND TRUNC(D.date0) <= d_ --AND TRUNC(D.date0) >= TO_DATE('31.07.99','DD.MM.RR')
+  AND D.tp = t_
+  AND L.cd_m = cdm_; 
+
+vc_Out c_Out%ROWTYPE;
+vc_Doc c_Doc%ROWTYPE;
+
+v_res NUMBER := 0;
+v_out NUMBER := 0;
+v_inb NUMBER := 0;
+v_izlih NUMBER := 0;
+v_vozvrOTcli NUMBER := 0;
+v_vozvrGP NUMBER := 0;
+v_vozvrOTcli2 NUMBER := 0;
+v_vozvrGP2 NUMBER := 0;
+
+BEGIN 
+-- ско-ко отпустили
+FOR vc_Out IN c_Out(p_cdm,p_dat1) LOOP
+  v_out := vc_Out.amn;
+END LOOP;
+-- ск-ко пришло
+FOR vc_Doc IN c_Doc(p_cdm,p_dat1,7) LOOP
+  v_inb := vc_Doc.amn;
+END LOOP;
+-- излишки
+FOR vc_Doc IN c_Doc(p_cdm,p_dat1,3) LOOP
+  v_izlih := vc_Doc.amn;
+END LOOP;
+-- возврат от клиента
+FOR vc_Doc IN c_Doc(p_cdm,p_dat1,93) LOOP
+  v_vozvrOTcli := vc_Doc.amn;
+END LOOP;
+FOR vc_Doc IN c_Doc(p_cdm,p_dat1,463) LOOP
+  v_vozvrOTcli2 := vc_Doc.amn;
+END LOOP;
+-- возврат в ГП
+FOR vc_Doc IN c_Doc(p_cdm,p_dat1,90) LOOP
+  v_vozvrGP :=vc_Doc.amn;
+END LOOP;
+FOR vc_Doc IN c_Doc(p_cdm,p_dat1,91) LOOP
+  v_vozvrGP2 :=vc_Doc.amn;
+END LOOP;
+
+/*
+IF v_inb IS NULL THEN v_inb := 0; END IF;
+IF v_out IS NULL THEN v_out := 0; END IF;
+IF v_izlih IS NULL THEN v_izlih := 0; END IF;
+IF v_vozvrOTcli IS NULL THEN v_vozvrOTcli := 0; END IF;
+IF v_vozvrOTcli2 IS NULL THEN v_vozvrOTcli := 0; END IF;
+IF v_vozvrGP IS NULL THEN v_vozvrGP := 0; END IF;
+IF v_vozvrGP2 IS NULL THEN v_vozvrGP := 0; END IF;*/
+
+--insert into aka.test_sd values(v_inb,v_out,v_izlih,v_vozvrOTcli,v_vozvrOTcli2,v_vozvrGP2,v_vozvrGP);
+v_res := NVL(v_inb,0)-NVL(v_out,0)+NVL(v_izlih,0)+NVL(v_vozvrOTcli,0)+NVL(v_vozvrOTcli2,0)-NVL(v_vozvrGP2,0)-NVL(v_vozvrGP,0);
+
+--IF v_res IS NULL THEN v_res := 0; END IF;
+RETURN  v_res;
+
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     SALDO_PREP  ( p_cdm IN NUMBER, p_date IN DATE)
+  RETURN  NUMBER IS
+
+  v_result NUMBER := 0;
+  
+BEGIN 
+  select NVL(Inb.C,0)-NVL(Outb.C,0) INTO v_result
+  from
+  ( select sum(amn1) C --, s.cd_m
+    from abc.skd s, abc.doc d
+    where d.cd_c=s.cd_c
+     and trunc(d.date0) < trunc(p_date) and
+     s.cd_m=p_cdm 
+--    group by s.cd_m
+   ) Inb,
+  (
+    select sum(amn) C --, l.cd_m
+    from abc.l2s l, abc.doc d
+    where d.cd_c=l.cd_c
+    and trunc(d.date0) < trunc(p_date) and
+    l.cd_m=p_cdm
+--    group by l.cd_m
+  ) Outb ;
+  --where Inb.cd_m=Outb.cd_m;
+  
+  RETURN v_result;
+  
+END; -- Function SALDO_PREP
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     SER_DOC_FUNC ( p_cdm NUMBER, p_uid NUMBER)
+  RETURN  VARCHAR IS
+-- MODIFICATION HISTORY
+-- Person      Date    Comments
+-- ---------   ------  -------------------------------------------       
+   v_result   VARCHAR2(500) := '';
+   -- Declare program variables as shown above
+BEGIN 
+  FOR Cc IN (
+    SELECT nm_s FROM AKA.SerDoc WHERE cd_m=p_cdm AND puid=p_uid --AND sid=p_sid  
+  )
+  LOOP
+    v_result := Cc.nm_s||','||v_result;
+  END LOOP;     
+  RETURN v_result;
+END; -- Function SER_DOC_FUNC
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     SLD 
+  ( p_cdc IN NUMBER,  p_cdm IN NUMBER)  RETURN  NUMBER IS
+-- MODIFICATION HISTORY
+-- Person      Date     Comments
+-- ---------   ------   -------------------------------------------       
+-- A.Kaliabin  17.02.00 Сальдо по препарату  
+v_in  NUMBER;
+v_out NUMBER;
+v_cnt NUMBER;
+
+BEGIN 
+  SELECT SUM(amn1),COUNT(*) INTO v_in, v_cnt FROM ABC.Skd
+  WHERE cd_c < p_cdc AND cd_m = p_cdm;
+  SELECT SUM(amn),COUNT(*) INTO v_out, v_cnt FROM ABC.L2S
+  WHERE cd_c < p_cdc AND cd_m = p_cdm;  
+  IF v_cnt = 0 THEN v_out := 0; END IF;
+  IF p_cdm=1358 THEN RETURN NVL((v_in-v_out),0)-2; END IF; --- временное решение
+  RETURN NVL((v_in-v_out),0) ;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function     SR_UHOD (cdm number, dtp number, dt1 date, dt2 date) RETURN  number IS
+-- ‚®§ўа й Ґв баҐ¤­Ё© ге®¤ ЇаҐЇ а в  б Є®¤®¬ cdm Ї® ¤®Єг¬Ґ­в ¬ вЁЇ  dtp
+-- §  ЇҐаЁ®¤ б dt1 Ї® dt2
+--
+-- MODIFICATION HISTORY
+-- ---------   ------  ---------------------
+-- Created by  Њ авл­Ґ­Є® ђ®¬ ­ 08-sep-1999
+-- ---------   ------  ---------------------
+  sr_uhod number;
+BEGIN
+  select avg(l.amn1) into sr_uhod from abc.lst l, abc.doc d
+  where d.date0 between dt1 and dt2
+    and d.tp = dtp
+    and l.cd_c = d.cd_c
+    and l.cd_m = cdm;
+    RETURN nvl(sr_uhod,0);
+EXCEPTION
+   WHEN others THEN
+       raise;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE Function         SUMMA_OPLAT ( p_cdu IN NUMBER, p_d1 IN DATE, p_d2 IN DATE )
+  RETURN NUMBER IS
+  v_result NUMBER := 0;
+BEGIN
+  SELECT ROUND(SUM(fprice/rrate)) INTO v_result
+   FROM ABC.Doc
+  WHERE tp IN (333,334) AND
+        cd_u=p_cdu AND
+        TRUNC(datef) BETWEEN  TRUNC(p_d1) AND TRUNC(p_d2);
+  RETURN NVL(v_result,0);
+END; -- Function SUMMA_OPLAT
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     SUM_TOV_SKD(cdc number) return number as
+res number;
+begin
+ select  fprice into res
+ from abc.ltax where cd_c=cdc
+ and (-op*proc) >= 1;
+ return nvl(res,0);
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION  TEST_FUNC(cdm NUMBER, cdc NUMBER) RETURN NUMBER IS
+  v_cdm   NUMBER := 0;
+  v_price NUMBER := 0;
+  v_currencyVC VARCHAR(10) := '';
+  v_currency NUMBER := 0;
+  v_pricerub NUMBER := 0;
+  v_regd DATE := TO_DATE(null);
+  v_cdt NUMBER := 0;
+  v_max_prc NUMBER := 0;
+  v_reg_prc NUMBER := 0;
+  
+BEGIN
+
+--- возьмем данные по препарату из таблицы цен госреестра
+  BEGIN
+    SELECT cd_m,price,currency,pricerub,reg_d
+      INTO v_cdm,v_price, v_currencyVC ,v_pricerub,v_regd
+    FROM SDIN.REESTR  
+    WHERE cd_m=cdm;
+  EXCEPTION WHEN NO_DATA_FOUND THEN
+      RETURN null; -- если данного препарата нет в госреестре - скажем "пусто" и уйдем от сюда
+  END;
+  
+--- определим валюту регистрации препарата
+  SELECT DECODE(v_currencyVC,'Долл.',2,'Евро',10,'Марка Герм',12,'Руб',1,'Рубль',1,0) -- значения из ABC.VALUTA
+    INTO v_currency FROM DUAL;
+  IF v_currency = 0 THEN
+      ABC.AtError(-22222,'НЕИЗВЕСТНАЯ ВАЛЮТА РЕГИСТРАЦИИ'); --- возможно в таблице госреестра появилась новая валюта
+  END IF;
+
+--- определим регион в котором располагается клиент
+  SELECT cd_up INTO v_cdt FROM ABC.TOWN
+     WHERE cd_t IN (
+     SELECT cd_t FROM ABC.XUSR X, ABC.Ve$Doc D 
+       WHERE D.cd_u=X.cd_u AND
+             D.cd_c=cdc );
+
+--- определим максимально-разрешенную надбавку для препарата определенной категории в
+--- необходимом нам регионе 
+  FOR Cc IN ( SELECT * FROM AKA.REG_CFG WHERE region=v_cdt ) LOOP
+    IF Cc.cd_x=9999 THEN --- если 9999 то нет необходимости определять категорию препарата
+      v_max_prc := Cc.prctg;
+    ELSE
+      FOR Rr IN ( SELECT cd_x,cd_ctg FROM ABC.XMED WHERE cd_m=cdm ) LOOP
+        IF (Rr.cd_x = Cc.cd_x) AND (Rr.cd_ctg = Cc.med_ctg) THEN
+          v_max_prc := Cc.prctg;
+          GOTO L_skip;
+        END IF;
+      END LOOP;
+    END IF;    
+  END LOOP;
+
+  <<L_skip>>
+   
+  --- теперь определим собственно цену госреестра для определенного региона
+  IF v_currency = 1 THEN                                          -- валюта регистрации рубль
+    v_reg_prc :=  v_pricerub*v_max_prc + v_pricerub;
+    ELSIF v_currency = 2 THEN                                     -- валюта регистрации доллар США
+      v_reg_prc :=  v_pricerub*v_max_prc + v_price*AKA.Get_Xrate(2);
+    ELSIF  v_currency = 10  THEN                                  -- валюта регистрации ЕВРО
+      v_reg_prc :=  v_pricerub*v_max_prc + v_price*AKA.Get_Xrate(10); 
+    ELSIF v_currency = 12 THEN                                    -- валюта регистрации ДОЙЧ МАРКА
+      v_reg_prc :=  v_pricerub*v_max_prc + v_price*AKA.Get_Xrate(12);  
+  END IF;    
+  
+   
+  RETURN v_reg_prc;
+   
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     TOTAL_CDA(p_cdm NUMBER, p_cdc NUMBER, p_d1 DATE, p_d2 DATE) RETURN NUMBER IS
+v_total NUMBER := 0;
+
+CURSOR c_CDA (cdm NUMBER, cdc NUMBER, d1 DATE, d2 DATE )IS
+SELECT  D.cd_c
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (cdc))
+  AND D.date0 BETWEEN d1 AND d2;
+
+vc_CDA c_CDA%ROWTYPE;
+
+BEGIN
+  OPEN c_CDA(p_cdm,p_cdc,p_d1,p_d2);
+  LOOP
+    BEGIN
+      FETCH c_CDA INTO vc_CDA;
+      EXIT WHEN c_CDA%NOTFOUND;
+      v_total := vc_CDA.cd_c;
+      EXCEPTION
+        WHEN OTHERS THEN
+            v_total := -111; 
+    END;        
+  END LOOP;
+  CLOSE c_CDA;
+  RETURN v_total;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     TOTAL_IN(cdm NUMBER, d1 DATE, d2 DATE) RETURN NUMBER IS
+v_total NUMBER := 0;
+BEGIN
+  SELECT  SUM(L.amn1) INTO v_total
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (6))
+  AND D.date0 BETWEEN d1 AND d2;
+  RETURN v_total;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     TOTAL_OUT(cdm NUMBER, d1 DATE, d2 DATE) RETURN NUMBER IS
+v_total NUMBER := 0;
+BEGIN
+  SELECT  SUM(L.amn1) INTO v_total
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND -- D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (80,82))
+  d.tp in ( -- AKA
+    select cd_c
+    from abc.doc2up
+    where cd_up in
+    (
+     select TO_NUMBER(value) from abc.universum
+     where tp = 'F82' and key = 'DOC_SHIPPED'
+    )
+  )  
+  AND D.shipped BETWEEN d1 AND d2;
+  RETURN v_total;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     TOTAL_PREP(cdm NUMBER, cdc NUMBER, d1 DATE, d2 DATE) RETURN NUMBER IS
+v_total NUMBER := 0;
+BEGIN
+  SELECT  SUM(L.amn1) INTO v_total
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (cdc))
+  AND D.date0 BETWEEN d1 AND d2;
+--  GROUP BY D.cd_c;
+  RETURN v_total;
+END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     TOTAL_QUANT(cdm NUMBER, d1 DATE, d2 DATE) RETURN NUMBER IS
+v_q NUMBER := 0;
+v_res NUMBER := 0;
+
+BEGIN
+  SELECT  SUM(L.amn1) INTO v_q
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (6))
+  AND D.date0 BETWEEN d1 AND d2;
+
+  SELECT  SUM(L.amn1) INTO v_res
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (53,77,423,89,92))
+  AND D.date0 BETWEEN d1 AND d2;
+
+  RETURN (v_q-v_res);
+ END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE FUNCTION     TOTAL_RES(cdm NUMBER, d1 DATE, d2 DATE) RETURN NUMBER IS
+v_res NUMBER := 0;
+
+BEGIN
+  SELECT  SUM(L.amn1) INTO v_res
+  FROM ABC.VE$DOC D, ABC.VE$LST L
+  WHERE
+  D.cd_c=L.cd_c
+  AND L.cd_m=cdm
+  AND D.tp in (SELECT cd_c FROM ABC.DOC2UP WHERE cd_up in (53,77,423,89,92))
+  AND D.date0 BETWEEN d1 AND d2;
+  RETURN v_res;
+ END;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE function     v_paymonth(cdu number,dvalue1 date) return number
+as
+ret number;
+begin
+    ret := 0;
+select
+    sum(fprice/rrate) into ret
+from
+  abc.ve$doc
+where
+  cd_u = cdu and
+  tp in (333,334) and
+  months_between(trunc(datef, 'month'), trunc(dvalue1, 'month')) = 0;
+return (ret);
+end;
+/
+
+SHOW ERRORS;
+
+
+CREATE OR REPLACE VIEW FULL_TABLE_SCANS
+AS 
+SELECT ss.username ||
+          '(' ||
+          se.sid ||
+          ') ' "User Process",
+          SUM (DECODE (
+                  name,
+                  'table scans (short tables)', value
+               )) "Short Scans",
+          SUM (DECODE (
+                  name,
+                  'table scans (long tables)', value
+               )) "Long Scans",
+          SUM (DECODE (
+                  name,
+                  'table scan rows gotten', value
+               )) "Rows Retrieved"
+     FROM v$session ss, v$sesstat se, v$statname sn
+    WHERE se.statistic# = sn.statistic#
+      AND  ( name LIKE '%table scans (short tables)%'
+          OR name LIKE '%table scans (long tables)%'
+          OR name LIKE '%table scan rows gotten%')
+      AND se.sid = ss.sid
+      AND ss.username IS NOT NULL
+    GROUP BY ss.username || '(' || se.sid || ') ';
+
+
+CREATE OR REPLACE VIEW TEST_V
+AS 
+(select "CD_A","STATUS" from aka.bad_boys);
+
+
+CREATE OR REPLACE VIEW USER_PRIVS
+AS 
+SELECT DECODE(SA1.GRANTEE#, 1, 'PUBLIC', U1.NAME), SUBSTR(U2.NAME,1,20),  
+    SUBSTR(SPM.NAME,1,27)  
+ FROM SYS.SYSAUTH$ SA1, SYS.SYSAUTH$ SA2, SYS.USER$ U1,  
+      SYS.USER$ U2, SYS.SYSTEM_PRIVILEGE_MAP SPM 
+ WHERE SA1.GRANTEE# = U1.USER# 
+   AND SA1.PRIVILEGE# = U2.USER# 
+   AND U2.USER# = SA2.GRANTEE# 
+   AND SA2.PRIVILEGE# = SPM.PRIVILEGE 
+ UNION 
+  SELECT U.NAME, NULL, SUBSTR(SPM.NAME,1,27) 
+ FROM SYS.SYSTEM_PRIVILEGE_MAP SPM, SYS.SYSAUTH$ SA, SYS.USER$ U 
+ WHERE SA.GRANTEE#=U.USER#  
+   AND SA.PRIVILEGE#=SPM.PRIVILEGE;
+
+
+CREATE OR REPLACE VIEW VE$UUPC
+AS 
+select
+ Round(Sum(D.fprice),2) rubs,
+ Round(Sum(D.fprice/D.rrate),2) baks,
+ TRUNC(D.datef) datf
+ from aka.uupc_tbl U, Abc.Doc D
+ WHERE D.cd_c=U.cd_c
+ GROUP BY D.datef;
+
+
+CREATE OR REPLACE TRIGGER f6_auto_biu
+BEFORE INSERT  OR UPDATE
+ON AKA.f6_auto
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+begin
+  :new.FIL_CDU := GPOF.F$Get_CDU;
+end f6_auto_biu;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER load_serii_at
+AFTER  DELETE
+ON aka.serii
+REFERENCING NEW AS NEW OLD AS OLD
+FOR EACH ROW
+begin
+  insert into aka.serii_log values(:old.cd_m, :old.ser_num, :old.d1, :old.d2, :old.amn, AKA.Locus.vG_$CDS, sysdate);
+end;
+/
+SHOW ERRORS;
+
+
+
+CREATE OR REPLACE TRIGGER serii_bt
+BEFORE  DELETE
+ON aka.serii
+REFERENCING NEW AS NEW OLD AS OLD
+begin
+  select aka.load_serii_seq.nextval into AKA.Locus.vG_$CDS from dual;
+end;
+/
+SHOW ERRORS;
+
+
+
+ALTER TABLE CLI_BAL_CDU ADD (
+  PRIMARY KEY
+ (CDUSR));
+
+ALTER TABLE DVIGENIE_NK ADD (
+  PRIMARY KEY
+ (CD_M));
+
+ALTER TABLE F6_AUTO ADD (
+  CONSTRAINT F6_AUTO_PK
+ PRIMARY KEY
+ (FIL_CDU, DT_O, CD_U));
+
+ALTER TABLE HUNGAR_REG ADD (
+  CONSTRAINT HUNGAR_REG_CHK
+ CHECK (date1<=date2),
+  CONSTRAINT HUNGAR_REG_PK
+ PRIMARY KEY
+ (CD_M, CD_S));
+
+ALTER TABLE HUNGAR_RESULT ADD (
+  CONSTRAINT HUNGAR_RESULT_PK
+ PRIMARY KEY
+ (CD_M, NM_S));
+
+ALTER TABLE KEMEROVO_REG ADD (
+  CONSTRAINT KEMEROVO_REG_CHK
+ CHECK (date1<=date2),
+  CONSTRAINT KEMEROVO_REG_PK
+ PRIMARY KEY
+ (CD_M, CD_S));
+
+ALTER TABLE KEMEROVO_RESULT ADD (
+  CONSTRAINT KEMEROVO_RESULT_PK
+ PRIMARY KEY
+ (CD_M, NM_S));
+
+ALTER TABLE SERII ADD (
+  CONSTRAINT SERII_CDM_CHECK
+ CHECK ((cd_m>=40000) and (cd_m<=49999)
+));
+
+ALTER TABLE SERII_LOG ADD (
+  CONSTRAINT SERII_LOG_CHECK
+ CHECK ((cd_m>=40000) and (cd_m<=49999)));
+
+ALTER TABLE SG_4PRICE ADD (
+  CONSTRAINT SG_4PRICE_PK
+ PRIMARY KEY
+ (CD_M, CD_P));
+
+ALTER TABLE USR_EL_ZAK ADD (
+  CONSTRAINT USR_EL_ZAK_PK
+ PRIMARY KEY
+ (CD_U));
+
+ALTER TABLE F6_AUTO ADD (
+  CONSTRAINT F6_AUTO_FK1 
+ FOREIGN KEY (CD_U) 
+ REFERENCES ABC.USR (CD_U));
+
+ALTER TABLE FORM6 ADD (
+  CONSTRAINT FK_FORM6_CDU 
+ FOREIGN KEY (CD_U) 
+ REFERENCES ABC.USR (CD_U)
+    ON DELETE CASCADE);
+
+GRANT EXECUTE ON  CHK_BSUBTIL TO ABC;
+
+GRANT EXECUTE ON  CHK_USR_PRICE TO ABC;
+
+GRANT EXECUTE ON  LOCK_DOC TO ABC;
+
+GRANT EXECUTE ON  LSTTP_AKA TO ABC;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  OSG TO ABC;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  OTGR_REG_NAK TO ABC;
+
+GRANT EXECUTE ON  REG_PRC TO ABC;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  SERDOC TO ABC;
+
+GRANT EXECUTE ON  TEND_CTL TO ABC;
+
+GRANT SELECT ON  UUPC_TBL TO ABC;
+
+GRANT EXECUTE ON  CHK_COULD TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CHK_ICE TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CHK_ISG_SKD TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CHK_NTR_SKD TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CHK_PSIH TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CHK_TOV_SKD TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CHK_UNI_DOC TO ABC_DISPETCHER;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  CLI_BAL TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  CLI_BALANS_PR TO ABC_DISPETCHER;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  DVIGENIE_NK TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  DVIGENIE_NKOD TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  GET_NM TO ABC_DISPETCHER;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PRINT_DOC TO ABC_DISPETCHER;
+
+GRANT EXECUTE ON  BIT_IN_BYTE TO ABC_OPER;
+
+GRANT EXECUTE ON  CHIEF8 TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_BSUBTIL TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_COULD TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_GP TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_ICE TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_ISG_SKD TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_NTR_SKD TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_PSIH TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_TOV_SKD TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_UNI_DOC TO ABC_OPER;
+
+GRANT EXECUTE ON  CHK_USR_PRICE TO ABC_OPER;
+
+GRANT DELETE, INSERT, SELECT ON  CLIBAL1 TO ABC_OPER;
+
+GRANT SELECT ON  CLIBAL3 TO ABC_OPER;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  CLI_BAL TO ABC_OPER;
+
+GRANT EXECUTE ON  CLI_BALANS1 TO ABC_OPER;
+
+GRANT EXECUTE ON  CLI_BALANS2 TO ABC_OPER;
+
+GRANT EXECUTE ON  CLI_BALANS3 TO ABC_OPER;
+
+GRANT EXECUTE ON  CLI_BALANS_PR TO ABC_OPER;
+
+GRANT EXECUTE ON  CLI_BALANS_START TO ABC_OPER;
+
+GRANT EXECUTE ON  CONCAT_CTG TO ABC_OPER;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  DEB_KRE TO ABC_OPER;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  DVIGENIE_NK TO ABC_OPER;
+
+GRANT EXECUTE ON  DVIGENIE_NKOD TO ABC_OPER;
+
+GRANT EXECUTE ON  FOR_CONTROL_LIST TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_AMN2 TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_CTG_CMP TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_CTG_CMP_VZ TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_LABEL TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_NM TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_PRICE2 TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_SROK2 TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_USR_TYPE TO ABC_OPER;
+
+GRANT EXECUTE ON  GET_XRATE TO ABC_OPER;
+
+GRANT EXECUTE ON  IS_PRINT TO ABC_OPER;
+
+GRANT EXECUTE ON  IT_IS_MANAGER TO ABC_OPER;
+
+GRANT EXECUTE ON  LAST_DOC_SD TO ABC_OPER;
+
+GRANT EXECUTE ON  LOCK_DOC TO ABC_OPER;
+
+GRANT EXECUTE ON  LOCUS TO ABC_OPER;
+
+GRANT EXECUTE ON  LSTTP_AKA TO ABC_OPER;
+
+GRANT EXECUTE ON  PASPORT TO ABC_OPER;
+
+GRANT SELECT ON  PASPORT_SKLD TO ABC_OPER;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PRINT_DOC TO ABC_OPER;
+
+GRANT EXECUTE ON  REG_PRC TO ABC_OPER;
+
+GRANT EXECUTE ON  SERDOC_PROC TO ABC_OPER;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  SERII TO ABC_OPER;
+
+GRANT EXECUTE ON  SER_DOC_FUNC TO ABC_OPER;
+
+GRANT SELECT ON  SGF2_TBL TO ABC_OPER;
+
+GRANT EXECUTE ON  TEND_CTL TO ABC_OPER;
+
+GRANT EXECUTE ON  UPD_PXDOC TO ABC_OPER;
+
+GRANT EXECUTE ON  CAP_REP TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_COULD TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_ICE TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_ISG_SKD TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_NTR_SKD TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_PSIH TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_TOV_SKD TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_UNI_DOC TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CHK_USR TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT ON  CLIBAL1 TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  CLIBAL3 TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  CLI_BAL TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CLI_BALANS1 TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CLI_BALANS2 TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CLI_BALANS3 TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  CLI_BALANS_PR TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  DEB_LEVEL TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  DVIGENIE_NK TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  DVIGENIE_NKOD TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  F69INCOME_TBL TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  F69MAIN_TBL TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  F82_DATE TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  GET_CTG TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  GET_NM TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  GET_USR_TYPE TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  HIST_PRC TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  IT_IS_MANAGER TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  LAST_DOC TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  LSTTP_AKA TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  OPL_TBL TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  OTGR_TBL TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  P10SP TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  P10SP_MAIN TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  PKKN_REP TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  PKKN_TBL TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  PKKN_TBL1 TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  PREDOPLATA TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  PRED_MAIN TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  PRE_OTSR_TBL TO ABC_P34_MANAGERS;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PRINT_DOC TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  PSIH_ALL TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  PSIH_PRIH TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  PSIH_SPISANO TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  PSIH_UHOD TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  PSIH_VOZVR TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  REG_PRC TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  SGF2_PROC0 TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  SLD TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  ST_CHK_USR TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  T10SP TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  UPD_PXDOC TO ABC_P34_MANAGERS;
+
+GRANT SELECT ON  UUPC_TBL TO ABC_P34_MANAGERS;
+
+GRANT EXECUTE ON  V_PAYMONTH TO ABC_P34_MANAGERS;
+
+GRANT DELETE, INSERT, SELECT ON  CLIBAL3 TO ABC_PAY;
+
+GRANT SELECT ON  CLIBAL5 TO ABC_PAY;
+
+GRANT EXECUTE ON  CLI_BALANS2 TO ABC_PAY;
+
+GRANT EXECUTE ON  CLI_BALANS3 TO ABC_PAY;
+
+GRANT EXECUTE ON  CLI_BALANS3A TO ABC_PAY;
+
+GRANT EXECUTE ON  CLI_BALANSE6 TO ABC_PAY;
+
+GRANT EXECUTE ON  REG_PRC TO ABC_PAY;
+
+GRANT EXECUTE ON  RUN_CLIBALANS5 TO ABC_PAY;
+
+GRANT EXECUTE ON  RUN_CLIBALANS6 TO ABC_PAY;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  BALANCE TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  BALANCE1 TO ABC_REPORT;
+
+GRANT EXECUTE ON  BIT_IN_BYTE TO ABC_REPORT;
+
+GRANT EXECUTE ON  CAP_REP TO ABC_REPORT;
+
+GRANT EXECUTE ON  CAP_REP1 TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHIEF8 TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHK_BSUBTIL TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHK_COULD TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHK_GP TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHK_ICE TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHK_PSIH TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHK_USR TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT ON  CLIBAL1 TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT ON  CLIBAL3 TO ABC_REPORT;
+
+GRANT SELECT ON  CLIBAL5 TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  CLI_BAL TO ABC_REPORT;
+
+GRANT EXECUTE ON  CLI_BALANS1 TO ABC_REPORT;
+
+GRANT EXECUTE ON  CLI_BALANS2 TO ABC_REPORT;
+
+GRANT EXECUTE ON  CLI_BALANS3 TO ABC_REPORT;
+
+GRANT EXECUTE ON  CLI_BALANSE6 TO ABC_REPORT;
+
+GRANT EXECUTE ON  CLI_BALANS_PR TO ABC_REPORT;
+
+GRANT EXECUTE ON  CLI_BALANS_START TO ABC_REPORT;
+
+GRANT EXECUTE ON  CONCAT_CTG TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  DEB_KRE TO ABC_REPORT;
+
+GRANT EXECUTE ON  DEB_LEVEL TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  DFEP_10 TO ABC_REPORT;
+
+GRANT EXECUTE ON  DFEP_10_PRC TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  DVIGENIE_NK TO ABC_REPORT;
+
+GRANT EXECUTE ON  DVIGENIE_NKOD TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  F69INCOME_TBL TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  F69MAIN_TBL TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  F82_DATE TO ABC_REPORT;
+
+GRANT SELECT ON  FORM6 TO ABC_REPORT;
+
+GRANT EXECUTE ON  FORMA6 TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_AMN2 TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_CTG TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_CTG_CMP TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_CTG_CMP_VZ TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_DEFECT500_PROC TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_LABEL TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_NM TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_PRICE2 TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_SROK2 TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_USR_TYPE TO ABC_REPORT;
+
+GRANT EXECUTE ON  GET_XRATE TO ABC_REPORT;
+
+GRANT EXECUTE ON  HIST_PRC TO ABC_REPORT;
+
+GRANT EXECUTE ON  IS_PRINT TO ABC_REPORT;
+
+GRANT EXECUTE ON  IT_IS_MANAGER TO ABC_REPORT;
+
+GRANT EXECUTE ON  KEMEROVO TO ABC_REPORT;
+
+GRANT SELECT ON  KEMEROVO_RESULT TO ABC_REPORT;
+
+GRANT EXECUTE ON  LAST_DOC TO ABC_REPORT;
+
+GRANT EXECUTE ON  LAST_DOC_SD TO ABC_REPORT;
+
+GRANT EXECUTE ON  LOCK_DOC TO ABC_REPORT;
+
+GRANT EXECUTE ON  LOCUS TO ABC_REPORT;
+
+GRANT EXECUTE ON  LSTTP_AKA TO ABC_REPORT;
+
+GRANT EXECUTE ON  OBOROTKA TO ABC_REPORT;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO ABC_REPORT;
+
+GRANT SELECT ON  OPL_TBL TO ABC_REPORT;
+
+GRANT SELECT ON  OSG TO ABC_REPORT;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO ABC_REPORT;
+
+GRANT EXECUTE ON  P10SP TO ABC_REPORT;
+
+GRANT EXECUTE ON  P10SP_MAIN TO ABC_REPORT;
+
+GRANT EXECUTE ON  PASPORT TO ABC_REPORT;
+
+GRANT EXECUTE ON  PKKN_REP TO ABC_REPORT;
+
+GRANT EXECUTE ON  PKKN_REP2 TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PKKN_TBL TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PKKN_TBL1 TO ABC_REPORT;
+
+GRANT SELECT ON  PKKN_TBL2 TO ABC_REPORT;
+
+GRANT EXECUTE ON  PREDOPLATA TO ABC_REPORT;
+
+GRANT EXECUTE ON  PRED_MAIN TO ABC_REPORT;
+
+GRANT EXECUTE ON  PREP_ANALIZE TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PRE_OTSR_TBL TO ABC_REPORT;
+
+GRANT ALTER, DELETE, INSERT, SELECT, UPDATE ON  PRINT_DOC TO ABC_REPORT;
+
+GRANT EXECUTE ON  PROD_ANAL_PROC TO ABC_REPORT;
+
+GRANT SELECT ON  PSIH_ALL TO ABC_REPORT;
+
+GRANT SELECT ON  PSIH_PRIH TO ABC_REPORT;
+
+GRANT SELECT ON  PSIH_SPISANO TO ABC_REPORT;
+
+GRANT SELECT ON  PSIH_UHOD TO ABC_REPORT;
+
+GRANT SELECT ON  PSIH_VOZVR TO ABC_REPORT;
+
+GRANT EXECUTE ON  REG_PRC TO ABC_REPORT;
+
+GRANT EXECUTE ON  RUN_CLIBALANS5 TO ABC_REPORT;
+
+GRANT EXECUTE ON  RUN_CLIBALANS6 TO ABC_REPORT;
+
+GRANT EXECUTE ON  SGF2_PROC0 TO ABC_REPORT;
+
+GRANT EXECUTE ON  SGF2_PROC1 TO ABC_REPORT;
+
+GRANT SELECT ON  SGF2_TBL TO ABC_REPORT;
+
+GRANT EXECUTE ON  SLD TO ABC_REPORT;
+
+GRANT EXECUTE ON  ST_CHK_USR TO ABC_REPORT;
+
+GRANT DELETE, INSERT, SELECT, UPDATE ON  T10SP TO ABC_REPORT;
+
+GRANT EXECUTE ON  TEND_CTL TO ABC_REPORT;
+
+GRANT SELECT ON  TPROD_ANAL TO ABC_REPORT;
+
+GRANT SELECT ON  TPROD_ANAL1 TO ABC_REPORT;
+
+GRANT SELECT ON  UUPC_TBL TO ABC_REPORT;
+
+GRANT EXECUTE ON  V_PAYMONTH TO ABC_REPORT;
+
+GRANT EXECUTE ON  CHIEF1 TO ALEX;
+
+GRANT EXECUTE ON  COMMERCE_CHIEF TO ALEX;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO ALEX;
+
+GRANT SELECT ON  OPL_TBL TO ALEX;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO ALEX;
+
+GRANT SELECT ON  OTGR_REG TO ALEX;
+
+GRANT SELECT ON  OTGR_REG_NAK TO ALEX;
+
+GRANT SELECT ON  OTGR_TBL TO ALEX;
+
+GRANT EXECUTE ON  BIT_IN_BYTE TO ANDYS;
+
+GRANT EXECUTE ON  CHK_USR_PRICE TO ANDYS;
+
+GRANT EXECUTE ON  UPD_PXDOC TO ANDYS;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  OUT_TT TO DAEMON;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  SERII TO ECLIENT;
+
+GRANT SELECT ON  SG_4PRICE TO ECLIENT;
+
+GRANT EXECUTE ON  CAP_REP1 TO GEORGE;
+
+GRANT EXECUTE ON  CHIEF1 TO GEORGE;
+
+GRANT EXECUTE ON  COMMERCE_CHIEF TO GEORGE;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  DOCDISCNT TO GEORGE;
+
+GRANT EXECUTE ON  FOR_CHIEF TO GEORGE;
+
+GRANT EXECUTE ON  GET_DEFECT500_PROC TO GEORGE;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  OTGR_TBL TO GEORGE;
+
+GRANT EXECUTE ON  CHIEF1 TO GRETA;
+
+GRANT EXECUTE ON  COMMERCE_CHIEF TO GRETA;
+
+GRANT EXECUTE ON  GET_DEFECT500_PROC TO GRETA;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO GRETA;
+
+GRANT SELECT ON  OPL_TBL TO GRETA;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO GRETA;
+
+GRANT SELECT ON  OTGR_REG TO GRETA;
+
+GRANT SELECT ON  OTGR_REG_NAK TO GRETA;
+
+GRANT SELECT ON  OTGR_TBL TO GRETA;
+
+GRANT EXECUTE ON  PROD_ANAL_PROC TO GRETA;
+
+GRANT SELECT ON  SG_4PRICE TO GRETA;
+
+GRANT INSERT, SELECT ON  TPROD_ANAL TO GRETA;
+
+GRANT INSERT, SELECT ON  TPROD_ANAL1 TO GRETA;
+
+GRANT EXECUTE ON  CHIEF1 TO HELEN;
+
+GRANT EXECUTE ON  COMMERCE_CHIEF TO HELEN;
+
+GRANT EXECUTE ON  GET_DEFECT500_PROC TO HELEN;
+
+GRANT SELECT ON  OTGR_REG TO HELEN;
+
+GRANT SELECT ON  OTGR_REG_NAK TO HELEN;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  OTGR_TBL TO HELEN;
+
+GRANT EXECUTE ON  PROD_ANAL_PROC TO HELEN;
+
+GRANT SELECT ON  TPROD_ANAL TO HELEN;
+
+GRANT SELECT ON  TPROD_ANAL1 TO HELEN;
+
+GRANT SELECT ON  CLIBAL5 TO IRAV;
+
+GRANT EXECUTE ON  RUN_CLIBALANS5 TO IRAV;
+
+GRANT INSERT, SELECT, UPDATE ON  F69INCOME_TBL TO IRHEN_;
+
+GRANT INSERT, SELECT, UPDATE ON  F69MAIN_TBL TO IRHEN_;
+
+GRANT EXECUTE ON  SGF2_PROC1 TO IRHEN_;
+
+GRANT SELECT ON  SGF2_TBL TO IRHEN_;
+
+GRANT EXECUTE ON  CHIEF1 TO KSENIA;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO KSENIA;
+
+GRANT SELECT ON  OPL_TBL TO KSENIA;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO KSENIA;
+
+GRANT SELECT ON  OTGR_TBL TO KSENIA;
+
+GRANT SELECT ON  SG_4PRICE TO KSENIA;
+
+GRANT SELECT ON  CLIBAL5 TO MARGO;
+
+GRANT EXECUTE ON  CLI_BALANS3A TO MARGO;
+
+GRANT EXECUTE ON  RUN_CLIBALANS5 TO MARGO;
+
+GRANT EXECUTE ON  CHIEF1 TO MARUDINA;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO MARUDINA;
+
+GRANT SELECT ON  OPL_TBL TO MARUDINA;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO MARUDINA;
+
+GRANT SELECT ON  OTGR_TBL TO MARUDINA;
+
+GRANT EXECUTE ON  CHIEF1 TO NADA;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO NADA;
+
+GRANT SELECT ON  OPL_TBL TO NADA;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO NADA;
+
+GRANT SELECT ON  OTGR_TBL TO NADA;
+
+GRANT EXECUTE ON  PREP_ANALIZE TO SGEORG;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  SERII TO SIMPLE;
+
+GRANT ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, UPDATE ON  SERII TO TCHK;
+
+GRANT EXECUTE ON  CHIEF1 TO ZLATA;
+
+GRANT SELECT ON  OPLT_NAK_TBL TO ZLATA;
+
+GRANT SELECT ON  OPL_TBL TO ZLATA;
+
+GRANT SELECT ON  OTGR_NAK_TBL TO ZLATA;
+
+GRANT SELECT ON  OTGR_TBL TO ZLATA;
+
+GRANT SELECT ON  SG_4PRICE TO ZLATA;
+
